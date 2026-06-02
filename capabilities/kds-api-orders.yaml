@@ -1,0 +1,162 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect KDS API — Orders
+  description: 'Orders surface of the Deliverect KDS API. 3 operations. Lead operation: Kds_order_notification. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - KDS
+  - Orders
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: kds-api-orders
+    baseUri: https://api.deliverect.com
+    description: Deliverect KDS API — Orders business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: kds-order-notification
+      path: /kds_order_notification
+      operations:
+      - name: kds_order_notification
+        method: POST
+        description: Deliverect Kds_order_notification
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kds-order-status-update
+      path: /kds/order_status_update
+      operations:
+      - name: kds_order_status_update
+        method: POST
+        description: Deliverect Kds_order_status_update
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: kds-order-status-order-id
+      path: /kds/orderStatus/{orderId}
+      operations:
+      - name: post_post_kds_orderstatus_orderid
+        method: POST
+        description: Deliverect Update Order Status
+        inputParameters:
+        - name: orderId
+          in: path
+          type: string
+          required: true
+          description: The orderId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kds-api-orders-rest
+    port: 8080
+    description: REST adapter for Deliverect KDS API — Orders. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/kds-order-notification
+      name: kds-order-notification
+      description: REST surface for kds-order-notification.
+      operations:
+      - method: POST
+        name: kds_order_notification
+        description: Deliverect Kds_order_notification
+        call: kds-api-orders.kds_order_notification
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kds/order-status-update
+      name: kds-order-status-update
+      description: REST surface for kds-order-status-update.
+      operations:
+      - method: POST
+        name: kds_order_status_update
+        description: Deliverect Kds_order_status_update
+        call: kds-api-orders.kds_order_status_update
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/kds/order-status/{order-id}
+      name: kds-order-status-order-id
+      description: REST surface for kds-order-status-order-id.
+      operations:
+      - method: POST
+        name: post_post_kds_orderstatus_orderid
+        description: Deliverect Update Order Status
+        call: kds-api-orders.post_post_kds_orderstatus_orderid
+        with:
+          orderId: rest.orderId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kds-api-orders-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect KDS API — Orders. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: kds-order-notification
+      description: Deliverect Kds_order_notification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kds-api-orders.kds_order_notification
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kds-order-status-update
+      description: Deliverect Kds_order_status_update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kds-api-orders.kds_order_status_update
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-order-status
+      description: Deliverect Update Order Status
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kds-api-orders.post_post_kds_orderstatus_orderid
+      with:
+        orderId: tools.orderId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

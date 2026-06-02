@@ -1,0 +1,74 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Deliverect
+providerId: deliverect
+created: '2026-06-02'
+modified: '2026-06-02'
+reconciled: false
+tags:
+  - Rate Limiting
+  - Restaurant
+  - Delivery
+  - Integration
+description: >-
+  Deliverect does not publish a dedicated public rate-limit page with concrete
+  per-second numbers in its Developer Hub. Access is scoped per partner
+  integration (OAuth 2.0 client credentials), and each connected customer
+  account is accessed through the partner's credentials in production. The
+  documented operational guidance focuses on token caching, HMAC-signed
+  outbound webhooks, optional IP whitelisting, and separate staging and
+  production environments rather than published request quotas. Because no
+  numeric limits are published, the limit values below are descriptive strings
+  and reconciled is false; partners should confirm enforced limits with
+  Deliverect during certification.
+sources:
+  - https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - https://developers.deliverect.com/reference/hmac-authentication
+  - https://developers.deliverect.com/reference/ip-whitelisting
+  - https://developers.deliverect.com/reference/get-started
+responseCodes:
+  throttled: 429
+  unauthorized: 401
+limits:
+  - name: REST API requests (production)
+    scope: partner-integration
+    metric: varies
+    limit: not publicly documented; confirm enforced limits with Deliverect during certification
+    notes: >-
+      Access tokens are scoped per partner integration and grant access to each
+      connected customer account. Specific request quotas are not published.
+  - name: REST API requests (staging)
+    scope: partner-integration
+    metric: varies
+    limit: not publicly documented; staging is a shared test environment
+    notes: Staging credentials are issued on registration before certification.
+  - name: OAuth token issuance
+    scope: partner-integration
+    metric: varies
+    limit: cache and reuse the access_token until expires_at; do not request a new token per call
+    notes: Tokens carry expires_at and expires_in; re-requesting per call is explicitly discouraged.
+policies:
+  - name: Token caching
+    description: >-
+      Access tokens must be cached and reused until the expires_at timestamp.
+      Requesting a new token for every API call is explicitly discouraged in the
+      authentication documentation.
+  - name: Webhook HMAC verification
+    description: >-
+      Deliverect signs all outbound webhook requests using HMAC. Consumers
+      should verify the signature on every inbound webhook rather than relying
+      on retry volume.
+  - name: IP whitelisting
+    description: >-
+      Deliverect documents optional IP whitelisting for partner endpoints to
+      constrain the source of inbound webhook and callback traffic.
+  - name: Environment separation
+    description: >-
+      Staging (api.staging.deliverect.com) and production
+      (api.deliverect.com) are separate; load and burst testing should be done
+      against staging, not production.
+  - name: Backoff on 429
+    description: >-
+      Treat HTTP 429 as a throttling signal and apply exponential backoff with
+      retry. Concrete retry-after headers are not publicly documented.

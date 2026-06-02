@@ -1,0 +1,44 @@
+{
+  "jobId": "609***72e",
+  "account": "5f1***131",
+  "pickupTime": "2021-05-13T13:40:04Z",
+  "transportType": "unknown",
+  "driverTip": 500,
+  "pickupLocation": {
+    "location": "606***555",
+    "name": "Deliverects Pizza Place",
+    "remarks": "please use the backdoor for order pickup",
+    "street": "van Ghentlaan",
+    "streetNumber": "3",
+    "postalCode": "9000 LK",
+    "city": "Leusden",
+    "latitude": "52.379189",
+    "longitude": "4.899431"
+  },
+  "deliveryLocations": [
+    {
+      "orderId": "609***4dd",
+      "channelOrderDisplayId": "MT4YVTPL",
+      "deliveryTime": "2021-05-13T13:55:00Z",
+      "packageSize": "medium",
+      "orderDescription": "hot food",
+      "company": "BrainQuantums",
+      "name": "V. Bertels",
+      "street": "Refugehof",
+      "streetNumber": "49",
+      "postalCode": "9001 AB",
+      "city": "Leusden",
+      "phone": "+32123456789",
+      "phoneAccessCode": "342241214",
+      "deliveryRemarks": "Dont ring door bell.",
+      "latitude": "52.379189",
+      "longitude": "4.899431",
+      "payment": {
+        "orderIsAlreadyPaid": true,
+        "amount": 1100,
+        "paymentType": 0
+      }
+    }
+  ],
+  "ageCheck": false
+}

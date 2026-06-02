@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/pos-api-post-updatepreparationtime-schema.json",
+  "title": "PostUpdatepreparationtime",
+  "description": "Deliverect Post_updatepreparationtime",
+  "type": "object",
+  "properties": {
+    "order": {
+      "type": "string",
+      "example": "string"
+    },
+    "minutes": {
+      "type": "integer",
+      "example": 1
+    }
+  },
+  "required": [
+    "minutes",
+    "order"
+  ]
+}

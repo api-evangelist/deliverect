@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "GiftcardsRegisterprofile": "dv:GiftcardsRegisterprofile",
+    "PostGiftcardsChannelChannellinkidProfilelinkGiftcardproviderprofilelinkidApplygiftcard": "dv:PostGiftcardsChannelChannellinkidProfilelinkGiftcardproviderprofilelinkidApplygiftcard",
+    "PostGiftcardsChannelChannellinkidProfilelinkGiftcardproviderprofilelinkidGetgiftcardbalance": "dv:PostGiftcardsChannelChannellinkidProfilelinkGiftcardproviderprofilelinkidGetgiftcardbalance",
+    "account": {
+      "@id": "dv:account",
+      "@type": "xsd:string"
+    },
+    "apiKey": {
+      "@id": "dv:apiKey",
+      "@type": "xsd:string"
+    },
+    "number": {
+      "@id": "dv:number",
+      "@type": "xsd:string"
+    },
+    "verificationCode": {
+      "@id": "dv:verificationCode",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "dv:amount",
+      "@type": "xsd:integer"
+    }
+  }
+}

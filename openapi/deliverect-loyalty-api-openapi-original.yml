@@ -1,0 +1,1003 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Loyalty API
+  description: Integrate loyalty programs by creating and retrieving loyalty customers, reading program configuration, retrieving and validating programs, and validating compensation cards. Authenticates
+    with OAuth 2.0 machine-to-machine access tokens.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Customers
+  description: Customers operations for the Deliverect Loyalty API.
+- name: Configuration
+  description: Configuration operations for the Deliverect Loyalty API.
+- name: Programs
+  description: Programs operations for the Deliverect Loyalty API.
+- name: Compensation Cards
+  description: Compensation Cards operations for the Deliverect Loyalty API.
+- name: Authentication
+  description: Authentication operations for the Deliverect Loyalty API.
+paths:
+  /loyalty/{channelLinkId}/customer:
+    post:
+      summary: Deliverect Create Loyalty Customer
+      description: Deliverect Create Loyalty Customer
+      operationId: loyalty_channel_create_loyalty_customer
+      parameters:
+      - name: channelLinkId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: email of the end customer
+                  example: customer@example.com
+                phoneNumber:
+                  type: string
+                  description: phone number of the end customer in E164 format
+                  example: '+15555550123'
+                firstName:
+                  type: string
+                  description: first name of the end customer
+                  example: Deliverect's Pizza Place
+                lastName:
+                  type: string
+                  description: last name of the end customer
+                  example: Deliverect's Pizza Place
+                dateOfBirth:
+                  type: string
+                  description: date of birth of the end customer in ISO format
+                  example: '2026-03-15T14:30:00Z'
+            examples:
+              loyalty_channel_create_loyalty_customerRequest:
+                summary: Default loyalty_channel_create_loyalty_customer request
+                x-microcks-default: true
+                value:
+                  email: customer@example.com
+                  phoneNumber: '+15555550123'
+                  firstName: Deliverect's Pizza Place
+                  lastName: Deliverect's Pizza Place
+                  dateOfBirth: '2026-03-15T14:30:00Z'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                '- without tier':
+                  value:
+                    providerId: '68964'
+                    firstName: John
+                    lastName: Doe
+                    email: john.doe@email.com
+                    phoneNumber: '+32411222333'
+                    dateOfBirth: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance: 0
+                    tier: null
+                with tier:
+                  value:
+                    providerId: '234567'
+                    firstName: John
+                    lastName: Doe
+                    email: john.doe@email.com
+                    phoneNumber: '+32411222333'
+                    dateOfBirth: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance: 0
+                    status: active
+                    tier:
+                      name: Bronze
+                      description: This is a bronze tier
+                      media:
+                        url: https://deliverect.com/image.png
+                        mediaType: image
+                        requirements:
+                          minLifetimePoints: 0
+                          maxLifetimePoints: 1000
+              schema:
+                oneOf:
+                - title: '- without tier'
+                  type: object
+                  properties:
+                    firstName:
+                      type: string
+                      example: John
+                    lastName:
+                      type: string
+                      example: Doe
+                    email:
+                      type: string
+                      example: john.doe@email.com
+                    phoneNumber:
+                      type: string
+                      example: '+32411222333'
+                    dateOfBirth:
+                      type: string
+                      example: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance:
+                      type: integer
+                      example: 0
+                      default: 0
+                    tier: {}
+                    providerId:
+                      type: string
+                  required:
+                  - providerId
+                - title: with tier
+                  type: object
+                  properties:
+                    firstName:
+                      type: string
+                      example: John
+                    lastName:
+                      type: string
+                      example: Doe
+                    email:
+                      type: string
+                      example: john.doe@email.com
+                    phoneNumber:
+                      type: string
+                      example: '+32411222333'
+                    dateOfBirth:
+                      type: string
+                      example: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance:
+                      type: integer
+                      example: 0
+                      default: 0
+                    tier:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: Bronze
+                        description:
+                          type: string
+                          example: This is a bronze tier
+                        media:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: https://deliverect.com/image.png
+                            mediaType:
+                              type: string
+                              example: image
+                            requirements:
+                              type: object
+                              properties:
+                                minLifetimePoints:
+                                  type: integer
+                                  example: 0
+                                  default: 0
+                                maxLifetimePoints:
+                                  type: integer
+                                  example: 1000
+                                  default: 0
+                    providerId:
+                      type: string
+                  required:
+                  - providerId
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error\": \"no active loyalty profile found\",\n    \"http_code\": 400,\n    \"description\": \"no active loyalty profile found\"\n}"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: no active loyalty profile found
+                  http_code:
+                    type: integer
+                    example: 400
+                    default: 0
+                  description:
+                    type: string
+                    example: no active loyalty profile found
+      deprecated: false
+      tags:
+      - Customers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      summary: Deliverect Get Loyalty Customer
+      description: Deliverect Get Loyalty Customer
+      operationId: loyalty_channel_get_customer
+      parameters:
+      - name: channelLinkId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      - name: email
+        in: query
+        description: email of the end customer
+        schema:
+          type: string
+        example: customer@example.com
+      - name: phoneNumber
+        in: query
+        description: phone number of the end customer in E164 format
+        schema:
+          type: string
+        example: '+15555550123'
+      - in: query
+        name: providerId
+        schema:
+          type: string
+        description: The customer's unique identifier within the loyalty provider's system, QR codes can also be passed via this parameter where supported on the Loyalty platform
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                without tier:
+                  value:
+                    firstName: John
+                    lastName: Doe
+                    email: john.doe@email.com
+                    phoneNumber: '+32411222333'
+                    dateOfBirth: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance: 0
+                    status: activation_pending
+                    tier: null
+                    providerId: '376483'
+                with tier:
+                  value:
+                    providerId: '83885'
+                    firstName: John
+                    lastName: Doe
+                    email: john.doe@email.com
+                    phoneNumber: '+32411222333'
+                    dateOfBirth: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance: 0
+                    status: active
+                    tier:
+                      name: Bronze
+                      description: This is a bronze tier
+                      media:
+                        url: https://deliverect.com/image.png
+                        mediaType: image
+                        requirements:
+                          minLifetimePoints: 0
+                          maxLifetimePoints: 1000
+              schema:
+                oneOf:
+                - title: without tier
+                  type: object
+                  properties:
+                    firstName:
+                      type: string
+                      example: John
+                    lastName:
+                      type: string
+                      example: Doe
+                    email:
+                      type: string
+                      example: john.doe@email.com
+                    phoneNumber:
+                      type: string
+                      example: '+32411222333'
+                    dateOfBirth:
+                      type: string
+                      example: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance:
+                      type: integer
+                      example: 0
+                      default: 0
+                    status:
+                      type: string
+                      example: activation_pending
+                    tier: {}
+                    providerId:
+                      type: string
+                  required:
+                  - providerId
+                - title: with tier
+                  type: object
+                  properties:
+                    firstName:
+                      type: string
+                      example: John
+                    lastName:
+                      type: string
+                      example: Doe
+                    email:
+                      type: string
+                      example: john.doe@email.com
+                    phoneNumber:
+                      type: string
+                      example: '+32411222333'
+                    dateOfBirth:
+                      type: string
+                      example: '1970-01-01T00:00:00.000000+00:00'
+                    lifetimePointsBalance:
+                      type: integer
+                      example: 0
+                      default: 0
+                    status:
+                      type: string
+                      example: active
+                    tier:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: Bronze
+                        description:
+                          type: string
+                          example: This is a bronze tier
+                        media:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: https://deliverect.com/image.png
+                            mediaType:
+                              type: string
+                              example: image
+                            requirements:
+                              type: object
+                              properties:
+                                minLifetimePoints:
+                                  type: integer
+                                  example: 0
+                                  default: 0
+                                maxLifetimePoints:
+                                  type: integer
+                                  example: 1000
+                                  default: 0
+                    providerId:
+                      type: string
+                  required:
+                  - providerId
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error\": \"no active loyalty profile found\",\n    \"http_code\": 400,\n    \"description\": \"no active loyalty profile found\"\n}"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: no active loyalty profile found
+                  http_code:
+                    type: integer
+                    example: 400
+                    default: 0
+                  description:
+                    type: string
+                    example: no active loyalty profile found
+        '404':
+          description: '404'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error\": \"loyalty customer not found\",\n    \"http_code\": 404,\n    \"description\": \"loyalty customer not found\"\n}"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: loyalty customer not found
+                  http_code:
+                    type: integer
+                    example: 404
+                    default: 0
+                  description:
+                    type: string
+                    example: loyalty customer not found
+      deprecated: false
+      tags:
+      - Customers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /loyalty/{channelLinkId}/configuration:
+    get:
+      summary: Deliverect Get Configuration
+      description: This endpoint provides information such as  settings, features and requirements based on the account's configuration.
+      operationId: loyalty_channel_get_configuration
+      parameters:
+      - name: channelLinkId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    enabled: true
+                    providerName: Generic
+                    providerId: 10000
+                    externalSignUpUrl: https://deliverect.com/signup
+                    features:
+                      supportsSSO: false
+                      supportsExternalSignUpUrl: true
+                      supportsWalletPointsBalance: true
+                      supportsWalletCashBalance: false
+                      supportsBOGOFPrograms: true
+                      supportsFreeItemPrograms: true
+                      supportsFlatPrograms: true
+                      requiresEmail: true
+                      requiresPhoneNumber: false
+                      supportsDynamicConfiguration: false
+                    cashbackConfig:
+                      title: VIP Customers
+                      description: Exclusive rewards for our VIP customers
+                      earningRules:
+                      - type: cash_back
+                        reward:
+                          type: percentage
+                          value: 1000
+                      - type: sign_up
+                        reward:
+                          type: fixed
+                          value: 1000
+                      burningRules:
+                      - type: purchase
+                        cost:
+                          type: percentage
+                          value: 5000
+                          maxBurningAmount: 500
+                      - type: purchase
+                        cost:
+                          type: fixed
+                          value: 500
+              schema:
+                type: object
+                properties:
+                  enabled:
+                    type: boolean
+                    example: true
+                    default: true
+                  providerName:
+                    type: string
+                    example: Generic
+                  providerId:
+                    type: integer
+                    example: 10000
+                    default: 0
+                  externalSignUpUrl:
+                    type: string
+                    example: https://deliverect.com/signup
+                  features:
+                    type: object
+                    properties:
+                      supportsSSO:
+                        type: boolean
+                        example: false
+                        default: true
+                      supportsExternalSignUpUrl:
+                        type: boolean
+                        example: true
+                        default: true
+                      supportsWalletPointsBalance:
+                        type: boolean
+                        example: true
+                        default: true
+                      supportsWalletCashBalance:
+                        type: boolean
+                        example: false
+                        default: true
+                      supportsBOGOFPrograms:
+                        type: boolean
+                        example: true
+                        default: true
+                      supportsFreeItemPrograms:
+                        type: boolean
+                        example: true
+                        default: true
+                      supportsFlatPrograms:
+                        type: boolean
+                        example: true
+                        default: true
+                      requiresEmail:
+                        type: boolean
+                        example: true
+                        default: true
+                      requiresPhoneNumber:
+                        type: boolean
+                        example: false
+                        default: true
+                      supportsDynamicConfiguration:
+                        type: string
+                        default: 'false'
+                        example: 'false'
+                  cashbackConfig:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                        example: string
+                      description:
+                        type: string
+                        example: No salad
+                      earningRules:
+                        type: array
+                        items:
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                              - cash_back
+                              - sign_up
+                              example: cash_back
+                            reward:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                  enum:
+                                  - percentage
+                                  - fixed
+                                  example: percentage
+                                value:
+                                  type: integer
+                                  example: 1
+                              required:
+                              - value
+                              - type
+                          type: object
+                          required:
+                          - reward
+                          - type
+                      burningRules:
+                        type: array
+                        items:
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                              - percentage
+                              - fixed
+                              example: percentage
+                            cost:
+                              type: object
+                              properties:
+                                type:
+                                  type: string
+                                  enum:
+                                  - percentage
+                                  - fixed
+                                  example: percentage
+                                value:
+                                  type: string
+                                  example: string
+                                maxBurningAmount:
+                                  type: string
+                                  description: Only available for percentage driven rules
+                                  example: string
+                              required:
+                              - value
+                              - type
+                          type: object
+                          required:
+                          - cost
+                          - type
+                    required:
+                    - burningRules
+                    - earningRules
+                    - description
+                    - title
+                required:
+                - cashbackConfig
+                - features
+                - externalSignUpUrl
+                - providerId
+                - providerName
+                - enabled
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Configuration
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /loyalty/{channelLinkId}/programs/retrieve:
+    post:
+      summary: Deliverect Get Loyalty Programs
+      description: Deliverect Get Loyalty Programs
+      operationId: loyalty_channel_get_programs
+      parameters:
+      - name: channelLinkId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - order
+              properties:
+                order:
+                  type: object
+                  description: For the full order schema, please refer to [Glossary - Channel Orders](https://developers.deliverect.com/page/glossary-channel-orders)
+                  properties:
+                    orderType:
+                      type: integer
+                      description: The type of the order (Pickup, Delivery, Eat-in)
+                      format: int32
+                      example: 1
+                    items:
+                      type: object
+                      properties:
+                        plu:
+                          type: string
+                          example: PIE1
+                        name:
+                          type: string
+                          example: Deliverect's Pizza Place
+                        price:
+                          type: integer
+                          format: int32
+                          example: 1250
+                        quantity:
+                          type: integer
+                          format: int32
+                          example: 1
+                        subItems:
+                          type: object
+                          properties: {}
+                    customer:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                          example: customer@example.com
+                        phoneNumber:
+                          type: string
+                          example: '+15555550123'
+                        name:
+                          type: string
+                          example: Deliverect's Pizza Place
+                    decimalDigits:
+                      type: integer
+                      description: number of decimal for the order currency
+                      format: int32
+                      example: 1
+                    subTotal:
+                      type: integer
+                      format: int32
+                      example: 1250
+                    payment:
+                      type: object
+                      properties:
+                        amount:
+                          type: integer
+                          format: int32
+                          example: 1250
+            examples:
+              Request Example:
+                value:
+                  order:
+                    orderType: 1
+                    items:
+                    - plu: BEEF-02
+                      price: 1100
+                      quantity: 1
+                      name: Beef Opor
+                      productType: 1
+                      _id: 620d19e940411b30c49b1005
+                      deliveryTax: 9000
+                    customer:
+                      email: customer@loyalty.com
+                      phoneNumber: '+31201234567'
+                    decimalDigits: 2
+                    subTotal: 1100
+                    payment:
+                      amount: 1100
+                      type: 3
+              JSON - short payload:
+                value:
+                  order:
+                    orderType: 1
+                    customer:
+                      email: customer@loyalty.com
+                      phoneNumber: '+31201234567'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"programId\":\"1234\",\n        \"title\":\"$10 off order\",\n        \"description\":\"Discount amount off the order\",\n        \"cost\":100,\n        \"type\"\
+                    :\"discount_amount\",\n        \"discount\":1000,\n        \"applicable\": true,\n        \"expiresAt\": \"2024-12-31 23:59:59.000000\",\n        \"media\": null\n    \n    },\n    {\n\
+                    \        \"programId\":\"4578\",\n        \"title\":\"50% off order\",\n        \"description\":\"Discount percentage off the order.\",\n        \"cost\":100,\n        \"type\":\"discount_percentage\"\
+                    ,\n        \"discount\":5000,\n        \"applicable\": true,\n        \"expiresAt\": \"2024-12-31 23:59:59.000000\",\n        \"media\": null\n\n    \n    },\n    {\n        \"programId\"\
+                    :\"765\",\n        \"title\":\"Free item\",\n        \"description\":\"Get an item for free.\",\n        \"cost\":200,\n        \"type\":\"free_item\",\n        \"itemPLU\":\"DRN-01\"\
+                    ,\n        \"media\":{\n            \"url\":\"https://program.media/image\",\n            \"mediaType\":\"image\"\n        },\n        \"applicable\": true,\n        \"expiresAt\": \"\
+                    2024-12-31 23:59:59.000000\"\n    },\n    {\n        \"programId\":\"12456\",\n        \"title\":\"Buy one get one for free\",\n        \"description\":\"Order an item and get another\
+                    \ one for free.\",\n        \"cost\":500,\n        \"type\":\"buy_one_get_one_free\",\n        \"itemPLU\":\"DRN-02\",\n        \"media\":{\n            \"url\":\"https://program.media/image\"\
+                    ,\n            \"mediaType\":\"image\"\n        },\n        \"applicable\": false,\n        \"expiresAt\": \"2024-12-31 23:59:59.000000\"\n    },\n    {\n        \"programId\": \"36996\"\
+                    ,\n        \"title\": \"Coke $5 off\",\n        \"type\": \"item_discount_amount\",\n        \"applicable\": true,\n        \"description\": \"$10 off for a single item\",\n        \"\
+                    cost\": 150.0,\n        \"media\": {\n            \"url\": \"https://res.cloudinary.com/punchh/image/upload/c_limit,f_auto,fl_lossy,g_center,q_auto/v1/punchhstatic-mothership2/redeemables/redeemable_images/000/036/996/original/4b189839dd5c99f7bccee13cdb675af19f9b9d37.jpeg\"\
+                    ,\n            \"mediaType\": \"image\"\n        },\n        \"expiresAt\": null,\n        \"discount\": 500,\n        \"itemPLU\": \"ABC-123\",\n        \"minOrderValue\": 1000\n  \
+                    \  },\n    {\n        \"programId\": \"36998\",\n        \"title\": \"Coke 50% off\",\n        \"type\": \"item_discount_percentage\",\n        \"applicable\": true,\n        \"description\"\
+                    : \"50% off Coke!\",\n        \"cost\": 150.0,\n        \"media\": {\n            \"url\": \"https://res.cloudinary.com/punchh/image/upload/c_limit,f_auto,fl_lossy,g_center,q_auto/v1/punchhstatic-mothership2/redeemables/redeemable_images/000/036/996/original/4b189839dd5c99f7bccee13cdb675af19f9b9d37.jpeg\"\
+                    ,\n            \"mediaType\": \"image\"\n        },\n        \"expiresAt\": null,\n        \"discount\": 5000,\n        \"itemPLU\": \"ABC-123\",\n        \"minOrderValue\": null\n \
+                    \   }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    programId:
+                      type: string
+                      example: '1234'
+                    title:
+                      type: string
+                      example: $10 off order
+                    description:
+                      type: string
+                      example: Discount amount off the order
+                    cost:
+                      type: integer
+                      example: 100
+                      default: 0
+                    type:
+                      type: string
+                      example: discount_amount
+                    discount:
+                      type: integer
+                      example: 1000
+                      default: 0
+                    applicable:
+                      type: boolean
+                      example: true
+                      default: true
+                    expiresAt:
+                      type: string
+                      example: '2024-12-31 23:59:59.000000'
+                    media: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error\": \"no active loyalty profile found\",\n    \"http_code\": 400,\n    \"description\": \"no active loyalty profile found\"\n}"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: no active loyalty profile found
+                  http_code:
+                    type: integer
+                    example: 400
+                    default: 0
+                  description:
+                    type: string
+                    example: no active loyalty profile found
+      deprecated: false
+      tags:
+      - Programs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /loyalty/{channelLinkId}/compensationCards/validate:
+    post:
+      description: Deliverect Post_loyalty_channellinkid_compensationcards_validate
+      responses:
+        '200':
+          description: ''
+      parameters:
+      - in: path
+        name: channelLinkId
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      operationId: post_loyalty_channellinkid_compensationcards_validate
+      summary: Deliverect Post_loyalty_channellinkid_compensationcards_validate
+      tags:
+      - Compensation Cards
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /loyalty/{channelLinkId}/programs/validate:
+    post:
+      description: Deliverect Post_new_endpoint
+      operationId: post_new_endpoint
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    validationErrors: []
+                    discounts:
+                    - externalId: null
+                      provider: loyalty
+                      scope:
+                        type: order
+                      offer:
+                        type: flat_off
+                        value: 500
+                    maxRedeemableAmount: 1000
+      parameters:
+      - in: path
+        name: channelLinkId
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      x-readme:
+        code-samples:
+        - code: "{\n  \"sessionId\": \"test\",\n  \"order\": {\n    \"accountId\": \"6798b2b2a030bcf7dd6c1ee0\",\n    \"channelLinkId\": \"684940251579e410c7792352\",\n    \"locationId\": \"684940131579e410c7792348\"\
+            ,\n    \"orderType\": 2,\n    \"paymentAmount\": 0,\n    \"customer\": {\n      \"email\": \"test@deliverect.com\",\n      \"phoneNumber\": \"+32474081356\",\n      \"loyaltyProviderCustomerId\"\
+            : \"88017991\",\n      \"name\": \"John Doe\"\n    },\n    \"items\": [\n      {\n        \"plu\": \"3726\",\n        \"name\": \"Sisi No Bubbles mango\",\n        \"price\": 10000,\n      \
+            \  \"quantity\": 1,\n        \"subItems\": []\n      }\n    ],\n    \"subTotal\": 10000,\n    \"discounts\": [],\n    \"decimalDigits\": 2,\n    \"serviceCharge\": 0,\n    \"deliveryCost\":\
+            \ 0,\n    \"bagFee\": 0,\n    \"tip\": 0,\n    \"driverTip\": 0,\n    \"smallOrderFee\": 0\n  },\n  \"wallet\": {\n    \"type\": \"cash\",\n    \"amount\": 500\n  }\n}"
+          language: json
+          name: json
+        samples-languages:
+        - json
+      summary: Deliverect Post_new_endpoint
+      tags:
+      - Programs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /auth/token:
+    post:
+      summary: Deliverect Loyalty SSO - OAuth Token Exchange
+      description: https://integrator.com/auth/token
+      operationId: loyalty_token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  default: authorization_code
+                  example: authorization_code
+                client_id:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                client_secret:
+                  type: string
+                  example: string
+                code:
+                  type: string
+                  example: string
+                accountId:
+                  type: string
+                  description: The deliverect customer account id
+                  example: 5b71c6489f00290d4
+                loyaltyProfileId:
+                  type: string
+                  description: The loyalty profile id being use
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+              required:
+              - client_secret
+              - code
+              - client_id
+              - grant_type
+            examples:
+              loyalty_tokenRequest:
+                summary: Default loyalty_token request
+                x-microcks-default: true
+                value:
+                  grant_type: authorization_code
+                  client_id: 609a1b2c3d4e5f6a7b8c9d0e
+                  client_secret: string
+                  code: string
+                  accountId: 5b71c6489f00290d4
+                  loyaltyProfileId: 609a1b2c3d4e5f6a7b8c9d0e
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"token_type\": \"Bearer\",\n    \"scope\": \"passwordless\",\n    \"created_at\": \"1709743524\",\n    \"access_token\": \"test-access-token\",\n    \"refresh_token\":\
+                    \ \"test-refresh-token\"\n}"
+              schema:
+                type: object
+                properties:
+                  token_type:
+                    type: string
+                    example: Bearer
+                  scope:
+                    type: string
+                    example: passwordless
+                  created_at:
+                    type: string
+                    example: '1709743524'
+                  access_token:
+                    type: string
+                    example: test-access-token
+                  refresh_token:
+                    type: string
+                    example: test-refresh-token
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Authentication
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

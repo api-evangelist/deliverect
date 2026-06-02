@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Loyalty API — Programs
+  description: 'Programs surface of the Deliverect Loyalty API. 2 operations. Lead operation: Get Loyalty Programs. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Loyalty
+  - Programs
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: loyalty-api-programs
+    baseUri: https://api.deliverect.com
+    description: Deliverect Loyalty API — Programs business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: loyalty-channel-link-id-programs-retrieve
+      path: /loyalty/{channelLinkId}/programs/retrieve
+      operations:
+      - name: loyalty_channel_get_programs
+        method: POST
+        description: Deliverect Get Loyalty Programs
+        inputParameters:
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: loyalty-channel-link-id-programs-validate
+      path: /loyalty/{channelLinkId}/programs/validate
+      operations:
+      - name: post_new_endpoint
+        method: POST
+        description: Deliverect Post_new_endpoint
+        inputParameters:
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: loyalty-api-programs-rest
+    port: 8080
+    description: REST adapter for Deliverect Loyalty API — Programs. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/loyalty/{channel-link-id}/programs/retrieve
+      name: loyalty-channel-link-id-programs-retrieve
+      description: REST surface for loyalty-channel-link-id-programs-retrieve.
+      operations:
+      - method: POST
+        name: loyalty_channel_get_programs
+        description: Deliverect Get Loyalty Programs
+        call: loyalty-api-programs.loyalty_channel_get_programs
+        with:
+          channelLinkId: rest.channelLinkId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/loyalty/{channel-link-id}/programs/validate
+      name: loyalty-channel-link-id-programs-validate
+      description: REST surface for loyalty-channel-link-id-programs-validate.
+      operations:
+      - method: POST
+        name: post_new_endpoint
+        description: Deliverect Post_new_endpoint
+        call: loyalty-api-programs.post_new_endpoint
+        with:
+          channelLinkId: rest.channelLinkId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: loyalty-api-programs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Loyalty API — Programs. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-loyalty-programs
+      description: Deliverect Get Loyalty Programs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: loyalty-api-programs.loyalty_channel_get_programs
+      with:
+        channelLinkId: tools.channelLinkId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-new-endpoint
+      description: Deliverect Post_new_endpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: loyalty-api-programs.post_new_endpoint
+      with:
+        channelLinkId: tools.channelLinkId
+      outputParameters:
+      - type: object
+        mapping: $.

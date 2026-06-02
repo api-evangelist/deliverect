@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/pay-api-payplatform-payments-refund-structure.json",
+  "name": "PayplatformPaymentsRefund",
+  "description": "Deliverect Refund Payment",
+  "type": "object",
+  "properties": {
+    "paymentId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "amount": {
+      "type": "int32",
+      "example": 1250
+    }
+  },
+  "required": [
+    "paymentId",
+    "amount"
+  ]
+}

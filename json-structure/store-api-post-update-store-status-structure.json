@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/store-api-post-update-store-status-structure.json",
+  "name": "PostUpdateStoreStatus",
+  "description": "Deliverect Busy Mode",
+  "type": "object",
+  "properties": {
+    "isActive": {
+      "type": "string",
+      "example": "string"
+    },
+    "prepTime": {
+      "type": "string",
+      "example": "2026-03-15T14:30:00Z"
+    }
+  },
+  "required": [
+    "isActive",
+    "prepTime"
+  ]
+}

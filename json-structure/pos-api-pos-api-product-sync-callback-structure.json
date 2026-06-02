@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/pos-api-pos-api-product-sync-callback-structure.json",
+  "name": "PosApiProductSyncCallback",
+  "description": "Deliverect Asynchronous Insert / Update Products",
+  "type": "object",
+  "properties": {
+    "operationReportId": {
+      "type": "string",
+      "example": "507f****************9011"
+    },
+    "products": {
+      "type": "object",
+      "properties": {
+        "inserted": {
+          "type": "int32",
+          "example": 1
+        },
+        "updated": {
+          "type": "int32",
+          "example": 0
+        },
+        "deleted": {
+          "type": "int32",
+          "example": 0
+        },
+        "ignored": {
+          "type": "int32",
+          "example": 0
+        }
+      }
+    },
+    "modifiers": {
+      "type": "object",
+      "properties": {
+        "inserted": {
+          "type": "int32",
+          "example": 6
+        },
+        "updated": {
+          "type": "int32",
+          "example": 0
+        },
+        "deleted": {
+          "type": "int32",
+          "example": 0
+        },
+        "ignored": {
+          "type": "int32",
+          "example": 0
+        }
+      }
+    },
+    "modifierGroups": {
+      "type": "object",
+      "properties": {
+        "inserted": {
+          "type": "int32",
+          "example": 2
+        },
+        "updated": {
+          "type": "int32",
+          "example": 0
+        },
+        "deleted": {
+          "type": "int32",
+          "example": 0
+        },
+        "ignored": {
+          "type": "int32",
+          "example": 0
+        }
+      }
+    },
+    "bundles": {
+      "type": "object",
+      "properties": {
+        "inserted": {
+          "type": "int32",
+          "example": 0
+        },
+        "updated": {
+          "type": "int32",
+          "example": 0
+        },
+        "deleted": {
+          "type": "int32",
+          "example": 0
+        },
+        "ignored": {
+          "type": "int32",
+          "example": 0
+        }
+      }
+    },
+    "priceLevels": {
+      "type": "int32",
+      "example": 0
+    },
+    "warnings": {
+      "type": "int32",
+      "example": 0
+    },
+    "errors": {
+      "type": "int32",
+      "example": 0
+    }
+  }
+}

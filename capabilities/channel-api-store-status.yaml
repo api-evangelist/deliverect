@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Channel API — Store Status
+  description: 'Store Status surface of the Deliverect Channel API. 2 operations. Lead operation: Busy Mode. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Channel
+  - Store Status
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: channel-api-store-status
+    baseUri: https://api.deliverect.com
+    description: Deliverect Channel API — Store Status business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: channel-busy-mode
+      path: /channel/busy_mode
+      operations:
+      - name: channel_busy_mode
+        method: POST
+        description: Deliverect Busy Mode
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channel-name-update-store-status-channel-link-id
+      path: /{channelName}/updateStoreStatus/{channelLinkId}
+      operations:
+      - name: post_channelname_updatestorestatus_channellinkid
+        method: POST
+        description: Deliverect Update Store Status (open/closed)
+        inputParameters:
+        - name: channelName
+          in: path
+          type: string
+          required: true
+          description: The channelName value.
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: channel-api-store-status-rest
+    port: 8080
+    description: REST adapter for Deliverect Channel API — Store Status. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/channel/busy-mode
+      name: channel-busy-mode
+      description: REST surface for channel-busy-mode.
+      operations:
+      - method: POST
+        name: channel_busy_mode
+        description: Deliverect Busy Mode
+        call: channel-api-store-status.channel_busy_mode
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{channel-name}/update-store-status/{channel-link-id}
+      name: channel-name-update-store-status-channel-link-id
+      description: REST surface for channel-name-update-store-status-channel-link-id.
+      operations:
+      - method: POST
+        name: post_channelname_updatestorestatus_channellinkid
+        description: Deliverect Update Store Status (open/closed)
+        call: channel-api-store-status.post_channelname_updatestorestatus_channellinkid
+        with:
+          channelName: rest.channelName
+          channelLinkId: rest.channelLinkId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: channel-api-store-status-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Channel API — Store Status. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: busy-mode
+      description: Deliverect Busy Mode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: channel-api-store-status.channel_busy_mode
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-store-status-open-closed
+      description: Deliverect Update Store Status (open/closed)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: channel-api-store-status.post_channelname_updatestorestatus_channellinkid
+      with:
+        channelName: tools.channelName
+        channelLinkId: tools.channelLinkId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

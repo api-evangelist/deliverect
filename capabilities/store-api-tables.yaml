@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Store API — Tables
+  description: 'Tables surface of the Deliverect Store API. 1 operations. Lead operation: GET POS Tables. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Store
+  - Tables
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: store-api-tables
+    baseUri: https://api.deliverect.com
+    description: Deliverect Store API — Tables business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: tables-location-id
+      path: /tables/{locationId}
+      operations:
+      - name: get_tables_locationid
+        method: GET
+        description: Deliverect GET POS Tables
+        inputParameters:
+        - name: locationId
+          in: path
+          type: string
+          required: true
+          description: The locationId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: store-api-tables-rest
+    port: 8080
+    description: REST adapter for Deliverect Store API — Tables. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/tables/{location-id}
+      name: tables-location-id
+      description: REST surface for tables-location-id.
+      operations:
+      - method: GET
+        name: get_tables_locationid
+        description: Deliverect GET POS Tables
+        call: store-api-tables.get_tables_locationid
+        with:
+          locationId: rest.locationId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: store-api-tables-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Store API — Tables. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-pos-tables
+      description: Deliverect GET POS Tables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: store-api-tables.get_tables_locationid
+      with:
+        locationId: tools.locationId
+      outputParameters:
+      - type: object
+        mapping: $.

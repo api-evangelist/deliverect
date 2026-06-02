@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/dispatch-api-dispatch-create-job-structure.json",
+  "name": "DispatchCreateJob",
+  "description": "Deliverect Create Delivery Job",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "type": "string",
+      "example": "609***72e"
+    },
+    "account": {
+      "type": "string",
+      "example": "5f1***131"
+    },
+    "pickupTime": {
+      "type": "datetime",
+      "example": "2021-05-13T13:40:04Z"
+    },
+    "transportType": {
+      "type": "string",
+      "example": "unknown"
+    },
+    "driverTip": {
+      "type": "int32",
+      "example": 500
+    },
+    "pickupLocation": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "example": "606***555"
+        },
+        "name": {
+          "type": "string",
+          "example": "Deliverects Pizza Place"
+        },
+        "remarks": {
+          "type": "string",
+          "example": "please use the backdoor for order pickup"
+        },
+        "street": {
+          "type": "string",
+          "example": "van Ghentlaan"
+        },
+        "streetNumber": {
+          "type": "string",
+          "example": "3"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "9000 LK"
+        },
+        "city": {
+          "type": "string",
+          "example": "Leusden"
+        },
+        "latitude": {
+          "type": "string",
+          "example": "52.379189"
+        },
+        "longitude": {
+          "type": "string",
+          "example": "4.899431"
+        }
+      }
+    },
+    "deliveryLocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "example": "609***4dd"
+          },
+          "channelOrderDisplayId": {
+            "type": "string",
+            "example": "MT4YVTPL"
+          },
+          "deliveryTime": {
+            "type": "datetime",
+            "example": "2021-05-13T13:55:00Z"
+          },
+          "packageSize": {
+            "type": "string",
+            "example": "medium"
+          },
+          "orderDescription": {
+            "type": "string",
+            "example": "hot food"
+          },
+          "company": {
+            "type": "string",
+            "example": "BrainQuantums"
+          },
+          "name": {
+            "type": "string",
+            "example": "V. Bertels"
+          },
+          "street": {
+            "type": "string",
+            "example": "Refugehof"
+          },
+          "streetNumber": {
+            "type": "string",
+            "example": "49"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "9001 AB"
+          },
+          "city": {
+            "type": "string",
+            "example": "Leusden"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+32123456789"
+          },
+          "phoneAccessCode": {
+            "type": "string",
+            "example": "342241214"
+          },
+          "deliveryRemarks": {
+            "type": "string",
+            "example": "Dont ring door bell."
+          },
+          "latitude": {
+            "type": "string",
+            "example": "52.379189"
+          },
+          "longitude": {
+            "type": "string",
+            "example": "4.899431"
+          },
+          "payment": {
+            "type": "object",
+            "properties": {
+              "orderIsAlreadyPaid": {
+                "type": "boolean",
+                "example": true
+              },
+              "amount": {
+                "type": "int32",
+                "example": 1100
+              },
+              "paymentType": {
+                "type": "int32",
+                "example": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "ageCheck": {
+      "type": "boolean",
+      "example": false
+    }
+  }
+}

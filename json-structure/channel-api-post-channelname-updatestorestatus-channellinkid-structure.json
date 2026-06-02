@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/channel-api-post-channelname-updatestorestatus-channellinkid-structure.json",
+  "name": "PostChannelnameUpdatestorestatusChannellinkid",
+  "description": "Deliverect Update Store Status (open/closed)",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "closed"
+      ],
+      "example": "open"
+    },
+    "reason": {
+      "type": "string",
+      "example": "string"
+    }
+  },
+  "required": [
+    "status",
+    "reason"
+  ]
+}

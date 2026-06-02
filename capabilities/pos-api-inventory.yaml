@@ -1,0 +1,92 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect POS API — Inventory
+  description: 'Inventory surface of the Deliverect POS API. 1 operations. Lead operation: Inventory Update. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - POS
+  - Inventory
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: pos-api-inventory
+    baseUri: https://api.deliverect.com
+    description: Deliverect POS API — Inventory business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: catalog-accounts-account-id-inventory-upload-url
+      path: /catalog/accounts/{accountId}/inventoryUploadUrl
+      operations:
+      - name: inventory_update
+        method: POST
+        description: Deliverect Inventory Update
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: X-Deliverect-Version
+          in: header
+          type: string
+          required: true
+          description: The X-Deliverect-Version value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pos-api-inventory-rest
+    port: 8080
+    description: REST adapter for Deliverect POS API — Inventory. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/catalog/accounts/{account-id}/inventory-upload-url
+      name: catalog-accounts-account-id-inventory-upload-url
+      description: REST surface for catalog-accounts-account-id-inventory-upload-url.
+      operations:
+      - method: POST
+        name: inventory_update
+        description: Deliverect Inventory Update
+        call: pos-api-inventory.inventory_update
+        with:
+          accountId: rest.accountId
+          X-Deliverect-Version: rest.X-Deliverect-Version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pos-api-inventory-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect POS API — Inventory. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: inventory-update
+      description: Deliverect Inventory Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: pos-api-inventory.inventory_update
+      with:
+        accountId: tools.accountId
+        X-Deliverect-Version: tools.X-Deliverect-Version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

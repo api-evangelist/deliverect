@@ -1,0 +1,98 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Deliverect
+providerId: deliverect
+created: '2026-06-02'
+modified: '2026-06-02'
+reconciled: false
+tags:
+  - FinOps
+  - FOCUS
+  - Restaurant
+  - Delivery
+  - Integration
+description: >-
+  FOCUS-aligned FinOps view of Deliverect: a custom, contact-sales SaaS
+  subscription scoped by location count, digital-operations volume, and selected
+  solutions and modules, rather than a metered per-API-call product. Public
+  per-unit prices are not published, so meters are modeled from the likely
+  invoice shape and reconciled is false.
+sources:
+  - https://www.deliverect.com/en-us/pricing
+  - https://developers.deliverect.com/reference/get-started
+  - https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Deliverect NV
+serviceCategory: Restaurant Integration + Order Management
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD/EUR/GBP
+  chargeCategories:
+    - Purchase
+    - Usage
+    - Tax
+focusColumns:
+  ServiceName: Deliverect
+  ServiceCategory: Restaurant Integration + Order Management
+  ProviderName: Deliverect
+  PublisherName: Deliverect NV
+  InvoiceIssuerName: Deliverect NV
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+meters:
+  - name: location_subscription
+    unit: location-month
+    aggregation: sum
+    dimensions:
+      - country
+      - solution
+  - name: solution_modules
+    unit: month
+    aggregation: sum
+    dimensions:
+      - module
+  - name: orders_processed
+    unit: order
+    aggregation: count
+    dimensions:
+      - channel
+      - location
+  - name: connected_channels
+    unit: channel-link
+    aggregation: max
+    dimensions:
+      - channel
+  - name: dispatch_jobs
+    unit: job
+    aggregation: count
+    dimensions:
+      - location
+principles:
+  - name: Visibility
+    description: >-
+      Track consumption through the Deliverect dashboard and reporting webhooks
+      (order data and analytics), and through the CRM order-history endpoints,
+      rather than a metered API billing export.
+  - name: Allocation
+    description: >-
+      Attribute spend by location and channel using the locationId, accountId,
+      and channelLinkId dimensions that appear across the POS, Channel,
+      Commerce, and Store APIs.
+  - name: Optimization
+    description: >-
+      Right-size the selected solutions and modules (Restaurants, Retail,
+      Direct, Dispatch, Sentinel, Reclaim, Catering) to active locations; cache
+      OAuth tokens and consolidate channel links to avoid redundant integration
+      overhead.
+  - name: Accountability
+    description: >-
+      Because pricing is negotiated per contract, the partner or brand account
+      owner owns the Deliverect agreement and reconciles location counts and
+      module activation against the monthly invoice.

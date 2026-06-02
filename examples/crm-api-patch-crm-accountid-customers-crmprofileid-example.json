@@ -1,0 +1,43 @@
+{
+  "contact": {
+    "email": "customer@example.com",
+    "firstName": "Deliverect's Pizza Place",
+    "lastName": "Deliverect's Pizza Place",
+    "birthdate": "2026-03-15T14:30:00Z",
+    "phone": "+15555550123"
+  },
+  "externalId": "609a1b2c3d4e5f6a7b8c9d0e",
+  "loyaltyProviderId": "609a1b2c3d4e5f6a7b8c9d0e",
+  "deliveryAddresses": [
+    {
+      "street": "string",
+      "subpremise": "string",
+      "city": "string",
+      "stateOrProvince": "string",
+      "postalCode": "string",
+      "country": "BE",
+      "default": true,
+      "area": "string",
+      "coordinates": "string"
+    }
+  ],
+  "billingAddress": {
+    "street": "string",
+    "subpremise": "string",
+    "city": "string",
+    "stateOrProvince": "string",
+    "postalCode": "string",
+    "country": "BE",
+    "area": "string",
+    "coordinates": "string"
+  },
+  "metadata": {},
+  "vehicles": [
+    {
+      "make": "string",
+      "model": "string",
+      "color": "string",
+      "default": true
+    }
+  ]
+}

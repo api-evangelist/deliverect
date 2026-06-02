@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/crm-api-patch-crm-accountid-customers-crmprofileid-vehicles-structure.json",
+  "name": "PatchCrmAccountidCustomersCrmprofileidVehicles",
+  "description": "Deliverect Update Customer Vehicles",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "make": {
+        "type": "string",
+        "example": "string"
+      },
+      "model": {
+        "type": "string",
+        "example": "string"
+      },
+      "color": {
+        "type": "string",
+        "example": "string"
+      },
+      "default": {
+        "type": "boolean",
+        "example": true
+      }
+    }
+  }
+}

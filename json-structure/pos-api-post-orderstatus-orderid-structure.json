@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/pos-api-post-orderstatus-orderid-structure.json",
+  "name": "PostOrderstatusOrderid",
+  "description": "Deliverect Post_orderstatus_orderid",
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e",
+      "description": "The original _id that was sent to the POS order webhook"
+    },
+    "receiptId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e",
+      "description": "Internal ID assigned by the POS, typically in a human-readable format for printed receipts."
+    },
+    "status": {
+      "type": "int32",
+      "example": 20,
+      "description": "Status to update"
+    },
+    "pickupTime": {
+      "type": "datetime",
+      "example": "2026-03-15T14:30:00Z",
+      "description": "Updated pickupTime is in UTC yyyy-MM-ddTHH:mm:ssZ"
+    },
+    "reason": {
+      "type": "string",
+      "example": "string",
+      "description": "Reason for a status change e.g. 'ITEM OUT OF STOCK'"
+    },
+    "timeStamp": {
+      "type": "datetime",
+      "example": "2026-03-15T14:30:00Z",
+      "description": "Timestamp when the status was applied"
+    }
+  },
+  "required": [
+    "orderId",
+    "receiptId",
+    "status"
+  ]
+}

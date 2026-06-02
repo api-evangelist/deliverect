@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/pos-api-inventory-update-structure.json",
+  "name": "InventoryUpdate",
+  "description": "Deliverect Inventory Update",
+  "type": "object",
+  "properties": {
+    "callbackUrl": {
+      "type": "string",
+      "example": "https://example.com/path/abc123",
+      "description": "Will be used to notify you when the inventory file has been processed."
+    }
+  }
+}

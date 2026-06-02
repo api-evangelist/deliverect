@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/dispatch-api-dispatch-cancel-job-schema.json",
+  "title": "DispatchCancelJob",
+  "description": "Deliverect Cancel Delivery Job",
+  "type": "object",
+  "properties": {
+    "jobId": {
+      "type": "string",
+      "example": "5c8******************0d1"
+    },
+    "account": {
+      "type": "string",
+      "example": "5be******************e57"
+    },
+    "pickupLocation": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string",
+          "example": "5ea******************4a9"
+        }
+      }
+    },
+    "deliveryLocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "example": "5f4******************2af"
+          },
+          "channelOrderDisplayId": {
+            "type": "string",
+            "example": "MT4YVTPL"
+          },
+          "deliveryId": {
+            "type": "string",
+            "example": "ABC567"
+          }
+        }
+      }
+    },
+    "courier": {
+      "type": "object",
+      "properties": {
+        "courierId": {
+          "type": "string",
+          "example": "D1234"
+        }
+      }
+    }
+  }
+}

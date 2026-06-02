@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/commerce-api-commerce-channel-api-baskets-update-basket-customer-schema.json",
+  "title": "CommerceChannelApiBasketsUpdateBasketCustomer",
+  "description": "Deliverect Update Basket - Customer",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "Deliverect's Pizza Place"
+    },
+    "companyName": {
+      "type": "string",
+      "example": "Deliverect's Pizza Place"
+    },
+    "email": {
+      "type": "string",
+      "example": "customer@example.com"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "example": "+15555550123"
+    },
+    "externalId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "tin": {
+      "type": "string",
+      "example": "string"
+    }
+  }
+}

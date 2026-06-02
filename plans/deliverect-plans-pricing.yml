@@ -1,0 +1,89 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Deliverect
+providerId: deliverect
+created: '2026-06-02'
+modified: '2026-06-02'
+reconciled: false
+tags:
+  - Restaurant
+  - Delivery
+  - Online Ordering
+  - Point of Sale
+  - Integration
+description: >-
+  Deliverect does not publish public, fixed price tiers. Pricing is custom and
+  quoted on a contact-sales basis. The pricing page states "flexible pricing
+  based on your business's specific needs" and that cost depends on the
+  location, the scale of digital operations, the number of locations, and which
+  Deliverect solution is selected (Restaurants, Retail, Direct, Dispatch, and
+  add-on modules such as Sentinel, Reclaim, and Catering). Deliverect's REST
+  APIs (POS, Commerce, Channel, Dispatch, Store, Pay, CRM, Loyalty, KDS, Gift
+  Cards) are made available to certified integration partners under an API
+  agreement rather than sold as a metered API product. No per-call API price is
+  published. Because no figures are published, prices below are recorded as
+  contact-sales placeholders and reconciled is false.
+sources:
+  - https://www.deliverect.com/en-us/pricing
+  - https://www.deliverect.com
+  - https://developers.deliverect.com/reference/get-started
+plans:
+  - id: deliverect-platform-custom
+    name: Custom Platform Pricing
+    type: enterprise
+    description: >-
+      Custom, quote-based pricing scoped to the customer's locations, digital
+      operations volume, and selected solutions and modules.
+    entries:
+      - label: Platform subscription
+        name: platform_subscription
+        type: subscription
+        metric: location
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: '1'
+        price: contact sales
+        userMultiplied: false
+      - label: Solution / module add-ons
+        name: solution_modules
+        type: flat
+        metric: varies
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: '1'
+        price: contact sales
+        userMultiplied: false
+    elements:
+      - name: Restaurants solution
+      - name: Retail solution
+      - name: Direct (online ordering) solution
+      - name: Dispatch (last-mile) solution
+      - name: Sentinel module
+      - name: Reclaim module
+      - name: Catering module
+      - name: POS, Commerce, Channel, Dispatch, Store, Pay, CRM, Loyalty, KDS, and Gift Cards APIs
+  - id: deliverect-partner-integration
+    name: Integration Partner Program
+    type: enterprise
+    description: >-
+      Technology / integration partners obtain OAuth 2.0 client credentials
+      after signing an API agreement and certifying their integration. API
+      access is granted per connected customer account in production.
+    entries:
+      - label: API access (per integration agreement)
+        name: api_access
+        type: flat
+        metric: varies
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: '1'
+        price: contact sales
+        userMultiplied: false
+    elements:
+      - name: Staging credentials on registration
+      - name: Production credentials after certification
+      - name: Scoped access per connected customer account

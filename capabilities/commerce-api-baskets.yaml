@@ -1,0 +1,512 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Commerce API — Baskets
+  description: 'Baskets surface of the Deliverect Commerce API. 9 operations. Lead operation: Recreate Basket. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Commerce
+  - Baskets
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: commerce-api-baskets
+    baseUri: https://api.deliverect.com
+    description: Deliverect Commerce API — Baskets business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: commerce-account-id-baskets-recreate
+      path: /commerce/{accountId}/baskets/recreate
+      operations:
+      - name: post_commerce_accountid_baskets_recreate
+        method: POST
+        description: Deliverect Recreate Basket
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets
+      path: /commerce/{accountId}/baskets
+      operations:
+      - name: commerce_channel_api_baskets_create_basket
+        method: POST
+        description: Deliverect Create Basket
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets-basket-id
+      path: /commerce/{accountId}/baskets/{basketId}
+      operations:
+      - name: commerce_channel_api_baskets_get_basket
+        method: GET
+        description: Deliverect Get Basket
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: basketId
+          in: path
+          type: string
+          required: true
+          description: The basketId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets-basket-id-validate
+      path: /commerce/{accountId}/baskets/{basketId}/validate
+      operations:
+      - name: post_commerce_accountid_baskets_basketid_validate
+        method: POST
+        description: Deliverect Post_commerce_accountid_baskets_basketid_validate
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: basketId
+          in: path
+          type: string
+          required: true
+          description: The basketId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets-basket-id-items
+      path: /commerce/{accountId}/baskets/{basketId}/items
+      operations:
+      - name: commerce_channel_api_baskets_update_basket_items
+        method: PATCH
+        description: Deliverect Update Basket - Item(s)
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: basketId
+          in: path
+          type: string
+          required: true
+          description: The basketId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets-basket-id-customer
+      path: /commerce/{accountId}/baskets/{basketId}/customer
+      operations:
+      - name: commerce_channel_api_baskets_update_basket_customer
+        method: PATCH
+        description: Deliverect Update Basket - Customer
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: basketId
+          in: path
+          type: string
+          required: true
+          description: The basketId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets-basket-id-discounts
+      path: /commerce/{accountId}/baskets/{basketId}/discounts
+      operations:
+      - name: commerce_channel_api_baskets_update_basket_discounts
+        method: PATCH
+        description: Deliverect Update Basket - Discount(s)
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: basketId
+          in: path
+          type: string
+          required: true
+          description: The basketId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets-basket-id-payment
+      path: /commerce/{accountId}/baskets/{basketId}/payment
+      operations:
+      - name: patch_commerce_accountid_baskets_basketid_payment
+        method: PATCH
+        description: Deliverect Patch_commerce_accountid_baskets_basketid_payment
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: basketId
+          in: path
+          type: string
+          required: true
+          description: The basketId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-baskets-basket-id-store
+      path: /commerce/{accountId}/baskets/{basketId}/store
+      operations:
+      - name: patch_commerce_accountid_baskets_basketid_store
+        method: PATCH
+        description: Deliverect Update Basket - Store
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: basketId
+          in: path
+          type: string
+          required: true
+          description: The basketId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: commerce-api-baskets-rest
+    port: 8080
+    description: REST adapter for Deliverect Commerce API — Baskets. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/commerce/{account-id}/baskets/recreate
+      name: commerce-account-id-baskets-recreate
+      description: REST surface for commerce-account-id-baskets-recreate.
+      operations:
+      - method: POST
+        name: post_commerce_accountid_baskets_recreate
+        description: Deliverect Recreate Basket
+        call: commerce-api-baskets.post_commerce_accountid_baskets_recreate
+        with:
+          accountId: rest.accountId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets
+      name: commerce-account-id-baskets
+      description: REST surface for commerce-account-id-baskets.
+      operations:
+      - method: POST
+        name: commerce_channel_api_baskets_create_basket
+        description: Deliverect Create Basket
+        call: commerce-api-baskets.commerce_channel_api_baskets_create_basket
+        with:
+          accountId: rest.accountId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets/{basket-id}
+      name: commerce-account-id-baskets-basket-id
+      description: REST surface for commerce-account-id-baskets-basket-id.
+      operations:
+      - method: GET
+        name: commerce_channel_api_baskets_get_basket
+        description: Deliverect Get Basket
+        call: commerce-api-baskets.commerce_channel_api_baskets_get_basket
+        with:
+          accountId: rest.accountId
+          basketId: rest.basketId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets/{basket-id}/validate
+      name: commerce-account-id-baskets-basket-id-validate
+      description: REST surface for commerce-account-id-baskets-basket-id-validate.
+      operations:
+      - method: POST
+        name: post_commerce_accountid_baskets_basketid_validate
+        description: Deliverect Post_commerce_accountid_baskets_basketid_validate
+        call: commerce-api-baskets.post_commerce_accountid_baskets_basketid_validate
+        with:
+          accountId: rest.accountId
+          basketId: rest.basketId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets/{basket-id}/items
+      name: commerce-account-id-baskets-basket-id-items
+      description: REST surface for commerce-account-id-baskets-basket-id-items.
+      operations:
+      - method: PATCH
+        name: commerce_channel_api_baskets_update_basket_items
+        description: Deliverect Update Basket - Item(s)
+        call: commerce-api-baskets.commerce_channel_api_baskets_update_basket_items
+        with:
+          accountId: rest.accountId
+          basketId: rest.basketId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets/{basket-id}/customer
+      name: commerce-account-id-baskets-basket-id-customer
+      description: REST surface for commerce-account-id-baskets-basket-id-customer.
+      operations:
+      - method: PATCH
+        name: commerce_channel_api_baskets_update_basket_customer
+        description: Deliverect Update Basket - Customer
+        call: commerce-api-baskets.commerce_channel_api_baskets_update_basket_customer
+        with:
+          accountId: rest.accountId
+          basketId: rest.basketId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets/{basket-id}/discounts
+      name: commerce-account-id-baskets-basket-id-discounts
+      description: REST surface for commerce-account-id-baskets-basket-id-discounts.
+      operations:
+      - method: PATCH
+        name: commerce_channel_api_baskets_update_basket_discounts
+        description: Deliverect Update Basket - Discount(s)
+        call: commerce-api-baskets.commerce_channel_api_baskets_update_basket_discounts
+        with:
+          accountId: rest.accountId
+          basketId: rest.basketId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets/{basket-id}/payment
+      name: commerce-account-id-baskets-basket-id-payment
+      description: REST surface for commerce-account-id-baskets-basket-id-payment.
+      operations:
+      - method: PATCH
+        name: patch_commerce_accountid_baskets_basketid_payment
+        description: Deliverect Patch_commerce_accountid_baskets_basketid_payment
+        call: commerce-api-baskets.patch_commerce_accountid_baskets_basketid_payment
+        with:
+          accountId: rest.accountId
+          basketId: rest.basketId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/baskets/{basket-id}/store
+      name: commerce-account-id-baskets-basket-id-store
+      description: REST surface for commerce-account-id-baskets-basket-id-store.
+      operations:
+      - method: PATCH
+        name: patch_commerce_accountid_baskets_basketid_store
+        description: Deliverect Update Basket - Store
+        call: commerce-api-baskets.patch_commerce_accountid_baskets_basketid_store
+        with:
+          accountId: rest.accountId
+          basketId: rest.basketId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: commerce-api-baskets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Commerce API — Baskets. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: recreate-basket
+      description: Deliverect Recreate Basket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: commerce-api-baskets.post_commerce_accountid_baskets_recreate
+      with:
+        accountId: tools.accountId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-basket
+      description: Deliverect Create Basket
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: commerce-api-baskets.commerce_channel_api_baskets_create_basket
+      with:
+        accountId: tools.accountId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-basket
+      description: Deliverect Get Basket
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: commerce-api-baskets.commerce_channel_api_baskets_get_basket
+      with:
+        accountId: tools.accountId
+        basketId: tools.basketId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: post-commerce-accountid-baskets-basketid
+      description: Deliverect Post_commerce_accountid_baskets_basketid_validate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: commerce-api-baskets.post_commerce_accountid_baskets_basketid_validate
+      with:
+        accountId: tools.accountId
+        basketId: tools.basketId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-basket-item-s
+      description: Deliverect Update Basket - Item(s)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: commerce-api-baskets.commerce_channel_api_baskets_update_basket_items
+      with:
+        accountId: tools.accountId
+        basketId: tools.basketId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-basket-customer
+      description: Deliverect Update Basket - Customer
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: commerce-api-baskets.commerce_channel_api_baskets_update_basket_customer
+      with:
+        accountId: tools.accountId
+        basketId: tools.basketId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-basket-discount-s
+      description: Deliverect Update Basket - Discount(s)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: commerce-api-baskets.commerce_channel_api_baskets_update_basket_discounts
+      with:
+        accountId: tools.accountId
+        basketId: tools.basketId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: patch-commerce-accountid-baskets-basketid
+      description: Deliverect Patch_commerce_accountid_baskets_basketid_payment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: commerce-api-baskets.patch_commerce_accountid_baskets_basketid_payment
+      with:
+        accountId: tools.accountId
+        basketId: tools.basketId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-basket-store
+      description: Deliverect Update Basket - Store
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: commerce-api-baskets.patch_commerce_accountid_baskets_basketid_store
+      with:
+        accountId: tools.accountId
+        basketId: tools.basketId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,2102 @@
+openapi: 3.1.0
+info:
+  title: Deliverect CRM API
+  description: Manage customer profiles, identify customers by email, update delivery addresses, vehicles, and favorites, and retrieve order history and favorite orders for personalized ordering. Authenticates
+    with OAuth 2.0 machine-to-machine access tokens.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Customers
+  description: Customers operations for the Deliverect CRM API.
+- name: Orders
+  description: Orders operations for the Deliverect CRM API.
+paths:
+  /crm/{accountId}/customers:
+    post:
+      description: Endpoint used to register a new customer
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    externalId: 62********************1o
+                    loyaltyProviderId: VjaG***0cm9
+                    deliveryAddresses:
+                    - street: Main Street
+                      subpremise: Unit 210
+                      area: Irvine Business Complex
+                      city: Irvine
+                      postalCode: '92614'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************6y
+                      default: true
+                    - street: 5678 Ocean View Drive
+                      subpremise: Apt 5B
+                      area: Pacific Beach
+                      city: San Diego
+                      postalCode: '92109'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************8p
+                      default: false
+                    billingAddress:
+                      street: 9480 Talbert and Bushard Street
+                      subpremise: Suite 12
+                      area: Downtown Fountain Valley
+                      city: Fountain Valley
+                      postalCode: '92708'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                    metadata: {}
+                    vehicles:
+                    - id: 62********************3b
+                      make: honda
+                      model: civic
+                      color: yellow
+                      default: true
+                    - id: 62********************7h
+                      make: toyota
+                      model: corolla
+                      color: blue
+                      default: false
+                    id: 62********************1m
+                    accountId: 62********************8g
+                    channel: 10000
+                    created: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    updated: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    contact:
+                      email: email@email.com
+                      firstName: John
+                      lastName: Doe
+                      birthdate: '1970-01-01'
+                      phone: '+5519999999999'
+                      fullName: John Doe
+                    favorites:
+                    - type: order
+                      orderId: 62********************9v
+                      label: My favorite order
+                    - type: order
+                      orderId: 62********************3d
+                      label: My 2nd favorite order
+                    - type: item
+                      item: '123'
+                    - type: item
+                      item: ABC
+                    - type: store
+                      storeId: 62********************0s
+                    - type: store
+                      storeId: 62********************7m
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '{id}'
+                  accountId:
+                    type: string
+                    example: '{accountId}'
+                  externalId:
+                    type: string
+                    example: '{externalId}'
+                  channel:
+                    type: string
+                    example: '{channel}'
+                  created:
+                    type: string
+                    example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  updated:
+                    type: string
+                    example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  contact:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: '{email}'
+                      firstName:
+                        type: string
+                        example: '{firstName}'
+                      lastName:
+                        type: string
+                        example: '{lastName}'
+                      phone:
+                        type: string
+                        example: '{phone}'
+                      fullName:
+                        type: string
+                        example: '{fullName}'
+                  deliveryAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  billingAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  metadata:
+                    type: object
+                    properties:
+                      vehicle:
+                        type: object
+                        properties:
+                          make:
+                            type: string
+                            example: '{vehicleMake}'
+                          model:
+                            type: string
+                            example: '{vehicleModel}'
+                          color:
+                            type: string
+                            example: '{vehicleColor}'
+                  favorites:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: order
+                        orderIds:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+      parameters:
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contact:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                      example: customer@example.com
+                    firstName:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    lastName:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    birthdate:
+                      type: string
+                      example: '2026-03-15T14:30:00Z'
+                    phone:
+                      type: string
+                      example: '+15555550123'
+                  required:
+                  - email
+                externalId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                loyaltyProviderId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                deliveryAddresses:
+                  type: array
+                  items:
+                    properties:
+                      street:
+                        type: string
+                        example: string
+                      subpremise:
+                        type: string
+                        example: string
+                      city:
+                        type: string
+                        example: string
+                      stateOrProvince:
+                        type: string
+                        example: string
+                      postalCode:
+                        type: string
+                        example: string
+                      country:
+                        type: string
+                        example: BE
+                      default:
+                        type: boolean
+                        example: true
+                      area:
+                        type: string
+                        example: string
+                      coordinates:
+                        type: array
+                        items:
+                          type: number
+                          format: float
+                          example: 1.0
+                    type: object
+                billingAddress:
+                  type: object
+                  properties:
+                    street:
+                      type: string
+                      example: string
+                    subpremise:
+                      type: string
+                      example: string
+                    city:
+                      type: string
+                      example: string
+                    stateOrProvince:
+                      type: string
+                      example: string
+                    postalCode:
+                      type: string
+                      example: string
+                    country:
+                      type: string
+                      example: BE
+                    area:
+                      type: string
+                      example: string
+                    coordinates:
+                      type: array
+                      items:
+                        type: number
+                        format: float
+                        example: 1.0
+                metadata:
+                  type: object
+                  properties: {}
+                vehicles:
+                  type: array
+                  items:
+                    properties:
+                      make:
+                        type: string
+                        example: string
+                      model:
+                        type: string
+                        example: string
+                      color:
+                        type: string
+                        example: string
+                      default:
+                        type: boolean
+                        example: true
+                    type: object
+              required:
+              - contact
+            examples:
+              Example:
+                summary: Example
+                value:
+                  email: email@email.com
+      tags:
+      - Customers
+      summary: Deliverect Create Customer
+      operationId: post_crm_accountid_customers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/customers/lookup:
+    post:
+      description: Deliverect Lookup Customer by Email
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    externalId: 62********************1o
+                    loyaltyProviderId: VjaG***0cm9
+                    deliveryAddresses:
+                    - street: Main Street
+                      subpremise: Unit 210
+                      area: Irvine Business Complex
+                      city: Irvine
+                      postalCode: '92614'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************6y
+                      default: true
+                    - street: 5678 Ocean View Drive
+                      subpremise: Apt 5B
+                      area: Pacific Beach
+                      city: San Diego
+                      postalCode: '92109'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************8p
+                      default: false
+                    billingAddress:
+                      street: 9480 Talbert and Bushard Street
+                      subpremise: Suite 12
+                      area: Downtown Fountain Valley
+                      city: Fountain Valley
+                      postalCode: '92708'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                    metadata: {}
+                    vehicles:
+                    - id: 62********************3b
+                      make: honda
+                      model: civic
+                      color: yellow
+                      default: true
+                    - id: 62********************7h
+                      make: toyota
+                      model: corolla
+                      color: blue
+                      default: false
+                    id: 62********************1m
+                    accountId: 62********************8g
+                    channel: 10000
+                    created: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    updated: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    contact:
+                      email: email@email.com
+                      firstName: John
+                      lastName: Doe
+                      birthdate: '1970-01-01'
+                      phone: '+5519999999999'
+                      fullName: John Doe
+                    favorites:
+                    - type: order
+                      orderId: 62********************9v
+                      label: My favorite order
+                    - type: order
+                      orderId: 62********************3d
+                      label: My 2nd favorite order
+                    - type: item
+                      item: '123'
+                    - type: item
+                      item: ABC
+                    - type: store
+                      storeId: 62********************0s
+                    - type: store
+                      storeId: 62********************7m
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '{id}'
+                  accountId:
+                    type: string
+                    example: '{accountId}'
+                  externalId:
+                    type: string
+                    example: '{externalId}'
+                  channel:
+                    type: string
+                    example: '{channel}'
+                  created:
+                    type: string
+                    example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  updated:
+                    type: string
+                    example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  contact:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: '{email}'
+                      firstName:
+                        type: string
+                        example: '{firstName}'
+                      lastName:
+                        type: string
+                        example: '{lastName}'
+                      phone:
+                        type: string
+                        example: '{phone}'
+                      fullName:
+                        type: string
+                        example: '{fullName}'
+                  deliveryAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  billingAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  metadata:
+                    type: object
+                    properties:
+                      vehicle:
+                        type: object
+                        properties:
+                          make:
+                            type: string
+                            example: '{vehicleMake}'
+                          model:
+                            type: string
+                            example: '{vehicleModel}'
+                          color:
+                            type: string
+                            example: '{vehicleColor}'
+                  favorites:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: order
+                        orderIds:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+      parameters:
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: customer@example.com
+              required:
+              - email
+            examples:
+              Example:
+                summary: Example
+                value:
+                  email: email@email.com
+      tags:
+      - Customers
+      summary: Deliverect Lookup Customer by Email
+      operationId: post_crm_accountid_customers_lookup
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/customers/{crmProfileId}:
+    get:
+      description: Deliverect Customer Profile
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    externalId: f965248c-3a00
+                    loyaltyProviderId: VjaG***0cm9
+                    deliveryAddresses:
+                    - street: Main Street
+                      subpremise: Unit 210
+                      area: Irvine Business Complex
+                      city: Irvine
+                      postalCode: '92614'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 33.674
+                      - -117.838
+                      id: 61********************b1
+                      default: true
+                    - street: 5678 Ocean View Drive
+                      subpremise: Apt 5B
+                      area: Pacific Beach
+                      city: San Diego
+                      postalCode: '92109'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 32.8
+                      - -117.25
+                      id: 61********************b2
+                      default: false
+                    billingAddress:
+                      street: 9480 Talbert and Bushard Street
+                      subpremise: Suite 12
+                      area: Downtown Fountain Valley
+                      city: Fountain Valley
+                      postalCode: '92708'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 33.709
+                      - -117.953
+                    metadata: {}
+                    vehicles:
+                    - id: 61********************b3
+                      make: honda
+                      model: civic
+                      color: yellow
+                      default: true
+                    - id: 61********************b2
+                      make: toyota
+                      model: corolla
+                      color: blue
+                      default: false
+                    id: 62********************7c
+                    accountId: 62********************3c
+                    channel: 10000
+                    created: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    updated: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    contact:
+                      email: email@email.com
+                      firstName: John
+                      lastName: Doe
+                      phone: '+14048091678'
+                      birthdate: '1970-01-01T00:00:00Z'
+                      fullName: John Doe
+                    favorites: []
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '{id}'
+                  accountId:
+                    type: string
+                    example: '{accountId}'
+                  externalId:
+                    type: string
+                    example: '{externalId}'
+                  channel:
+                    type: string
+                    example: '{channel}'
+                  created:
+                    type: string
+                    example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  updated:
+                    type: string
+                    example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  contact:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: '{email}'
+                      firstName:
+                        type: string
+                        example: '{firstName}'
+                      lastName:
+                        type: string
+                        example: '{lastName}'
+                      phone:
+                        type: string
+                        example: '{phone}'
+                      fullName:
+                        type: string
+                        example: '{fullName}'
+                  deliveryAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  billingAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  metadata:
+                    type: object
+                    properties:
+                      vehicle:
+                        type: object
+                        properties:
+                          make:
+                            type: string
+                            example: '{vehicleMake}'
+                          model:
+                            type: string
+                            example: '{vehicleModel}'
+                          color:
+                            type: string
+                            example: '{vehicleColor}'
+                  favorites:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: order
+                        orderIds:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+      parameters:
+      - in: path
+        name: crmProfileId
+        schema:
+          type: string
+        required: true
+        description: The crmProfileId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      tags:
+      - Customers
+      summary: Deliverect Customer Profile
+      operationId: get_crm_accountid_customers_crmprofileid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      description: Deliverect Update Customer Profile
+      parameters:
+      - in: path
+        name: crmProfileId
+        schema:
+          type: string
+        required: true
+        description: The crmProfileId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contact:
+                  type: object
+                  properties:
+                    email:
+                      type: string
+                      example: customer@example.com
+                    firstName:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    lastName:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    birthdate:
+                      type: string
+                      example: '2026-03-15T14:30:00Z'
+                    phone:
+                      type: string
+                      example: '+15555550123'
+                externalId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                loyaltyProviderId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                deliveryAddresses:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      street:
+                        type: string
+                        example: string
+                      subpremise:
+                        type: string
+                        example: string
+                      city:
+                        type: string
+                        example: string
+                      stateOrProvince:
+                        type: string
+                        example: string
+                      postalCode:
+                        type: string
+                        example: string
+                      country:
+                        type: string
+                        example: BE
+                      default:
+                        type: boolean
+                        example: true
+                      area:
+                        type: string
+                        example: string
+                      coordinates:
+                        type: string
+                        example: string
+                billingAddress:
+                  type: object
+                  properties:
+                    street:
+                      type: string
+                      example: string
+                    subpremise:
+                      type: string
+                      example: string
+                    city:
+                      type: string
+                      example: string
+                    stateOrProvince:
+                      type: string
+                      example: string
+                    postalCode:
+                      type: string
+                      example: string
+                    country:
+                      type: string
+                      example: BE
+                    area:
+                      type: string
+                      example: string
+                    coordinates:
+                      type: string
+                      example: string
+                metadata:
+                  type: object
+                  properties: {}
+                vehicles:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      make:
+                        type: string
+                        example: string
+                      model:
+                        type: string
+                        example: string
+                      color:
+                        type: string
+                        example: string
+                      default:
+                        type: boolean
+                        example: true
+            examples:
+              Example:
+                summary: Example
+                value:
+                  externalId: 62********************1o
+                  loyaltyProviderId: VjaGFuZ0B0cm9
+                  deliveryAddresses:
+                  - street: Main Street
+                    subPremise: Unit 210
+                    area: Irvine Business Complex
+                    city: Irvine
+                    stateOrProvince: CA
+                    postalCode: '92614'
+                    country: US
+                    coordinates:
+                    - 40.6456946
+                    - -73.9143276
+                    default: true
+                  - street: 5678 Ocean View Drive
+                    subPremise: Apt 5B
+                    area: Pacific Beach
+                    city: San Diego
+                    stateOrProvince: CA
+                    postalCode: '92109'
+                    country: US
+                    coordinates:
+                    - 40.6456946
+                    - -73.9143276
+                    default: false
+                  billingAddress:
+                    street: 9480 Talbert and Bushard Street
+                    subPremise: Suite 12
+                    area: Downtown Fountain Valley
+                    city: Fountain Valley
+                    stateOrProvince: CA
+                    postalCode: '92708'
+                    country: US
+                    coordinates:
+                    - 40.6456946
+                    - -73.9143276
+                  metadata: {}
+                  vehicles:
+                  - make: Honda
+                    model: Civic
+                    color: Yellow
+                    default: true
+                  - make: Toyota
+                    model: Corolla
+                    color: Blue
+                    default: false
+                  contact:
+                    email: email@email.com
+                    firstName: John
+                    lastName: Doe
+                    birthdate: '1970-01-01'
+                    phone: '+14048555666'
+                  favorites:
+                  - type: order
+                    orderId: 62********************3x
+                    label: My favorite order
+                  - type: order
+                    orderId: 62********************3y
+                    label: My 2nd favorite order
+                  - type: item
+                    item: '1234'
+                  - type: item
+                    item: ABC
+                  - type: store
+                    storeId: 62********************2e
+                  - type: store
+                    storeId: 62********************2f
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    externalId: 62********************1o
+                    loyaltyProviderId: VjaGFuZ0B0cm9
+                    deliveryAddresses:
+                    - street: Main Street
+                      subpremise: Unit 210
+                      area: Irvine Business Complex
+                      city: Irvine
+                      postalCode: '92614'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************6a
+                      default: true
+                    - street: 5678 Ocean View Drive
+                      subpremise: Suite 12
+                      area: Pacific Beach
+                      city: San Diego
+                      postalCode: '92109'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************6w
+                      default: false
+                    billingAddress:
+                      subpremise: null
+                      street: 9480 Talbert and Bushard Street
+                      area: Downtown Fountain Valley
+                      city: Fountain Valley
+                      postalCode: '92708'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                    metadata: {}
+                    vehicles:
+                    - id: 62********************6z
+                      make: honda
+                      model: civic
+                      color: yellow
+                      default: true
+                    - id: 62********************6b
+                      make: toyota
+                      model: corolla
+                      color: blue
+                      default: false
+                    id: 62********************6m
+                    accountId: 62********************6e
+                    channel: 10000
+                    created: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    updated: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    contact:
+                      email: email@email.com
+                      firstName: John
+                      lastName: Doe
+                      phone: '+14048888666'
+                      birthdate: '1970-01-01T00:00:00'
+                      fullName: John Doe
+                    favorites:
+                    - type: order
+                      orderId: 62********************3x
+                      label: My favorite order
+                    - type: order
+                      orderId: 62********************3y
+                      label: My 2nd favorite order
+                    - type: item
+                      item: '1234'
+                    - type: item
+                      item: ABC
+                    - type: store
+                      storeId: 62********************2e
+                    - type: store
+                      storeId: 62********************2f
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '{id}'
+                  accountId:
+                    type: string
+                    example: '{accountId}'
+                  channel:
+                    type: string
+                    example: '{channel}'
+                  created:
+                    type: string
+                    example: '{created}'
+                  updated:
+                    type: string
+                    example: '{updated}'
+                  contact:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: '{crmEmail}'
+                      firstName:
+                        type: string
+                        example: '{crmFirstName}'
+                      lastName:
+                        type: string
+                        example: '{crmLastName}'
+                      fullName:
+                        type: string
+                        example: '{crmFullName}'
+                        description: This is set by CRM as concatenation of firstName and lastName
+                      phone:
+                        type: string
+                        example: '{crmPhone}'
+                      birthdate:
+                        type: string
+                        example: '{crmProfileBirthDate}'
+                  externalId:
+                    type: string
+                    example: '{externalId}'
+                  loyaltyProviderId:
+                    type: string
+                    example: '{loyaltyProviderId}'
+                  deliveryAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                      default:
+                        type: boolean
+                        example: true
+                      id:
+                        type: string
+                        description: unique identifier of address in CRM
+                        example: 609a1b2c3d4e5f6a7b8c9d0e
+                  billingAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      street:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                      subpremise:
+                        type: string
+                        example: string
+                      area:
+                        type: string
+                        example: string
+                      coordinates:
+                        type: array
+                        items:
+                          type: number
+                          example: 1.0
+                  metadata:
+                    type: object
+                    properties: {}
+                  favorites:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: order
+                        orderIds:
+                          type: array
+                          items:
+                            type: string
+                            example: '{orderId}'
+                  vehicles:
+                    type: array
+                    items:
+                      properties:
+                        id:
+                          type: string
+                          example: 609a1b2c3d4e5f6a7b8c9d0e
+                        make:
+                          type: string
+                          example: string
+                        model:
+                          type: string
+                          example: string
+                        color:
+                          type: string
+                          example: string
+                        default:
+                          type: boolean
+                          example: true
+                      type: object
+      tags:
+      - Customers
+      summary: Deliverect Update Customer Profile
+      operationId: patch_crm_accountid_customers_crmprofileid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/customers/{crmProfileId}/deliveryAddresses:
+    patch:
+      description: Update the addresses stored on a customer's profile
+      parameters:
+      - in: path
+        name: crmProfileId
+        schema:
+          type: string
+        required: true
+        description: The crmProfileId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  country:
+                    type: string
+                    example: BE
+                  stateOrProvince:
+                    type: string
+                    example: string
+                  street:
+                    type: string
+                    example: string
+                  postalCode:
+                    type: string
+                    example: string
+                  subpremise:
+                    type: string
+                    example: string
+                  area:
+                    type: string
+                    example: string
+                  coordinates:
+                    type: array
+                    items:
+                      type: number
+                      format: float
+                      example: 1.0
+                  default:
+                    type: boolean
+                    example: true
+                  city:
+                    type: string
+                    example: string
+            examples:
+              Addresses Example:
+                summary: Addresses Example
+                value:
+                - country: US
+                  stateOrProvince: NY
+                  city: Brooklyn
+                  street: 8719 Avenue D
+                  subPremise: ''
+                  area: ''
+                  postalCode: '11236'
+                  coordinates:
+                  - 40.6456946
+                  - -73.9143276
+                  default: true
+                - street: 5678 Ocean View Drive
+                  subPremise: Apt 5B
+                  area: Pacific Beach
+                  city: San Diego
+                  stateOrProvince: CA
+                  postalCode: '92109'
+                  country: US
+                  coordinates:
+                  - 40.6456946
+                  - -73.9143276
+                  default: false
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    externalId: 62********************1o
+                    loyaltyProviderId: VjaGFuZ0B0cm9
+                    deliveryAddresses:
+                    - street: 8719 Avenue D
+                      subpremise: Unit 210
+                      area: ''
+                      city: Brooklyn
+                      postalCode: '11236'
+                      stateOrProvince: NY
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************6y
+                      default: true
+                    - street: 5678 Ocean View Drive
+                      subpremise: Apt 5B
+                      area: Pacific Beach
+                      city: San Diego
+                      postalCode: '92109'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************8p
+                      default: false
+                    billingAddress:
+                      street: 9480 Talbert and Bushard Street
+                      subpremise: Suite 12
+                      area: Downtown Fountain Valley
+                      city: Fountain Valley
+                      postalCode: '92708'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                    metadata: {}
+                    vehicles:
+                    - id: 62********************8s
+                      make: honda
+                      model: civic
+                      color: yellow
+                      default: true
+                    - id: 62********************84
+                      make: toyota
+                      model: corolla
+                      color: blue
+                      default: false
+                    id: 62********************6y
+                    accountId: 62********************5n
+                    channel: 10000
+                    created: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    updated: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    contact:
+                      email: email@email.com
+                      firstName: John
+                      lastName: Doe
+                      phone: '+14048555666'
+                      birthdate: '1970-01-01T00:00:00Z'
+                      fullName: Eugene Chang
+                    favorites:
+                    - type: order
+                      orderId: 69d936f77da4b464d9e1b1ac
+                      label: My favorite order
+                    - type: order
+                      orderId: 62********************2h
+                      label: My 2nd favorite order
+                    - type: item
+                      item: '655298781'
+                    - type: item
+                      item: '654133498'
+                    - type: store
+                      storeId: 62********************8m
+                    - type: store
+                      storeId: 62********************5v
+      tags:
+      - Customers
+      summary: Deliverect Update Customer Delivery Addresses
+      operationId: patch_crm_accountid_customers_crmprofileid_deliveryaddresses
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/customers/{crmProfileId}/vehicles:
+    patch:
+      description: Update the addresses stored on a customer's profile
+      parameters:
+      - in: path
+        name: crmProfileId
+        schema:
+          type: string
+        required: true
+        description: The crmProfileId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  make:
+                    type: string
+                    example: string
+                  model:
+                    type: string
+                    example: string
+                  color:
+                    type: string
+                    example: string
+                  default:
+                    type: boolean
+                    example: true
+            examples:
+              Vehicle Example:
+                summary: Vehicle Example
+                value:
+                - make: Volkswagen
+                  model: Beetle
+                  color: Yellow
+                  default: true
+                - make: Audi
+                  model: TT
+                  color: Black
+                  default: false
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    externalId: f965248c-3a00
+                    loyaltyProviderId: VjaG***0cm9
+                    deliveryAddresses:
+                    - street: Main Street
+                      subpremise: Unit 210
+                      area: Irvine Business Complex
+                      city: Irvine
+                      postalCode: '92614'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 33.674
+                      - -117.838
+                      id: 61********************b1
+                      default: true
+                    - street: 5678 Ocean View Drive
+                      subpremise: Apt 5B
+                      area: Pacific Beach
+                      city: San Diego
+                      postalCode: '92109'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 32.8
+                      - -117.25
+                      id: 61********************b2
+                      default: false
+                    billingAddress:
+                      street: 9480 Talbert and Bushard Street
+                      subpremise: Suite 12
+                      area: Downtown Fountain Valley
+                      city: Fountain Valley
+                      postalCode: '92708'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 33.709
+                      - -117.953
+                    metadata: {}
+                    vehicles:
+                    - id: 62********************5m
+                      make: volkswagen
+                      model: beetle
+                      color: yellow
+                      default: true
+                    - id: 62********************6t
+                      make: audi
+                      model: tt
+                      color: black
+                      default: false
+                    id: 62********************7c
+                    accountId: 62********************3c
+                    channel: 10000
+                    created: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    updated: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    contact:
+                      email: email@email.com
+                      firstName: John
+                      lastName: Doe
+                      phone: '+14048091678'
+                      birthdate: '1970-01-01T00:00:00Z'
+                      fullName: John Doe
+                    favorites: []
+      tags:
+      - Customers
+      summary: Deliverect Update Customer Vehicles
+      operationId: patch_crm_accountid_customers_crmprofileid_vehicles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/customers/{crmProfileId}/favorites:
+    patch:
+      description: Update a customer's favorites
+      parameters:
+      - in: path
+        name: crmProfileId
+        schema:
+          type: string
+        required: true
+        description: The crmProfileId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    externalId: 62********************1o
+                    loyaltyProviderId: VjaGFuZ0B0cm9
+                    deliveryAddresses:
+                    - street: Main Street
+                      subpremise: Unit 210
+                      area: Irvine Business Complex
+                      city: Irvine
+                      postalCode: '92614'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************6a
+                      default: true
+                    - street: 5678 Ocean View Drive
+                      subpremise: Suite 12
+                      area: Pacific Beach
+                      city: San Diego
+                      postalCode: '92109'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                      id: 62********************6w
+                      default: false
+                    billingAddress:
+                      subpremise: null
+                      street: 9480 Talbert and Bushard Street
+                      area: Downtown Fountain Valley
+                      city: Fountain Valley
+                      postalCode: '92708'
+                      stateOrProvince: CA
+                      country: US
+                      coordinates:
+                      - 40.6456946
+                      - -73.9143276
+                    metadata: {}
+                    vehicles:
+                    - id: 62********************6z
+                      make: honda
+                      model: civic
+                      color: yellow
+                      default: true
+                    - id: 62********************6b
+                      make: toyota
+                      model: corolla
+                      color: blue
+                      default: false
+                    id: 62********************6m
+                    accountId: 62********************6e
+                    channel: 19066
+                    created: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    updated: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    contact:
+                      email: email@email.com
+                      firstName: John
+                      lastName: Doe
+                      phone: '+14048888666'
+                      birthdate: '1970-01-01T00:00:00'
+                      fullName: John Doe
+                    favorites:
+                    - type: order
+                      orderId: 62********************3x
+                      label: My favorite order
+                    - type: order
+                      orderId: 62********************3y
+                      label: My 2nd favorite order
+                    - type: item
+                      item: '1234'
+                    - type: item
+                      item: ABC
+                    - type: store
+                      storeId: 62********************2e
+                    - type: store
+                      storeId: 62********************2f
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: '{id}'
+                  accountId:
+                    type: string
+                    example: '{accountId}'
+                  channel:
+                    type: string
+                    example: '{channel}'
+                  created:
+                    type: string
+                    example: '{created}'
+                  updated:
+                    type: string
+                    example: '{updated}'
+                  contact:
+                    type: object
+                    properties:
+                      email:
+                        type: string
+                        example: '{crmEmail}'
+                      firstName:
+                        type: string
+                        example: '{crmFirstName}'
+                      lastName:
+                        type: string
+                        example: '{crmLastName}'
+                      fullName:
+                        type: string
+                        example: '{crmFullName}'
+                      phone:
+                        type: string
+                        example: '{crmPhone}'
+                      birthdate:
+                        type: string
+                        example: '{crmProfileBirthDate}'
+                  externalId:
+                    type: string
+                    example: '{externalId}'
+                  loyaltyProviderId:
+                    type: string
+                    example: '{loyaltyProviderId}'
+                  deliveryAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  billingAddress:
+                    type: object
+                    properties:
+                      country:
+                        type: string
+                        example: '{countryCode}'
+                      stateOrProvince:
+                        type: string
+                        example: '{stateOrProvince}'
+                      city:
+                        type: string
+                        example: '{city}'
+                      streetName:
+                        type: string
+                        example: '{streetName}'
+                      postalCode:
+                        type: string
+                        example: '{postalCode}'
+                      houseNumber:
+                        type: string
+                        example: '{houseNumber}'
+                  metadata:
+                    type: object
+                    properties:
+                      vehicle:
+                        type: object
+                        properties:
+                          make:
+                            type: string
+                            example: '{vehicleMake}'
+                          model:
+                            type: string
+                            example: '{vehicleModel}'
+                          color:
+                            type: string
+                            example: '{vehicleColor}'
+                  favorites:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: order
+                        orderIds:
+                          type: array
+                          items:
+                            type: string
+                            example: '{orderId}'
+      tags:
+      - Customers
+      summary: Deliverect Update Customer Favorites
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - item
+                    - order
+                    - store
+                    example: item
+                  orderId/item/storeId:
+                    type: string
+                    example: 609a1b2c3d4e5f6a7b8c9d0e
+                  label:
+                    type: string
+                    example: string
+                required:
+                - orderId/item/storeId
+                - type
+            examples:
+              Customer Example:
+                summary: Customer Example
+                value:
+                - type: order
+                  orderId: 78********************45
+                  label: My favorite order
+                - type: item
+                  item: PLU-1
+                - type: order
+                  orderId: 88********************47
+                - type: store
+                  storeId: 65********************88
+      operationId: patch_crm_accountid_customers_crmprofileid_favorites
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/customers/{crmProfileId}/orders:
+    get:
+      description: Deliverect Customer Order History
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    total: 6
+                    page: 1
+                    size: 50
+                    items:
+                    - id: 68f******************f2f
+                      crmProfileId: 68f******************24b
+                      orderId: 68f******************c86
+                      accountId: 68d******************bdd
+                      channel: 20002
+                      payment:
+                        amount:
+                          value: 100
+                          currency: EUR
+                          display: '1.00'
+                      orderDisplayId: 20a2baad-2053-407c-b265-fa21c8a10758
+                      orderDate: '2025-10-24T16:45:14.665000Z'
+                      orderType: 2
+                      itemQuantity: 1
+                      locationId: 68d81e687e6400e6581fc5a9
+                    - id: 68f******************f29
+                      crmProfileId: 68f******************24b
+                      orderId: 68f******************c76
+                      accountId: 68d******************bdd
+                      channel: 20002
+                      payment:
+                        amount:
+                          value: 100
+                          currency: EUR
+                          display: '1.00'
+                      orderDisplayId: 3dd773b1-2844-44f1-b33d-0ebc7c7fe2cf
+                      orderDate: '2025-10-24T16:42:21.527000Z'
+                      orderType: 2
+                      itemQuantity: 1
+                      locationId: 68d81e687e6400e6581fc5a9
+                    - id: 68fbab62640ae0b44384af1e
+                      crmProfileId: 68fb6af9a6e06e236a12824b
+                      orderId: 68fbab62a8a2ab7006c48c56
+                      accountId: 68d81ae5bbd981dd03137bdd
+                      channel: 20002
+                      payment:
+                        amount:
+                          value: 100
+                          currency: EUR
+                          display: '1.00'
+                      orderDisplayId: cbb56e22-a7a4-4d99-b395-c5b01802b60b
+                      orderDate: '2025-10-24T16:37:54.649000Z'
+                      orderType: 2
+                      itemQuantity: 1
+                      locationId: 68d81e687e6400e6581fc5a9
+                    - id: 68fba5ec640ae0b44384af18
+                      crmProfileId: 68fb6af9a6e06e236a12824b
+                      orderId: 68fba5e7a8a2ab7006c48c45
+                      accountId: 68d81ae5bbd981dd03137bdd
+                      channel: 20002
+                      payment:
+                        amount:
+                          value: 100
+                          currency: EUR
+                          display: '1.00'
+                      orderDisplayId: 29348ba1-7e64-42f5-bb9f-da09bf5eb788
+                      orderDate: '2025-10-24T16:14:31.793000Z'
+                      orderType: 2
+                      itemQuantity: 1
+                      locationId: 68d81e687e6400e6581fc5a9
+                    - id: 68fba571640ae0b44384af12
+                      crmProfileId: 68fb6af9a6e06e236a12824b
+                      orderId: 68fba56da8a2ab7006c48c35
+                      accountId: 68d81ae5bbd981dd03137bdd
+                      channel: 20002
+                      payment:
+                        amount:
+                          value: 100
+                          currency: EUR
+                          display: '1.00'
+                      orderDisplayId: 698c81f7-02e6-4c61-a09a-a681827e69d3
+                      orderDate: '2025-10-24T16:12:29.863000Z'
+                      orderType: 2
+                      itemQuantity: 1
+                      locationId: 68d81e687e6400e6581fc5a9
+                    - id: 68fba2d36b1fe97ada379842
+                      crmProfileId: 68fb6af9a6e06e236a12824b
+                      orderId: 68fba2cdb4275fb21083f66a
+                      accountId: 68d81ae5bbd981dd03137bdd
+                      channel: 20002
+                      payment:
+                        amount:
+                          value: 100
+                          currency: EUR
+                          display: '1.00'
+                      orderDisplayId: 389e94bd-67f3-4cd5-8973-8784992657cb
+                      orderDate: '2025-10-24T16:01:16.088000Z'
+                      orderType: 2
+                      itemQuantity: 1
+                      locationId: 68d81e687e6400e6581fc5a9
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    example: 6
+                    default: 0
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  size:
+                    type: integer
+                    example: 50
+                    default: 0
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 68f******************f2f
+                        crmProfileId:
+                          type: string
+                          example: 68f******************24b
+                        orderId:
+                          type: string
+                          example: 68f******************c86
+                        accountId:
+                          type: string
+                          example: 68d******************bdd
+                        channel:
+                          type: integer
+                          example: 20002
+                          default: 0
+                        payment:
+                          type: object
+                          properties:
+                            amount:
+                              type: object
+                              properties:
+                                value:
+                                  type: integer
+                                  example: 100
+                                  default: 0
+                                currency:
+                                  type: string
+                                  example: EUR
+                                display:
+                                  type: string
+                                  example: '1.00'
+                        orderDisplayId:
+                          type: string
+                          example: 20a2baad-2053-407c-b265-fa21c8a10758
+                        orderDate:
+                          type: string
+                          example: '2025-10-24T16:45:14.665000Z'
+                        orderType:
+                          type: integer
+                          example: 2
+                          default: 0
+                        itemQuantity:
+                          type: integer
+                          example: 1
+                          default: 0
+                        locationId:
+                          type: string
+                          example: 68d81e687e6400e6581fc5a9
+      parameters:
+      - in: path
+        name: crmProfileId
+        schema:
+          type: string
+        required: true
+        description: The crmProfileId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      tags:
+      - Orders
+      summary: Deliverect Customer Order History
+      operationId: get_crm_accountid_customers_crmprofileid_orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/orders/{crmOrderId}:
+    get:
+      description: Deliverect CRM Order
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    id: 698**************066
+                    crmProfileId: 698**************4e9
+                    orderId: 698**************e6f
+                    accountId: 68d**************bdd
+                    channel: 20000
+                    payment:
+                      amount:
+                        value: 3100
+                        currency: EUR
+                        display: '31.00'
+                    orderDisplayId: DISPLAY**************156c
+                    orderDate: '2026-02-12T15:23:25.967000Z'
+                    orderType: 3
+                    itemQuantity: 1
+                    locationId: 68d**************5a9
+      parameters:
+      - in: path
+        name: crmOrderId
+        schema:
+          type: string
+        required: true
+        description: The crmOrderId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      summary: Deliverect CRM Order
+      tags:
+      - Orders
+      operationId: get_crm_accountid_orders_crmorderid
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /crm/{accountId}/customers/{crmProfileId}/orders/favorites:
+    get:
+      description: Deliverect Customer Favorite Orders
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    id: 698**************066
+                    crmProfileId: 698**************4e9
+                    orderId: 698**************e6f
+                    accountId: 68d**************bdd
+                    channel: 20000
+                    payment:
+                      amount:
+                        value: 3100
+                        currency: EUR
+                        display: '31.00'
+                    orderDisplayId: DISPLAY**************156c
+                    orderDate: '2026-02-12T15:23:25.967000Z'
+                    orderType: 3
+                    itemQuantity: 1
+                    locationId: 68d**************5a9
+      parameters:
+      - in: path
+        name: crmProfileId
+        schema:
+          type: string
+        required: true
+        description: The crmProfileId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      - in: path
+        name: accountId
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      summary: Deliverect Customer Favorite Orders
+      tags:
+      - Orders
+      operationId: get_crm_accountid_customers_crmprofileid_orders_favorites
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

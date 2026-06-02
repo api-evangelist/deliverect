@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/loyalty-api-loyalty-channel-create-loyalty-customer-structure.json",
+  "name": "LoyaltyChannelCreateLoyaltyCustomer",
+  "description": "Deliverect Create Loyalty Customer",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "example": "customer@example.com",
+      "description": "email of the end customer"
+    },
+    "phoneNumber": {
+      "type": "string",
+      "example": "+15555550123",
+      "description": "phone number of the end customer in E164 format"
+    },
+    "firstName": {
+      "type": "string",
+      "example": "Deliverect's Pizza Place",
+      "description": "first name of the end customer"
+    },
+    "lastName": {
+      "type": "string",
+      "example": "Deliverect's Pizza Place",
+      "description": "last name of the end customer"
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "example": "2026-03-15T14:30:00Z",
+      "description": "date of birth of the end customer in ISO format"
+    }
+  }
+}

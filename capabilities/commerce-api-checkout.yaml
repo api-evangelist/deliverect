@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Commerce API — Checkout
+  description: 'Checkout surface of the Deliverect Commerce API. 2 operations. Lead operation: Checkout Basket. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Commerce
+  - Checkout
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: commerce-api-checkout
+    baseUri: https://api.deliverect.com
+    description: Deliverect Commerce API — Checkout business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: commerce-account-id-v2-checkouts
+      path: /commerce/{accountId}/v2/checkouts
+      operations:
+      - name: post_commerce_accountId_checkouts_1
+        method: POST
+        description: Deliverect Checkout Basket
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: commerce-account-id-v2-checkouts-checkout-id
+      path: /commerce/{accountId}/v2/checkouts/{checkoutId}
+      operations:
+      - name: get_commerce_accountId_checkouts_checkoutId_1
+        method: GET
+        description: Deliverect Get Checkout
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        - name: checkoutId
+          in: path
+          type: string
+          required: true
+          description: The checkoutId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: commerce-api-checkout-rest
+    port: 8080
+    description: REST adapter for Deliverect Commerce API — Checkout. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/commerce/{account-id}/v2/checkouts
+      name: commerce-account-id-v2-checkouts
+      description: REST surface for commerce-account-id-v2-checkouts.
+      operations:
+      - method: POST
+        name: post_commerce_accountId_checkouts_1
+        description: Deliverect Checkout Basket
+        call: commerce-api-checkout.post_commerce_accountId_checkouts_1
+        with:
+          accountId: rest.accountId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/commerce/{account-id}/v2/checkouts/{checkout-id}
+      name: commerce-account-id-v2-checkouts-checkout-id
+      description: REST surface for commerce-account-id-v2-checkouts-checkout-id.
+      operations:
+      - method: GET
+        name: get_commerce_accountId_checkouts_checkoutId_1
+        description: Deliverect Get Checkout
+        call: commerce-api-checkout.get_commerce_accountId_checkouts_checkoutId_1
+        with:
+          accountId: rest.accountId
+          checkoutId: rest.checkoutId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: commerce-api-checkout-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Commerce API — Checkout. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: checkout-basket
+      description: Deliverect Checkout Basket
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: commerce-api-checkout.post_commerce_accountId_checkouts_1
+      with:
+        accountId: tools.accountId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-checkout
+      description: Deliverect Get Checkout
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: commerce-api-checkout.get_commerce_accountId_checkouts_checkoutId_1
+      with:
+        accountId: tools.accountId
+        checkoutId: tools.checkoutId
+      outputParameters:
+      - type: object
+        mapping: $.

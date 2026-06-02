@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/channel-api-post-channelname-updaterating-structure.json",
+  "name": "PostChannelnameUpdaterating",
+  "description": "Deliverect Order Rating Update",
+  "type": "object",
+  "properties": {
+    "channelOrderId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "orderDate": {
+      "type": "datetime",
+      "example": "2026-03-15T14:30:00Z"
+    },
+    "channelLinkId": {
+      "type": "string",
+      "example": "5e8abc11dec0001a009b"
+    },
+    "rating": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "int32",
+            "example": 1
+          },
+          "rating": {
+            "type": "int32",
+            "example": 1
+          },
+          "comment": {
+            "type": "string",
+            "example": "string"
+          },
+          "reason": {
+            "type": "int32",
+            "example": 1
+          }
+        },
+        "required": [
+          "subject",
+          "rating"
+        ]
+      }
+    }
+  },
+  "required": [
+    "channelOrderId",
+    "orderDate",
+    "channelLinkId",
+    "rating"
+  ]
+}

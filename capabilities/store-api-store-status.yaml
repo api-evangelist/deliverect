@@ -1,0 +1,85 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Store API — Store Status
+  description: 'Store Status surface of the Deliverect Store API. 1 operations. Lead operation: Busy Mode. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Store
+  - Store Status
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: store-api-store-status
+    baseUri: https://api.deliverect.com
+    description: Deliverect Store API — Store Status business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: update-store-status-location-id
+      path: /updateStoreStatus/{locationId}
+      operations:
+      - name: post_update_store_status
+        method: POST
+        description: Deliverect Busy Mode
+        inputParameters:
+        - name: locationId
+          in: path
+          type: string
+          required: true
+          description: The locationId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: store-api-store-status-rest
+    port: 8080
+    description: REST adapter for Deliverect Store API — Store Status. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/update-store-status/{location-id}
+      name: update-store-status-location-id
+      description: REST surface for update-store-status-location-id.
+      operations:
+      - method: POST
+        name: post_update_store_status
+        description: Deliverect Busy Mode
+        call: store-api-store-status.post_update_store_status
+        with:
+          locationId: rest.locationId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: store-api-store-status-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Store API — Store Status. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: busy-mode
+      description: Deliverect Busy Mode
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: store-api-store-status.post_update_store_status
+      with:
+        locationId: tools.locationId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

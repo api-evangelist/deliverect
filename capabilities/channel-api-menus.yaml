@@ -1,0 +1,134 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Channel API — Menus
+  description: 'Menus surface of the Deliverect Channel API. 2 operations. Lead operation: Menu Update. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Channel
+  - Menus
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: channel-api-menus
+    baseUri: https://api.deliverect.com
+    description: Deliverect Channel API — Menus business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: channel-menu-update
+      path: /channel/menu_update/
+      operations:
+      - name: channel_menu_update
+        method: POST
+        description: Deliverect Menu Update
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channel-name-menu-status-id
+      path: /{channelName}/menuStatus/{_id}
+      operations:
+      - name: post_channelname_menustatus_id
+        method: POST
+        description: Deliverect Menu Update (Async)
+        inputParameters:
+        - name: channelName
+          in: path
+          type: string
+          required: true
+          description: The channelName value.
+        - name: _id
+          in: path
+          type: string
+          required: true
+          description: The _id value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: channel-api-menus-rest
+    port: 8080
+    description: REST adapter for Deliverect Channel API — Menus. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/channel/menu-update
+      name: channel-menu-update
+      description: REST surface for channel-menu-update.
+      operations:
+      - method: POST
+        name: channel_menu_update
+        description: Deliverect Menu Update
+        call: channel-api-menus.channel_menu_update
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{channel-name}/menu-status/{id}
+      name: channel-name-menu-status-id
+      description: REST surface for channel-name-menu-status-id.
+      operations:
+      - method: POST
+        name: post_channelname_menustatus_id
+        description: Deliverect Menu Update (Async)
+        call: channel-api-menus.post_channelname_menustatus_id
+        with:
+          channelName: rest.channelName
+          _id: rest._id
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: channel-api-menus-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Channel API — Menus. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: menu-update
+      description: Deliverect Menu Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: channel-api-menus.channel_menu_update
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: menu-update-async
+      description: Deliverect Menu Update (Async)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: channel-api-menus.post_channelname_menustatus_id
+      with:
+        channelName: tools.channelName
+        _id: tools._id
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/pos-api-pos-register-schema.json",
+  "title": "PosRegister",
+  "description": "Deliverect Register POS",
+  "type": "object",
+  "properties": {
+    "location": {
+      "type": "string",
+      "default": "",
+      "example": "string"
+    }
+  },
+  "required": [
+    "location"
+  ]
+}

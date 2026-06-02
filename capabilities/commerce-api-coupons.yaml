@@ -1,0 +1,92 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Commerce API — Coupons
+  description: 'Coupons surface of the Deliverect Commerce API. 1 operations. Lead operation: Copy of. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Commerce
+  - Coupons
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: commerce-api-coupons
+    baseUri: https://api.deliverect.com
+    description: Deliverect Commerce API — Coupons business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: coupons-channel-channel-link-id-coupons
+      path: /coupons/channel/{channelLinkId}/coupons
+      operations:
+      - name: get_couponsadmin_accountId_coupons_couponId_1
+        method: GET
+        description: Deliverect Copy of
+        inputParameters:
+        - name: size
+          in: query
+          type: integer
+          required: false
+          description: The size value.
+        - name: page
+          in: query
+          type: integer
+          required: false
+          description: The page value.
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: commerce-api-coupons-rest
+    port: 8080
+    description: REST adapter for Deliverect Commerce API — Coupons. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/coupons/channel/{channel-link-id}/coupons
+      name: coupons-channel-channel-link-id-coupons
+      description: REST surface for coupons-channel-channel-link-id-coupons.
+      operations:
+      - method: GET
+        name: get_couponsadmin_accountId_coupons_couponId_1
+        description: Deliverect Copy of
+        call: commerce-api-coupons.get_couponsadmin_accountId_coupons_couponId_1
+        with:
+          size: rest.size
+          page: rest.page
+          channelLinkId: rest.channelLinkId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: commerce-api-coupons-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Commerce API — Coupons. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: copy
+      description: Deliverect Copy of
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: commerce-api-coupons.get_couponsadmin_accountId_coupons_couponId_1
+      with:
+        size: tools.size
+        page: tools.page
+        channelLinkId: tools.channelLinkId
+      outputParameters:
+      - type: object
+        mapping: $.

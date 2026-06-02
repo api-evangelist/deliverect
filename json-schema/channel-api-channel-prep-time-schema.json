@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/channel-api-channel-prep-time-schema.json",
+  "title": "ChannelPrepTime",
+  "description": "Deliverect Preparation Time Update",
+  "type": "object",
+  "properties": {
+    "channelOrderId": {
+      "type": "string",
+      "example": "X7CESD"
+    },
+    "orderId": {
+      "type": "string",
+      "example": "5e****abc11dec0001****9b"
+    },
+    "location": {
+      "type": "string",
+      "example": "5e****abc11dec0001****0b"
+    },
+    "status": {
+      "type": "integer",
+      "example": 20
+    },
+    "pickupTime": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2021-04-20T16:20:00Z"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/gift-cards-api-post-giftcards-channel-channellinkid-profilelink-giftcardproviderprofilelinkid-applygiftcard-structure.json",
+  "name": "PostGiftcardsChannelChannellinkidProfilelinkGiftcardproviderprofilelinkidApplygiftcard",
+  "description": "Deliverect Apply Gift Card",
+  "type": "object",
+  "properties": {
+    "number": {
+      "type": "string",
+      "example": "string"
+    },
+    "verificationCode": {
+      "type": "string",
+      "example": "string"
+    },
+    "amount": {
+      "type": "int32",
+      "example": 1250
+    }
+  }
+}

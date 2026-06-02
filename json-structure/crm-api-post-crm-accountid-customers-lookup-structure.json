@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/crm-api-post-crm-accountid-customers-lookup-structure.json",
+  "name": "PostCrmAccountidCustomersLookup",
+  "description": "Deliverect Lookup Customer by Email",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "example": "customer@example.com"
+    }
+  },
+  "required": [
+    "email"
+  ]
+}

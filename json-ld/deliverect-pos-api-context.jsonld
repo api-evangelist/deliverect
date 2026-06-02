@@ -1,0 +1,398 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "InsertUpdateProductsAndCategories": "dv:InsertUpdateProductsAndCategories",
+    "InventoryUpdate": "dv:InventoryUpdate",
+    "PosApiProductSyncCallback": "dv:PosApiProductSyncCallback",
+    "PosRegister": "dv:PosRegister",
+    "PostOrderstatusOrderid": "dv:PostOrderstatusOrderid",
+    "PostUpdatepreparationtime": "dv:PostUpdatepreparationtime",
+    "accountId": {
+      "@id": "dv:accountId",
+      "@type": "xsd:string"
+    },
+    "locationId": {
+      "@id": "dv:locationId",
+      "@type": "xsd:string"
+    },
+    "products": {
+      "@id": "dv:products",
+      "@container": "@set"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "plu": {
+      "@id": "dv:plu",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:integer"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "productType": {
+      "@id": "dv:productType",
+      "@type": "xsd:integer"
+    },
+    "gtin": {
+      "@id": "dv:gtin",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "isVariant": {
+      "@id": "dv:isVariant",
+      "@type": "xsd:boolean"
+    },
+    "isCombo": {
+      "@id": "dv:isCombo",
+      "@type": "xsd:boolean"
+    },
+    "deliveryTax": {
+      "@id": "dv:deliveryTax",
+      "@type": "xsd:integer"
+    },
+    "takeawayTax": {
+      "@id": "dv:takeawayTax",
+      "@type": "xsd:integer"
+    },
+    "eatInTax": {
+      "@id": "dv:eatInTax",
+      "@type": "xsd:integer"
+    },
+    "priceLevels": {
+      "@id": "dv:priceLevels",
+      "@type": "@id"
+    },
+    "TA": {
+      "@id": "dv:TA",
+      "@type": "xsd:integer"
+    },
+    "DL": {
+      "@id": "dv:DL",
+      "@type": "xsd:integer"
+    },
+    "UE": {
+      "@id": "dv:UE",
+      "@type": "xsd:integer"
+    },
+    "overloads": {
+      "@id": "dv:overloads",
+      "@container": "@set"
+    },
+    "scopes": {
+      "@id": "dv:scopes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "bundlePrice": {
+      "@id": "dv:bundlePrice",
+      "@type": "xsd:integer"
+    },
+    "posProductId": {
+      "@id": "dv:posProductId",
+      "@type": "xsd:string"
+    },
+    "posCategoryIds": {
+      "@id": "dv:posCategoryIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "imageUrl": {
+      "@id": "dv:imageUrl",
+      "@type": "xsd:string"
+    },
+    "nameTranslations": {
+      "@id": "dv:nameTranslations",
+      "@type": "@id"
+    },
+    "en": {
+      "@id": "dv:en",
+      "@type": "xsd:string"
+    },
+    "es": {
+      "@id": "dv:es",
+      "@type": "xsd:string"
+    },
+    "fr": {
+      "@id": "dv:fr",
+      "@type": "xsd:string"
+    },
+    "nl": {
+      "@id": "dv:nl",
+      "@type": "xsd:string"
+    },
+    "ar": {
+      "@id": "dv:ar",
+      "@type": "xsd:string"
+    },
+    "el": {
+      "@id": "dv:el",
+      "@type": "xsd:string"
+    },
+    "productTags": {
+      "@id": "dv:productTags",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "multiMax": {
+      "@id": "dv:multiMax",
+      "@type": "xsd:integer"
+    },
+    "defaultQuantity": {
+      "@id": "dv:defaultQuantity",
+      "@type": "xsd:integer"
+    },
+    "nutritionalInfo": {
+      "@id": "dv:nutritionalInfo",
+      "@type": "@id"
+    },
+    "fat": {
+      "@id": "dv:fat",
+      "@type": "xsd:integer"
+    },
+    "protein": {
+      "@id": "dv:protein",
+      "@type": "xsd:integer"
+    },
+    "sugar": {
+      "@id": "dv:sugar",
+      "@type": "xsd:integer"
+    },
+    "addedSugar": {
+      "@id": "dv:addedSugar",
+      "@type": "xsd:integer"
+    },
+    "saturatedFat": {
+      "@id": "dv:saturatedFat",
+      "@type": "xsd:integer"
+    },
+    "carbohydrates": {
+      "@id": "dv:carbohydrates",
+      "@type": "xsd:integer"
+    },
+    "salt": {
+      "@id": "dv:salt",
+      "@type": "xsd:integer"
+    },
+    "transFat": {
+      "@id": "dv:transFat",
+      "@type": "xsd:integer"
+    },
+    "monoUnsaturatedFat": {
+      "@id": "dv:monoUnsaturatedFat",
+      "@type": "xsd:integer"
+    },
+    "polyUnsaturatedFat": {
+      "@id": "dv:polyUnsaturatedFat",
+      "@type": "xsd:integer"
+    },
+    "cholesterol": {
+      "@id": "dv:cholesterol",
+      "@type": "xsd:integer"
+    },
+    "starch": {
+      "@id": "dv:starch",
+      "@type": "xsd:integer"
+    },
+    "sodium": {
+      "@id": "dv:sodium",
+      "@type": "xsd:integer"
+    },
+    "fiber": {
+      "@id": "dv:fiber",
+      "@type": "xsd:integer"
+    },
+    "vitaminC": {
+      "@id": "dv:vitaminC",
+      "@type": "xsd:integer"
+    },
+    "calcium": {
+      "@id": "dv:calcium",
+      "@type": "xsd:integer"
+    },
+    "magnesium": {
+      "@id": "dv:magnesium",
+      "@type": "xsd:integer"
+    },
+    "chloride": {
+      "@id": "dv:chloride",
+      "@type": "xsd:integer"
+    },
+    "fluoride": {
+      "@id": "dv:fluoride",
+      "@type": "xsd:integer"
+    },
+    "potassium": {
+      "@id": "dv:potassium",
+      "@type": "xsd:integer"
+    },
+    "polyols": {
+      "@id": "dv:polyols",
+      "@type": "xsd:integer"
+    },
+    "servingSize": {
+      "@id": "dv:servingSize",
+      "@type": "@id"
+    },
+    "amount": {
+      "@id": "dv:amount",
+      "@type": "xsd:integer"
+    },
+    "unitType": {
+      "@id": "dv:unitType",
+      "@type": "xsd:integer"
+    },
+    "countUnitDescription": {
+      "@id": "dv:countUnitDescription",
+      "@type": "xsd:string"
+    },
+    "netQuantity": {
+      "@id": "dv:netQuantity",
+      "@type": "@id"
+    },
+    "supplementalInfo": {
+      "@id": "dv:supplementalInfo",
+      "@type": "@id"
+    },
+    "instructionsForUse": {
+      "@id": "dv:instructionsForUse",
+      "@type": "xsd:string"
+    },
+    "ingredients": {
+      "@id": "dv:ingredients",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "additives": {
+      "@id": "dv:additives",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "prepackaged": {
+      "@id": "dv:prepackaged",
+      "@type": "xsd:boolean"
+    },
+    "deposit": {
+      "@id": "dv:deposit",
+      "@type": "xsd:integer"
+    },
+    "bottleDepositPrice": {
+      "@id": "dv:bottleDepositPrice",
+      "@type": "xsd:integer"
+    },
+    "visible": {
+      "@id": "dv:visible",
+      "@type": "xsd:boolean"
+    },
+    "subProducts": {
+      "@id": "dv:subProducts",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "kitchenName": {
+      "@id": "dv:kitchenName",
+      "@type": "xsd:string"
+    },
+    "categories": {
+      "@id": "dv:categories",
+      "@container": "@set"
+    },
+    "posCategoryId": {
+      "@id": "dv:posCategoryId",
+      "@type": "xsd:string"
+    },
+    "posId": {
+      "@id": "dv:posId",
+      "@type": "xsd:string"
+    },
+    "callbackUrl": {
+      "@id": "dv:callbackUrl",
+      "@type": "xsd:string"
+    },
+    "operationReportId": {
+      "@id": "dv:operationReportId",
+      "@type": "xsd:string"
+    },
+    "inserted": {
+      "@id": "dv:inserted",
+      "@type": "xsd:integer"
+    },
+    "updated": {
+      "@id": "dv:updated",
+      "@type": "xsd:integer"
+    },
+    "deleted": {
+      "@id": "dv:deleted",
+      "@type": "xsd:integer"
+    },
+    "ignored": {
+      "@id": "dv:ignored",
+      "@type": "xsd:integer"
+    },
+    "modifiers": {
+      "@id": "dv:modifiers",
+      "@type": "@id"
+    },
+    "modifierGroups": {
+      "@id": "dv:modifierGroups",
+      "@type": "@id"
+    },
+    "bundles": {
+      "@id": "dv:bundles",
+      "@type": "@id"
+    },
+    "warnings": {
+      "@id": "dv:warnings",
+      "@type": "xsd:integer"
+    },
+    "errors": {
+      "@id": "dv:errors",
+      "@type": "xsd:integer"
+    },
+    "location": {
+      "@id": "dv:location",
+      "@type": "xsd:string"
+    },
+    "orderId": {
+      "@id": "dv:orderId",
+      "@type": "xsd:string"
+    },
+    "receiptId": {
+      "@id": "dv:receiptId",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "dv:status",
+      "@type": "xsd:integer"
+    },
+    "pickupTime": {
+      "@id": "dv:pickupTime",
+      "@type": "xsd:dateTime"
+    },
+    "reason": {
+      "@id": "dv:reason",
+      "@type": "xsd:string"
+    },
+    "timeStamp": {
+      "@id": "dv:timeStamp",
+      "@type": "xsd:dateTime"
+    },
+    "order": {
+      "@id": "dv:order",
+      "@type": "xsd:string"
+    },
+    "minutes": {
+      "@id": "dv:minutes",
+      "@type": "xsd:integer"
+    }
+  }
+}

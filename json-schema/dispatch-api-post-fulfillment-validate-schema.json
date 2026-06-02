@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/dispatch-api-post-fulfillment-validate-schema.json",
+  "title": "PostFulfillmentValidate",
+  "description": "Deliverect Dispatch Availability",
+  "type": "object",
+  "properties": {
+    "channelLinkId": {
+      "type": "string",
+      "example": "5e8abc11dec0001a009b"
+    },
+    "deliveryLocations": {
+      "type": "object",
+      "properties": {
+        "packageSize": {
+          "type": "string",
+          "example": "string"
+        },
+        "name": {
+          "type": "string",
+          "example": "Deliverect's Pizza Place"
+        },
+        "phone": {
+          "type": "string",
+          "example": "+15555550123"
+        },
+        "street": {
+          "type": "string",
+          "example": "string"
+        },
+        "streetNumber": {
+          "type": "string",
+          "example": "string"
+        },
+        "city": {
+          "type": "string",
+          "example": "string"
+        },
+        "country": {
+          "type": "string",
+          "example": "BE"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "string"
+        },
+        "deliveryTime": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2026-03-15T14:30:00Z"
+        },
+        "coordinates": {
+          "type": "object",
+          "properties": {
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "example": 1.0
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          }
+        }
+      },
+      "required": [
+        "street",
+        "city",
+        "country",
+        "postalCode",
+        "deliveryTime"
+      ]
+    },
+    "pickupTime": {
+      "type": "string",
+      "example": "2026-03-15T14:30:00Z"
+    }
+  },
+  "required": [
+    "channelLinkId",
+    "deliveryLocations",
+    "pickupTime"
+  ]
+}

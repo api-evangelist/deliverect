@@ -1,0 +1,99 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect KDS API — Products
+  description: 'Products surface of the Deliverect KDS API. 1 operations. Lead operation: Kds_productupdate. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - KDS
+  - Products
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: kds-api-products
+    baseUri: https://api.deliverect.com
+    description: Deliverect KDS API — Products business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: kds-product-update
+      path: /kds/productUpdate
+      operations:
+      - name: kds_productupdate
+        method: POST
+        description: Deliverect Kds_productupdate
+        inputParameters:
+        - name: Content-Type
+          in: header
+          type: string
+          required: false
+          description: application/json
+        - name: Accept
+          in: header
+          type: string
+          required: false
+          description: application/json
+        - name: User-Agent
+          in: header
+          type: string
+          required: false
+          description: Deliverect/{version}
+        - name: X-Server-Authorization-HMAC-SHA256
+          in: header
+          type: string
+          required: false
+          description: '{signature}'
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: kds-api-products-rest
+    port: 8080
+    description: REST adapter for Deliverect KDS API — Products. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/kds/product-update
+      name: kds-product-update
+      description: REST surface for kds-product-update.
+      operations:
+      - method: POST
+        name: kds_productupdate
+        description: Deliverect Kds_productupdate
+        call: kds-api-products.kds_productupdate
+        with:
+          Content-Type: rest.Content-Type
+          Accept: rest.Accept
+          User-Agent: rest.User-Agent
+          X-Server-Authorization-HMAC-SHA256: rest.X-Server-Authorization-HMAC-SHA256
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: kds-api-products-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect KDS API — Products. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: kds-productupdate
+      description: Deliverect Kds_productupdate
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kds-api-products.kds_productupdate
+      with:
+        Content-Type: tools.Content-Type
+        Accept: tools.Accept
+        User-Agent: tools.User-Agent
+        X-Server-Authorization-HMAC-SHA256: tools.X-Server-Authorization-HMAC-SHA256
+      outputParameters:
+      - type: object
+        mapping: $.

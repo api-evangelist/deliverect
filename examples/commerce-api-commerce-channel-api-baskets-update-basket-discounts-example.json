@@ -1,0 +1,15 @@
+[
+  {
+    "type": "order_flat_off",
+    "provider": "coupon",
+    "amount": 100,
+    "value": 1000,
+    "name": "CONGRATS! HERE IS 1 EUR OFF",
+    "plu": "DLX-3",
+    "menuId": "668f7ff64dc853**c96**877",
+    "externalId": "discount-123",
+    "itemIds": [
+      "6900f2f01306779be71e7b8e"
+    ]
+  }
+]

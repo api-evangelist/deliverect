@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/loyalty-api-loyalty-channel-get-programs-schema.json",
+  "title": "LoyaltyChannelGetPrograms",
+  "description": "Deliverect Get Loyalty Programs",
+  "type": "object",
+  "properties": {
+    "order": {
+      "type": "object",
+      "properties": {
+        "orderType": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "The type of the order (Pickup, Delivery, Eat-in)"
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "plu": {
+              "type": "string",
+              "example": "PIE1"
+            },
+            "name": {
+              "type": "string",
+              "example": "Deliverect's Pizza Place"
+            },
+            "price": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1250
+            },
+            "quantity": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            },
+            "subItems": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "example": "customer@example.com"
+            },
+            "phoneNumber": {
+              "type": "string",
+              "example": "+15555550123"
+            },
+            "name": {
+              "type": "string",
+              "example": "Deliverect's Pizza Place"
+            }
+          }
+        },
+        "decimalDigits": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "number of decimal for the order currency"
+        },
+        "subTotal": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1250
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1250
+            }
+          }
+        }
+      },
+      "description": "For the full order schema, please refer to [Glossary - Channel Orders](https://developers.deliverect.com/page/glossary-channel-orders)"
+    }
+  },
+  "required": [
+    "order"
+  ]
+}

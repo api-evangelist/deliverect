@@ -1,0 +1,8 @@
+[
+  {
+    "make": "string",
+    "model": "string",
+    "color": "string",
+    "default": true
+  }
+]

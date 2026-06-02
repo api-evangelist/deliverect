@@ -1,0 +1,61 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "PostMarkProductsOutOfStockByTag": "dv:PostMarkProductsOutOfStockByTag",
+    "PostPostLocationsOpeninghours": "dv:PostPostLocationsOpeninghours",
+    "PostUpdateStoreStatus": "dv:PostUpdateStoreStatus",
+    "account": {
+      "@id": "dv:account",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "dv:location",
+      "@type": "xsd:string"
+    },
+    "tag": {
+      "@id": "dv:tag",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "snoozeStart": {
+      "@id": "dv:snoozeStart",
+      "@type": "xsd:string"
+    },
+    "snoozeEnd": {
+      "@id": "dv:snoozeEnd",
+      "@type": "xsd:string"
+    },
+    "locations": {
+      "@id": "dv:locations",
+      "@container": "@set"
+    },
+    "id": {
+      "@id": "dv:id",
+      "@type": "xsd:string"
+    },
+    "triggerUpdate": {
+      "@id": "dv:triggerUpdate",
+      "@type": "xsd:boolean"
+    },
+    "openingHours": {
+      "@id": "dv:openingHours",
+      "@container": "@set"
+    },
+    "channels": {
+      "@id": "dv:channels",
+      "@container": "@set"
+    },
+    "isActive": {
+      "@id": "dv:isActive",
+      "@type": "xsd:string"
+    },
+    "prepTime": {
+      "@id": "dv:prepTime",
+      "@type": "xsd:string"
+    }
+  }
+}

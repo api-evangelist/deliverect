@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Loyalty API — Configuration
+  description: 'Configuration surface of the Deliverect Loyalty API. 1 operations. Lead operation: Get Configuration. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Loyalty
+  - Configuration
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: loyalty-api-configuration
+    baseUri: https://api.deliverect.com
+    description: Deliverect Loyalty API — Configuration business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: loyalty-channel-link-id-configuration
+      path: /loyalty/{channelLinkId}/configuration
+      operations:
+      - name: loyalty_channel_get_configuration
+        method: GET
+        description: Deliverect Get Configuration
+        inputParameters:
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: loyalty-api-configuration-rest
+    port: 8080
+    description: REST adapter for Deliverect Loyalty API — Configuration. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/loyalty/{channel-link-id}/configuration
+      name: loyalty-channel-link-id-configuration
+      description: REST surface for loyalty-channel-link-id-configuration.
+      operations:
+      - method: GET
+        name: loyalty_channel_get_configuration
+        description: Deliverect Get Configuration
+        call: loyalty-api-configuration.loyalty_channel_get_configuration
+        with:
+          channelLinkId: rest.channelLinkId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: loyalty-api-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Loyalty API — Configuration. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-configuration
+      description: Deliverect Get Configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: loyalty-api-configuration.loyalty_channel_get_configuration
+      with:
+        channelLinkId: tools.channelLinkId
+      outputParameters:
+      - type: object
+        mapping: $.

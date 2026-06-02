@@ -1,0 +1,288 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Store API — Opening Hours
+  description: 'Opening Hours surface of the Deliverect Store API. 6 operations. Lead operation: Create/Update Opening Hours. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Store
+  - Opening Hours
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: store-api-opening-hours
+    baseUri: https://api.deliverect.com
+    description: Deliverect Store API — Opening Hours business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: locations-opening-hours
+      path: /locations/openingHours
+      operations:
+      - name: post_post_locations_openinghours
+        method: POST
+        description: Deliverect Create/Update Opening Hours
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: locations-holidays
+      path: /locations/holidays
+      operations:
+      - name: post_post_locations_holidays
+        method: POST
+        description: Deliverect Holiday Hours for Locations
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: locations-channels-holidays
+      path: /locations/channels/holidays
+      operations:
+      - name: post_post_locations_channels_holidays
+        method: POST
+        description: Deliverect Holiday Hours for Locations and ChannelLinks
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: account-account-id-opening-hours
+      path: /account/{accountId}/openingHours
+      operations:
+      - name: get_get_account_accountid_openinghours
+        method: GET
+        description: Deliverect Get Account Opening Hours
+        inputParameters:
+        - name: accountId
+          in: path
+          type: string
+          required: true
+          description: The accountId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: location-location-id-opening-hours
+      path: /location/{locationId}/openingHours
+      operations:
+      - name: get_get_location_locationid_openinghours
+        method: GET
+        description: Deliverect Get Store Opening Hours
+        inputParameters:
+        - name: locationId
+          in: path
+          type: string
+          required: true
+          description: The locationId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: location-location-id-holidays
+      path: /location/{locationId}/holidays
+      operations:
+      - name: get_get_location_locationid_holidays
+        method: GET
+        description: Deliverect Holiday Hours for Locations
+        inputParameters:
+        - name: locationId
+          in: path
+          type: string
+          required: true
+          description: The locationId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: store-api-opening-hours-rest
+    port: 8080
+    description: REST adapter for Deliverect Store API — Opening Hours. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/locations/opening-hours
+      name: locations-opening-hours
+      description: REST surface for locations-opening-hours.
+      operations:
+      - method: POST
+        name: post_post_locations_openinghours
+        description: Deliverect Create/Update Opening Hours
+        call: store-api-opening-hours.post_post_locations_openinghours
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/locations/holidays
+      name: locations-holidays
+      description: REST surface for locations-holidays.
+      operations:
+      - method: POST
+        name: post_post_locations_holidays
+        description: Deliverect Holiday Hours for Locations
+        call: store-api-opening-hours.post_post_locations_holidays
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/locations/channels/holidays
+      name: locations-channels-holidays
+      description: REST surface for locations-channels-holidays.
+      operations:
+      - method: POST
+        name: post_post_locations_channels_holidays
+        description: Deliverect Holiday Hours for Locations and ChannelLinks
+        call: store-api-opening-hours.post_post_locations_channels_holidays
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/account/{account-id}/opening-hours
+      name: account-account-id-opening-hours
+      description: REST surface for account-account-id-opening-hours.
+      operations:
+      - method: GET
+        name: get_get_account_accountid_openinghours
+        description: Deliverect Get Account Opening Hours
+        call: store-api-opening-hours.get_get_account_accountid_openinghours
+        with:
+          accountId: rest.accountId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/location/{location-id}/opening-hours
+      name: location-location-id-opening-hours
+      description: REST surface for location-location-id-opening-hours.
+      operations:
+      - method: GET
+        name: get_get_location_locationid_openinghours
+        description: Deliverect Get Store Opening Hours
+        call: store-api-opening-hours.get_get_location_locationid_openinghours
+        with:
+          locationId: rest.locationId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/location/{location-id}/holidays
+      name: location-location-id-holidays
+      description: REST surface for location-location-id-holidays.
+      operations:
+      - method: GET
+        name: get_get_location_locationid_holidays
+        description: Deliverect Holiday Hours for Locations
+        call: store-api-opening-hours.get_get_location_locationid_holidays
+        with:
+          locationId: rest.locationId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: store-api-opening-hours-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Store API — Opening Hours. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: create-update-opening-hours
+      description: Deliverect Create/Update Opening Hours
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: store-api-opening-hours.post_post_locations_openinghours
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: holiday-hours-locations
+      description: Deliverect Holiday Hours for Locations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: store-api-opening-hours.post_post_locations_holidays
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: holiday-hours-locations-channel-links
+      description: Deliverect Holiday Hours for Locations and ChannelLinks
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: store-api-opening-hours.post_post_locations_channels_holidays
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-account-opening-hours
+      description: Deliverect Get Account Opening Hours
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: store-api-opening-hours.get_get_account_accountid_openinghours
+      with:
+        accountId: tools.accountId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-store-opening-hours
+      description: Deliverect Get Store Opening Hours
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: store-api-opening-hours.get_get_location_locationid_openinghours
+      with:
+        locationId: tools.locationId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: holiday-hours-locations-2
+      description: Deliverect Holiday Hours for Locations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: store-api-opening-hours.get_get_location_locationid_holidays
+      with:
+        locationId: tools.locationId
+      outputParameters:
+      - type: object
+        mapping: $.

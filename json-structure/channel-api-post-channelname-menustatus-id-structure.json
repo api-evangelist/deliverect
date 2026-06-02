@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/channel-api-post-channelname-menustatus-id-structure.json",
+  "name": "PostChannelnameMenustatusId",
+  "description": "Deliverect Menu Update (Async)",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "example": "confirmed"
+    },
+    "comment": {
+      "type": "string",
+      "example": "string"
+    }
+  },
+  "required": [
+    "status"
+  ]
+}

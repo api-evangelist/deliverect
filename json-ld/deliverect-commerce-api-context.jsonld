@@ -1,0 +1,151 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "CommerceChannelApiBasketsCreateBasket": "dv:CommerceChannelApiBasketsCreateBasket",
+    "CommerceChannelApiBasketsUpdateBasketCustomer": "dv:CommerceChannelApiBasketsUpdateBasketCustomer",
+    "GetUpsellItems": "dv:GetUpsellItems",
+    "PatchCommerceAccountidBasketsBasketidStore": "dv:PatchCommerceAccountidBasketsBasketidStore",
+    "PostCommerceAccountIdCheckouts1": "dv:PostCommerceAccountIdCheckouts1",
+    "PostCommerceAccountidBasketsRecreate": "dv:PostCommerceAccountidBasketsRecreate",
+    "channelLinkId": {
+      "@id": "dv:channelLinkId",
+      "@type": "xsd:string"
+    },
+    "fulfillment": {
+      "@id": "dv:fulfillment",
+      "@type": "@id"
+    },
+    "type": {
+      "@id": "dv:type",
+      "@type": "xsd:string"
+    },
+    "items": {
+      "@id": "dv:items",
+      "@container": "@set"
+    },
+    "menuId": {
+      "@id": "dv:menuId",
+      "@type": "xsd:string"
+    },
+    "plu": {
+      "@id": "dv:plu",
+      "@type": "xsd:string"
+    },
+    "quantity": {
+      "@id": "dv:quantity",
+      "@type": "xsd:integer"
+    },
+    "note": {
+      "@id": "dv:note",
+      "@type": "xsd:string"
+    },
+    "subItems": {
+      "@id": "dv:subItems",
+      "@container": "@set"
+    },
+    "customizationPlu": {
+      "@id": "dv:customizationPlu",
+      "@type": "xsd:string"
+    },
+    "customer": {
+      "@id": "dv:customer",
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "companyName": {
+      "@id": "dv:companyName",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "dv:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "dv:externalId",
+      "@type": "xsd:string"
+    },
+    "tin": {
+      "@id": "dv:tin",
+      "@type": "xsd:string"
+    },
+    "crmProfileId": {
+      "@id": "dv:crmProfileId",
+      "@type": "xsd:string"
+    },
+    "account": {
+      "@id": "dv:account",
+      "@type": "xsd:string"
+    },
+    "channelLink": {
+      "@id": "dv:channelLink",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "dv:location",
+      "@type": "xsd:string"
+    },
+    "storeId": {
+      "@id": "dv:storeId",
+      "@type": "xsd:string"
+    },
+    "basket": {
+      "@id": "dv:basket",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "dv:id",
+      "@type": "xsd:string"
+    },
+    "payments": {
+      "@id": "dv:payments",
+      "@container": "@set"
+    },
+    "isPrepaid": {
+      "@id": "dv:isPrepaid",
+      "@type": "xsd:boolean"
+    },
+    "amount": {
+      "@id": "dv:amount",
+      "@type": "xsd:integer"
+    },
+    "metadata": {
+      "@id": "dv:metadata",
+      "@type": "@id"
+    },
+    "order": {
+      "@id": "dv:order",
+      "@type": "@id"
+    },
+    "channelOrderId": {
+      "@id": "dv:channelOrderId",
+      "@type": "xsd:string"
+    },
+    "channelOrderDisplayId": {
+      "@id": "dv:channelOrderDisplayId",
+      "@type": "xsd:string"
+    },
+    "validationId": {
+      "@id": "dv:validationId",
+      "@type": "xsd:string"
+    },
+    "courier": {
+      "@id": "dv:courier",
+      "@type": "xsd:string"
+    },
+    "orderId": {
+      "@id": "dv:orderId",
+      "@type": "xsd:string"
+    }
+  }
+}

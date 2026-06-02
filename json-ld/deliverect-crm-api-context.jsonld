@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "PatchCrmAccountidCustomersCrmprofileid": "dv:PatchCrmAccountidCustomersCrmprofileid",
+    "PostCrmAccountidCustomersLookup": "dv:PostCrmAccountidCustomersLookup",
+    "PostCrmAccountidCustomers": "dv:PostCrmAccountidCustomers",
+    "contact": {
+      "@id": "dv:contact",
+      "@type": "@id"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "dv:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "dv:lastName",
+      "@type": "xsd:string"
+    },
+    "birthdate": {
+      "@id": "dv:birthdate",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "dv:phone",
+      "@type": "xsd:string"
+    },
+    "externalId": {
+      "@id": "dv:externalId",
+      "@type": "xsd:string"
+    },
+    "loyaltyProviderId": {
+      "@id": "dv:loyaltyProviderId",
+      "@type": "xsd:string"
+    },
+    "deliveryAddresses": {
+      "@id": "dv:deliveryAddresses",
+      "@container": "@set"
+    },
+    "street": {
+      "@id": "dv:street",
+      "@type": "xsd:string"
+    },
+    "subpremise": {
+      "@id": "dv:subpremise",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "dv:city",
+      "@type": "xsd:string"
+    },
+    "stateOrProvince": {
+      "@id": "dv:stateOrProvince",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "dv:postalCode",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "dv:country",
+      "@type": "xsd:string"
+    },
+    "default": {
+      "@id": "dv:default",
+      "@type": "xsd:boolean"
+    },
+    "area": {
+      "@id": "dv:area",
+      "@type": "xsd:string"
+    },
+    "coordinates": {
+      "@id": "dv:coordinates",
+      "@type": "xsd:string"
+    },
+    "billingAddress": {
+      "@id": "dv:billingAddress",
+      "@type": "@id"
+    },
+    "metadata": {
+      "@id": "dv:metadata",
+      "@type": "@id"
+    },
+    "vehicles": {
+      "@id": "dv:vehicles",
+      "@container": "@set"
+    },
+    "make": {
+      "@id": "dv:make",
+      "@type": "xsd:string"
+    },
+    "model": {
+      "@id": "dv:model",
+      "@type": "xsd:string"
+    },
+    "color": {
+      "@id": "dv:color",
+      "@type": "xsd:string"
+    }
+  }
+}

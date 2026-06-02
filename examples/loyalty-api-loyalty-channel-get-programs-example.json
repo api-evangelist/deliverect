@@ -1,0 +1,22 @@
+{
+  "order": {
+    "orderType": 1,
+    "items": {
+      "plu": "PIE1",
+      "name": "Deliverect's Pizza Place",
+      "price": 1250,
+      "quantity": 1,
+      "subItems": {}
+    },
+    "customer": {
+      "email": "customer@example.com",
+      "phoneNumber": "+15555550123",
+      "name": "Deliverect's Pizza Place"
+    },
+    "decimalDigits": 1,
+    "subTotal": 1250,
+    "payment": {
+      "amount": 1250
+    }
+  }
+}

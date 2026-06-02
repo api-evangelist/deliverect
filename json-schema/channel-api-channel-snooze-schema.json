@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/channel-api-channel-snooze-schema.json",
+  "title": "ChannelSnooze",
+  "description": "Deliverect Snooze / Unsnooze Products",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "example": "5b****71c6489f0029****d4"
+    },
+    "locationId": {
+      "type": "string",
+      "example": "5c****ecc6489f0001****b8"
+    },
+    "channelLinkId": {
+      "type": "string",
+      "example": "5e****abc11dec0001****9b"
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "example": "snooze"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "plu": {
+                      "type": "string",
+                      "example": "PIE1"
+                    },
+                    "snoozeStart": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2020-03-24T16:21:54.955000Z"
+                    },
+                    "snoozeEnd": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2020-03-24T22:21:54.955000Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "allSnoozedItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "plu": {
+                  "type": "string",
+                  "example": "PIE1"
+                },
+                "snoozeStart": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2020-03-24T16:21:54.955000Z"
+                },
+                "snoozeEnd": {
+                  "type": "string",
+                  "format": "date-time",
+                  "example": "2020-03-24T22:21:54.955000Z"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

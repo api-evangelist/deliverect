@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/loyalty-api-loyalty-channel-get-programs-structure.json",
+  "name": "LoyaltyChannelGetPrograms",
+  "description": "Deliverect Get Loyalty Programs",
+  "type": "object",
+  "properties": {
+    "order": {
+      "type": "object",
+      "properties": {
+        "orderType": {
+          "type": "int32",
+          "example": 1,
+          "description": "The type of the order (Pickup, Delivery, Eat-in)"
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "plu": {
+              "type": "string",
+              "example": "PIE1"
+            },
+            "name": {
+              "type": "string",
+              "example": "Deliverect's Pizza Place"
+            },
+            "price": {
+              "type": "int32",
+              "example": 1250
+            },
+            "quantity": {
+              "type": "int32",
+              "example": 1
+            },
+            "subItems": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "customer": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "example": "customer@example.com"
+            },
+            "phoneNumber": {
+              "type": "string",
+              "example": "+15555550123"
+            },
+            "name": {
+              "type": "string",
+              "example": "Deliverect's Pizza Place"
+            }
+          }
+        },
+        "decimalDigits": {
+          "type": "int32",
+          "example": 1,
+          "description": "number of decimal for the order currency"
+        },
+        "subTotal": {
+          "type": "int32",
+          "example": 1250
+        },
+        "payment": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "int32",
+              "example": 1250
+            }
+          }
+        }
+      },
+      "description": "For the full order schema, please refer to [Glossary - Channel Orders](https://developers.deliverect.com/page/glossary-channel-orders)"
+    }
+  },
+  "required": [
+    "order"
+  ]
+}

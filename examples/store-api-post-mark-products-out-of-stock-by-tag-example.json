@@ -1,0 +1,9 @@
+{
+  "account": "string",
+  "location": "string",
+  "tag": [
+    1
+  ],
+  "snoozeStart": "string",
+  "snoozeEnd": "string"
+}

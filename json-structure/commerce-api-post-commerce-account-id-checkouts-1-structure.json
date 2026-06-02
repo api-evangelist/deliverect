@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/commerce-api-post-commerce-account-id-checkouts-1-structure.json",
+  "name": "PostCommerceAccountIdCheckouts1",
+  "description": "Deliverect Checkout Basket",
+  "type": "object",
+  "properties": {
+    "basket": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "609a1b2c3d4e5f6a7b8c9d0e"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    "note": {
+      "type": "string",
+      "example": "No salad"
+    },
+    "payments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "dpay",
+              "third_party",
+              "gift_card"
+            ],
+            "default": "dpay",
+            "example": "dpay"
+          },
+          "externalId": {
+            "type": "string",
+            "default": "",
+            "example": "609a1b2c3d4e5f6a7b8c9d0e",
+            "description": "id of the payment provider"
+          },
+          "isPrepaid": {
+            "type": "boolean",
+            "default": "true",
+            "example": "true",
+            "description": "indicates whether the order has been paid. For Dpay it should be true."
+          },
+          "amount": {
+            "type": "int32",
+            "default": "",
+            "example": 1250,
+            "description": "total amount paid with 2 decimal digits. 800 would correspond to 8 in local currency"
+          },
+          "metadata": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        "required": [
+          "type",
+          "externalId",
+          "isPrepaid",
+          "amount"
+        ]
+      }
+    },
+    "order": {
+      "type": "object",
+      "properties": {
+        "channelOrderId": {
+          "type": "string",
+          "example": "609a1b2c3d4e5f6a7b8c9d0e",
+          "description": "The full unique ID from the ordering channel, cannot be reused within 48hr after pickup (across all accounts)"
+        },
+        "channelOrderDisplayId": {
+          "type": "string",
+          "example": "609a1b2c3d4e5f6a7b8c9d0e",
+          "description": "A more human\u2011readable order reference to provide, usually shorter than the channelOrderId"
+        },
+        "validationId": {
+          "type": "string",
+          "example": "609a1b2c3d4e5f6a7b8c9d0e"
+        },
+        "courier": {
+          "type": "string",
+          "example": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "basket",
+    "payments"
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/commerce-api-commerce-channel-api-baskets-create-basket-structure.json",
+  "name": "CommerceChannelApiBasketsCreateBasket",
+  "description": "Deliverect Create Basket",
+  "type": "object",
+  "properties": {
+    "channelLinkId": {
+      "type": "string",
+      "default": "",
+      "example": "5e8abc11dec0001a009b",
+      "description": "ID of the store the basket is happening for."
+    },
+    "fulfillment": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "pickup",
+            "delivery",
+            "eatIn",
+            "dispatch"
+          ],
+          "default": "pickup",
+          "example": "pickup"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "menuId": {
+            "type": "string",
+            "example": "609a1b2c3d4e5f6a7b8c9d0e"
+          },
+          "plu": {
+            "type": "string",
+            "default": "3F_COMBO",
+            "example": "3F_COMBO"
+          },
+          "quantity": {
+            "type": "int32",
+            "default": 2,
+            "example": 2
+          },
+          "note": {
+            "type": "string",
+            "example": "No salad"
+          },
+          "subItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "plu": {
+                  "type": "string",
+                  "default": "A_FRS",
+                  "example": "A_FRS"
+                },
+                "customizationPlu": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "quantity": {
+                  "type": "int32",
+                  "default": 1,
+                  "example": 1
+                },
+                "note": {
+                  "type": "string",
+                  "example": "No salad"
+                }
+              },
+              "required": [
+                "plu",
+                "customizationPlu",
+                "quantity"
+              ]
+            }
+          }
+        },
+        "required": [
+          "menuId",
+          "plu",
+          "quantity"
+        ]
+      }
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Deliverect's Pizza Place"
+        },
+        "companyName": {
+          "type": "string",
+          "example": "Deliverect's Pizza Place"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "example": "+15555550123"
+        },
+        "email": {
+          "type": "string",
+          "example": "customer@example.com"
+        },
+        "externalId": {
+          "type": "string",
+          "example": "609a1b2c3d4e5f6a7b8c9d0e"
+        },
+        "tin": {
+          "type": "string",
+          "example": "string"
+        },
+        "crmProfileId": {
+          "type": "string",
+          "example": "609a1b2c3d4e5f6a7b8c9d0e",
+          "description": "If the order is to be assigned to a CRM customer, this fields needs to have a valid crmProfileId."
+        }
+      }
+    }
+  },
+  "required": [
+    "channelLinkId"
+  ]
+}

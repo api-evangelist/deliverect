@@ -1,0 +1,101 @@
+{
+  "channelOrderId": "609a1b2c3d4e5f6a7b8c9d0e",
+  "channelOrderDisplayId": "609a1b2c3d4e5f6a7b8c9d0e",
+  "validationId": "609a1b2c3d4e5f6a7b8c9d0e",
+  "orderType": 1,
+  "deliveryIsAsap": true,
+  "pickupTime": "2026-03-15T14:30:00Z",
+  "deliveryTime": "2026-03-15T14:30:00Z",
+  "placedTime": "2026-03-15T14:30:00Z",
+  "courier": "string",
+  "ageCheck": true,
+  "deliveryAddress": {
+    "street": "string",
+    "streetNumber": "string",
+    "postalCode": "string",
+    "area": "string",
+    "city": "string",
+    "country": "BE",
+    "extraAddressInfo": "string",
+    "coordinates": {
+      "latitude": 1.0,
+      "longitude": 1.0
+    },
+    "verification": {
+      "pincode": "string"
+    }
+  },
+  "deliveryInfo": {
+    "packageSize": "string",
+    "transportType": "string"
+  },
+  "decimalDigits": 1,
+  "payment": {
+    "amount": 1250,
+    "type": 1,
+    "due": 1
+  },
+  "taxes": [
+    {
+      "taxClassId": 1,
+      "name": "Deliverect's Pizza Place",
+      "total": 1250
+    }
+  ],
+  "taxRemitted": 1,
+  "items": [
+    {
+      "plu": "PIE1",
+      "name": "Deliverect's Pizza Place",
+      "price": 1250,
+      "quantity": 1,
+      "remark": "No salad",
+      "discountReferenceIds": [
+        1
+      ],
+      "subItems": [
+        {
+          "plu": "PIE1",
+          "name": "Deliverect's Pizza Place",
+          "price": 1250,
+          "quantity": 1,
+          "remark": "No salad",
+          "subItems": []
+        }
+      ]
+    }
+  ],
+  "includeCutlery": true,
+  "table": "string",
+  "orderIsAlreadyPaid": true,
+  "note": "No salad",
+  "numberOfCustomers": 1,
+  "customer": {
+    "name": "Deliverect's Pizza Place",
+    "companyName": "Deliverect's Pizza Place",
+    "phoneNumber": "+15555550123",
+    "phoneAccessCode": "+15555550123",
+    "email": "customer@example.com",
+    "tin": "string",
+    "note": "No salad"
+  },
+  "deliveryCost": 1250,
+  "deliveryCostTax": 1250,
+  "serviceCharge": 1,
+  "serviceChargeTax": 1,
+  "tip": 1250,
+  "driverTip": 1250,
+  "bagFee": 1250,
+  "discountTotal": 1250,
+  "discounts": [
+    {
+      "type": "string",
+      "provider": "string",
+      "name": "Deliverect's Pizza Place",
+      "channelDiscountCode": "string",
+      "referenceId": 1,
+      "value": 1,
+      "amount": 1250
+    }
+  ]
+}

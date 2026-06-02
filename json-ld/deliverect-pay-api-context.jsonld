@@ -1,0 +1,127 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "PayEndpointsRefundPayment": "dv:PayEndpointsRefundPayment",
+    "PayEndpointsRequestPayment": "dv:PayEndpointsRequestPayment",
+    "PayplatformPaymentsProfileRegister": "dv:PayplatformPaymentsProfileRegister",
+    "PayplatformPaymentsRefund": "dv:PayplatformPaymentsRefund",
+    "PayplatformPaymentsRequest": "dv:PayplatformPaymentsRequest",
+    "PayplatformPaymentsUnregisterProfile": "dv:PayplatformPaymentsUnregisterProfile",
+    "amount": {
+      "@id": "dv:amount",
+      "@type": "xsd:integer"
+    },
+    "gatewayProfileId": {
+      "@id": "dv:gatewayProfileId",
+      "@type": "xsd:string"
+    },
+    "mode": {
+      "@id": "dv:mode",
+      "@type": "@id"
+    },
+    "type": {
+      "@id": "dv:type",
+      "@type": "xsd:string"
+    },
+    "returnUrl": {
+      "@id": "dv:returnUrl",
+      "@type": "xsd:string"
+    },
+    "tokenId": {
+      "@id": "dv:tokenId",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "schema:currency",
+      "@type": "xsd:string"
+    },
+    "payableReference": {
+      "@id": "dv:payableReference",
+      "@type": "xsd:string"
+    },
+    "payer": {
+      "@id": "dv:payer",
+      "@type": "@id"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "reference": {
+      "@id": "dv:reference",
+      "@type": "xsd:string"
+    },
+    "ip": {
+      "@id": "dv:ip",
+      "@type": "xsd:string"
+    },
+    "payable": {
+      "@id": "dv:payable",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "dv:id",
+      "@type": "xsd:string"
+    },
+    "billingAddress": {
+      "@id": "dv:billingAddress",
+      "@type": "@id"
+    },
+    "country": {
+      "@id": "dv:country",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "dv:city",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "dv:postalCode",
+      "@type": "xsd:string"
+    },
+    "street": {
+      "@id": "dv:street",
+      "@type": "xsd:string"
+    },
+    "houseNumber": {
+      "@id": "dv:houseNumber",
+      "@type": "xsd:string"
+    },
+    "stateOrProvince": {
+      "@id": "dv:stateOrProvince",
+      "@type": "xsd:string"
+    },
+    "captureMode": {
+      "@id": "dv:captureMode",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "dv:accountId",
+      "@type": "xsd:string"
+    },
+    "apiKey": {
+      "@id": "dv:apiKey",
+      "@type": "xsd:string"
+    },
+    "webhookUrl": {
+      "@id": "dv:webhookUrl",
+      "@type": "xsd:string"
+    },
+    "paymentId": {
+      "@id": "dv:paymentId",
+      "@type": "xsd:string"
+    },
+    "logoUrl": {
+      "@id": "dv:logoUrl",
+      "@type": "xsd:string"
+    }
+  }
+}

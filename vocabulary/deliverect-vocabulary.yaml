@@ -1,0 +1,1433 @@
+vocabulary: 1.0.0
+info:
+  provider: Deliverect
+  description: Unified taxonomy of the Deliverect restaurant-integration platform mapping the operational dimension (OpenAPI operations across the POS, Commerce, Channel, Dispatch, Store, Pay, CRM, Loyalty,
+    KDS, and Gift Cards APIs) to the capability dimension (Naftiko REST and MCP capability workflows).
+  created: '2026-06-02'
+  modified: '2026-06-02'
+  tags:
+  - Deliverect
+  - Restaurant
+  - Delivery
+  - Online Ordering
+  - Point of Sale
+  - Integration
+operational:
+  apis:
+  - name: Deliverect Channel API
+    namespace: channel-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect Commerce API
+    namespace: commerce-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect CRM API
+    namespace: crm-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect Dispatch API
+    namespace: dispatch-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect Gift Cards API
+    namespace: gift-cards-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect KDS API
+    namespace: kds-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect Loyalty API
+    namespace: loyalty-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect Pay API
+    namespace: pay-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect POS API
+    namespace: pos-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  - name: Deliverect Store API
+    namespace: store-api
+    version: '1.0'
+    baseUrl: https://api.deliverect.com
+    status: active
+  resources:
+  - name: order
+    apis:
+    - Deliverect Channel API
+    actions:
+    - create
+  - name: order_status
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: menu_update
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: snooze
+    apis:
+    - Deliverect Channel API
+    actions:
+    - snooze
+  - name: busy_mode
+    apis:
+    - Deliverect Channel API
+    actions:
+    - create
+  - name: courier_update
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: prep_time
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: register
+    apis:
+    - Deliverect Channel API
+    - Deliverect POS API
+    - Deliverect Pay API
+    actions:
+    - create
+    - register
+  - name: amendments
+    apis:
+    - Deliverect Channel API
+    actions:
+    - create
+  - name: payment_update
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: holidays
+    apis:
+    - Deliverect Channel API
+    - Deliverect Store API
+    actions:
+    - create
+    - get
+  - name: channellinks
+    apis:
+    - Deliverect Channel API
+    actions:
+    - get
+  - name: allchannels
+    apis:
+    - Deliverect Channel API
+    actions:
+    - get
+  - name: accounts
+    apis:
+    - Deliverect Channel API
+    actions:
+    - get
+  - name: menustatus
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: updatestorestatus
+    apis:
+    - Deliverect Channel API
+    - Deliverect Store API
+    actions:
+    - create
+    - update
+  - name: updaterating
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: courierupdate
+    apis:
+    - Deliverect Channel API
+    actions:
+    - update
+  - name: recreate
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - create
+  - name: stores
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - get
+  - name: menus
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - get
+  - name: baskets
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - create
+    - get
+  - name: checkouts
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - checkout
+    - get
+  - name: validate
+    apis:
+    - Deliverect Commerce API
+    - Deliverect Dispatch API
+    - Deliverect Loyalty API
+    actions:
+    - create
+    - validate
+  - name: items
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - update
+  - name: customer
+    apis:
+    - Deliverect Commerce API
+    - Deliverect Loyalty API
+    actions:
+    - create
+    - get
+    - update
+  - name: discounts
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - update
+  - name: payment
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - update
+  - name: store
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - update
+  - name: coupons
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - get
+  - name: channel
+    apis:
+    - Deliverect Commerce API
+    actions:
+    - get
+  - name: customers
+    apis:
+    - Deliverect CRM API
+    actions:
+    - create
+    - get
+    - update
+  - name: lookup
+    apis:
+    - Deliverect CRM API
+    actions:
+    - lookup
+  - name: deliveryaddresses
+    apis:
+    - Deliverect CRM API
+    actions:
+    - update
+  - name: vehicles
+    apis:
+    - Deliverect CRM API
+    actions:
+    - update
+  - name: favorites
+    apis:
+    - Deliverect CRM API
+    actions:
+    - get
+    - update
+  - name: orders
+    apis:
+    - Deliverect CRM API
+    - Deliverect POS API
+    actions:
+    - create
+    - get
+  - name: validate_job
+    apis:
+    - Deliverect Dispatch API
+    actions:
+    - validate
+  - name: create_job
+    apis:
+    - Deliverect Dispatch API
+    actions:
+    - create
+  - name: updatejob
+    apis:
+    - Deliverect Dispatch API
+    actions:
+    - cancel
+  - name: cancel_job
+    apis:
+    - Deliverect Dispatch API
+    actions:
+    - cancel
+  - name: cancel
+    apis:
+    - Deliverect Dispatch API
+    actions:
+    - cancel
+  - name: events
+    apis:
+    - Deliverect Dispatch API
+    actions:
+    - update
+  - name: applygiftcard
+    apis:
+    - Deliverect Gift Cards API
+    actions:
+    - apply
+  - name: getgiftcardbalance
+    apis:
+    - Deliverect Gift Cards API
+    actions:
+    - get
+  - name: redeem
+    apis:
+    - Deliverect Gift Cards API
+    actions:
+    - redeem
+  - name: registerprofile
+    apis:
+    - Deliverect Gift Cards API
+    actions:
+    - register
+  - name: reverse
+    apis:
+    - Deliverect Gift Cards API
+    actions:
+    - reverse
+  - name: providerprofilelinks
+    apis:
+    - Deliverect Gift Cards API
+    actions:
+    - get
+  - name: kds_order_notification
+    apis:
+    - Deliverect KDS API
+    actions:
+    - create
+  - name: order_status_update
+    apis:
+    - Deliverect KDS API
+    actions:
+    - update
+  - name: productupdate
+    apis:
+    - Deliverect KDS API
+    actions:
+    - update
+  - name: register_kds
+    apis:
+    - Deliverect KDS API
+    actions:
+    - register
+  - name: orderstatus
+    apis:
+    - Deliverect KDS API
+    - Deliverect POS API
+    actions:
+    - create
+    - update
+  - name: configuration
+    apis:
+    - Deliverect Loyalty API
+    actions:
+    - get
+  - name: retrieve
+    apis:
+    - Deliverect Loyalty API
+    actions:
+    - get
+  - name: token
+    apis:
+    - Deliverect Loyalty API
+    actions:
+    - create
+  - name: gatewayprofiles
+    apis:
+    - Deliverect Pay API
+    actions:
+    - get
+  - name: request
+    apis:
+    - Deliverect Pay API
+    actions:
+    - create
+  - name: payments
+    apis:
+    - Deliverect Pay API
+    actions:
+    - get
+  - name: refund
+    apis:
+    - Deliverect Pay API
+    actions:
+    - refund
+  - name: unregister_profile
+    apis:
+    - Deliverect Pay API
+    actions:
+    - register
+  - name: syncproducts
+    apis:
+    - Deliverect POS API
+    actions:
+    - get
+    - sync
+  - name: locationid
+    apis:
+    - Deliverect POS API
+    actions:
+    - sync
+  - name: productandcategories
+    apis:
+    - Deliverect POS API
+    actions:
+    - update
+  - name: product_sync_callback
+    apis:
+    - Deliverect POS API
+    actions:
+    - update
+  - name: inventoryuploadurl
+    apis:
+    - Deliverect POS API
+    actions:
+    - update
+  - name: location
+    apis:
+    - Deliverect POS API
+    actions:
+    - update
+  - name: updatepreparationtime
+    apis:
+    - Deliverect POS API
+    actions:
+    - update
+  - name: locations
+    apis:
+    - Deliverect Store API
+    actions:
+    - get
+  - name: products
+    apis:
+    - Deliverect Store API
+    actions:
+    - get
+  - name: snoozebyplus
+    apis:
+    - Deliverect Store API
+    actions:
+    - snooze
+  - name: snoozebytags
+    apis:
+    - Deliverect Store API
+    actions:
+    - create
+  - name: channeldisabledproducts
+    apis:
+    - Deliverect Store API
+    actions:
+    - get
+  - name: openinghours
+    apis:
+    - Deliverect Store API
+    actions:
+    - create
+    - get
+  - name: tables
+    apis:
+    - Deliverect Store API
+    actions:
+    - get
+  - name: allallegens
+    apis:
+    - Deliverect Store API
+    actions:
+    - get
+  actions:
+  - name: create
+    httpMethods:
+    - POST
+    pattern: write
+  - name: update
+    httpMethods:
+    - GET
+    - PATCH
+    - POST
+    pattern: write
+  - name: snooze
+    httpMethods:
+    - POST
+    pattern: write
+  - name: get
+    httpMethods:
+    - GET
+    - POST
+    pattern: read
+  - name: checkout
+    httpMethods:
+    - POST
+    pattern: write
+  - name: validate
+    httpMethods:
+    - POST
+    pattern: write
+  - name: lookup
+    httpMethods:
+    - POST
+    pattern: write
+  - name: cancel
+    httpMethods:
+    - POST
+    pattern: write
+  - name: apply
+    httpMethods:
+    - POST
+    pattern: write
+  - name: redeem
+    httpMethods:
+    - POST
+    pattern: write
+  - name: register
+    httpMethods:
+    - POST
+    pattern: write
+  - name: reverse
+    httpMethods:
+    - POST
+    pattern: write
+  - name: refund
+    httpMethods:
+    - POST
+    pattern: write
+  - name: sync
+    httpMethods:
+    - GET
+    pattern: read
+  enums:
+    captureMode:
+    - immediate
+    - manual
+    status:
+    - closed
+    - completed
+    - failed
+    - open
+    type:
+    - delivery
+    - dispatch
+    - dpay
+    - eatIn
+    - gift_card
+    - offline
+    - pickup
+    - redirect
+    - terminal
+    - third_party
+    - token
+  authentication:
+    scheme: OAuth 2.0 machine-to-machine (client credentials)
+    tokenUrl: https://api.deliverect.com/oauth/token
+    flow: clientCredentials
+    scopes:
+    - genericPOS
+    - genericChannel
+    - genericCommerce
+    - genericFulfillment
+    - store
+    - genericKDS
+    - payments
+capability:
+  workflows:
+  - name: Deliverect Channel API — Accounts
+    file: capabilities/channel-api-accounts.yaml
+    description: 'Accounts surface of the Deliverect Channel API. 1 operations. Lead operation: Get_accounts. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 1
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Channel Links
+    file: capabilities/channel-api-channel-links.yaml
+    description: 'Channel Links surface of the Deliverect Channel API. 2 operations. Lead operation: Get_channellinks. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 2
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Couriers
+    file: capabilities/channel-api-couriers.yaml
+    description: 'Couriers surface of the Deliverect Channel API. 2 operations. Lead operation: Courier Update. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 2
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Menus
+    file: capabilities/channel-api-menus.yaml
+    description: 'Menus surface of the Deliverect Channel API. 2 operations. Lead operation: Menu Update. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 2
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Opening Hours
+    file: capabilities/channel-api-opening-hours.yaml
+    description: 'Opening Hours surface of the Deliverect Channel API. 1 operations. Lead operation: Get_locations_channels_locationid_holidays. Self-contained Naftiko capability covering one Deliverect
+      business surface.'
+    apis:
+    - Channel API
+    tools: 1
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Orders
+    file: capabilities/channel-api-orders.yaml
+    description: 'Orders surface of the Deliverect Channel API. 5 operations. Lead operation: Create / Cancel Order. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 5
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Payments
+    file: capabilities/channel-api-payments.yaml
+    description: 'Payments surface of the Deliverect Channel API. 1 operations. Lead operation: Payment Update. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 1
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Products
+    file: capabilities/channel-api-products.yaml
+    description: 'Products surface of the Deliverect Channel API. 1 operations. Lead operation: Snooze / Unsnooze Products. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 1
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Registration
+    file: capabilities/channel-api-registration.yaml
+    description: 'Registration surface of the Deliverect Channel API. 1 operations. Lead operation: Channel Registration. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 1
+    personas:
+    - integration-engineer
+  - name: Deliverect Channel API — Store Status
+    file: capabilities/channel-api-store-status.yaml
+    description: 'Store Status surface of the Deliverect Channel API. 2 operations. Lead operation: Busy Mode. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Channel API
+    tools: 2
+    personas:
+    - integration-engineer
+  - name: Deliverect Commerce API — Baskets
+    file: capabilities/commerce-api-baskets.yaml
+    description: 'Baskets surface of the Deliverect Commerce API. 9 operations. Lead operation: Recreate Basket. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Commerce API
+    tools: 9
+    personas:
+    - ordering-developer
+  - name: Deliverect Commerce API — Checkout
+    file: capabilities/commerce-api-checkout.yaml
+    description: 'Checkout surface of the Deliverect Commerce API. 2 operations. Lead operation: Checkout Basket. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Commerce API
+    tools: 2
+    personas:
+    - ordering-developer
+  - name: Deliverect Commerce API — Coupons
+    file: capabilities/commerce-api-coupons.yaml
+    description: 'Coupons surface of the Deliverect Commerce API. 1 operations. Lead operation: Copy of. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Commerce API
+    tools: 1
+    personas:
+    - ordering-developer
+  - name: Deliverect Commerce API — Menus
+    file: capabilities/commerce-api-menus.yaml
+    description: 'Menus surface of the Deliverect Commerce API. 2 operations. Lead operation: Get Root Menu(s). Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Commerce API
+    tools: 2
+    personas:
+    - ordering-developer
+  - name: Deliverect Commerce API — Stores
+    file: capabilities/commerce-api-stores.yaml
+    description: 'Stores surface of the Deliverect Commerce API. 2 operations. Lead operation: Get Store. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Commerce API
+    tools: 2
+    personas:
+    - ordering-developer
+  - name: Deliverect Commerce API — Upsell
+    file: capabilities/commerce-api-upsell.yaml
+    description: 'Upsell surface of the Deliverect Commerce API. 1 operations. Lead operation: Get Upsell Items. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Commerce API
+    tools: 1
+    personas:
+    - ordering-developer
+  - name: Deliverect CRM API — Customers
+    file: capabilities/crm-api-customers.yaml
+    description: 'Customers surface of the Deliverect CRM API. 7 operations. Lead operation: Create Customer. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - CRM API
+    tools: 7
+    personas:
+    - crm-developer
+  - name: Deliverect CRM API — Orders
+    file: capabilities/crm-api-orders.yaml
+    description: 'Orders surface of the Deliverect CRM API. 3 operations. Lead operation: Customer Order History. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - CRM API
+    tools: 3
+    personas:
+    - crm-developer
+  - name: Deliverect Dispatch API — Fulfillment
+    file: capabilities/dispatch-api-fulfillment.yaml
+    description: 'Fulfillment surface of the Deliverect Dispatch API. 3 operations. Lead operation: Dispatch Availability. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Dispatch API
+    tools: 3
+    personas:
+    - logistics-engineer
+  - name: Deliverect Dispatch API — Jobs
+    file: capabilities/dispatch-api-jobs.yaml
+    description: 'Jobs surface of the Deliverect Dispatch API. 4 operations. Lead operation: Validate Delivery Job. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Dispatch API
+    tools: 4
+    personas:
+    - logistics-engineer
+  - name: Deliverect Gift Cards API — Gift Cards
+    file: capabilities/gift-cards-api-gift-cards.yaml
+    description: 'Gift Cards surface of the Deliverect Gift Cards API. 4 operations. Lead operation: Apply Gift Card. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Gift Cards API
+    tools: 4
+    personas:
+    - payments-engineer
+  - name: Deliverect Gift Cards API — Profiles
+    file: capabilities/gift-cards-api-profiles.yaml
+    description: 'Profiles surface of the Deliverect Gift Cards API. 2 operations. Lead operation: Register Profile. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Gift Cards API
+    tools: 2
+    personas:
+    - payments-engineer
+  - name: Deliverect KDS API — Orders
+    file: capabilities/kds-api-orders.yaml
+    description: 'Orders surface of the Deliverect KDS API. 3 operations. Lead operation: Kds_order_notification. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - KDS API
+    tools: 3
+    personas:
+    - kitchen-systems-engineer
+  - name: Deliverect KDS API — Products
+    file: capabilities/kds-api-products.yaml
+    description: 'Products surface of the Deliverect KDS API. 1 operations. Lead operation: Kds_productupdate. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - KDS API
+    tools: 1
+    personas:
+    - kitchen-systems-engineer
+  - name: Deliverect KDS API — Registration
+    file: capabilities/kds-api-registration.yaml
+    description: 'Registration surface of the Deliverect KDS API. 1 operations. Lead operation: Kds_register_kds. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - KDS API
+    tools: 1
+    personas:
+    - kitchen-systems-engineer
+  - name: Deliverect Loyalty API — Authentication
+    file: capabilities/loyalty-api-authentication.yaml
+    description: 'Authentication surface of the Deliverect Loyalty API. 1 operations. Lead operation: Loyalty SSO - OAuth Token Exchange. Self-contained Naftiko capability covering one Deliverect business
+      surface.'
+    apis:
+    - Loyalty API
+    tools: 1
+    personas:
+    - loyalty-developer
+  - name: Deliverect Loyalty API — Compensation Cards
+    file: capabilities/loyalty-api-compensation-cards.yaml
+    description: 'Compensation Cards surface of the Deliverect Loyalty API. 1 operations. Lead operation: Post_loyalty_channellinkid_compensationcards_validate. Self-contained Naftiko capability covering
+      one Deliverect business surface.'
+    apis:
+    - Loyalty API
+    tools: 1
+    personas:
+    - loyalty-developer
+  - name: Deliverect Loyalty API — Configuration
+    file: capabilities/loyalty-api-configuration.yaml
+    description: 'Configuration surface of the Deliverect Loyalty API. 1 operations. Lead operation: Get Configuration. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Loyalty API
+    tools: 1
+    personas:
+    - loyalty-developer
+  - name: Deliverect Loyalty API — Customers
+    file: capabilities/loyalty-api-customers.yaml
+    description: 'Customers surface of the Deliverect Loyalty API. 2 operations. Lead operation: Create Loyalty Customer. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Loyalty API
+    tools: 2
+    personas:
+    - loyalty-developer
+  - name: Deliverect Loyalty API — Programs
+    file: capabilities/loyalty-api-programs.yaml
+    description: 'Programs surface of the Deliverect Loyalty API. 2 operations. Lead operation: Get Loyalty Programs. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Loyalty API
+    tools: 2
+    personas:
+    - loyalty-developer
+  - name: Deliverect Pay API — Gateways
+    file: capabilities/pay-api-gateways.yaml
+    description: 'Gateways surface of the Deliverect Pay API. 1 operations. Lead operation: Get Payment Gateways. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Pay API
+    tools: 1
+    personas:
+    - payments-engineer
+  - name: Deliverect Pay API — Payments
+    file: capabilities/pay-api-payments.yaml
+    description: 'Payments surface of the Deliverect Pay API. 5 operations. Lead operation: Request Payment. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Pay API
+    tools: 5
+    personas:
+    - payments-engineer
+  - name: Deliverect Pay API — Profiles
+    file: capabilities/pay-api-profiles.yaml
+    description: 'Profiles surface of the Deliverect Pay API. 2 operations. Lead operation: Register Profile. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Pay API
+    tools: 2
+    personas:
+    - payments-engineer
+  - name: Deliverect POS API — Floors
+    file: capabilities/pos-api-floors.yaml
+    description: 'Floors surface of the Deliverect POS API. 1 operations. Lead operation: Sync Floors. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - POS API
+    tools: 1
+    personas:
+    - pos-vendor
+  - name: Deliverect POS API — Inventory
+    file: capabilities/pos-api-inventory.yaml
+    description: 'Inventory surface of the Deliverect POS API. 1 operations. Lead operation: Inventory Update. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - POS API
+    tools: 1
+    personas:
+    - pos-vendor
+  - name: Deliverect POS API — Orders
+    file: capabilities/pos-api-orders.yaml
+    description: 'Orders surface of the Deliverect POS API. 4 operations. Lead operation: Order Notification. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - POS API
+    tools: 4
+    personas:
+    - pos-vendor
+  - name: Deliverect POS API — Products
+    file: capabilities/pos-api-products.yaml
+    description: 'Products surface of the Deliverect POS API. 4 operations. Lead operation: Sync Products. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - POS API
+    tools: 4
+    personas:
+    - pos-vendor
+  - name: Deliverect POS API — Registration
+    file: capabilities/pos-api-registration.yaml
+    description: 'Registration surface of the Deliverect POS API. 1 operations. Lead operation: Register POS. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - POS API
+    tools: 1
+    personas:
+    - pos-vendor
+  - name: Deliverect POS API — Tables
+    file: capabilities/pos-api-tables.yaml
+    description: 'Tables surface of the Deliverect POS API. 1 operations. Lead operation: Sync Tables. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - POS API
+    tools: 1
+    personas:
+    - pos-vendor
+  - name: Deliverect Store API — Allergens
+    file: capabilities/store-api-allergens.yaml
+    description: 'Allergens surface of the Deliverect Store API. 1 operations. Lead operation: Allergens and Tags. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Store API
+    tools: 1
+    personas:
+    - operations-manager
+  - name: Deliverect Store API — Locations
+    file: capabilities/store-api-locations.yaml
+    description: 'Locations surface of the Deliverect Store API. 1 operations. Lead operation: Locations. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Store API
+    tools: 1
+    personas:
+    - operations-manager
+  - name: Deliverect Store API — Opening Hours
+    file: capabilities/store-api-opening-hours.yaml
+    description: 'Opening Hours surface of the Deliverect Store API. 6 operations. Lead operation: Create/Update Opening Hours. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Store API
+    tools: 6
+    personas:
+    - operations-manager
+  - name: Deliverect Store API — Products
+    file: capabilities/store-api-products.yaml
+    description: 'Products surface of the Deliverect Store API. 4 operations. Lead operation: Get Products for Account. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Store API
+    tools: 4
+    personas:
+    - operations-manager
+  - name: Deliverect Store API — Store Status
+    file: capabilities/store-api-store-status.yaml
+    description: 'Store Status surface of the Deliverect Store API. 1 operations. Lead operation: Busy Mode. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Store API
+    tools: 1
+    personas:
+    - operations-manager
+  - name: Deliverect Store API — Tables
+    file: capabilities/store-api-tables.yaml
+    description: 'Tables surface of the Deliverect Store API. 1 operations. Lead operation: GET POS Tables. Self-contained Naftiko capability covering one Deliverect business surface.'
+    apis:
+    - Store API
+    tools: 1
+    personas:
+    - operations-manager
+  personas:
+  - id: integration-engineer
+    name: Integration Engineer
+    description: Builds and operates Deliverect Channel integrations.
+    workflows:
+    - channel-api-accounts.yaml
+    - channel-api-channel-links.yaml
+    - channel-api-couriers.yaml
+    - channel-api-menus.yaml
+    - channel-api-opening-hours.yaml
+    - channel-api-orders.yaml
+    - channel-api-payments.yaml
+    - channel-api-products.yaml
+    - channel-api-registration.yaml
+    - channel-api-store-status.yaml
+  - id: ordering-developer
+    name: Online Ordering Developer
+    description: Builds and operates Deliverect Commerce integrations.
+    workflows:
+    - commerce-api-baskets.yaml
+    - commerce-api-checkout.yaml
+    - commerce-api-coupons.yaml
+    - commerce-api-menus.yaml
+    - commerce-api-stores.yaml
+    - commerce-api-upsell.yaml
+  - id: crm-developer
+    name: CRM Developer
+    description: Builds and operates Deliverect CRM integrations.
+    workflows:
+    - crm-api-customers.yaml
+    - crm-api-orders.yaml
+  - id: logistics-engineer
+    name: Logistics Engineer
+    description: Builds and operates Deliverect Dispatch integrations.
+    workflows:
+    - dispatch-api-fulfillment.yaml
+    - dispatch-api-jobs.yaml
+  - id: payments-engineer
+    name: Payments Engineer
+    description: Builds and operates Deliverect Gift Cards integrations.
+    workflows:
+    - gift-cards-api-gift-cards.yaml
+    - gift-cards-api-profiles.yaml
+    - pay-api-gateways.yaml
+    - pay-api-payments.yaml
+    - pay-api-profiles.yaml
+  - id: kitchen-systems-engineer
+    name: Kitchen Systems Engineer
+    description: Builds and operates Deliverect KDS integrations.
+    workflows:
+    - kds-api-orders.yaml
+    - kds-api-products.yaml
+    - kds-api-registration.yaml
+  - id: loyalty-developer
+    name: Loyalty Developer
+    description: Builds and operates Deliverect Loyalty integrations.
+    workflows:
+    - loyalty-api-authentication.yaml
+    - loyalty-api-compensation-cards.yaml
+    - loyalty-api-configuration.yaml
+    - loyalty-api-customers.yaml
+    - loyalty-api-programs.yaml
+  - id: pos-vendor
+    name: POS Vendor
+    description: Builds and operates Deliverect POS integrations.
+    workflows:
+    - pos-api-floors.yaml
+    - pos-api-inventory.yaml
+    - pos-api-orders.yaml
+    - pos-api-products.yaml
+    - pos-api-registration.yaml
+    - pos-api-tables.yaml
+  - id: operations-manager
+    name: Operations Manager
+    description: Builds and operates Deliverect Store integrations.
+    workflows:
+    - store-api-allergens.yaml
+    - store-api-locations.yaml
+    - store-api-opening-hours.yaml
+    - store-api-products.yaml
+    - store-api-store-status.yaml
+    - store-api-tables.yaml
+  domains:
+  - Ordering
+  - Menu and Catalogue
+  - Fulfillment and Dispatch
+  - Store Operations
+  - Payments
+  - Customer and Loyalty
+crossReference:
+- resource: order
+  apis:
+  - Deliverect Channel API
+  actions:
+  - create
+- resource: order_status
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: menu_update
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: snooze
+  apis:
+  - Deliverect Channel API
+  actions:
+  - snooze
+- resource: busy_mode
+  apis:
+  - Deliverect Channel API
+  actions:
+  - create
+- resource: courier_update
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: prep_time
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: register
+  apis:
+  - Deliverect Channel API
+  - Deliverect POS API
+  - Deliverect Pay API
+  actions:
+  - create
+  - register
+- resource: amendments
+  apis:
+  - Deliverect Channel API
+  actions:
+  - create
+- resource: payment_update
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: holidays
+  apis:
+  - Deliverect Channel API
+  - Deliverect Store API
+  actions:
+  - create
+  - get
+- resource: channellinks
+  apis:
+  - Deliverect Channel API
+  actions:
+  - get
+- resource: allchannels
+  apis:
+  - Deliverect Channel API
+  actions:
+  - get
+- resource: accounts
+  apis:
+  - Deliverect Channel API
+  actions:
+  - get
+- resource: menustatus
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: updatestorestatus
+  apis:
+  - Deliverect Channel API
+  - Deliverect Store API
+  actions:
+  - create
+  - update
+- resource: updaterating
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: courierupdate
+  apis:
+  - Deliverect Channel API
+  actions:
+  - update
+- resource: recreate
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - create
+- resource: stores
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - get
+- resource: menus
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - get
+- resource: baskets
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - create
+  - get
+- resource: checkouts
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - checkout
+  - get
+- resource: validate
+  apis:
+  - Deliverect Commerce API
+  - Deliverect Dispatch API
+  - Deliverect Loyalty API
+  actions:
+  - create
+  - validate
+- resource: items
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - update
+- resource: customer
+  apis:
+  - Deliverect Commerce API
+  - Deliverect Loyalty API
+  actions:
+  - create
+  - get
+  - update
+- resource: discounts
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - update
+- resource: payment
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - update
+- resource: store
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - update
+- resource: coupons
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - get
+- resource: channel
+  apis:
+  - Deliverect Commerce API
+  actions:
+  - get
+- resource: customers
+  apis:
+  - Deliverect CRM API
+  actions:
+  - create
+  - get
+  - update
+- resource: lookup
+  apis:
+  - Deliverect CRM API
+  actions:
+  - lookup
+- resource: deliveryaddresses
+  apis:
+  - Deliverect CRM API
+  actions:
+  - update
+- resource: vehicles
+  apis:
+  - Deliverect CRM API
+  actions:
+  - update
+- resource: favorites
+  apis:
+  - Deliverect CRM API
+  actions:
+  - get
+  - update
+- resource: orders
+  apis:
+  - Deliverect CRM API
+  - Deliverect POS API
+  actions:
+  - create
+  - get
+- resource: validate_job
+  apis:
+  - Deliverect Dispatch API
+  actions:
+  - validate
+- resource: create_job
+  apis:
+  - Deliverect Dispatch API
+  actions:
+  - create
+- resource: updatejob
+  apis:
+  - Deliverect Dispatch API
+  actions:
+  - cancel
+- resource: cancel_job
+  apis:
+  - Deliverect Dispatch API
+  actions:
+  - cancel
+- resource: cancel
+  apis:
+  - Deliverect Dispatch API
+  actions:
+  - cancel
+- resource: events
+  apis:
+  - Deliverect Dispatch API
+  actions:
+  - update
+- resource: applygiftcard
+  apis:
+  - Deliverect Gift Cards API
+  actions:
+  - apply
+- resource: getgiftcardbalance
+  apis:
+  - Deliverect Gift Cards API
+  actions:
+  - get
+- resource: redeem
+  apis:
+  - Deliverect Gift Cards API
+  actions:
+  - redeem
+- resource: registerprofile
+  apis:
+  - Deliverect Gift Cards API
+  actions:
+  - register
+- resource: reverse
+  apis:
+  - Deliverect Gift Cards API
+  actions:
+  - reverse
+- resource: providerprofilelinks
+  apis:
+  - Deliverect Gift Cards API
+  actions:
+  - get
+- resource: kds_order_notification
+  apis:
+  - Deliverect KDS API
+  actions:
+  - create
+- resource: order_status_update
+  apis:
+  - Deliverect KDS API
+  actions:
+  - update
+- resource: productupdate
+  apis:
+  - Deliverect KDS API
+  actions:
+  - update
+- resource: register_kds
+  apis:
+  - Deliverect KDS API
+  actions:
+  - register
+- resource: orderstatus
+  apis:
+  - Deliverect KDS API
+  - Deliverect POS API
+  actions:
+  - create
+  - update
+- resource: configuration
+  apis:
+  - Deliverect Loyalty API
+  actions:
+  - get
+- resource: retrieve
+  apis:
+  - Deliverect Loyalty API
+  actions:
+  - get
+- resource: token
+  apis:
+  - Deliverect Loyalty API
+  actions:
+  - create
+- resource: gatewayprofiles
+  apis:
+  - Deliverect Pay API
+  actions:
+  - get
+- resource: request
+  apis:
+  - Deliverect Pay API
+  actions:
+  - create
+- resource: payments
+  apis:
+  - Deliverect Pay API
+  actions:
+  - get
+- resource: refund
+  apis:
+  - Deliverect Pay API
+  actions:
+  - refund
+- resource: unregister_profile
+  apis:
+  - Deliverect Pay API
+  actions:
+  - register
+- resource: syncproducts
+  apis:
+  - Deliverect POS API
+  actions:
+  - get
+  - sync
+- resource: locationid
+  apis:
+  - Deliverect POS API
+  actions:
+  - sync
+- resource: productandcategories
+  apis:
+  - Deliverect POS API
+  actions:
+  - update
+- resource: product_sync_callback
+  apis:
+  - Deliverect POS API
+  actions:
+  - update
+- resource: inventoryuploadurl
+  apis:
+  - Deliverect POS API
+  actions:
+  - update
+- resource: location
+  apis:
+  - Deliverect POS API
+  actions:
+  - update
+- resource: updatepreparationtime
+  apis:
+  - Deliverect POS API
+  actions:
+  - update
+- resource: locations
+  apis:
+  - Deliverect Store API
+  actions:
+  - get
+- resource: products
+  apis:
+  - Deliverect Store API
+  actions:
+  - get
+- resource: snoozebyplus
+  apis:
+  - Deliverect Store API
+  actions:
+  - snooze
+- resource: snoozebytags
+  apis:
+  - Deliverect Store API
+  actions:
+  - create
+- resource: channeldisabledproducts
+  apis:
+  - Deliverect Store API
+  actions:
+  - get
+- resource: openinghours
+  apis:
+  - Deliverect Store API
+  actions:
+  - create
+  - get
+- resource: tables
+  apis:
+  - Deliverect Store API
+  actions:
+  - get
+- resource: allallegens
+  apis:
+  - Deliverect Store API
+  actions:
+  - get

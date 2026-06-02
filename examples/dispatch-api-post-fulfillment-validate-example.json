@@ -1,0 +1,20 @@
+{
+  "channelLinkId": "5e8abc11dec0001a009b",
+  "deliveryLocations": {
+    "packageSize": "string",
+    "name": "Deliverect's Pizza Place",
+    "phone": "+15555550123",
+    "street": "string",
+    "streetNumber": "string",
+    "city": "string",
+    "country": "BE",
+    "postalCode": "string",
+    "deliveryTime": "2026-03-15T14:30:00Z",
+    "coordinates": {
+      "coordinates": [
+        1.0
+      ]
+    }
+  },
+  "pickupTime": "2026-03-15T14:30:00Z"
+}

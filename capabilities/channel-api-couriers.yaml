@@ -1,0 +1,127 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Channel API — Couriers
+  description: 'Couriers surface of the Deliverect Channel API. 2 operations. Lead operation: Courier Update. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Channel
+  - Couriers
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: channel-api-couriers
+    baseUri: https://api.deliverect.com
+    description: Deliverect Channel API — Couriers business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: channel-courier-update
+      path: /channel/courier_update
+      operations:
+      - name: channel_courier_update
+        method: POST
+        description: Deliverect Courier Update
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: channel-name-courier-update-channel-link-id
+      path: /{channelName}/courierUpdate/{channelLinkId}
+      operations:
+      - name: post_channelname_courierupdate_channellinkid
+        method: POST
+        description: Deliverect Update Courier Status
+        inputParameters:
+        - name: channelName
+          in: path
+          type: string
+          required: true
+          description: The channelName value.
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: channel-api-couriers-rest
+    port: 8080
+    description: REST adapter for Deliverect Channel API — Couriers. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/channel/courier-update
+      name: channel-courier-update
+      description: REST surface for channel-courier-update.
+      operations:
+      - method: POST
+        name: channel_courier_update
+        description: Deliverect Courier Update
+        call: channel-api-couriers.channel_courier_update
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/{channel-name}/courier-update/{channel-link-id}
+      name: channel-name-courier-update-channel-link-id
+      description: REST surface for channel-name-courier-update-channel-link-id.
+      operations:
+      - method: POST
+        name: post_channelname_courierupdate_channellinkid
+        description: Deliverect Update Courier Status
+        call: channel-api-couriers.post_channelname_courierupdate_channellinkid
+        with:
+          channelName: rest.channelName
+          channelLinkId: rest.channelLinkId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: channel-api-couriers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Channel API — Couriers. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: courier-update
+      description: Deliverect Courier Update
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: channel-api-couriers.channel_courier_update
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-courier-status
+      description: Deliverect Update Courier Status
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: channel-api-couriers.post_channelname_courierupdate_channellinkid
+      with:
+        channelName: tools.channelName
+        channelLinkId: tools.channelLinkId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

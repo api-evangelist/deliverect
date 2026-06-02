@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/store-api-post-mark-products-out-of-stock-by-tag-structure.json",
+  "name": "PostMarkProductsOutOfStockByTag",
+  "description": "Deliverect Mark Products Out of Stock by Tag",
+  "type": "object",
+  "properties": {
+    "account": {
+      "type": "string",
+      "example": "string"
+    },
+    "location": {
+      "type": "string",
+      "example": "string"
+    },
+    "tag": {
+      "type": "array",
+      "items": {
+        "type": "int32",
+        "example": 1
+      }
+    },
+    "snoozeStart": {
+      "type": "string",
+      "example": "string"
+    },
+    "snoozeEnd": {
+      "type": "string",
+      "example": "string"
+    }
+  },
+  "required": [
+    "account",
+    "snoozeEnd",
+    "snoozeStart",
+    "tag",
+    "location"
+  ]
+}

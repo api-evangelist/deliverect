@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/commerce-api-get-upsell-items-structure.json",
+  "name": "GetUpsellItems",
+  "description": "Deliverect Get Upsell Items",
+  "type": "object",
+  "properties": {
+    "account": {
+      "type": "string",
+      "example": "string",
+      "description": "The unique identifier of a customer account"
+    },
+    "channelLink": {
+      "type": "string",
+      "example": "string",
+      "description": "The unique identifier of a channel link within a store location"
+    },
+    "location": {
+      "type": "string",
+      "example": "string",
+      "description": "The unique identifier of a location within a customer account"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "plu": {
+            "type": "string",
+            "example": "PIE1",
+            "description": "Unique identifier for a product"
+          },
+          "quantity": {
+            "type": "int32",
+            "default": 1,
+            "example": 1,
+            "description": "Amount of items ordered"
+          }
+        },
+        "required": [
+          "plu",
+          "quantity"
+        ]
+      },
+      "description": "Items in the order which upsell recommendations will be based on"
+    }
+  },
+  "required": [
+    "account",
+    "channelLink",
+    "location",
+    "items"
+  ]
+}

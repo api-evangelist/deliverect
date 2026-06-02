@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Pay API — Gateways
+  description: 'Gateways surface of the Deliverect Pay API. 1 operations. Lead operation: Get Payment Gateways. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Pay
+  - Gateways
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: pay-api-gateways
+    baseUri: https://api.deliverect.com
+    description: Deliverect Pay API — Gateways business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: pay-channel-channel-link-id-gateway-profiles
+      path: /pay/channel/{channelLinkId}/gatewayProfiles
+      operations:
+      - name: pay_endpoints_get_payment_gateways
+        method: GET
+        description: Deliverect Get Payment Gateways
+        inputParameters:
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: pay-api-gateways-rest
+    port: 8080
+    description: REST adapter for Deliverect Pay API — Gateways. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/pay/channel/{channel-link-id}/gateway-profiles
+      name: pay-channel-channel-link-id-gateway-profiles
+      description: REST surface for pay-channel-channel-link-id-gateway-profiles.
+      operations:
+      - method: GET
+        name: pay_endpoints_get_payment_gateways
+        description: Deliverect Get Payment Gateways
+        call: pay-api-gateways.pay_endpoints_get_payment_gateways
+        with:
+          channelLinkId: rest.channelLinkId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: pay-api-gateways-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Pay API — Gateways. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-payment-gateways
+      description: Deliverect Get Payment Gateways
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: pay-api-gateways.pay_endpoints_get_payment_gateways
+      with:
+        channelLinkId: tools.channelLinkId
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,108 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "LoyaltyChannelCreateLoyaltyCustomer": "dv:LoyaltyChannelCreateLoyaltyCustomer",
+    "LoyaltyChannelGetPrograms": "dv:LoyaltyChannelGetPrograms",
+    "LoyaltyToken": "dv:LoyaltyToken",
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "dv:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "dv:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "dv:lastName",
+      "@type": "xsd:string"
+    },
+    "dateOfBirth": {
+      "@id": "dv:dateOfBirth",
+      "@type": "xsd:string"
+    },
+    "order": {
+      "@id": "dv:order",
+      "@type": "@id"
+    },
+    "orderType": {
+      "@id": "dv:orderType",
+      "@type": "xsd:integer"
+    },
+    "items": {
+      "@id": "dv:items",
+      "@type": "@id"
+    },
+    "plu": {
+      "@id": "dv:plu",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:integer"
+    },
+    "quantity": {
+      "@id": "dv:quantity",
+      "@type": "xsd:integer"
+    },
+    "subItems": {
+      "@id": "dv:subItems",
+      "@type": "@id"
+    },
+    "customer": {
+      "@id": "dv:customer",
+      "@type": "@id"
+    },
+    "decimalDigits": {
+      "@id": "dv:decimalDigits",
+      "@type": "xsd:integer"
+    },
+    "subTotal": {
+      "@id": "dv:subTotal",
+      "@type": "xsd:integer"
+    },
+    "payment": {
+      "@id": "dv:payment",
+      "@type": "@id"
+    },
+    "amount": {
+      "@id": "dv:amount",
+      "@type": "xsd:integer"
+    },
+    "grantType": {
+      "@id": "dv:grant_type",
+      "@type": "xsd:string"
+    },
+    "clientId": {
+      "@id": "dv:client_id",
+      "@type": "xsd:string"
+    },
+    "clientSecret": {
+      "@id": "dv:client_secret",
+      "@type": "xsd:string"
+    },
+    "code": {
+      "@id": "dv:code",
+      "@type": "xsd:string"
+    },
+    "accountId": {
+      "@id": "dv:accountId",
+      "@type": "xsd:string"
+    },
+    "loyaltyProfileId": {
+      "@id": "dv:loyaltyProfileId",
+      "@type": "xsd:string"
+    }
+  }
+}

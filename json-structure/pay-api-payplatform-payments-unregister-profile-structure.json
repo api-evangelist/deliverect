@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/pay-api-payplatform-payments-unregister-profile-structure.json",
+  "name": "PayplatformPaymentsUnregisterProfile",
+  "description": "Deliverect Unregister Profile Event",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "example": "5b71c6489f00290d4",
+      "description": "The ID of the account the gateway profile belongs to."
+    },
+    "gatewayProfileId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e",
+      "description": "The ID of the profile being unregistered."
+    }
+  },
+  "required": [
+    "accountId",
+    "gatewayProfileId"
+  ]
+}

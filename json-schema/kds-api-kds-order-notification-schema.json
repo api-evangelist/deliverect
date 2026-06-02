@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/kds-api-kds-order-notification-schema.json",
+  "title": "KdsOrderNotification",
+  "description": "Deliverect Kds_order_notification",
+  "type": "object",
+  "properties": {
+    "locationId": {
+      "type": "string",
+      "example": "5cecc6489f0001b8"
+    },
+    "channelLinkId": {
+      "type": "string",
+      "example": "5e8abc11dec0001a009b"
+    },
+    "checkoutId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "failed"
+      ],
+      "example": "completed"
+    },
+    "reason": {
+      "type": "string",
+      "example": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "example": "2026-03-15T14:30:00Z"
+    }
+  },
+  "required": [
+    "locationId",
+    "channelLinkId",
+    "checkoutId",
+    "status",
+    "reason",
+    "updatedAt"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/kds-api-post-post-kds-orderstatus-orderid-structure.json",
+  "name": "PostPostKdsOrderstatusOrderid",
+  "description": "Deliverect Update Order Status",
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "status": {
+      "type": "int32",
+      "example": 20
+    },
+    "reason": {
+      "type": "string",
+      "example": "string"
+    }
+  },
+  "required": [
+    "orderId",
+    "status"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "basket": {
+    "id": "609a1b2c3d4e5f6a7b8c9d0e"
+  },
+  "note": "No salad",
+  "payments": [
+    {
+      "type": "dpay",
+      "externalId": "609a1b2c3d4e5f6a7b8c9d0e",
+      "isPrepaid": "true",
+      "amount": 1250,
+      "metadata": {}
+    }
+  ],
+  "order": {
+    "channelOrderId": "609a1b2c3d4e5f6a7b8c9d0e",
+    "channelOrderDisplayId": "609a1b2c3d4e5f6a7b8c9d0e",
+    "validationId": "609a1b2c3d4e5f6a7b8c9d0e",
+    "courier": "string"
+  }
+}

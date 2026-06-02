@@ -1,0 +1,15 @@
+[
+  {
+    "country": "BE",
+    "stateOrProvince": "string",
+    "street": "string",
+    "postalCode": "string",
+    "subpremise": "string",
+    "area": "string",
+    "coordinates": [
+      1.0
+    ],
+    "default": true,
+    "city": "string"
+  }
+]

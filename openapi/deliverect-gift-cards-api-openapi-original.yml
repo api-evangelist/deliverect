@@ -1,0 +1,333 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Gift Cards API
+  description: Redeem gift cards, check balances, apply and reverse gift cards, and register gift card provider profiles for ordering channels. Authenticates with OAuth 2.0 machine-to-machine access tokens.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Gift Cards
+  description: Gift Cards operations for the Deliverect Gift Cards API.
+- name: Profiles
+  description: Profiles operations for the Deliverect Gift Cards API.
+paths:
+  /giftCards/channel/{channelLinkId}/profileLink/{giftCardProviderProfileLinkId}/applyGiftCard:
+    post:
+      summary: Deliverect Apply Gift Card
+      parameters:
+      - name: channelLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{channelLinkId}}'
+        description: The channelLinkId value.
+      - name: giftCardProviderProfileLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{giftCardProviderProfileLinkId}}'
+        description: The giftCardProviderProfileLinkId value.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balance:
+                    type: integer
+                    example: 1
+              examples:
+                post_giftcards_channel_channellinkid_profilelink_giftcardproviderprofilelinkid_applygiftcard200Example:
+                  summary: Default post_giftcards_channel_channellinkid_profilelink_giftcardproviderprofilelinkid_applygiftcard 200 response
+                  x-microcks-default: true
+                  value:
+                    balance: 1
+      tags:
+      - Gift Cards
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number:
+                  type: string
+                  format: color
+                  example: string
+                verificationCode:
+                  type: string
+                  format: utc-millisec
+                  example: string
+                amount:
+                  type: integer
+                  example: 1250
+            example:
+              number: ABC
+              verificationCode: '1234'
+              amount: 100
+      operationId: post_giftcards_channel_channellinkid_profilelink_giftcardproviderprofilelinkid_applygiftcard
+      description: Deliverect Apply Gift Card
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /giftCards/channel/{channelLinkId}/profileLink/{giftCardProviderProfileLinkId}/getGiftCardBalance:
+    post:
+      summary: Deliverect Get Balance
+      parameters:
+      - name: channelLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{channelLinkId}}'
+        description: The channelLinkId value.
+      - name: giftCardProviderProfileLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{giftCardProviderProfileLinkId}}'
+        description: The giftCardProviderProfileLinkId value.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  balance:
+                    type: integer
+                    example: 1
+              examples:
+                exampleFromExisting200:
+                  value:
+                    amount: 6346
+                    giftCardNumber: '6000101001050148'
+      tags:
+      - Gift Cards
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number:
+                  type: string
+                  format: color
+                  example: string
+                verificationCode:
+                  type: string
+                  format: utc-millisec
+                  example: string
+            example:
+              number: ABC
+              verificationCode: '1234'
+      operationId: post_giftcards_channel_channellinkid_profilelink_giftcardproviderprofilelinkid_getgiftcardbalance
+      description: Deliverect Get Balance
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /giftCards/redeem:
+    post:
+      summary: Deliverect Redeem Gift Cards
+      description: Deliverect Redeem Gift Cards
+      operationId: giftcards_redeem
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: {}
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Gift Cards
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /giftCards/registerProfile:
+    post:
+      summary: Deliverect Register Profile
+      description: Deliverect Register Profile
+      operationId: giftcards_registerprofile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - account
+              - apiKey
+              properties:
+                account:
+                  type: string
+                  example: string
+                apiKey:
+                  type: string
+                  description: API key is the unique identifier of the customer within the gift cards gateway
+                  example: string
+            examples:
+              giftcards_registerprofileRequest:
+                summary: Default giftcards_registerprofile request
+                x-microcks-default: true
+                value:
+                  account: string
+                  apiKey: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    redeemGiftCardURL: https://yourwebhook.com/redeem
+                    revertRedeemGiftCardURL: 'https: //yourwebhook.com/reverse'
+                    getGiftCardBalanceURL: https://yourwebhook.com/balance
+              schema:
+                type: object
+                properties:
+                  redeemGiftCardURL:
+                    type: string
+                    description: ''
+                    example: https://example.com/path/abc123
+                  revertRedeemGiftCardURL:
+                    type: string
+                    description: ''
+                    example: https://example.com/path/abc123
+                  getGiftCardBalanceURL:
+                    type: string
+                    description: ''
+                    example: https://example.com/path/abc123
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Profiles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /giftCards/reverse:
+    post:
+      summary: Deliverect Reverse Gift Card Payments
+      description: Deliverect Reverse Gift Card Payments
+      operationId: giftcards_reverse
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Gift Cards
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /giftCards/channel/{channelLinkId}/providerProfileLinks:
+    get:
+      summary: Deliverect Get Profile Links
+      parameters:
+      - name: channelLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+        example: '{{channelLinkId}}'
+        description: The channelLinkId value.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  giftCardProviderProfileLinks:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 609a1b2c3d4e5f6a7b8c9d0e
+                        name:
+                          type: string
+                          example: Deliverect's Pizza Place
+              examples:
+                response:
+                  value:
+                    giftCardProviderProfileLinks:
+                    - id: '{{giftCardProviderProfileLinkId}}'
+                      name: string
+      tags:
+      - Profiles
+      operationId: get_giftcards_channel_channellinkid_providerprofilelinks
+      description: Deliverect Get Profile Links
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

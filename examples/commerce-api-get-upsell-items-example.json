@@ -1,0 +1,11 @@
+{
+  "account": "string",
+  "channelLink": "string",
+  "location": "string",
+  "items": [
+    {
+      "plu": "PIE1",
+      "quantity": 1
+    }
+  ]
+}

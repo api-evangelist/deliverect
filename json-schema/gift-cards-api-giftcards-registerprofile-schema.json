@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/gift-cards-api-giftcards-registerprofile-schema.json",
+  "title": "GiftcardsRegisterprofile",
+  "description": "Deliverect Register Profile",
+  "type": "object",
+  "properties": {
+    "account": {
+      "type": "string",
+      "example": "string"
+    },
+    "apiKey": {
+      "type": "string",
+      "example": "string",
+      "description": "API key is the unique identifier of the customer within the gift cards gateway"
+    }
+  },
+  "required": [
+    "account",
+    "apiKey"
+  ]
+}

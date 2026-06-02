@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/pay-api-pay-endpoints-refund-payment-structure.json",
+  "name": "PayEndpointsRefundPayment",
+  "description": "Deliverect Refund Payment",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "int32",
+      "example": 1250
+    }
+  },
+  "required": [
+    "amount"
+  ]
+}

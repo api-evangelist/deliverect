@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/commerce-api-commerce-channel-api-baskets-update-basket-discounts-structure.json",
+  "name": "CommerceChannelApiBasketsUpdateBasketDiscounts",
+  "description": "discounts",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string",
+        "example": "order_flat_off"
+      },
+      "provider": {
+        "type": "string",
+        "enum": [
+          "restaurant",
+          "coupon",
+          "loyalty"
+        ],
+        "example": "coupon"
+      },
+      "amount": {
+        "type": "int32",
+        "example": 100
+      },
+      "value": {
+        "type": "int32",
+        "example": 1000
+      },
+      "name": {
+        "type": "string",
+        "example": "CONGRATS! HERE IS 1 EUR OFF"
+      },
+      "plu": {
+        "type": "string",
+        "example": "DLX-3"
+      },
+      "menuId": {
+        "type": "string",
+        "example": "668f7ff64dc853**c96**877"
+      },
+      "externalId": {
+        "type": "string",
+        "example": "discount-123",
+        "nullable": true
+      },
+      "itemIds": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "example": "string"
+        },
+        "example": [
+          "6900f2f01306779be71e7b8e"
+        ]
+      }
+    },
+    "required": [
+      "type",
+      "provider"
+    ]
+  }
+}

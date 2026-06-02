@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/pay-api-pay-endpoints-refund-payment-schema.json",
+  "title": "PayEndpointsRefundPayment",
+  "description": "Deliverect Refund Payment",
+  "type": "object",
+  "properties": {
+    "amount": {
+      "type": "integer",
+      "example": 1250
+    }
+  },
+  "required": [
+    "amount"
+  ]
+}

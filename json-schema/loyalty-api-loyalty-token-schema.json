@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/loyalty-api-loyalty-token-schema.json",
+  "title": "LoyaltyToken",
+  "description": "Deliverect Loyalty SSO - OAuth Token Exchange",
+  "type": "object",
+  "properties": {
+    "grant_type": {
+      "type": "string",
+      "default": "authorization_code",
+      "example": "authorization_code"
+    },
+    "client_id": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "client_secret": {
+      "type": "string",
+      "example": "string"
+    },
+    "code": {
+      "type": "string",
+      "example": "string"
+    },
+    "accountId": {
+      "type": "string",
+      "example": "5b71c6489f00290d4",
+      "description": "The deliverect customer account id"
+    },
+    "loyaltyProfileId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e",
+      "description": "The loyalty profile id being use"
+    }
+  },
+  "required": [
+    "client_secret",
+    "code",
+    "client_id",
+    "grant_type"
+  ]
+}

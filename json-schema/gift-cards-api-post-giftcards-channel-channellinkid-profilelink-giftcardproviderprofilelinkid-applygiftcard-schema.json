@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/gift-cards-api-post-giftcards-channel-channellinkid-profilelink-giftcardproviderprofilelinkid-applygiftcard-schema.json",
+  "title": "PostGiftcardsChannelChannellinkidProfilelinkGiftcardproviderprofilelinkidApplygiftcard",
+  "description": "Deliverect Apply Gift Card",
+  "type": "object",
+  "properties": {
+    "number": {
+      "type": "string",
+      "format": "color",
+      "example": "string"
+    },
+    "verificationCode": {
+      "type": "string",
+      "format": "utc-millisec",
+      "example": "string"
+    },
+    "amount": {
+      "type": "integer",
+      "example": 1250
+    }
+  }
+}

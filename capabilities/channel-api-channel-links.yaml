@@ -1,0 +1,106 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Channel API — Channel Links
+  description: 'Channel Links surface of the Deliverect Channel API. 2 operations. Lead operation: Get_channellinks. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Channel
+  - Channel Links
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: channel-api-channel-links
+    baseUri: https://api.deliverect.com
+    description: Deliverect Channel API — Channel Links business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: channel-links
+      path: /channelLinks
+      operations:
+      - name: get_channellinks
+        method: GET
+        description: Deliverect Get_channellinks
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: all-channels
+      path: /allChannels
+      operations:
+      - name: get_allchannels
+        method: GET
+        description: Deliverect Channel Integrators
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: channel-api-channel-links-rest
+    port: 8080
+    description: REST adapter for Deliverect Channel API — Channel Links. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/channel-links
+      name: channel-links
+      description: REST surface for channel-links.
+      operations:
+      - method: GET
+        name: get_channellinks
+        description: Deliverect Get_channellinks
+        call: channel-api-channel-links.get_channellinks
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/all-channels
+      name: all-channels
+      description: REST surface for all-channels.
+      operations:
+      - method: GET
+        name: get_allchannels
+        description: Deliverect Channel Integrators
+        call: channel-api-channel-links.get_allchannels
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: channel-api-channel-links-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Channel API — Channel Links. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: get-channellinks
+      description: Deliverect Get_channellinks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: channel-api-channel-links.get_channellinks
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: channel-integrators
+      description: Deliverect Channel Integrators
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: channel-api-channel-links.get_allchannels
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.

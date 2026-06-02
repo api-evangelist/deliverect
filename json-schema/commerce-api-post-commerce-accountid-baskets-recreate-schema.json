@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/commerce-api-post-commerce-accountid-baskets-recreate-schema.json",
+  "title": "PostCommerceAccountidBasketsRecreate",
+  "description": "Deliverect Recreate Basket",
+  "type": "object",
+  "properties": {
+    "storeId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "orderId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    }
+  },
+  "required": [
+    "storeId",
+    "orderId"
+  ]
+}

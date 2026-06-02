@@ -1,0 +1,735 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/pos-api-insert-update-products-and-categories-structure.json",
+  "name": "InsertUpdateProductsAndCategories",
+  "description": "Deliverect Insert/update Products and Categories",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "string",
+      "example": "5b71c6489f00290d4",
+      "description": "The customer account ID in Deliverect"
+    },
+    "locationId": {
+      "type": "string",
+      "example": "5cecc6489f0001b8"
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Deliverect's Pizza Place"
+          },
+          "plu": {
+            "type": "string",
+            "example": "PIE1"
+          },
+          "price": {
+            "type": "int32",
+            "example": 1250
+          },
+          "description": {
+            "type": "string",
+            "example": "No salad"
+          },
+          "productType": {
+            "type": "int32",
+            "example": 1
+          },
+          "gtin": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "string"
+            },
+            "default": [],
+            "description": "GTIN (Global Trade Item Number) for product, which could be EAN code"
+          },
+          "isVariant": {
+            "type": "boolean",
+            "example": true
+          },
+          "isCombo": {
+            "type": "boolean",
+            "example": true
+          },
+          "deliveryTax": {
+            "type": "int32",
+            "example": 1
+          },
+          "takeawayTax": {
+            "type": "int32",
+            "example": 1
+          },
+          "eatInTax": {
+            "type": "int32",
+            "example": 1
+          },
+          "priceLevels": {
+            "type": "object",
+            "properties": {
+              "TA": {
+                "type": "int32",
+                "example": 1
+              },
+              "DL": {
+                "type": "int32",
+                "example": 1
+              },
+              "UE": {
+                "type": "int32",
+                "example": 1
+              }
+            }
+          },
+          "overloads": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "scopes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "string"
+                  },
+                  "default": []
+                },
+                "bundlePrice": {
+                  "type": "int32",
+                  "example": 1250
+                },
+                "price": {
+                  "type": "int32",
+                  "example": 1250
+                },
+                "name": {
+                  "type": "string",
+                  "example": "Deliverect's Pizza Place"
+                }
+              }
+            }
+          },
+          "posProductId": {
+            "type": "string",
+            "example": "609a1b2c3d4e5f6a7b8c9d0e"
+          },
+          "posCategoryIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "string"
+            },
+            "default": []
+          },
+          "imageUrl": {
+            "type": "string",
+            "example": "https://example.com/path/abc123"
+          },
+          "nameTranslations": {
+            "type": "object",
+            "properties": {
+              "en": {
+                "type": "string",
+                "example": "string"
+              },
+              "es": {
+                "type": "string",
+                "example": "string"
+              },
+              "fr": {
+                "type": "string",
+                "example": "string"
+              },
+              "nl": {
+                "type": "string",
+                "example": "string"
+              },
+              "ar": {
+                "type": "string",
+                "example": "string"
+              },
+              "el": {
+                "type": "string",
+                "example": "string"
+              }
+            }
+          },
+          "productTags": {
+            "type": "array",
+            "items": {
+              "type": "int32",
+              "example": 1
+            },
+            "default": []
+          },
+          "multiMax": {
+            "type": "int32",
+            "example": 1,
+            "description": "sets the maximum quantity orderable of any one item in a group, can also set the maximum quantity of a product to be ordered in a basket"
+          },
+          "defaultQuantity": {
+            "type": "int32",
+            "example": 1,
+            "description": "applicable to modifiers (productType: 2) to 'pre-select' an option"
+          },
+          "nutritionalInfo": {
+            "type": "object",
+            "properties": {
+              "fat": {
+                "type": "int32",
+                "example": 1
+              },
+              "protein": {
+                "type": "int32",
+                "example": 1
+              },
+              "sugar": {
+                "type": "int32",
+                "example": 1
+              },
+              "addedSugar": {
+                "type": "int32",
+                "example": 1
+              },
+              "saturatedFat": {
+                "type": "int32",
+                "example": 1
+              },
+              "carbohydrates": {
+                "type": "int32",
+                "example": 1
+              },
+              "salt": {
+                "type": "int32",
+                "example": 1
+              },
+              "transFat": {
+                "type": "int32",
+                "example": 1
+              },
+              "monoUnsaturatedFat": {
+                "type": "int32",
+                "example": 1
+              },
+              "polyUnsaturatedFat": {
+                "type": "int32",
+                "example": 1
+              },
+              "cholesterol": {
+                "type": "int32",
+                "example": 1
+              },
+              "starch": {
+                "type": "int32",
+                "example": 1
+              },
+              "sodium": {
+                "type": "int32",
+                "example": 1
+              },
+              "fiber": {
+                "type": "int32",
+                "example": 1
+              },
+              "vitaminC": {
+                "type": "int32",
+                "example": 1
+              },
+              "calcium": {
+                "type": "int32",
+                "example": 1
+              },
+              "magnesium": {
+                "type": "int32",
+                "example": 1
+              },
+              "chloride": {
+                "type": "int32",
+                "example": 1
+              },
+              "fluoride": {
+                "type": "int32",
+                "example": 1
+              },
+              "potassium": {
+                "type": "int32",
+                "example": 1
+              },
+              "polyols": {
+                "type": "int32",
+                "example": 1
+              },
+              "servingSize": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "int32",
+                    "example": 1250
+                  },
+                  "unitType": {
+                    "type": "int32",
+                    "example": 1
+                  },
+                  "countUnitDescription": {
+                    "type": "string",
+                    "example": "No salad"
+                  }
+                }
+              },
+              "netQuantity": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "int32",
+                    "example": 1250
+                  },
+                  "unitType": {
+                    "type": "int32",
+                    "example": 1
+                  },
+                  "countUnitDescription": {
+                    "type": "string",
+                    "example": "No salad"
+                  }
+                }
+              }
+            }
+          },
+          "supplementalInfo": {
+            "type": "object",
+            "properties": {
+              "instructionsForUse": {
+                "type": "string",
+                "example": "string"
+              },
+              "ingredients": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "string"
+                }
+              },
+              "additives": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "string"
+                }
+              },
+              "prepackaged": {
+                "type": "boolean",
+                "example": true
+              },
+              "deposit": {
+                "type": "int32",
+                "example": 1
+              }
+            }
+          },
+          "bottleDepositPrice": {
+            "type": "int32",
+            "example": 1250
+          },
+          "visible": {
+            "type": "boolean",
+            "example": true
+          },
+          "subProducts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "string"
+            },
+            "default": []
+          },
+          "kitchenName": {
+            "type": "string",
+            "example": "Deliverect's Pizza Place",
+            "description": "An optional additional name for the product that will be sent through with the order"
+          }
+        },
+        "required": [
+          "name",
+          "plu",
+          "price",
+          "productType",
+          "deliveryTax"
+        ]
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "Build your own Pizza",
+            "example": "Build your own Pizza"
+          },
+          "posCategoryId": {
+            "type": "string",
+            "default": "PZ",
+            "example": "PZ"
+          }
+        }
+      }
+    },
+    "priceLevels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "Takeaway",
+            "example": "Takeaway"
+          },
+          "posId": {
+            "type": "string",
+            "default": "TA",
+            "example": "TA"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "accountId",
+    "locationId",
+    "products",
+    "categories"
+  ],
+  "example": {
+    "accountId": "6**f578fa205bc3eca854***",
+    "locationId": "6**91e9273d6950b4b0a8***",
+    "products": [
+      {
+        "productType": 1,
+        "plu": "STK-01",
+        "price": 1500,
+        "name": "Delicious Steak Frites",
+        "kitchenName": "Steak",
+        "posProductId": "POS-ID-001",
+        "posCategoryIds": [
+          "STK"
+        ],
+        "imageUrl": "https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/steak-622862588c506f015be6018e.jpeg",
+        "description": "Delicious Steak Frites",
+        "descriptionTranslations": {
+          "es": "Deliciosos Bistecs Fritos",
+          "fr": "Steak Frites D\u00e9licieux",
+          "nl": "Heerlijke Biefstuk Frites",
+          "ar": "\u0634\u0631\u064a\u062d\u0629 \u0644\u062d\u0645 \u0641\u0631\u064a\u062a\u0633",
+          "el": "\u039d\u03bf\u03c3\u03c4\u03b9\u03bc\u03b7 \u03c7\u03bf\u03b9\u03c1\u03b9\u03bd\u03ae \u03c0\u03b1\u03bd\u03c4\u03c3\u03ad\u03c4\u03b1 \u03bc\u03b5 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+        },
+        "deliveryTax": 9000,
+        "takeawayTax": 9000,
+        "nameTranslations": {
+          "en": "Delicious Steak Frites",
+          "es": "Deliciosos Bistecs Fritos",
+          "fr": "Steak Frites D\u00e9licieux",
+          "nl": "Heerlijke Biefstuk Frites",
+          "ar": "\u0634\u0631\u064a\u062d\u0629 \u0644\u062d\u0645 \u0641\u0631\u064a\u062a\u0633",
+          "el": "\u039d\u03bf\u03c3\u03c4\u03b9\u03bc\u03b7 \u03c7\u03bf\u03b9\u03c1\u03b9\u03bd\u03ae \u03c0\u03b1\u03bd\u03c4\u03c3\u03ad\u03c4\u03b1 \u03bc\u03b5 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+        },
+        "eatInTax": 9000,
+        "multiMax": 1,
+        "nutritionalInfo": {
+          "fat": 1,
+          "sugar": 4,
+          "saturatedFat": 1,
+          "carbohydrates": 1,
+          "protein": 1,
+          "salt": 1
+        },
+        "subProducts": [
+          "AUTO-01",
+          "MOD-01",
+          "MOD-02"
+        ]
+      },
+      {
+        "productType": 3,
+        "plu": "MOD-01",
+        "name": "Cooking instructions",
+        "posProductId": "POS-ID-009",
+        "posCategoryIds": [
+          "POS-CAT-001"
+        ],
+        "imageUrl": "",
+        "description": "Cooking Instructions",
+        "descriptionTranslations": {
+          "es": "Cocinado",
+          "fr": "Cuisson",
+          "nl": "Kook instructies",
+          "ar": "\u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0627\u0644\u0637\u0628\u062e",
+          "el": "\u039f\u03b4\u03b7\u03b3\u03af\u03b5\u03c2 \u03bc\u03b1\u03b3\u03b5\u03b9\u03c1\u03ad\u03bc\u03b1\u03c4\u03bf\u03c2"
+        },
+        "deliveryTax": 6000,
+        "takeawayTax": 6000,
+        "nameTranslations": {
+          "en": "Cooking Instructions",
+          "es": "Cocinado",
+          "fr": "Cuisson",
+          "nl": "Kook instructies",
+          "ar": "\u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0627\u0644\u0637\u0628\u062e",
+          "el": "\u039f\u03b4\u03b7\u03b3\u03af\u03b5\u03c2 \u03bc\u03b1\u03b3\u03b5\u03b9\u03c1\u03ad\u03bc\u03b1\u03c4\u03bf\u03c2"
+        },
+        "min": 1,
+        "max": 1,
+        "subProducts": [
+          "COOK-01",
+          "COOK-02",
+          "COOK-03"
+        ]
+      },
+      {
+        "productType": 3,
+        "plu": "MOD-02",
+        "name": "Add a side",
+        "posProductId": "POS-ID-014",
+        "posCategoryIds": "INTERNAL-POS-CAT-2",
+        "imageUrl": "https://www.stockvault.net/data/2009/07/20/109569/preview16.jpg",
+        "description": "Pizza made for cheese fanatics",
+        "deliveryTax": 6000,
+        "takeawayTax": 6000,
+        "nameTranslations": {
+          "en": "Choose a side",
+          "es": "Elige tu acompa\u00f1amiento",
+          "fr": "Choisissez votre garniture",
+          "nl": "Kies je bijgerecht",
+          "ar": "\u0627\u062e\u062a\u0631 \u0637\u0628\u0642\u0643 \u0627\u0644\u062c\u0627\u0646\u0628\u064a",
+          "el": "\u0394\u03b9\u03b1\u03bb\u03ad\u03be\u03c4\u03b5 \u03b1\u03ba\u03cc\u03bc\u03b1"
+        },
+        "subProducts": [
+          "SI-01",
+          "SI-02",
+          "SI-03"
+        ],
+        "min": 0,
+        "max": 0,
+        "multiMax": 3
+      },
+      {
+        "productType": 3,
+        "plu": "AUTO-01",
+        "price": 900,
+        "name": "Garnishes",
+        "posProductId": "POS-ID-032",
+        "imageUrl": "",
+        "description": "",
+        "deliveryTax": 6000,
+        "takeawayTax": 6000,
+        "min": 0,
+        "max": 0,
+        "autoApply": [
+          {
+            "plu": "PR1"
+          },
+          {
+            "plu": "PR2"
+          }
+        ],
+        "subProducts": [
+          "PR1",
+          "PR2"
+        ]
+      },
+      {
+        "productType": 2,
+        "plu": "PR1",
+        "price": 0,
+        "name": "Parsley",
+        "posProductId": "PA_POS-0023",
+        "posCategoryIds": "",
+        "imageUrl": "",
+        "description": "",
+        "deliveryTax": 0,
+        "takeawayTax": 0,
+        "defaultQuantity": 3
+      },
+      {
+        "productType": 2,
+        "plu": "PR2",
+        "price": 0,
+        "name": "Melted Butter",
+        "posProductId": "PA_POS-0024",
+        "posCategoryIds": "",
+        "imageUrl": "",
+        "description": "",
+        "deliveryTax": 0,
+        "takeawayTax": 0
+      },
+      {
+        "productType": 2,
+        "plu": "COOK-01",
+        "price": 0,
+        "name": "Rare",
+        "posProductId": "POS-ID-003",
+        "posCategoryIds": [
+          "POS-CAT-001"
+        ],
+        "imageUrl": "",
+        "description": "",
+        "deliveryTax": 9000,
+        "takeawayTax": 9000,
+        "nameTranslations": {
+          "en": "Rare",
+          "es": "Poco hecho",
+          "fr": "Saignant",
+          "nl": "Rood",
+          "ar": "\u063a\u064a\u0631 \u0646\u0627\u0636\u062c \u062c\u064a\u062f\u0627",
+          "el": "\u03a9\u03bc\u03cc"
+        }
+      },
+      {
+        "productType": 2,
+        "plu": "COOK-02",
+        "price": 0,
+        "name": "Medium Rare",
+        "posProductId": "POS-ID-004",
+        "posCategoryIds": "INTERNAL-POS-CAT-2",
+        "imageUrl": "",
+        "description": "",
+        "deliveryTax": 9000,
+        "takeawayTax": 9000,
+        "nameTranslations": {
+          "en": "Medium Rare",
+          "es": "Al punto",
+          "fr": "\u00c0 point",
+          "nl": "Half doorbakken",
+          "ar": "\u0645\u064f\u062a\u064e\u0648\u064e\u0633\u0651\u0650\u0637 \u0627\u0644\u0646\u064f\u0636\u0652\u062c\u0650",
+          "el": "\u039c\u03b9\u03c3\u03bf\u03c8\u03b7\u03bc\u03ad\u03bd\u03bf"
+        }
+      },
+      {
+        "productType": 2,
+        "plu": "COOK-03",
+        "price": 0,
+        "name": "Well Done",
+        "posProductId": "POS-ID-005",
+        "posCategoryIds": "INTERNAL-POS-CAT-2",
+        "imageUrl": "",
+        "description": "",
+        "deliveryTax": 9000,
+        "takeawayTax": 9000,
+        "nameTranslations": {
+          "en": "Well done",
+          "es": "Muy hecho",
+          "fr": "Bien cuit",
+          "nl": "Doorbakken",
+          "ar": "\u0645\u0637\u0628\u0648\u062e \u062c\u064a\u062f\u0627",
+          "el": "\u03ba\u03b1\u03bb\u03bf\u03c8\u03b7\u03bc\u03ad\u03bd\u03bf"
+        }
+      },
+      {
+        "productType": 2,
+        "plu": "SI-01",
+        "price": 0,
+        "name": "Fries",
+        "posProductId": "POS-ID-012",
+        "posCategoryIds": [
+          "SD"
+        ],
+        "imageUrl": "",
+        "description": "Fries",
+        "descriptionTranslations": {
+          "es": "Patatas fritas",
+          "fr": "Frites",
+          "nl": "Frietjes",
+          "ar": "\u0628\u0637\u0627\u0637\u0633 \u0645\u0642\u0644\u064a\u0629",
+          "\u03b5\u03bb": "\u03a0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+        },
+        "deliveryTax": 9000,
+        "takeawayTax": 9000,
+        "nameTranslations": {
+          "en": "Fries",
+          "es": "Patatas fritas",
+          "fr": "Frites",
+          "nl": "Frietjes",
+          "ar": "\u0628\u0637\u0627\u0637\u0633 \u0645\u0642\u0644\u064a\u0629",
+          "\u03b5\u03bb": "\u03a0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+        },
+        "eatInTax": 9000,
+        "defaultQuantity": 1
+      },
+      {
+        "productType": 2,
+        "plu": "SI-02",
+        "price": 200,
+        "name": "Salad",
+        "kitchenName": "",
+        "posProductId": "POS-ID-013",
+        "posCategoryIds": [
+          "SD"
+        ],
+        "imageUrl": "",
+        "description": "Salad",
+        "descriptionTranslations": {
+          "es": "Ensalada",
+          "fr": "Salade",
+          "nl": "Salade",
+          "ar": "\u0633\u0644\u0637\u0629",
+          "\u03b5\u03bb": "\u03a3\u03b1\u03bb\u03ac\u03c4\u03b1"
+        },
+        "deliveryTax": 9000,
+        "takeawayTax": 9000,
+        "nameTranslations": {
+          "en": "Salad",
+          "es": "Ensalada",
+          "fr": "Salade",
+          "nl": "Salade",
+          "ar": "\u0633\u0644\u0637\u0629",
+          "\u03b5\u03bb": "\u03a3\u03b1\u03bb\u03ac\u03c4\u03b1"
+        },
+        "eatInTax": 9000
+      },
+      {
+        "productType": 2,
+        "plu": "SI-03",
+        "price": 100,
+        "name": "Mashed Potato",
+        "kitchenName": "Mash",
+        "posProductId": "POS-ID-014",
+        "posCategoryIds": [
+          "SD"
+        ],
+        "imageUrl": "",
+        "description": "Mashed Potato",
+        "descriptionTranslations": {
+          "es": "Pur\u00e9 de patata",
+          "fr": "Pur\u00e9e de pommes de terre",
+          "nl": "Aardappelpuree",
+          "ar": "\u0627\u0644\u0628\u0637\u0627\u0637\u0627 \u0627\u0644\u0645\u0647\u0631\u0648\u0633\u0629",
+          "el": "\u03a0\u03bf\u03c5\u03c1\u03ad\u03c2 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b1\u03c2"
+        },
+        "deliveryTax": 9000,
+        "takeawayTax": 9000,
+        "nameTranslations": {
+          "en": "Mashed Potato",
+          "es": "Pur\u00e9 de patata",
+          "fr": "Pur\u00e9e de pommes de terre",
+          "nl": "Aardappelpuree",
+          "ar": "\u0627\u0644\u0628\u0637\u0627\u0637\u0627 \u0627\u0644\u0645\u0647\u0631\u0648\u0633\u0629",
+          "el": "\u03a0\u03bf\u03c5\u03c1\u03ad\u03c2 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b1\u03c2"
+        },
+        "eatInTax": 9000
+      }
+    ],
+    "categories": [
+      {
+        "name": "Steaks",
+        "posCategoryId": "STK"
+      },
+      {
+        "name": "Sides",
+        "posCategoryId": "SD"
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "accountId": "5b****71c6489f0029****d4",
+  "locationId": "5c****ecc6489f0001****b8",
+  "channelLinkId": "5e****abc11dec0001****9b",
+  "operations": [
+    {
+      "action": "snooze",
+      "data": {
+        "items": [
+          {}
+        ]
+      },
+      "allSnoozedItems": [
+        {
+          "plu": "PIE1",
+          "snoozeStart": "2020-03-24T16:21:54.955000Z",
+          "snoozeEnd": "2020-03-24T22:21:54.955000Z"
+        }
+      ]
+    }
+  ]
+}

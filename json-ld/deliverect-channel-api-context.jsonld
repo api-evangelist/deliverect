@@ -1,0 +1,369 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ChannelPrepTime": "dv:ChannelPrepTime",
+    "ChannelSnooze": "dv:ChannelSnooze",
+    "PostChannelnameCourierupdateChannellinkid": "dv:PostChannelnameCourierupdateChannellinkid",
+    "PostChannelnameMenustatusId": "dv:PostChannelnameMenustatusId",
+    "PostChannelnameOrderChannellinkid": "dv:PostChannelnameOrderChannellinkid",
+    "PostChannelnameUpdaterating": "dv:PostChannelnameUpdaterating",
+    "PostChannelnameUpdatestorestatusChannellinkid": "dv:PostChannelnameUpdatestorestatusChannellinkid",
+    "channelOrderId": {
+      "@id": "dv:channelOrderId",
+      "@type": "xsd:string"
+    },
+    "orderId": {
+      "@id": "dv:orderId",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "dv:location",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "dv:status",
+      "@type": "xsd:integer"
+    },
+    "pickupTime": {
+      "@id": "dv:pickupTime",
+      "@type": "xsd:dateTime"
+    },
+    "accountId": {
+      "@id": "dv:accountId",
+      "@type": "xsd:string"
+    },
+    "locationId": {
+      "@id": "dv:locationId",
+      "@type": "xsd:string"
+    },
+    "channelLinkId": {
+      "@id": "dv:channelLinkId",
+      "@type": "xsd:string"
+    },
+    "operations": {
+      "@id": "dv:operations",
+      "@container": "@set"
+    },
+    "action": {
+      "@id": "dv:action",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "dv:data",
+      "@type": "@id"
+    },
+    "items": {
+      "@id": "dv:items",
+      "@container": "@set"
+    },
+    "plu": {
+      "@id": "dv:plu",
+      "@type": "xsd:string"
+    },
+    "snoozeStart": {
+      "@id": "dv:snoozeStart",
+      "@type": "xsd:dateTime"
+    },
+    "snoozeEnd": {
+      "@id": "dv:snoozeEnd",
+      "@type": "xsd:dateTime"
+    },
+    "allSnoozedItems": {
+      "@id": "dv:allSnoozedItems",
+      "@container": "@set"
+    },
+    "courierUpdate": {
+      "@id": "dv:courierUpdate",
+      "@type": "@id"
+    },
+    "arrivalTime": {
+      "@id": "dv:arrivalTime",
+      "@type": "xsd:dateTime"
+    },
+    "deliveryTime": {
+      "@id": "dv:deliveryTime",
+      "@type": "xsd:dateTime"
+    },
+    "courier": {
+      "@id": "dv:courier",
+      "@type": "@id"
+    },
+    "firstName": {
+      "@id": "dv:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "dv:lastName",
+      "@type": "xsd:string"
+    },
+    "phoneNumber": {
+      "@id": "dv:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "comment": {
+      "@id": "dv:comment",
+      "@type": "xsd:string"
+    },
+    "channelOrderDisplayId": {
+      "@id": "dv:channelOrderDisplayId",
+      "@type": "xsd:string"
+    },
+    "validationId": {
+      "@id": "dv:validationId",
+      "@type": "xsd:string"
+    },
+    "orderType": {
+      "@id": "dv:orderType",
+      "@type": "xsd:integer"
+    },
+    "deliveryIsAsap": {
+      "@id": "dv:deliveryIsAsap",
+      "@type": "xsd:boolean"
+    },
+    "placedTime": {
+      "@id": "dv:placedTime",
+      "@type": "xsd:string"
+    },
+    "ageCheck": {
+      "@id": "dv:ageCheck",
+      "@type": "xsd:boolean"
+    },
+    "deliveryAddress": {
+      "@id": "dv:deliveryAddress",
+      "@type": "@id"
+    },
+    "street": {
+      "@id": "dv:street",
+      "@type": "xsd:string"
+    },
+    "streetNumber": {
+      "@id": "dv:streetNumber",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "dv:postalCode",
+      "@type": "xsd:string"
+    },
+    "area": {
+      "@id": "dv:area",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "dv:city",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "dv:country",
+      "@type": "xsd:string"
+    },
+    "extraAddressInfo": {
+      "@id": "dv:extraAddressInfo",
+      "@type": "xsd:string"
+    },
+    "coordinates": {
+      "@id": "dv:coordinates",
+      "@type": "@id"
+    },
+    "latitude": {
+      "@id": "dv:latitude",
+      "@type": "xsd:float"
+    },
+    "longitude": {
+      "@id": "dv:longitude",
+      "@type": "xsd:float"
+    },
+    "verification": {
+      "@id": "dv:verification",
+      "@type": "@id"
+    },
+    "pincode": {
+      "@id": "dv:pincode",
+      "@type": "xsd:string"
+    },
+    "deliveryInfo": {
+      "@id": "dv:deliveryInfo",
+      "@type": "@id"
+    },
+    "packageSize": {
+      "@id": "dv:packageSize",
+      "@type": "xsd:string"
+    },
+    "transportType": {
+      "@id": "dv:transportType",
+      "@type": "xsd:string"
+    },
+    "decimalDigits": {
+      "@id": "dv:decimalDigits",
+      "@type": "xsd:integer"
+    },
+    "payment": {
+      "@id": "dv:payment",
+      "@type": "@id"
+    },
+    "amount": {
+      "@id": "dv:amount",
+      "@type": "xsd:integer"
+    },
+    "type": {
+      "@id": "dv:type",
+      "@type": "xsd:integer"
+    },
+    "due": {
+      "@id": "dv:due",
+      "@type": "xsd:integer"
+    },
+    "taxes": {
+      "@id": "dv:taxes",
+      "@container": "@set"
+    },
+    "taxClassId": {
+      "@id": "dv:taxClassId",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "total": {
+      "@id": "dv:total",
+      "@type": "xsd:integer"
+    },
+    "taxRemitted": {
+      "@id": "dv:taxRemitted",
+      "@type": "xsd:integer"
+    },
+    "price": {
+      "@id": "schema:price",
+      "@type": "xsd:integer"
+    },
+    "quantity": {
+      "@id": "dv:quantity",
+      "@type": "xsd:integer"
+    },
+    "remark": {
+      "@id": "dv:remark",
+      "@type": "xsd:string"
+    },
+    "discountReferenceIds": {
+      "@id": "dv:discountReferenceIds",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "subItems": {
+      "@id": "dv:subItems",
+      "@container": "@set"
+    },
+    "includeCutlery": {
+      "@id": "dv:includeCutlery",
+      "@type": "xsd:boolean"
+    },
+    "table": {
+      "@id": "dv:table",
+      "@type": "xsd:string"
+    },
+    "orderIsAlreadyPaid": {
+      "@id": "dv:orderIsAlreadyPaid",
+      "@type": "xsd:boolean"
+    },
+    "note": {
+      "@id": "dv:note",
+      "@type": "xsd:string"
+    },
+    "numberOfCustomers": {
+      "@id": "dv:numberOfCustomers",
+      "@type": "xsd:integer"
+    },
+    "customer": {
+      "@id": "dv:customer",
+      "@type": "@id"
+    },
+    "companyName": {
+      "@id": "dv:companyName",
+      "@type": "xsd:string"
+    },
+    "phoneAccessCode": {
+      "@id": "dv:phoneAccessCode",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "tin": {
+      "@id": "dv:tin",
+      "@type": "xsd:string"
+    },
+    "deliveryCost": {
+      "@id": "dv:deliveryCost",
+      "@type": "xsd:integer"
+    },
+    "deliveryCostTax": {
+      "@id": "dv:deliveryCostTax",
+      "@type": "xsd:integer"
+    },
+    "serviceCharge": {
+      "@id": "dv:serviceCharge",
+      "@type": "xsd:integer"
+    },
+    "serviceChargeTax": {
+      "@id": "dv:serviceChargeTax",
+      "@type": "xsd:integer"
+    },
+    "tip": {
+      "@id": "dv:tip",
+      "@type": "xsd:integer"
+    },
+    "driverTip": {
+      "@id": "dv:driverTip",
+      "@type": "xsd:integer"
+    },
+    "bagFee": {
+      "@id": "dv:bagFee",
+      "@type": "xsd:integer"
+    },
+    "discountTotal": {
+      "@id": "dv:discountTotal",
+      "@type": "xsd:integer"
+    },
+    "discounts": {
+      "@id": "dv:discounts",
+      "@container": "@set"
+    },
+    "provider": {
+      "@id": "dv:provider",
+      "@type": "xsd:string"
+    },
+    "channelDiscountCode": {
+      "@id": "dv:channelDiscountCode",
+      "@type": "xsd:string"
+    },
+    "referenceId": {
+      "@id": "dv:referenceId",
+      "@type": "xsd:integer"
+    },
+    "value": {
+      "@id": "dv:value",
+      "@type": "xsd:integer"
+    },
+    "orderDate": {
+      "@id": "dv:orderDate",
+      "@type": "xsd:dateTime"
+    },
+    "rating": {
+      "@id": "dv:rating",
+      "@container": "@set"
+    },
+    "subject": {
+      "@id": "dv:subject",
+      "@type": "xsd:integer"
+    },
+    "reason": {
+      "@id": "dv:reason",
+      "@type": "xsd:integer"
+    }
+  }
+}

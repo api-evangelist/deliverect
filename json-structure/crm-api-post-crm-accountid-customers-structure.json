@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/crm-api-post-crm-accountid-customers-structure.json",
+  "name": "PostCrmAccountidCustomers",
+  "description": "Deliverect Create Customer",
+  "type": "object",
+  "properties": {
+    "contact": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "example": "customer@example.com"
+        },
+        "firstName": {
+          "type": "string",
+          "example": "Deliverect's Pizza Place"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Deliverect's Pizza Place"
+        },
+        "birthdate": {
+          "type": "string",
+          "example": "2026-03-15T14:30:00Z"
+        },
+        "phone": {
+          "type": "string",
+          "example": "+15555550123"
+        }
+      },
+      "required": [
+        "email"
+      ]
+    },
+    "externalId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "loyaltyProviderId": {
+      "type": "string",
+      "example": "609a1b2c3d4e5f6a7b8c9d0e"
+    },
+    "deliveryAddresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "type": "string",
+            "example": "string"
+          },
+          "subpremise": {
+            "type": "string",
+            "example": "string"
+          },
+          "city": {
+            "type": "string",
+            "example": "string"
+          },
+          "stateOrProvince": {
+            "type": "string",
+            "example": "string"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "string"
+          },
+          "country": {
+            "type": "string",
+            "example": "BE"
+          },
+          "default": {
+            "type": "boolean",
+            "example": true
+          },
+          "area": {
+            "type": "string",
+            "example": "string"
+          },
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "float",
+              "example": 1.0
+            }
+          }
+        }
+      }
+    },
+    "billingAddress": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string",
+          "example": "string"
+        },
+        "subpremise": {
+          "type": "string",
+          "example": "string"
+        },
+        "city": {
+          "type": "string",
+          "example": "string"
+        },
+        "stateOrProvince": {
+          "type": "string",
+          "example": "string"
+        },
+        "postalCode": {
+          "type": "string",
+          "example": "string"
+        },
+        "country": {
+          "type": "string",
+          "example": "BE"
+        },
+        "area": {
+          "type": "string",
+          "example": "string"
+        },
+        "coordinates": {
+          "type": "array",
+          "items": {
+            "type": "float",
+            "example": 1.0
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {}
+    },
+    "vehicles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "make": {
+            "type": "string",
+            "example": "string"
+          },
+          "model": {
+            "type": "string",
+            "example": "string"
+          },
+          "color": {
+            "type": "string",
+            "example": "string"
+          },
+          "default": {
+            "type": "boolean",
+            "example": true
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "contact"
+  ]
+}

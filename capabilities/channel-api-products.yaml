@@ -1,0 +1,78 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Channel API — Products
+  description: 'Products surface of the Deliverect Channel API. 1 operations. Lead operation: Snooze / Unsnooze Products. Self-contained Naftiko capability covering one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Channel
+  - Products
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: channel-api-products
+    baseUri: https://api.deliverect.com
+    description: Deliverect Channel API — Products business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: channel-snooze
+      path: /channel/snooze
+      operations:
+      - name: channel_snooze
+        method: POST
+        description: Deliverect Snooze / Unsnooze Products
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: channel-api-products-rest
+    port: 8080
+    description: REST adapter for Deliverect Channel API — Products. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/channel/snooze
+      name: channel-snooze
+      description: REST surface for channel-snooze.
+      operations:
+      - method: POST
+        name: channel_snooze
+        description: Deliverect Snooze / Unsnooze Products
+        call: channel-api-products.channel_snooze
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: channel-api-products-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Channel API — Products. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: snooze-unsnooze-products
+      description: Deliverect Snooze / Unsnooze Products
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: channel-api-products.channel_snooze
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

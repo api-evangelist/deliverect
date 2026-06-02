@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-schema/dispatch-api-dispatch-updatejob-schema.json",
+  "title": "DispatchUpdatejob",
+  "description": "Deliverect Copy of Cancel Delivery Job",
+  "type": "object",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "example": "5c8fbfd3c6489f00010e50d1"
+    },
+    "externalJobId": {
+      "type": "string",
+      "example": "ABC123"
+    },
+    "deliveryLocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "deliveryId": {
+            "type": "string",
+            "example": "ABC567"
+          },
+          "orderId": {
+            "type": "string",
+            "example": "5f47a223280a29046404e2af"
+          },
+          "channelOrderDisplayId": {
+            "type": "string",
+            "example": "MT4YVTPL"
+          },
+          "deliveryTime": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2019-02-20T16:45:00.000000Z"
+          },
+          "packageSize": {
+            "type": "string",
+            "example": "small"
+          },
+          "orderDescription": {
+            "type": "string",
+            "example": "hot food"
+          },
+          "company": {
+            "type": "string",
+            "example": "BrainQuantums"
+          },
+          "name": {
+            "type": "string",
+            "example": "V. Bertels"
+          },
+          "street": {
+            "type": "string",
+            "example": "Refugehof"
+          },
+          "streetNumber": {
+            "type": "string",
+            "example": "49"
+          },
+          "postalCode": {
+            "type": "string",
+            "example": "9001 AB"
+          },
+          "city": {
+            "type": "string",
+            "example": "Leusden"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+32123456789"
+          },
+          "latitude": {
+            "type": "string",
+            "example": "52.370216"
+          },
+          "longitude": {
+            "type": "string",
+            "example": "4.895168"
+          },
+          "deliveryRemarks": {
+            "type": "string",
+            "example": "please knock 3x, baby is sleeping"
+          },
+          "payment": {
+            "type": "object",
+            "properties": {
+              "orderIsAlreadyPaid": {
+                "type": "boolean",
+                "example": false
+              },
+              "amount": {
+                "type": "integer",
+                "example": 1500
+              },
+              "paymentType": {
+                "type": "integer",
+                "example": 2
+              },
+              "paysWith": {
+                "type": "integer",
+                "example": 2000
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

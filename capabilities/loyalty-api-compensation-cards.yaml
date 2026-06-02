@@ -1,0 +1,79 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Deliverect Loyalty API — Compensation Cards
+  description: 'Compensation Cards surface of the Deliverect Loyalty API. 1 operations. Lead operation: Post_loyalty_channellinkid_compensationcards_validate. Self-contained Naftiko capability covering
+    one Deliverect business surface.'
+  tags:
+  - Deliverect
+  - Loyalty
+  - Compensation Cards
+  created: '2026-06-02'
+  modified: '2026-06-02'
+binds:
+- namespace: env
+  keys:
+    DELIVERECT_TOKEN: DELIVERECT_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: loyalty-api-compensation-cards
+    baseUri: https://api.deliverect.com
+    description: Deliverect Loyalty API — Compensation Cards business capability. Self-contained, no shared references.
+    authentication:
+      type: bearer
+      token: '{{env.DELIVERECT_TOKEN}}'
+    resources:
+    - name: loyalty-channel-link-id-compensation-cards-validate
+      path: /loyalty/{channelLinkId}/compensationCards/validate
+      operations:
+      - name: post_loyalty_channellinkid_compensationcards_validate
+        method: POST
+        description: Deliverect Post_loyalty_channellinkid_compensationcards_validate
+        inputParameters:
+        - name: channelLinkId
+          in: path
+          type: string
+          required: true
+          description: The channelLinkId value.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: loyalty-api-compensation-cards-rest
+    port: 8080
+    description: REST adapter for Deliverect Loyalty API — Compensation Cards. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/loyalty/{channel-link-id}/compensation-cards/validate
+      name: loyalty-channel-link-id-compensation-cards-validate
+      description: REST surface for loyalty-channel-link-id-compensation-cards-validate.
+      operations:
+      - method: POST
+        name: post_loyalty_channellinkid_compensationcards_validate
+        description: Deliverect Post_loyalty_channellinkid_compensationcards_validate
+        call: loyalty-api-compensation-cards.post_loyalty_channellinkid_compensationcards_validate
+        with:
+          channelLinkId: rest.channelLinkId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: loyalty-api-compensation-cards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Deliverect Loyalty API — Compensation Cards. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: post-loyalty-channellinkid-compensationcards-validate
+      description: Deliverect Post_loyalty_channellinkid_compensationcards_validate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: loyalty-api-compensation-cards.post_loyalty_channellinkid_compensationcards_validate
+      with:
+        channelLinkId: tools.channelLinkId
+      outputParameters:
+      - type: object
+        mapping: $.

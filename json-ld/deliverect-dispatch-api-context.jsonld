@@ -1,0 +1,169 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "DispatchCancelJob": "dv:DispatchCancelJob",
+    "DispatchCreateJob": "dv:DispatchCreateJob",
+    "DispatchUpdatejob": "dv:DispatchUpdatejob",
+    "PostFulfillmentValidate": "dv:PostFulfillmentValidate",
+    "jobId": {
+      "@id": "dv:jobId",
+      "@type": "xsd:string"
+    },
+    "account": {
+      "@id": "dv:account",
+      "@type": "xsd:string"
+    },
+    "pickupLocation": {
+      "@id": "dv:pickupLocation",
+      "@type": "@id"
+    },
+    "location": {
+      "@id": "dv:location",
+      "@type": "xsd:string"
+    },
+    "deliveryLocations": {
+      "@id": "dv:deliveryLocations",
+      "@container": "@set"
+    },
+    "orderId": {
+      "@id": "dv:orderId",
+      "@type": "xsd:string"
+    },
+    "channelOrderDisplayId": {
+      "@id": "dv:channelOrderDisplayId",
+      "@type": "xsd:string"
+    },
+    "deliveryId": {
+      "@id": "dv:deliveryId",
+      "@type": "xsd:string"
+    },
+    "courier": {
+      "@id": "dv:courier",
+      "@type": "@id"
+    },
+    "courierId": {
+      "@id": "dv:courierId",
+      "@type": "xsd:string"
+    },
+    "pickupTime": {
+      "@id": "dv:pickupTime",
+      "@type": "xsd:dateTime"
+    },
+    "transportType": {
+      "@id": "dv:transportType",
+      "@type": "xsd:string"
+    },
+    "driverTip": {
+      "@id": "dv:driverTip",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "remarks": {
+      "@id": "dv:remarks",
+      "@type": "xsd:string"
+    },
+    "street": {
+      "@id": "dv:street",
+      "@type": "xsd:string"
+    },
+    "streetNumber": {
+      "@id": "dv:streetNumber",
+      "@type": "xsd:string"
+    },
+    "postalCode": {
+      "@id": "dv:postalCode",
+      "@type": "xsd:string"
+    },
+    "city": {
+      "@id": "dv:city",
+      "@type": "xsd:string"
+    },
+    "latitude": {
+      "@id": "dv:latitude",
+      "@type": "xsd:string"
+    },
+    "longitude": {
+      "@id": "dv:longitude",
+      "@type": "xsd:string"
+    },
+    "deliveryTime": {
+      "@id": "dv:deliveryTime",
+      "@type": "xsd:dateTime"
+    },
+    "packageSize": {
+      "@id": "dv:packageSize",
+      "@type": "xsd:string"
+    },
+    "orderDescription": {
+      "@id": "dv:orderDescription",
+      "@type": "xsd:string"
+    },
+    "company": {
+      "@id": "dv:company",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "dv:phone",
+      "@type": "xsd:string"
+    },
+    "phoneAccessCode": {
+      "@id": "dv:phoneAccessCode",
+      "@type": "xsd:string"
+    },
+    "deliveryRemarks": {
+      "@id": "dv:deliveryRemarks",
+      "@type": "xsd:string"
+    },
+    "payment": {
+      "@id": "dv:payment",
+      "@type": "@id"
+    },
+    "orderIsAlreadyPaid": {
+      "@id": "dv:orderIsAlreadyPaid",
+      "@type": "xsd:boolean"
+    },
+    "amount": {
+      "@id": "dv:amount",
+      "@type": "xsd:integer"
+    },
+    "paymentType": {
+      "@id": "dv:paymentType",
+      "@type": "xsd:integer"
+    },
+    "ageCheck": {
+      "@id": "dv:ageCheck",
+      "@type": "xsd:boolean"
+    },
+    "Id": {
+      "@id": "dv:_id",
+      "@type": "xsd:string"
+    },
+    "externalJobId": {
+      "@id": "dv:externalJobId",
+      "@type": "xsd:string"
+    },
+    "paysWith": {
+      "@id": "dv:paysWith",
+      "@type": "xsd:integer"
+    },
+    "channelLinkId": {
+      "@id": "dv:channelLinkId",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "dv:country",
+      "@type": "xsd:string"
+    },
+    "coordinates": {
+      "@id": "dv:coordinates",
+      "@type": "@id"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/json-structure/crm-api-patch-crm-accountid-customers-crmprofileid-deliveryaddresses-structure.json",
+  "name": "PatchCrmAccountidCustomersCrmprofileidDeliveryaddresses",
+  "description": "Deliverect Update Customer Delivery Addresses",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "country": {
+        "type": "string",
+        "example": "BE"
+      },
+      "stateOrProvince": {
+        "type": "string",
+        "example": "string"
+      },
+      "street": {
+        "type": "string",
+        "example": "string"
+      },
+      "postalCode": {
+        "type": "string",
+        "example": "string"
+      },
+      "subpremise": {
+        "type": "string",
+        "example": "string"
+      },
+      "area": {
+        "type": "string",
+        "example": "string"
+      },
+      "coordinates": {
+        "type": "array",
+        "items": {
+          "type": "float",
+          "example": 1.0
+        }
+      },
+      "default": {
+        "type": "boolean",
+        "example": true
+      },
+      "city": {
+        "type": "string",
+        "example": "string"
+      }
+    }
+  }
+}

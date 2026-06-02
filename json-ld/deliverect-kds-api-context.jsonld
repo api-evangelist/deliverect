@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "dv": "https://developers.deliverect.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "KdsOrderNotification": "dv:KdsOrderNotification",
+    "PostPostKdsOrderstatusOrderid": "dv:PostPostKdsOrderstatusOrderid",
+    "locationId": {
+      "@id": "dv:locationId",
+      "@type": "xsd:string"
+    },
+    "channelLinkId": {
+      "@id": "dv:channelLinkId",
+      "@type": "xsd:string"
+    },
+    "checkoutId": {
+      "@id": "dv:checkoutId",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "dv:status",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "dv:reason",
+      "@type": "xsd:string"
+    },
+    "updatedAt": {
+      "@id": "dv:updatedAt",
+      "@type": "xsd:string"
+    },
+    "orderId": {
+      "@id": "dv:orderId",
+      "@type": "xsd:string"
+    }
+  }
+}

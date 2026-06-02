@@ -1,0 +1,328 @@
+{
+  "accountId": "6**f578fa205bc3eca854***",
+  "locationId": "6**91e9273d6950b4b0a8***",
+  "products": [
+    {
+      "productType": 1,
+      "plu": "STK-01",
+      "price": 1500,
+      "name": "Delicious Steak Frites",
+      "kitchenName": "Steak",
+      "posProductId": "POS-ID-001",
+      "posCategoryIds": [
+        "STK"
+      ],
+      "imageUrl": "https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/steak-622862588c506f015be6018e.jpeg",
+      "description": "Delicious Steak Frites",
+      "descriptionTranslations": {
+        "es": "Deliciosos Bistecs Fritos",
+        "fr": "Steak Frites D\u00e9licieux",
+        "nl": "Heerlijke Biefstuk Frites",
+        "ar": "\u0634\u0631\u064a\u062d\u0629 \u0644\u062d\u0645 \u0641\u0631\u064a\u062a\u0633",
+        "el": "\u039d\u03bf\u03c3\u03c4\u03b9\u03bc\u03b7 \u03c7\u03bf\u03b9\u03c1\u03b9\u03bd\u03ae \u03c0\u03b1\u03bd\u03c4\u03c3\u03ad\u03c4\u03b1 \u03bc\u03b5 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+      },
+      "deliveryTax": 9000,
+      "takeawayTax": 9000,
+      "nameTranslations": {
+        "en": "Delicious Steak Frites",
+        "es": "Deliciosos Bistecs Fritos",
+        "fr": "Steak Frites D\u00e9licieux",
+        "nl": "Heerlijke Biefstuk Frites",
+        "ar": "\u0634\u0631\u064a\u062d\u0629 \u0644\u062d\u0645 \u0641\u0631\u064a\u062a\u0633",
+        "el": "\u039d\u03bf\u03c3\u03c4\u03b9\u03bc\u03b7 \u03c7\u03bf\u03b9\u03c1\u03b9\u03bd\u03ae \u03c0\u03b1\u03bd\u03c4\u03c3\u03ad\u03c4\u03b1 \u03bc\u03b5 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+      },
+      "eatInTax": 9000,
+      "multiMax": 1,
+      "nutritionalInfo": {
+        "fat": 1,
+        "sugar": 4,
+        "saturatedFat": 1,
+        "carbohydrates": 1,
+        "protein": 1,
+        "salt": 1
+      },
+      "subProducts": [
+        "AUTO-01",
+        "MOD-01",
+        "MOD-02"
+      ]
+    },
+    {
+      "productType": 3,
+      "plu": "MOD-01",
+      "name": "Cooking instructions",
+      "posProductId": "POS-ID-009",
+      "posCategoryIds": [
+        "POS-CAT-001"
+      ],
+      "imageUrl": "",
+      "description": "Cooking Instructions",
+      "descriptionTranslations": {
+        "es": "Cocinado",
+        "fr": "Cuisson",
+        "nl": "Kook instructies",
+        "ar": "\u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0627\u0644\u0637\u0628\u062e",
+        "el": "\u039f\u03b4\u03b7\u03b3\u03af\u03b5\u03c2 \u03bc\u03b1\u03b3\u03b5\u03b9\u03c1\u03ad\u03bc\u03b1\u03c4\u03bf\u03c2"
+      },
+      "deliveryTax": 6000,
+      "takeawayTax": 6000,
+      "nameTranslations": {
+        "en": "Cooking Instructions",
+        "es": "Cocinado",
+        "fr": "Cuisson",
+        "nl": "Kook instructies",
+        "ar": "\u062a\u0639\u0644\u064a\u0645\u0627\u062a \u0627\u0644\u0637\u0628\u062e",
+        "el": "\u039f\u03b4\u03b7\u03b3\u03af\u03b5\u03c2 \u03bc\u03b1\u03b3\u03b5\u03b9\u03c1\u03ad\u03bc\u03b1\u03c4\u03bf\u03c2"
+      },
+      "min": 1,
+      "max": 1,
+      "subProducts": [
+        "COOK-01",
+        "COOK-02",
+        "COOK-03"
+      ]
+    },
+    {
+      "productType": 3,
+      "plu": "MOD-02",
+      "name": "Add a side",
+      "posProductId": "POS-ID-014",
+      "posCategoryIds": "INTERNAL-POS-CAT-2",
+      "imageUrl": "https://www.stockvault.net/data/2009/07/20/109569/preview16.jpg",
+      "description": "Pizza made for cheese fanatics",
+      "deliveryTax": 6000,
+      "takeawayTax": 6000,
+      "nameTranslations": {
+        "en": "Choose a side",
+        "es": "Elige tu acompa\u00f1amiento",
+        "fr": "Choisissez votre garniture",
+        "nl": "Kies je bijgerecht",
+        "ar": "\u0627\u062e\u062a\u0631 \u0637\u0628\u0642\u0643 \u0627\u0644\u062c\u0627\u0646\u0628\u064a",
+        "el": "\u0394\u03b9\u03b1\u03bb\u03ad\u03be\u03c4\u03b5 \u03b1\u03ba\u03cc\u03bc\u03b1"
+      },
+      "subProducts": [
+        "SI-01",
+        "SI-02",
+        "SI-03"
+      ],
+      "min": 0,
+      "max": 0,
+      "multiMax": 3
+    },
+    {
+      "productType": 3,
+      "plu": "AUTO-01",
+      "price": 900,
+      "name": "Garnishes",
+      "posProductId": "POS-ID-032",
+      "imageUrl": "",
+      "description": "",
+      "deliveryTax": 6000,
+      "takeawayTax": 6000,
+      "min": 0,
+      "max": 0,
+      "autoApply": [
+        {
+          "plu": "PR1"
+        },
+        {
+          "plu": "PR2"
+        }
+      ],
+      "subProducts": [
+        "PR1",
+        "PR2"
+      ]
+    },
+    {
+      "productType": 2,
+      "plu": "PR1",
+      "price": 0,
+      "name": "Parsley",
+      "posProductId": "PA_POS-0023",
+      "posCategoryIds": "",
+      "imageUrl": "",
+      "description": "",
+      "deliveryTax": 0,
+      "takeawayTax": 0,
+      "defaultQuantity": 3
+    },
+    {
+      "productType": 2,
+      "plu": "PR2",
+      "price": 0,
+      "name": "Melted Butter",
+      "posProductId": "PA_POS-0024",
+      "posCategoryIds": "",
+      "imageUrl": "",
+      "description": "",
+      "deliveryTax": 0,
+      "takeawayTax": 0
+    },
+    {
+      "productType": 2,
+      "plu": "COOK-01",
+      "price": 0,
+      "name": "Rare",
+      "posProductId": "POS-ID-003",
+      "posCategoryIds": [
+        "POS-CAT-001"
+      ],
+      "imageUrl": "",
+      "description": "",
+      "deliveryTax": 9000,
+      "takeawayTax": 9000,
+      "nameTranslations": {
+        "en": "Rare",
+        "es": "Poco hecho",
+        "fr": "Saignant",
+        "nl": "Rood",
+        "ar": "\u063a\u064a\u0631 \u0646\u0627\u0636\u062c \u062c\u064a\u062f\u0627",
+        "el": "\u03a9\u03bc\u03cc"
+      }
+    },
+    {
+      "productType": 2,
+      "plu": "COOK-02",
+      "price": 0,
+      "name": "Medium Rare",
+      "posProductId": "POS-ID-004",
+      "posCategoryIds": "INTERNAL-POS-CAT-2",
+      "imageUrl": "",
+      "description": "",
+      "deliveryTax": 9000,
+      "takeawayTax": 9000,
+      "nameTranslations": {
+        "en": "Medium Rare",
+        "es": "Al punto",
+        "fr": "\u00c0 point",
+        "nl": "Half doorbakken",
+        "ar": "\u0645\u064f\u062a\u064e\u0648\u064e\u0633\u0651\u0650\u0637 \u0627\u0644\u0646\u064f\u0636\u0652\u062c\u0650",
+        "el": "\u039c\u03b9\u03c3\u03bf\u03c8\u03b7\u03bc\u03ad\u03bd\u03bf"
+      }
+    },
+    {
+      "productType": 2,
+      "plu": "COOK-03",
+      "price": 0,
+      "name": "Well Done",
+      "posProductId": "POS-ID-005",
+      "posCategoryIds": "INTERNAL-POS-CAT-2",
+      "imageUrl": "",
+      "description": "",
+      "deliveryTax": 9000,
+      "takeawayTax": 9000,
+      "nameTranslations": {
+        "en": "Well done",
+        "es": "Muy hecho",
+        "fr": "Bien cuit",
+        "nl": "Doorbakken",
+        "ar": "\u0645\u0637\u0628\u0648\u062e \u062c\u064a\u062f\u0627",
+        "el": "\u03ba\u03b1\u03bb\u03bf\u03c8\u03b7\u03bc\u03ad\u03bd\u03bf"
+      }
+    },
+    {
+      "productType": 2,
+      "plu": "SI-01",
+      "price": 0,
+      "name": "Fries",
+      "posProductId": "POS-ID-012",
+      "posCategoryIds": [
+        "SD"
+      ],
+      "imageUrl": "",
+      "description": "Fries",
+      "descriptionTranslations": {
+        "es": "Patatas fritas",
+        "fr": "Frites",
+        "nl": "Frietjes",
+        "ar": "\u0628\u0637\u0627\u0637\u0633 \u0645\u0642\u0644\u064a\u0629",
+        "\u03b5\u03bb": "\u03a0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+      },
+      "deliveryTax": 9000,
+      "takeawayTax": 9000,
+      "nameTranslations": {
+        "en": "Fries",
+        "es": "Patatas fritas",
+        "fr": "Frites",
+        "nl": "Frietjes",
+        "ar": "\u0628\u0637\u0627\u0637\u0633 \u0645\u0642\u0644\u064a\u0629",
+        "\u03b5\u03bb": "\u03a0\u03b1\u03c4\u03ac\u03c4\u03b5\u03c2"
+      },
+      "eatInTax": 9000,
+      "defaultQuantity": 1
+    },
+    {
+      "productType": 2,
+      "plu": "SI-02",
+      "price": 200,
+      "name": "Salad",
+      "kitchenName": "",
+      "posProductId": "POS-ID-013",
+      "posCategoryIds": [
+        "SD"
+      ],
+      "imageUrl": "",
+      "description": "Salad",
+      "descriptionTranslations": {
+        "es": "Ensalada",
+        "fr": "Salade",
+        "nl": "Salade",
+        "ar": "\u0633\u0644\u0637\u0629",
+        "\u03b5\u03bb": "\u03a3\u03b1\u03bb\u03ac\u03c4\u03b1"
+      },
+      "deliveryTax": 9000,
+      "takeawayTax": 9000,
+      "nameTranslations": {
+        "en": "Salad",
+        "es": "Ensalada",
+        "fr": "Salade",
+        "nl": "Salade",
+        "ar": "\u0633\u0644\u0637\u0629",
+        "\u03b5\u03bb": "\u03a3\u03b1\u03bb\u03ac\u03c4\u03b1"
+      },
+      "eatInTax": 9000
+    },
+    {
+      "productType": 2,
+      "plu": "SI-03",
+      "price": 100,
+      "name": "Mashed Potato",
+      "kitchenName": "Mash",
+      "posProductId": "POS-ID-014",
+      "posCategoryIds": [
+        "SD"
+      ],
+      "imageUrl": "",
+      "description": "Mashed Potato",
+      "descriptionTranslations": {
+        "es": "Pur\u00e9 de patata",
+        "fr": "Pur\u00e9e de pommes de terre",
+        "nl": "Aardappelpuree",
+        "ar": "\u0627\u0644\u0628\u0637\u0627\u0637\u0627 \u0627\u0644\u0645\u0647\u0631\u0648\u0633\u0629",
+        "el": "\u03a0\u03bf\u03c5\u03c1\u03ad\u03c2 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b1\u03c2"
+      },
+      "deliveryTax": 9000,
+      "takeawayTax": 9000,
+      "nameTranslations": {
+        "en": "Mashed Potato",
+        "es": "Pur\u00e9 de patata",
+        "fr": "Pur\u00e9e de pommes de terre",
+        "nl": "Aardappelpuree",
+        "ar": "\u0627\u0644\u0628\u0637\u0627\u0637\u0627 \u0627\u0644\u0645\u0647\u0631\u0648\u0633\u0629",
+        "el": "\u03a0\u03bf\u03c5\u03c1\u03ad\u03c2 \u03c0\u03b1\u03c4\u03ac\u03c4\u03b1\u03c2"
+      },
+      "eatInTax": 9000
+    }
+  ],
+  "categories": [
+    {
+      "name": "Steaks",
+      "posCategoryId": "STK"
+    },
+    {
+      "name": "Sides",
+      "posCategoryId": "SD"
+    }
+  ]
+}

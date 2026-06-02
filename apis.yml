@@ -1,0 +1,98 @@
+aid: deliverect
+name: Deliverect
+description: >-
+  Deliverect is a global restaurant integration platform that connects delivery
+  marketplaces, online ordering channels, POS systems, and store operations into
+  a single hub serving over 80,000 locations across more than 50 markets. For
+  developers and integration partners, Deliverect exposes a suite of REST APIs
+  documented in its Developer Hub, including the POS API, Commerce API, Channel
+  API, Dispatch API, and Store API. The APIs let partners receive and manage
+  orders and catalogues, build online ordering and kiosk channels, manage
+  last-mile dispatch, and control stock, hours, and availability. Authentication
+  uses machine-to-machine access tokens with client_id and client_secret
+  credentials issued after an API agreement, scoped by integration type.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Restaurant
+  - Delivery
+  - Online Ordering
+  - Point of Sale
+  - Order Management
+  - Integration
+url: https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/apis.yml
+created: '2026-06-02'
+modified: '2026-06-02'
+specificationVersion: '0.19'
+apis:
+  - aid: deliverect:pos-api
+    name: Deliverect POS API
+    description: >-
+      Lets POS systems receive and manage orders and catalogues and track
+      real-time sales across delivery and ordering channels routed through
+      Deliverect. Uses OAuth machine-to-machine access tokens with the
+      genericPOS scope. An OpenAPI specification and Postman collection are
+      available.
+    humanURL: https://developers.deliverect.com/reference/pos_endpoints
+    tags:
+      - Point of Sale
+      - Orders
+      - Menu
+    properties:
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/pos_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/docs/getting-started
+      - type: GettingStarted
+        url: https://developers.deliverect.com/reference/get-started
+  - aid: deliverect:commerce-api
+    name: Deliverect Commerce API
+    description: >-
+      Enables partners to integrate online ordering, click and collect, and
+      kiosk channels with Deliverect's commerce layer. Authenticates with
+      machine-to-machine access tokens using the genericCommerce scope.
+    humanURL: https://developers.deliverect.com/reference/commerce-channel-api
+    tags:
+      - Online Ordering
+      - Commerce
+      - Kiosk
+    properties:
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/commerce-channel-api
+      - type: Authentication
+        url: https://developers.deliverect.com/docs/getting-started
+  - aid: deliverect:channel-api
+    name: Deliverect Channel API
+    description: >-
+      Allows ordering channels and marketplaces to integrate online ordering
+      and fulfillment with Deliverect, sending orders and syncing menus.
+      Authenticates with machine-to-machine access tokens scoped via
+      genericChannel.
+    humanURL: https://developers.deliverect.com/reference
+    tags:
+      - Channels
+      - Orders
+      - Fulfillment
+    properties:
+      - type: Documentation
+        url: https://developers.deliverect.com/reference
+      - type: Authentication
+        url: https://developers.deliverect.com/docs/getting-started
+common:
+  - type: Website
+    url: https://www.deliverect.com
+  - type: Documentation
+    url: https://developers.deliverect.com/
+  - type: APIReference
+    url: https://developers.deliverect.com/reference
+  - type: Support
+    url: https://developers.deliverect.com/discuss
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/deliverecthq
+  - type: X
+    url: https://twitter.com/deliverect_com
+  - type: LLMsTxt
+    url: https://developers.deliverect.com/llms.txt
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

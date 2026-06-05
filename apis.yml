@@ -1,353 +1,286 @@
 aid: deliverect
 name: Deliverect
-description: Deliverect is a global restaurant integration platform that connects delivery marketplaces, online ordering channels, POS systems, and store operations into a single hub serving over 80,000
-  locations across more than 50 markets. For developers and integration partners, Deliverect exposes a suite of REST APIs documented in its Developer Hub, including the POS, Commerce, Channel, Dispatch,
-  Store, Pay, CRM, Loyalty, KDS, and Gift Cards APIs. The APIs let partners receive and manage orders and catalogues, build online ordering and kiosk channels, manage last-mile dispatch, process payments,
-  manage customers and loyalty, and control stock, hours, and availability. Authentication uses OAuth 2.0 machine-to-machine access tokens with client_id and client_secret credentials issued after an API
+description: >-
+  Deliverect is a global restaurant integration platform that connects delivery marketplaces, online ordering channels,
+  POS systems, and store operations into a single hub serving over 80,000 locations across more than 50 markets. For
+  developers and integration partners, Deliverect exposes a suite of REST APIs documented in its Developer Hub,
+  including the POS, Commerce, Channel, Dispatch, Store, Pay, CRM, Loyalty, KDS, and Gift Cards APIs. The APIs let
+  partners receive and manage orders and catalogues, build online ordering and kiosk channels, manage last-mile
+  dispatch, process payments, manage customers and loyalty, and control stock, hours, and availability. Authentication
+  uses OAuth 2.0 machine-to-machine access tokens with client_id and client_secret credentials issued after an API
   agreement, scoped by integration type.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- Restaurant
-- Delivery
-- Online Ordering
-- Point of Sale
-- Order Management
-- Integration
+  - Restaurant
+  - Delivery
+  - Online Ordering
+  - Point of Sale
+  - Order Management
+  - Integration
 url: https://raw.githubusercontent.com/api-evangelist/deliverect/refs/heads/main/apis.yml
 created: '2026-06-02'
 modified: '2026-06-02'
 specificationVersion: '0.19'
 apis:
-- aid: deliverect:pos-api
-  name: Deliverect POS API
-  description: Connect point-of-sale systems to Deliverect to receive and manage orders and catalogues, sync products, manage inventory, and push order status updates across delivery and ordering channels.
-    Uses OAuth 2.0 machine-to-machine access tokens with the genericPOS scope. A generated OpenAPI specification is available.
-  humanURL: https://developers.deliverect.com/reference/pos_endpoints
-  baseURL: https://api.deliverect.com
-  tags:
-  - Point of Sale
-  - Orders
-  - Menu
-  - Inventory
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-pos-api-openapi-original.yml
+  - aid: deliverect:pos-api
+    name: Deliverect POS API
+    description: >-
+      Connect point-of-sale systems to Deliverect to receive and manage orders and catalogues, sync products, manage
+      inventory, and push order status updates across delivery and ordering channels. Uses OAuth 2.0 machine-to-machine
+      access tokens with the genericPOS scope. A generated OpenAPI specification is available.
+    humanURL: https://developers.deliverect.com/reference/pos_endpoints
+    baseURL: https://api.deliverect.com
+    tags:
+      - Point of Sale
+      - Orders
+      - Menu
+      - Inventory
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-pos-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/pos_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+      - type: GettingStarted
+        url: https://developers.deliverect.com/reference/get-started
+  - aid: deliverect:commerce-api
+    name: Deliverect Commerce API
+    description: >-
+      Power digital ordering, click-and-collect, and kiosk experiences with store details, menu data, basket creation,
+      validation, discounts, and a checkout flow that injects orders to the POS. Authenticates with OAuth 2.0
+      machine-to-machine access tokens using the genericCommerce scope.
+    humanURL: https://developers.deliverect.com/reference/commerce-channel-api
+    baseURL: https://api.deliverect.com
+    tags:
+      - Online Ordering
+      - Commerce
+      - Baskets
+      - Checkout
+      - Kiosk
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-commerce-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/commerce-channel-api
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:channel-api
+    name: Deliverect Channel API
+    description: >-
+      Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze
+      products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0
+      machine-to-machine access tokens scoped via genericChannel.
+    humanURL: https://developers.deliverect.com/reference/channel_endpoints
+    baseURL: https://api.deliverect.com
+    tags:
+      - Channels
+      - Orders
+      - Menu
+      - Fulfillment
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-channel-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/channel_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:dispatch-api
+    name: Deliverect Dispatch API
+    description: >-
+      Manage last-mile delivery by validating delivery availability, creating, updating, and cancelling delivery jobs,
+      and exchanging courier and fulfillment events. Authenticates with OAuth 2.0 machine-to-machine access tokens
+      scoped via genericFulfillment.
+    humanURL: https://developers.deliverect.com/reference/dispatch_endpoints
+    baseURL: https://api.deliverect.com
+    tags:
+      - Dispatch
+      - Delivery
+      - Fulfillment
+      - Couriers
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-dispatch-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/dispatch_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:store-api
+    name: Deliverect Store API
+    description: >-
+      Query and update store and product availability, snooze products by PLU or tag, set busy mode, and configure
+      opening and holiday hours across locations and channels. Authenticates with OAuth 2.0 machine-to-machine access
+      tokens scoped via store or genericPOS.
+    humanURL: https://developers.deliverect.com/reference/store_endpoints
+    baseURL: https://api.deliverect.com
+    tags:
+      - Store Management
+      - Availability
+      - Opening Hours
+      - Inventory
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-store-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/store_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:pay-api
+    name: Deliverect Pay API
+    description: >-
+      Process payment requests, list available payment gateways, retrieve payments, issue refunds, and manage payment
+      profiles for ordering transactions. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via
+      payments.
+    humanURL: https://developers.deliverect.com/reference/pay_endpoints
+    baseURL: https://api.deliverect.com
+    tags:
+      - Payments
+      - Gateways
+      - Refunds
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-pay-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/pay_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:crm-api
+    name: Deliverect CRM API
+    description: >-
+      Manage customer profiles, identify customers by email, update delivery addresses, vehicles, and favorites, and
+      retrieve order history and favorite orders for personalized ordering. Authenticates with OAuth 2.0
+      machine-to-machine access tokens.
+    humanURL: https://developers.deliverect.com/reference/crm_endpoints
+    baseURL: https://api.deliverect.com
+    tags:
+      - CRM
+      - Customers
+      - Orders
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-crm-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/crm_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:loyalty-api
+    name: Deliverect Loyalty API
+    description: >-
+      Integrate loyalty programs by creating and retrieving loyalty customers, reading program configuration, retrieving
+      and validating programs, and validating compensation cards. Authenticates with OAuth 2.0 machine-to-machine access
+      tokens.
+    humanURL: https://developers.deliverect.com/reference/loyalty-channel
+    baseURL: https://api.deliverect.com
+    tags:
+      - Loyalty
+      - Customers
+      - Programs
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-loyalty-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/loyalty-channel
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:kds-api
+    name: Deliverect KDS API
+    description: >-
+      Integrate Kitchen Display Systems to register devices, receive order notifications, push order status updates, and
+      sync product updates. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericKDS.
+    humanURL: https://developers.deliverect.com/reference/kds_endpoints
+    baseURL: https://api.deliverect.com
+    tags:
+      - Kitchen Display System
+      - Orders
+      - Products
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-kds-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/kds_endpoints
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - aid: deliverect:gift-cards-api
+    name: Deliverect Gift Cards API
+    description: >-
+      Redeem gift cards, check balances, apply and reverse gift cards, and register gift card provider profiles for
+      ordering channels. Authenticates with OAuth 2.0 machine-to-machine access tokens.
+    humanURL: https://developers.deliverect.com/reference/giftcards
+    baseURL: https://api.deliverect.com
+    tags:
+      - Gift Cards
+      - Payments
+      - Profiles
+    properties:
+      - type: OpenAPI
+        url: openapi/deliverect-gift-cards-api-openapi-original.yml
+      - type: Documentation
+        url: https://developers.deliverect.com/reference/giftcards
+      - type: Authentication
+        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+common:
+  - type: Website
+    url: https://www.deliverect.com
   - type: Documentation
-    url: https://developers.deliverect.com/reference/pos_endpoints
+    url: https://developers.deliverect.com/
+  - type: APIReference
+    url: https://developers.deliverect.com/reference
   - type: Authentication
     url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
   - type: GettingStarted
     url: https://developers.deliverect.com/reference/get-started
-  - type: NaftikoCapability
-    url: capabilities/pos-api-floors.yaml
-  - type: NaftikoCapability
-    url: capabilities/pos-api-inventory.yaml
-  - type: NaftikoCapability
-    url: capabilities/pos-api-orders.yaml
-  - type: NaftikoCapability
-    url: capabilities/pos-api-products.yaml
-  - type: NaftikoCapability
-    url: capabilities/pos-api-registration.yaml
-  - type: NaftikoCapability
-    url: capabilities/pos-api-tables.yaml
-- aid: deliverect:commerce-api
-  name: Deliverect Commerce API
-  description: Power digital ordering, click-and-collect, and kiosk experiences with store details, menu data, basket creation, validation, discounts, and a checkout flow that injects orders to the POS.
-    Authenticates with OAuth 2.0 machine-to-machine access tokens using the genericCommerce scope.
-  humanURL: https://developers.deliverect.com/reference/commerce-channel-api
-  baseURL: https://api.deliverect.com
-  tags:
-  - Online Ordering
-  - Commerce
-  - Baskets
-  - Checkout
-  - Kiosk
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-commerce-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/commerce-channel-api
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/commerce-api-baskets.yaml
-  - type: NaftikoCapability
-    url: capabilities/commerce-api-checkout.yaml
-  - type: NaftikoCapability
-    url: capabilities/commerce-api-coupons.yaml
-  - type: NaftikoCapability
-    url: capabilities/commerce-api-menus.yaml
-  - type: NaftikoCapability
-    url: capabilities/commerce-api-stores.yaml
-  - type: NaftikoCapability
-    url: capabilities/commerce-api-upsell.yaml
-- aid: deliverect:channel-api
-  name: Deliverect Channel API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates
-    with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
-  humanURL: https://developers.deliverect.com/reference/channel_endpoints
-  baseURL: https://api.deliverect.com
-  tags:
-  - Channels
-  - Orders
-  - Menu
-  - Fulfillment
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-channel-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/channel_endpoints
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/channel-api-accounts.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-channel-links.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-couriers.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-menus.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-opening-hours.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-orders.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-payments.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-products.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-registration.yaml
-  - type: NaftikoCapability
-    url: capabilities/channel-api-store-status.yaml
-- aid: deliverect:dispatch-api
-  name: Deliverect Dispatch API
-  description: Manage last-mile delivery by validating delivery availability, creating, updating, and cancelling delivery jobs, and exchanging courier and fulfillment events. Authenticates with OAuth 2.0
-    machine-to-machine access tokens scoped via genericFulfillment.
-  humanURL: https://developers.deliverect.com/reference/dispatch_endpoints
-  baseURL: https://api.deliverect.com
-  tags:
-  - Dispatch
-  - Delivery
-  - Fulfillment
-  - Couriers
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-dispatch-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/dispatch_endpoints
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/dispatch-api-fulfillment.yaml
-  - type: NaftikoCapability
-    url: capabilities/dispatch-api-jobs.yaml
-- aid: deliverect:store-api
-  name: Deliverect Store API
-  description: Query and update store and product availability, snooze products by PLU or tag, set busy mode, and configure opening and holiday hours across locations and channels. Authenticates with OAuth
-    2.0 machine-to-machine access tokens scoped via store or genericPOS.
-  humanURL: https://developers.deliverect.com/reference/store_endpoints
-  baseURL: https://api.deliverect.com
-  tags:
-  - Store Management
-  - Availability
-  - Opening Hours
-  - Inventory
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-store-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/store_endpoints
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/store-api-allergens.yaml
-  - type: NaftikoCapability
-    url: capabilities/store-api-locations.yaml
-  - type: NaftikoCapability
-    url: capabilities/store-api-opening-hours.yaml
-  - type: NaftikoCapability
-    url: capabilities/store-api-products.yaml
-  - type: NaftikoCapability
-    url: capabilities/store-api-store-status.yaml
-  - type: NaftikoCapability
-    url: capabilities/store-api-tables.yaml
-- aid: deliverect:pay-api
-  name: Deliverect Pay API
-  description: Process payment requests, list available payment gateways, retrieve payments, issue refunds, and manage payment profiles for ordering transactions. Authenticates with OAuth 2.0 machine-to-machine
-    access tokens scoped via payments.
-  humanURL: https://developers.deliverect.com/reference/pay_endpoints
-  baseURL: https://api.deliverect.com
-  tags:
-  - Payments
-  - Gateways
-  - Refunds
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-pay-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/pay_endpoints
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/pay-api-gateways.yaml
-  - type: NaftikoCapability
-    url: capabilities/pay-api-payments.yaml
-  - type: NaftikoCapability
-    url: capabilities/pay-api-profiles.yaml
-- aid: deliverect:crm-api
-  name: Deliverect CRM API
-  description: Manage customer profiles, identify customers by email, update delivery addresses, vehicles, and favorites, and retrieve order history and favorite orders for personalized ordering. Authenticates
-    with OAuth 2.0 machine-to-machine access tokens.
-  humanURL: https://developers.deliverect.com/reference/crm_endpoints
-  baseURL: https://api.deliverect.com
-  tags:
-  - CRM
-  - Customers
-  - Orders
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-crm-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/crm_endpoints
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/crm-api-customers.yaml
-  - type: NaftikoCapability
-    url: capabilities/crm-api-orders.yaml
-- aid: deliverect:loyalty-api
-  name: Deliverect Loyalty API
-  description: Integrate loyalty programs by creating and retrieving loyalty customers, reading program configuration, retrieving and validating programs, and validating compensation cards. Authenticates
-    with OAuth 2.0 machine-to-machine access tokens.
-  humanURL: https://developers.deliverect.com/reference/loyalty-channel
-  baseURL: https://api.deliverect.com
-  tags:
-  - Loyalty
-  - Customers
-  - Programs
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-loyalty-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/loyalty-channel
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/loyalty-api-authentication.yaml
-  - type: NaftikoCapability
-    url: capabilities/loyalty-api-compensation-cards.yaml
-  - type: NaftikoCapability
-    url: capabilities/loyalty-api-configuration.yaml
-  - type: NaftikoCapability
-    url: capabilities/loyalty-api-customers.yaml
-  - type: NaftikoCapability
-    url: capabilities/loyalty-api-programs.yaml
-- aid: deliverect:kds-api
-  name: Deliverect KDS API
-  description: Integrate Kitchen Display Systems to register devices, receive order notifications, push order status updates, and sync product updates. Authenticates with OAuth 2.0 machine-to-machine access
-    tokens scoped via genericKDS.
-  humanURL: https://developers.deliverect.com/reference/kds_endpoints
-  baseURL: https://api.deliverect.com
-  tags:
-  - Kitchen Display System
-  - Orders
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-kds-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/kds_endpoints
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/kds-api-orders.yaml
-  - type: NaftikoCapability
-    url: capabilities/kds-api-products.yaml
-  - type: NaftikoCapability
-    url: capabilities/kds-api-registration.yaml
-- aid: deliverect:gift-cards-api
-  name: Deliverect Gift Cards API
-  description: Redeem gift cards, check balances, apply and reverse gift cards, and register gift card provider profiles for ordering channels. Authenticates with OAuth 2.0 machine-to-machine access tokens.
-  humanURL: https://developers.deliverect.com/reference/giftcards
-  baseURL: https://api.deliverect.com
-  tags:
-  - Gift Cards
-  - Payments
-  - Profiles
-  properties:
-  - type: OpenAPI
-    url: openapi/deliverect-gift-cards-api-openapi-original.yml
-  - type: Documentation
-    url: https://developers.deliverect.com/reference/giftcards
-  - type: Authentication
-    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - type: NaftikoCapability
-    url: capabilities/gift-cards-api-gift-cards.yaml
-  - type: NaftikoCapability
-    url: capabilities/gift-cards-api-profiles.yaml
-common:
-- type: Website
-  url: https://www.deliverect.com
-- type: Documentation
-  url: https://developers.deliverect.com/
-- type: APIReference
-  url: https://developers.deliverect.com/reference
-- type: Authentication
-  url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-- type: GettingStarted
-  url: https://developers.deliverect.com/reference/get-started
-- type: Webhooks
-  url: https://developers.deliverect.com/reference/partner-webhooks-3
-- type: Support
-  url: https://developers.deliverect.com/discuss
-- type: GitHubOrganization
-  url: https://github.com/Deliverect
-- type: Tools
-  title: MCP Server
-  url: https://developers.deliverect.com/reference/mcp
-- type: Integrations
-  title: n8n Connector
-  url: https://github.com/Deliverect/n8n-nodes-deliverect
-- type: SDK
-  title: n8n Nodes (npm)
-  url: https://www.npmjs.com/package/n8n-nodes-deliverect
-- type: LinkedIn
-  url: https://www.linkedin.com/company/deliverecthq
-- type: X
-  url: https://twitter.com/deliverect_com
-- type: LLMsTxt
-  url: https://developers.deliverect.com/llms.txt
-- type: Spectral
-  url: rules/deliverect-spectral-rules.yml
-- type: Vocabulary
-  url: vocabulary/deliverect-vocabulary.yaml
-- type: Plans
-  url: plans/deliverect-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/deliverect-rate-limits.yml
-- type: FinOps
-  url: finops/deliverect-finops.yml
-- type: JSONLD
-  url: json-ld/deliverect-channel-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-commerce-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-crm-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-dispatch-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-gift-cards-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-kds-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-loyalty-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-pay-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-pos-api-context.jsonld
-- type: JSONLD
-  url: json-ld/deliverect-store-api-context.jsonld
+  - type: Webhooks
+    url: https://developers.deliverect.com/reference/partner-webhooks-3
+  - type: Support
+    url: https://developers.deliverect.com/discuss
+  - type: GitHubOrganization
+    url: https://github.com/Deliverect
+  - type: Tools
+    title: MCP Server
+    url: https://developers.deliverect.com/reference/mcp
+  - type: Integrations
+    title: n8n Connector
+    url: https://github.com/Deliverect/n8n-nodes-deliverect
+  - type: SDK
+    title: n8n Nodes (npm)
+    url: https://www.npmjs.com/package/n8n-nodes-deliverect
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/deliverecthq
+  - type: X
+    url: https://twitter.com/deliverect_com
+  - type: LLMsTxt
+    url: https://developers.deliverect.com/llms.txt
+  - type: Spectral
+    url: rules/deliverect-spectral-rules.yml
+  - type: Vocabulary
+    url: vocabulary/deliverect-vocabulary.yaml
+  - type: Plans
+    url: plans/deliverect-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/deliverect-rate-limits.yml
+  - type: FinOps
+    url: finops/deliverect-finops.yml
+  - type: JSONLD
+    url: json-ld/deliverect-channel-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-commerce-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-crm-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-dispatch-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-gift-cards-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-kds-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-loyalty-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-pay-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-pos-api-context.jsonld
+  - type: JSONLD
+    url: json-ld/deliverect-store-api-context.jsonld
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com

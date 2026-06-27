@@ -242,14 +242,14 @@ common:
   - type: Integrations
     title: n8n Connector
     url: https://github.com/Deliverect/n8n-nodes-deliverect
-  - type: SDK
+  - type: SDKs
     title: n8n Nodes (npm)
     url: https://www.npmjs.com/package/n8n-nodes-deliverect
   - type: LinkedIn
     url: https://www.linkedin.com/company/deliverecthq
   - type: X
     url: https://twitter.com/deliverect_com
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://developers.deliverect.com/llms.txt
   - type: Spectral
     url: rules/deliverect-spectral-rules.yml

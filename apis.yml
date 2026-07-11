@@ -220,6 +220,12 @@ apis:
       - type: Authentication
         url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
 common:
+  - type: VulnerabilityDisclosure
+    url: security/deliverect-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/deliverect-domain-security.yml
+  - type: Authentication
+    url: authentication/deliverect-authentication.yml
   - type: OAuthScopes
     url: scopes/deliverect-scopes.yml
   - type: Website

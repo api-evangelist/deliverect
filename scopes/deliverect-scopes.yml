@@ -1,0 +1,108 @@
+generated: '2026-07-11'
+method: searched
+docs: https://developers.deliverect.com/docs/getting-started
+source: openapi/deliverect-channel-api-openapi-original.yml, openapi/deliverect-commerce-api-openapi-original.yml,
+  openapi/deliverect-crm-api-openapi-original.yml, openapi/deliverect-dispatch-api-openapi-original.yml,
+  openapi/deliverect-gift-cards-api-openapi-original.yml, openapi/deliverect-kds-api-openapi-original.yml,
+  openapi/deliverect-loyalty-api-openapi-original.yml, openapi/deliverect-pay-api-openapi-original.yml,
+  openapi/deliverect-pos-api-openapi-original.yml, openapi/deliverect-store-api-openapi-original.yml
+schemes:
+- name: oauth2
+  source: openapi/deliverect-channel-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-commerce-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-crm-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-dispatch-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-gift-cards-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-kds-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-loyalty-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-pay-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-pos-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+- name: oauth2
+  source: openapi/deliverect-store-api-openapi-original.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.deliverect.com/oauth/token
+  description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret
+    at POST /oauth/token for a Bearer access_token.
+scopes:
+- scope: genericChannel:{channel_scope}
+  description: All endpoints within the Channel API.
+  sources:
+  - https://developers.deliverect.com/docs/getting-started
+- scope: genericPOS
+  description: All endpoints within the POS + Store API.
+  sources:
+  - https://developers.deliverect.com/docs/getting-started
+- scope: store
+  description: All endpoints within the Store API.
+  sources:
+  - https://developers.deliverect.com/docs/getting-started
+- scope: genericFulfillment
+  description: All endpoints within the Dispatch API.
+  sources:
+  - https://developers.deliverect.com/docs/getting-started
+- scope: genericKDS
+  description: All endpoints within the KDS API.
+  sources:
+  - https://developers.deliverect.com/docs/getting-started
+- scope: payments
+  description: All endpoints within the DPAY (Pay) API.
+  sources:
+  - https://developers.deliverect.com/docs/getting-started
+- scope: genericCommerce
+  description: All endpoints within the Commerce API.
+  sources:
+  - https://developers.deliverect.com/docs/getting-started

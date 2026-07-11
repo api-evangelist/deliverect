@@ -220,6 +220,8 @@ apis:
       - type: Authentication
         url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
 common:
+  - type: OAuthScopes
+    url: scopes/deliverect-scopes.yml
   - type: Website
     url: https://www.deliverect.com
   - type: Documentation
@@ -281,6 +283,8 @@ common:
     url: json-ld/deliverect-pos-api-context.jsonld
   - type: JSONLD
     url: json-ld/deliverect-store-api-context.jsonld
+  - url: https://www.deliverect.com/blog/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

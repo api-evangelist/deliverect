@@ -220,6 +220,8 @@ apis:
       - type: Authentication
         url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
 common:
+  - type: AgenticAccess
+    url: agentic-access/deliverect-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/deliverect-vulnerability-disclosure.yml
   - type: DomainSecurity

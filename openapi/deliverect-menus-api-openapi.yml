@@ -1,0 +1,2321 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Menus API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Menus
+  description: Menus operations for the Deliverect Channel API.
+paths:
+  /channel/menu_update/:
+    post:
+      summary: Deliverect Menu Update
+      description: Customers will publish their menu to a provided webhook URL. This delivers JSON containing all the necessary attributes to display their menu as intended
+      operationId: channel_menu_update
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              Menu Example:
+                summary: Menu Example
+                value:
+                  availabilities:
+                  - dayOfWeek: 1
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 2
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 3
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 4
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 5
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 6
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 6
+                    endTime: '22:00'
+                    startTime: '19:00'
+                  - dayOfWeek: 7
+                    endTime: '17:00'
+                    startTime: 09:00
+                  bundles: {}
+                  categories:
+                  - _id: 65********************87
+                    name: Steaks
+                    description: ''
+                    descriptionTranslations: {}
+                    nameTranslations: {}
+                    account: 62********************f1
+                    posLocationId: ''
+                    posCategoryType: ''
+                    posCategoryId: ''
+                    imageUrl: ''
+                    subCategories: []
+                    products: []
+                    availabilities: []
+                    level: 1
+                    menu: 65********************79
+                    sortedChannelProductIds: []
+                    subProducts:
+                    - 65********************30
+                    subProductSortOrder: []
+                  channelLinkId: 65********************7f
+                  currency: 3
+                  description: ''
+                  descriptionTranslations:
+                    fr: Un exemple de menu de diffu00e9rentes configurations de produits, profitez-enu00a0!
+                  menu: Example Menu
+                  menuId: 65********************79
+                  menuImageURL: ''
+                  menuType: 0
+                  modifierGroups:
+                    65********************31:
+                      _id: 65********************31
+                      name: Cooking instructions
+                      description: ''
+                      descriptionTranslations: {}
+                      nameTranslations:
+                        es: Cocinado
+                        fr: Cuisson
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      location: 65********************32
+                      max: 1
+                      min: 1
+                      multiply: 1
+                      plu: MOD-01
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      productTags: []
+                      productType: 3
+                      subProducts:
+                      - 65********************32
+                      - 65********************33
+                      parentId: 65********************30
+                      snoozed: false
+                      subProductSortOrder: []
+                  modifiers:
+                    65********************32:
+                      _id: 65********************32
+                      name: Rare
+                      description: ''
+                      descriptionTranslations: {}
+                      nameTranslations:
+                        es: Poco hecho
+                        fr: Saignant
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      location: 65********************32
+                      max: 0
+                      min: 0
+                      multiply: 1
+                      plu: COOK-01
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      price: 0
+                      productTags: []
+                      productType: 2
+                      subProducts: []
+                      parentId: 65********************31
+                      snoozed: false
+                      subProductSortOrder: []
+                    65********************34:
+                      _id: 65********************34
+                      name: Well Done
+                      description: ''
+                      descriptionTranslations: {}
+                      nameTranslations:
+                        es: Muy hecho
+                        fr: Bien cuit
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      location: 65********************32
+                      max: 0
+                      min: 0
+                      multiply: 1
+                      plu: COOK-03
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      price: 0
+                      productTags: []
+                      productType: 2
+                      subProducts: []
+                      parentId: 65********************31
+                      snoozed: false
+                      subProductSortOrder: []
+                  menuTranslations:
+                    fr: Exemple de Menu
+                  nestedModifiers: true
+                  products:
+                    65********************30:
+                      _id: 65********************30
+                      name: Delicious Steak and Frites ud83dude0b
+                      description: ''
+                      descriptionTranslations:
+                        fr: Exemple de produit de base avec - groupes de modificateurs - variables min/max - su00e9lection par du00e9faut - traductions
+                      nameTranslations:
+                        es: Deliciosos Bistecs Fritos
+                        fr: Steak Frites Du00e9licieux
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      imageUrl: ''
+                      location: 65********************32
+                      max: 0
+                      min: 0
+                      multiply: 1
+                      plu: STK-01
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      price: 1500
+                      productTags: []
+                      productType: 1
+                      subProducts:
+                      - 65********************31
+                      - 65********************35
+                      parentId: 65********************87
+                      snoozed: false
+                      subProductSortOrder: []
+                      referenceId: STK-01
+                  productTags:
+                  - 104
+                  - 108
+                  snoozedProducts: {}
+                  validations: []
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Menus
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /{channelName}/menuStatus/{_id}:
+    post:
+      summary: Deliverect Menu Update (Async)
+      description: Receive menu update callback status.
+      operationId: post_channelname_menustatus_id
+      parameters:
+      - name: channelName
+        in: path
+        required: true
+        schema:
+          type: string
+          default: my-channel
+        description: The channelName value.
+        example: my-channel
+      - name: _id
+        in: path
+        required: true
+        schema:
+          type: string
+          default: menu-update-id
+        description: The _id value.
+        example: menu-update-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: confirmed
+                comment:
+                  type: string
+                  example: string
+              required:
+              - status
+            examples:
+              Menu Update:
+                summary: Menu Update
+                value:
+                  status: ONLINE
+                  comment: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      tags:
+      - Menus
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /commerce/{accountId}/menus:
+    get:
+      tags:
+      - Menus
+      summary: Deliverect Get Root Menu(s)
+      description: This endpoint returns a list of menus associated with the account's master location. These menus are store agnostic and typically hold enough data to display as first entry experience.
+      operationId: commerce_channel_api_menus_get_root_menus
+      parameters:
+      - name: accountId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                  - menu: Burger Menu
+                    menuId: 64c27a89c6352cd55814580c
+                    menuType: 0
+                    nestedModifiers: false
+                    description: Description
+                    menuImageUrl: null
+                    currency: 1
+                    menuTranslations:
+                      en: ''
+                    productTags:
+                    - 116
+                    - 16
+                    - 6
+                    - 115
+                    - 1
+                    - 35
+                    - 101
+                    - 104
+                    descriptionTranslations:
+                      en: ''
+                    categories:
+                    - id: 64c27a9513128b833aaec96e
+                      name: Pizza
+                      description: ''
+                      imageUrl: null
+                      menu: 64c27a89c6352cd55814580c
+                      account: 64872839172e0e6d2cedaa48
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      subProducts:
+                      - 648acd52c5bf7503468da6c7
+                      - 648acc5c2d5016b2ecce3188
+                      - 649abe754ea4f0e242ddb755
+                    - id: 65c130c6ec28c6821bcf80ab
+                      name: Drinks
+                      description: ''
+                      imageUrl: null
+                      menu: 64c27a89c6352cd55814580c
+                      account: 64872839172e0e6d2cedaa48
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      subProducts:
+                      - 64d4c407554b010187f74830
+                    - id: 65c130daec28c6821bcf80e0
+                      name: Burgers
+                      description: ''
+                      imageUrl: null
+                      menu: 64c27a89c6352cd55814580c
+                      account: 64872839172e0e6d2cedaa48
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      subProducts:
+                      - 65c1304eec28c6821bcf73e7
+                    - id: 65c131b0dc12e93ea9081a9a
+                      name: Extra
+                      description: ''
+                      imageUrl: null
+                      menu: 64c27a89c6352cd55814580c
+                      account: 64872839172e0e6d2cedaa48
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      subProducts:
+                      - 65c1308edc12e93ea907f49a
+                    products:
+                      648acd52c5bf7503468da6c7:
+                        id: 648acd52c5bf7503468da6c7
+                        plu: P-MA-sViS-2
+                        name: Margherita
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: Margherita Pizza
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: P-MA-sViS-2
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags:
+                        - 116
+                        subProducts:
+                        - 648c251ebb2163a8cebc1137
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      648acc5c2d5016b2ecce3188:
+                        id: 648acc5c2d5016b2ecce3188
+                        plu: P-PE-xmku-2
+                        name: Pepperoni
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: Pepperoni Pizza
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: P-PE-xmku-2
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags:
+                        - 16
+                        - 6
+                        - 115
+                        subProducts: []
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      649abe754ea4f0e242ddb755:
+                        id: 649abe754ea4f0e242ddb755
+                        plu: P-ME-72C1-2
+                        name: Pizza Meal Option 1
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: P-ME-72C1-2
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts:
+                        - 649abede949cfa36470e3326
+                        - 649abefeb99c55cfcbf181c6
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      64d4c407554b010187f74830:
+                        id: 64d4c407554b010187f74830
+                        plu: VAR-3
+                        name: Coke
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: VAR-3
+                        calories: 2
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts: []
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      65c1304eec28c6821bcf73e7:
+                        id: 65c1304eec28c6821bcf73e7
+                        plu: P-TA-FYlu-2
+                        name: Burger
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: P-TA-FYlu-2
+                        calories: 500
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags:
+                        - 1
+                        - 35
+                        - 101
+                        - 104
+                        subProducts: []
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      65c1308edc12e93ea907f49a:
+                        id: 65c1308edc12e93ea907f49a
+                        plu: P-FR-WZDd-2
+                        name: Fries
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: P-FR-WZDd-2
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts: []
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      663c976df7d1fb0d85dc96c5:
+                        id: 663c976df7d1fb0d85dc96c5
+                        plu: P-MA-sViS-2###
+                        name: Margherita
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: Margherita Pizza
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: P-MA-sViS-2
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags:
+                        - 116
+                        subProducts:
+                        - 648c251ebb2163a8cebc1137
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      663c976df7d1fb0d85dc96c6:
+                        id: 663c976df7d1fb0d85dc96c6
+                        plu: P-PE-xmku-2###
+                        name: Pepperoni
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: Pepperoni Pizza
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: P-PE-xmku-2
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags:
+                        - 16
+                        - 6
+                        - 115
+                        subProducts: []
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                    modifiers:
+                      648c24f842c8fee99960fc05:
+                        id: 648c24f842c8fee99960fc05
+                        plu: M-BA-nNU1-2
+                        name: Bacon
+                        productType: 2
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: null
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts: []
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                    modifierGroups:
+                      648c251ebb2163a8cebc1137:
+                        id: 648c251ebb2163a8cebc1137
+                        plu: MG-TO-QeOs-2
+                        name: Toppings
+                        productType: 3
+                        max: 5
+                        min: 0
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: null
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts:
+                        - 648c24f842c8fee99960fc05
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                    bundles:
+                      649abede949cfa36470e3326:
+                        id: 649abede949cfa36470e3326
+                        plu: P-meal-deal-1
+                        name: Pizza 1
+                        productType: 4
+                        max: 1
+                        min: 1
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: null
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts:
+                        - 663c976df7d1fb0d85dc96c5
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+                      649abefeb99c55cfcbf181c6:
+                        id: 649abefeb99c55cfcbf181c6
+                        plu: B-PI-qEtO-2
+                        name: Pizza 2
+                        productType: 4
+                        max: 1
+                        min: 1
+                        multiply: 1
+                        description: ''
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 64872839172e0e6d2cedaa48
+                        referenceId: null
+                        calories: null
+                        caloriesRangeHigh: null
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts:
+                        - 663c976df7d1fb0d85dc96c6
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        subProductSortOrder: []
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    menu:
+                      type: string
+                      example: Burger Menu
+                    menuId:
+                      type: string
+                      example: 64c27a89c6352cd55814580c
+                    menuType:
+                      type: integer
+                      example: 0
+                      default: 0
+                    nestedModifiers:
+                      type: boolean
+                      example: false
+                      default: true
+                    description:
+                      type: string
+                      example: Description
+                    menuImageUrl: {}
+                    currency:
+                      type: integer
+                      example: 1
+                      default: 0
+                    menuTranslations:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: ''
+                    productTags:
+                      type: array
+                      items:
+                        type: integer
+                        example: 116
+                        default: 0
+                    descriptionTranslations:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: ''
+                    categories:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 64c27a9513128b833aaec96e
+                          name:
+                            type: string
+                            example: Pizza
+                          description:
+                            type: string
+                            example: ''
+                          imageUrl: {}
+                          menu:
+                            type: string
+                            example: 64c27a89c6352cd55814580c
+                          account:
+                            type: string
+                            example: 64872839172e0e6d2cedaa48
+                          nameTranslations:
+                            type: object
+                            properties: {}
+                          descriptionTranslations:
+                            type: object
+                            properties: {}
+                          subProducts:
+                            type: array
+                            items:
+                              type: string
+                              example: 648acd52c5bf7503468da6c7
+                    products:
+                      type: object
+                      properties:
+                        648acd52c5bf7503468da6c7:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 648acd52c5bf7503468da6c7
+                            plu:
+                              type: string
+                              example: P-MA-sViS-2
+                            name:
+                              type: string
+                              example: Margherita
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: Margherita Pizza
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: P-MA-sViS-2
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                              items:
+                                type: integer
+                                example: 116
+                                default: 0
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 648c251ebb2163a8cebc1137
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        648acc5c2d5016b2ecce3188:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 648acc5c2d5016b2ecce3188
+                            plu:
+                              type: string
+                              example: P-PE-xmku-2
+                            name:
+                              type: string
+                              example: Pepperoni
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: Pepperoni Pizza
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: P-PE-xmku-2
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                              items:
+                                type: integer
+                                example: 16
+                                default: 0
+                            subProducts:
+                              type: array
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        649abe754ea4f0e242ddb755:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 649abe754ea4f0e242ddb755
+                            plu:
+                              type: string
+                              example: P-ME-72C1-2
+                            name:
+                              type: string
+                              example: Pizza Meal Option 1
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: P-ME-72C1-2
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 649abede949cfa36470e3326
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        64d4c407554b010187f74830:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 64d4c407554b010187f74830
+                            plu:
+                              type: string
+                              example: VAR-3
+                            name:
+                              type: string
+                              example: Coke
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: VAR-3
+                            calories:
+                              type: integer
+                              example: 2
+                              default: 0
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        65c1304eec28c6821bcf73e7:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 65c1304eec28c6821bcf73e7
+                            plu:
+                              type: string
+                              example: P-TA-FYlu-2
+                            name:
+                              type: string
+                              example: Burger
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: P-TA-FYlu-2
+                            calories:
+                              type: integer
+                              example: 500
+                              default: 0
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                              items:
+                                type: integer
+                                example: 1
+                                default: 0
+                            subProducts:
+                              type: array
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        65c1308edc12e93ea907f49a:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 65c1308edc12e93ea907f49a
+                            plu:
+                              type: string
+                              example: P-FR-WZDd-2
+                            name:
+                              type: string
+                              example: Fries
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: P-FR-WZDd-2
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        663c976df7d1fb0d85dc96c5:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 663c976df7d1fb0d85dc96c5
+                            plu:
+                              type: string
+                              example: P-MA-sViS-2###
+                            name:
+                              type: string
+                              example: Margherita
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: Margherita Pizza
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: P-MA-sViS-2
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                              items:
+                                type: integer
+                                example: 116
+                                default: 0
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 648c251ebb2163a8cebc1137
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        663c976df7d1fb0d85dc96c6:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 663c976df7d1fb0d85dc96c6
+                            plu:
+                              type: string
+                              example: P-PE-xmku-2###
+                            name:
+                              type: string
+                              example: Pepperoni
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: Pepperoni Pizza
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId:
+                              type: string
+                              example: P-PE-xmku-2
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                              items:
+                                type: integer
+                                example: 16
+                                default: 0
+                            subProducts:
+                              type: array
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                    modifiers:
+                      type: object
+                      properties:
+                        648c24f842c8fee99960fc05:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 648c24f842c8fee99960fc05
+                            plu:
+                              type: string
+                              example: M-BA-nNU1-2
+                            name:
+                              type: string
+                              example: Bacon
+                            productType:
+                              type: integer
+                              example: 2
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId: {}
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                    modifierGroups:
+                      type: object
+                      properties:
+                        648c251ebb2163a8cebc1137:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 648c251ebb2163a8cebc1137
+                            plu:
+                              type: string
+                              example: MG-TO-QeOs-2
+                            name:
+                              type: string
+                              example: Toppings
+                            productType:
+                              type: integer
+                              example: 3
+                              default: 0
+                            max:
+                              type: integer
+                              example: 5
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId: {}
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 648c24f842c8fee99960fc05
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                    bundles:
+                      type: object
+                      properties:
+                        649abede949cfa36470e3326:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 649abede949cfa36470e3326
+                            plu:
+                              type: string
+                              example: P-meal-deal-1
+                            name:
+                              type: string
+                              example: Pizza 1
+                            productType:
+                              type: integer
+                              example: 4
+                              default: 0
+                            max:
+                              type: integer
+                              example: 1
+                              default: 0
+                            min:
+                              type: integer
+                              example: 1
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId: {}
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 663c976df7d1fb0d85dc96c5
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+                        649abefeb99c55cfcbf181c6:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 649abefeb99c55cfcbf181c6
+                            plu:
+                              type: string
+                              example: B-PI-qEtO-2
+                            name:
+                              type: string
+                              example: Pizza 2
+                            productType:
+                              type: integer
+                              example: 4
+                              default: 0
+                            max:
+                              type: integer
+                              example: 1
+                              default: 0
+                            min:
+                              type: integer
+                              example: 1
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            description:
+                              type: string
+                              example: ''
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 64872839172e0e6d2cedaa48
+                            referenceId: {}
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 663c976df7d1fb0d85dc96c6
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            subProductSortOrder:
+                              type: array
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /commerce/{accountId}/stores/{channelLinkId}/menus:
+    get:
+      tags:
+      - Menus
+      summary: Deliverect Get Store Menu(s)
+      description: Returns the menus available for a specific store.
+      operationId: commerce_channel_api_stores_get_store_menus
+      parameters:
+      - name: accountId
+        in: path
+        schema:
+          type: string
+          default: 668e4aa170efd23c474b2ad1
+        required: true
+        description: The accountId value.
+        example: 668e4aa170efd23c474b2ad1
+      - in: query
+        name: fulfillmentType
+        schema:
+          type: string
+          default: pickup
+        description: Possible values are; delivery | pickup | curbside | eatIn
+        example: pickup
+      - in: path
+        name: channelLinkId
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                  - menu: Spring menu
+                    menuId: 62d7f77f64c95193cc29aa91
+                    menuType: 0
+                    nestedModifiers: true
+                    channelLinkId: 65eee6a9984a1bc1b9637c59
+                    description: 'Our menu of various product for a beautiful spring, enjoy! '
+                    menuImageUrl: null
+                    currency: 1
+                    menuTranslations: {}
+                    productTags:
+                    - 104
+                    - 108
+                    - 103
+                    - 9
+                    - 8
+                    - 1101
+                    - 1129
+                    - 109
+                    - 112
+                    descriptionTranslations: {}
+                    availabilities:
+                    - dayOfWeek: 1
+                      startTime: '13: 00'
+                      endTime: '22: 00'
+                    - dayOfWeek: 2
+                      startTime: '06: 00'
+                      endTime: '22: 00'
+                    - dayOfWeek: 3
+                      startTime: '06: 00'
+                      endTime: '22: 00'
+                    - dayOfWeek: 4
+                      startTime: '06: 00'
+                      endTime: '22: 00'
+                    - dayOfWeek: 5
+                      startTime: '15: 00'
+                      endTime: '18: 00'
+                    - dayOfWeek: 6
+                      startTime: '06: 00'
+                      endTime: '22: 00'
+                    - dayOfWeek: 7
+                      startTime: '06: 00'
+                      endTime: '22: 00'
+                    categories:
+                    - id: null
+                      name: Steak & Burgers
+                      description: Something from the Grill
+                      imageUrl: 'https: //resizer.staging.deliverect.com/uia9zWj73e5qP3yQGd4sQrYWcjmQyo-XRJMg3LaMobg/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1zdGFnaW5nL2ltYWdlcy81ZmY2ZWUwODkzMjhjOGFlZmVlYWJlMzMvZ3JpbGwtNjIyYTJjNDhjNzE1YjQwM2IwZWI3MmJlLmpwZWc=.jpg'
+                      menu: 62d7f77f64c95193cc29aa91
+                      account: 62d7f53b2f46fac3eedc7dea
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      availabilities: []
+                      subProducts:
+                      - 62d7f77e64c95193cc29aa63
+                      - 62d7f77e64c95193cc29aa4c
+                      - 62d7f77e64c95193cc29aa4f
+                      - 62d7f77e64c95193cc29aa4e
+                      - 62d7f77e64c95193cc29aa50
+                    products:
+                      62d7f77e64c95193cc29aa63:
+                        id: 62d7f77e64c95193cc29aa63
+                        plu: STK-01
+                        name: Delicious Steak Frites
+                        price: 1500
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        snoozed: false
+                        deliveryTax: 10000
+                        takeawayTax: 7300
+                        eatInTax: 0
+                        bottleDepositPrice: null
+                        description: Basic Example Product with - Modifier groups - min/max variables - default selection - translations
+                        multiMax: null
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 62d7f53b2f46fac3eedc7dea
+                        referenceId: STK-01
+                        location: 62d7f5ce2f46fac3eedca174
+                        calories: null
+                        caloriesRangeHigh: null
+                        posProductCategoryId: ''
+                        posProductId: POS-ID-001
+                        nameTranslations:
+                          en: Delicious Steak Frites
+                          es: Deliciosos Bistecs Fritos
+                          fr: Steak Frites Délicieux
+                          nl: Heerlijke Biefstuk Frites
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts:
+                        - 62d7f77e64c95193cc29aa64
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        posCategoryIds:
+                        - STK
+                        subProductSortOrder: []
+                    modifiers:
+                      62d7f77e64c95193cc29aa53:
+                        id: 62d7f77e64c95193cc29aa53
+                        plu: DRNK-01
+                        name: Coca Cola
+                        price: 400
+                        productType: 1
+                        max: 0
+                        min: 0
+                        multiply: 1
+                        snoozed: false
+                        deliveryTax: 9000
+                        takeawayTax: 9000
+                        eatInTax: 9000
+                        bottleDepositPrice: null
+                        description: Cola flavoured sugar and caffeine
+                        multiMax: null
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 62d7f53b2f46fac3eedc7dea
+                        referenceId: null
+                        location: 62d7f5ce2f46fac3eedca174
+                        calories: null
+                        caloriesRangeHigh: null
+                        posProductCategoryId: ''
+                        posProductId: POS-ID-029
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts: []
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        posCategoryIds:
+                        - DRK
+                        subProductSortOrder: []
+                    modifierGroups:
+                      62d7f77e64c95193cc29aa64:
+                        id: 62d7f77e64c95193cc29aa64
+                        plu: MOD-01
+                        name: Cooking instructions
+                        price: null
+                        productType: 3
+                        max: 1
+                        min: 1
+                        multiply: 1
+                        snoozed: false
+                        deliveryTax: 9000
+                        takeawayTax: 9000
+                        eatInTax: 9000
+                        bottleDepositPrice: null
+                        description: ''
+                        multiMax: null
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 62d7f53b2f46fac3eedc7dea
+                        referenceId: null
+                        location: 62d7f5ce2f46fac3eedca174
+                        calories: null
+                        caloriesRangeHigh: null
+                        posProductCategoryId: ''
+                        posProductId: POS-ID-002
+                        nameTranslations:
+                          en: Cooking Instructions
+                          es: Cocinado
+                          fr: Cuisson
+                          nl: Kook instructies
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts:
+                        - 62d7f77e64c95193cc29aa53
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        posCategoryIds: []
+                        subProductSortOrder: []
+                    bundles:
+                      62d7f77e64c95193cc29aa4d:
+                        id: 62d7f77e64c95193cc29aa4d
+                        plu: BNDL-BRG
+                        name: Burger Selection
+                        price: null
+                        productType: 4
+                        max: 1
+                        min: 1
+                        multiply: 1
+                        snoozed: false
+                        deliveryTax: 9000
+                        takeawayTax: 9000
+                        eatInTax: 9000
+                        bottleDepositPrice: null
+                        description: ''
+                        multiMax: null
+                        defaultQuantity: null
+                        isVariant: null
+                        account: 62d7f53b2f46fac3eedc7dea
+                        referenceId: null
+                        location: 62d7f5ce2f46fac3eedca174
+                        calories: null
+                        caloriesRangeHigh: null
+                        posProductCategoryId: ''
+                        posProductId: POS-ID-020
+                        nameTranslations: {}
+                        descriptionTranslations: {}
+                        productTags: []
+                        subProducts:
+                        - 65ef3584327cc41b45ebfae6
+                        - 65ef3584327cc41b45ebfae7
+                        - 65ef3584327cc41b45ebfae8
+                        beverageInfo: null
+                        nutritionalInfo: null
+                        packaging: null
+                        supplementalInfo: null
+                        posCategoryIds: []
+                        subProductSortOrder: []
+                    snoozedProducts: {}
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    menu:
+                      type: string
+                      example: Spring menu
+                    menuId:
+                      type: string
+                      example: 62d7f77f64c95193cc29aa91
+                    menuType:
+                      type: integer
+                      example: 0
+                      default: 0
+                    nestedModifiers:
+                      type: boolean
+                      example: true
+                      default: true
+                    channelLinkId:
+                      type: string
+                      example: 65eee6a9984a1bc1b9637c59
+                    description:
+                      type: string
+                      example: 'Our menu of various product for a beautiful spring, enjoy! '
+                    menuImageUrl: {}
+                    currency:
+                      type: integer
+                      example: 1
+                      default: 0
+                    menuTranslations:
+                      type: object
+                      properties: {}
+                    productTags:
+                      type: array
+                      items:
+                        type: integer
+                        example: 104
+                        default: 0
+                    descriptionTranslations:
+                      type: object
+                      properties: {}
+                    availabilities:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          dayOfWeek:
+                            type: integer
+                            example: 1
+                            default: 0
+                          startTime:
+                            type: string
+                            example: '13:00'
+                          endTime:
+                            type: string
+                            example: '22:00'
+                    categories:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id: {}
+                          name:
+                            type: string
+                            example: Steak & Burgers
+                          description:
+                            type: string
+                            example: Something from the Grill
+                          imageUrl:
+                            type: string
+                            example: https://resizer.staging.deliverect.com/uia9zWj73e5qP3yQGd4sQrYWcjmQyo-XRJMg3LaMobg/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1zdGFnaW5nL2ltYWdlcy81ZmY2ZWUwODkzMjhjOGFlZmVlYWJlMzMvZ3JpbGwtNjIyYTJjNDhjNzE1YjQwM2IwZWI3MmJlLmpwZWc=.jpg
+                          menu:
+                            type: string
+                            example: 62d7f77f64c95193cc29aa91
+                          account:
+                            type: string
+                            example: 62d7f53b2f46fac3eedc7dea
+                          nameTranslations:
+                            type: object
+                            properties: {}
+                          descriptionTranslations:
+                            type: object
+                            properties: {}
+                          availabilities:
+                            type: array
+                          subProducts:
+                            type: array
+                            items:
+                              type: string
+                              example: 62d7f77e64c95193cc29aa63
+                    products:
+                      type: object
+                      properties:
+                        62d7f77e64c95193cc29aa63:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 62d7f77e64c95193cc29aa63
+                            plu:
+                              type: string
+                              example: STK-01
+                            name:
+                              type: string
+                              example: Delicious Steak Frites
+                            price:
+                              type: integer
+                              example: 1500
+                              default: 0
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            snoozed:
+                              type: boolean
+                              example: false
+                              default: true
+                            deliveryTax:
+                              type: integer
+                              example: 10000
+                              default: 0
+                            takeawayTax:
+                              type: integer
+                              example: 7300
+                              default: 0
+                            eatInTax:
+                              type: integer
+                              example: 0
+                              default: 0
+                            bottleDepositPrice: {}
+                            description:
+                              type: string
+                              example: Basic Example Product with - Modifier groups - min/max variables - default selection - translations
+                            multiMax: {}
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 62d7f53b2f46fac3eedc7dea
+                            referenceId:
+                              type: string
+                              example: STK-01
+                            location:
+                              type: string
+                              example: 62d7f5ce2f46fac3eedca174
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            posProductCategoryId:
+                              type: string
+                              example: ''
+                            posProductId:
+                              type: string
+                              example: POS-ID-001
+                            nameTranslations:
+                              type: object
+                              properties:
+                                en:
+                                  type: string
+                                  example: Delicious Steak Frites
+                                es:
+                                  type: string
+                                  example: Deliciosos Bistecs Fritos
+                                fr:
+                                  type: string
+                                  example: Steak Frites Délicieux
+                                nl:
+                                  type: string
+                                  example: Heerlijke Biefstuk Frites
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 62d7f77e64c95193cc29aa64
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            posCategoryIds:
+                              type: array
+                              items:
+                                type: string
+                                example: STK
+                            subProductSortOrder:
+                              type: array
+                    modifiers:
+                      type: object
+                      properties:
+                        62d7f77e64c95193cc29aa53:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 62d7f77e64c95193cc29aa53
+                            plu:
+                              type: string
+                              example: DRNK-01
+                            name:
+                              type: string
+                              example: Coca Cola
+                            price:
+                              type: integer
+                              example: 400
+                              default: 0
+                            productType:
+                              type: integer
+                              example: 1
+                              default: 0
+                            max:
+                              type: integer
+                              example: 0
+                              default: 0
+                            min:
+                              type: integer
+                              example: 0
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            snoozed:
+                              type: boolean
+                              example: false
+                              default: true
+                            deliveryTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            takeawayTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            eatInTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            bottleDepositPrice: {}
+                            description:
+                              type: string
+                              example: Cola flavoured sugar and caffeine
+                            multiMax: {}
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 62d7f53b2f46fac3eedc7dea
+                            referenceId: {}
+                            location:
+                              type: string
+                              example: 62d7f5ce2f46fac3eedca174
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            posProductCategoryId:
+                              type: string
+                              example: ''
+                            posProductId:
+                              type: string
+                              example: POS-ID-029
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            posCategoryIds:
+                              type: array
+                              items:
+                                type: string
+                                example: DRK
+                            subProductSortOrder:
+                              type: array
+                    modifierGroups:
+                      type: object
+                      properties:
+                        62d7f77e64c95193cc29aa64:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 62d7f77e64c95193cc29aa64
+                            plu:
+                              type: string
+                              example: MOD-01
+                            name:
+                              type: string
+                              example: Cooking instructions
+                            price: {}
+                            productType:
+                              type: integer
+                              example: 3
+                              default: 0
+                            max:
+                              type: integer
+                              example: 1
+                              default: 0
+                            min:
+                              type: integer
+                              example: 1
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            snoozed:
+                              type: boolean
+                              example: false
+                              default: true
+                            deliveryTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            takeawayTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            eatInTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            bottleDepositPrice: {}
+                            description:
+                              type: string
+                              example: ''
+                            multiMax: {}
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 62d7f53b2f46fac3eedc7dea
+                            referenceId: {}
+                            location:
+                              type: string
+                              example: 62d7f5ce2f46fac3eedca174
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            posProductCategoryId:
+                              type: string
+                              example: ''
+                            posProductId:
+                              type: string
+                              example: POS-ID-002
+                            nameTranslations:
+                              type: object
+                              properties:
+                                en:
+                                  type: string
+                                  example: Cooking Instructions
+                                es:
+                                  type: string
+                                  example: Cocinado
+                                fr:
+                                  type: string
+                                  example: Cuisson
+                                nl:
+                                  type: string
+                                  example: Kook instructies
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 62d7f77e64c95193cc29aa53
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            posCategoryIds:
+                              type: array
+                            subProductSortOrder:
+                              type: array
+                    bundles:
+                      type: object
+                      properties:
+                        62d7f77e64c95193cc29aa4d:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: 62d7f77e64c95193cc29aa4d
+                            plu:
+                              type: string
+                              example: BNDL-BRG
+                            name:
+                              type: string
+                              example: Burger Selection
+                            price: {}
+                            productType:
+                              type: integer
+                              example: 4
+                              default: 0
+                            max:
+                              type: integer
+                              example: 1
+                              default: 0
+                            min:
+                              type: integer
+                              example: 1
+                              default: 0
+                            multiply:
+                              type: integer
+                              example: 1
+                              default: 0
+                            snoozed:
+                              type: boolean
+                              example: false
+                              default: true
+                            deliveryTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            takeawayTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            eatInTax:
+                              type: integer
+                              example: 9000
+                              default: 0
+                            bottleDepositPrice: {}
+                            description:
+                              type: string
+                              example: ''
+                            multiMax: {}
+                            defaultQuantity: {}
+                            isVariant: {}
+                            account:
+                              type: string
+                              example: 62d7f53b2f46fac3eedc7dea
+                            referenceId: {}
+                            location:
+                              type: string
+                              example: 62d7f5ce2f46fac3eedca174
+                            calories: {}
+                            caloriesRangeHigh: {}
+                            posProductCategoryId:
+                              type: string
+                              example: ''
+                            posProductId:
+                              type: string
+                              example: POS-ID-020
+                            nameTranslations:
+                              type: object
+                              properties: {}
+                            descriptionTranslations:
+                              type: object
+                              properties: {}
+                            productTags:
+                              type: array
+                            subProducts:
+                              type: array
+                              items:
+                                type: string
+                                example: 65ef3584327cc41b45ebfae6
+                            beverageInfo: {}
+                            nutritionalInfo: {}
+                            packaging: {}
+                            supplementalInfo: {}
+                            posCategoryIds:
+                              type: array
+                            subProductSortOrder:
+                              type: array
+                    snoozedProducts:
+                      type: object
+                      properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '500':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                error:
+                  summary: error
+                  value: '{}'
+          description: Internal Server Error
+      deprecated: false
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

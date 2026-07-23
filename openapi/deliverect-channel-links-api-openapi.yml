@@ -1,0 +1,98 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Channel Links API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Channel Links
+  description: Channel Links operations for the Deliverect Channel API.
+paths:
+  /channelLinks:
+    get:
+      tags:
+      - Channel Links
+      description: Deliverect Get_channellinks
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      operationId: get_channellinks
+      summary: Deliverect Get_channellinks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /allChannels:
+    get:
+      description: Deliverect Channel Integrators
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  summary: Sample Response
+                  value:
+                  - name: DELIVEROO
+                    channelId: 2
+                  - name: UBER_EATS
+                    channelId: 7
+                  - name: DOORDASH
+                    channelId: 12
+                  - name: JUST_EAT
+                    channelId: 9
+                  - name: GRUBHUB
+                    channelId: 42
+                  - name: WOLT
+                    channelId: 16
+                  - name: MENULOG
+                    channelId: 26
+                  - name: HUNGER_STATION
+                    channelId: 40
+                  - name: PEDIDOSYA_DH
+                    channelId: 54
+                  - name: MEITUAN
+                    channelId: 53
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      parameters: []
+      operationId: get_allchannels
+      summary: Deliverect Channel Integrators
+      tags:
+      - Channel Links
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

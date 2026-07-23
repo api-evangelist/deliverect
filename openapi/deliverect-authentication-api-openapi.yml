@@ -1,0 +1,123 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Authentication API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Authentication
+  description: Authentication operations for the Deliverect Loyalty API.
+paths:
+  /auth/token:
+    post:
+      summary: Deliverect Loyalty SSO - OAuth Token Exchange
+      description: https://integrator.com/auth/token
+      operationId: loyalty_token
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  type: string
+                  default: authorization_code
+                  example: authorization_code
+                client_id:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                client_secret:
+                  type: string
+                  example: string
+                code:
+                  type: string
+                  example: string
+                accountId:
+                  type: string
+                  description: The deliverect customer account id
+                  example: 5b71c6489f00290d4
+                loyaltyProfileId:
+                  type: string
+                  description: The loyalty profile id being use
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+              required:
+              - client_secret
+              - code
+              - client_id
+              - grant_type
+            examples:
+              loyalty_tokenRequest:
+                summary: Default loyalty_token request
+                x-microcks-default: true
+                value:
+                  grant_type: authorization_code
+                  client_id: 609a1b2c3d4e5f6a7b8c9d0e
+                  client_secret: string
+                  code: string
+                  accountId: 5b71c6489f00290d4
+                  loyaltyProfileId: 609a1b2c3d4e5f6a7b8c9d0e
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"token_type\": \"Bearer\",\n    \"scope\": \"passwordless\",\n    \"created_at\": \"1709743524\",\n    \"access_token\": \"test-access-token\",\n    \"refresh_token\": \"test-refresh-token\"\n}"
+              schema:
+                type: object
+                properties:
+                  token_type:
+                    type: string
+                    example: Bearer
+                  scope:
+                    type: string
+                    example: passwordless
+                  created_at:
+                    type: string
+                    example: '1709743524'
+                  access_token:
+                    type: string
+                    example: test-access-token
+                  refresh_token:
+                    type: string
+                    example: test-refresh-token
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Authentication
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

@@ -1,8 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Deliverect Dispatch API
-  description: Manage last-mile delivery by validating delivery availability, creating, updating, and cancelling delivery jobs, and exchanging courier and fulfillment events. Authenticates with OAuth 2.0
-    machine-to-machine access tokens scoped via genericFulfillment.
+  title: Deliverect Channel Accounts Jobs API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
   version: '1.0'
   x-generated-from: documentation
   x-source-url: https://developers.deliverect.com/reference
@@ -17,11 +16,11 @@ servers:
   description: Production
 - url: https://api.staging.deliverect.com
   description: Staging
+security:
+- oauth2: []
 tags:
 - name: Jobs
   description: Jobs operations for the Deliverect Dispatch API.
-- name: Fulfillment
-  description: Fulfillment operations for the Deliverect Dispatch API.
 paths:
   /validate_job:
     post:
@@ -35,12 +34,9 @@ paths:
             application/json:
               examples:
                 Can Deliver:
-                  value: "{\n  \"jobId\": \"627a6f4c2*****3fbc79a\",\n  \"canDeliver\": true,\n  \"distance\":10,\n  \"pickupTimeETA\": \"2022-05-10T14:47:31.649000Z\",\n  \"deliveryLocations\": [\n   \
-                    \ {\n      \"deliveryId\": \"ABC567\",\n      \"orderId\": \"627a6f*****5c09221a9837\",\n      \"deliveryTimeETA\": \"2022-05-10T14:57:31.649000Z\"\n    }\n  ],\n  \"price\": {\n   \
-                    \ \"price\": 750,\n    \"taxRate\": 10000\n  }\n}"
+                  value: "{\n  \"jobId\": \"627a6f4c2*****3fbc79a\",\n  \"canDeliver\": true,\n  \"distance\":10,\n  \"pickupTimeETA\": \"2022-05-10T14:47:31.649000Z\",\n  \"deliveryLocations\": [\n    {\n      \"deliveryId\": \"ABC567\",\n      \"orderId\": \"627a6f*****5c09221a9837\",\n      \"deliveryTimeETA\": \"2022-05-10T14:57:31.649000Z\"\n    }\n  ],\n  \"price\": {\n    \"price\": 750,\n    \"taxRate\": 10000\n  }\n}"
                 Cannot Deliver:
-                  value: "{\n  \"jobId\": \"651******************22a\",\n  \"canDeliver\": false,\n  \"errors\": [\n    {\n      \"deliveryId\": \"J****FI\",\n      \"orderId\": \"651******************215\"\
-                    ,\n      \"channelOrderDisplayId\": \"T1***51\",\n      \"reason\": 20,\n      \"description\": \"No drivers available at this time\"\n    }\n    ]\n}"
+                  value: "{\n  \"jobId\": \"651******************22a\",\n  \"canDeliver\": false,\n  \"errors\": [\n    {\n      \"deliveryId\": \"J****FI\",\n      \"orderId\": \"651******************215\",\n      \"channelOrderDisplayId\": \"T1***51\",\n      \"reason\": 20,\n      \"description\": \"No drivers available at this time\"\n    }\n    ]\n}"
               schema:
                 type: object
                 properties:
@@ -550,314 +546,6 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
-  /fulfillment/validate:
-    post:
-      summary: Deliverect Dispatch Availability
-      description: Validate dispatch availability for a delivery location.
-      operationId: post_fulfillment_validate
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                channelLinkId:
-                  type: string
-                  example: 5e8abc11dec0001a009b
-                deliveryLocations:
-                  type: object
-                  properties:
-                    packageSize:
-                      type: string
-                      example: string
-                    name:
-                      type: string
-                      example: Deliverect's Pizza Place
-                    phone:
-                      type: string
-                      example: '+15555550123'
-                    street:
-                      type: string
-                      example: string
-                    streetNumber:
-                      type: string
-                      example: string
-                    city:
-                      type: string
-                      example: string
-                    country:
-                      type: string
-                      example: BE
-                    postalCode:
-                      type: string
-                      example: string
-                    deliveryTime:
-                      type: string
-                      format: date-time
-                      example: '2026-03-15T14:30:00Z'
-                    coordinates:
-                      type: object
-                      properties:
-                        coordinates:
-                          type: array
-                          items:
-                            type: number
-                            example: 1.0
-                          minItems: 2
-                          maxItems: 2
-                  required:
-                  - street
-                  - city
-                  - country
-                  - postalCode
-                  - deliveryTime
-                pickupTime:
-                  type: string
-                  example: '2026-03-15T14:30:00Z'
-              required:
-              - channelLinkId
-              - deliveryLocations
-              - pickupTime
-            examples:
-              Dispatch Availability - Multiple Stores:
-                summary: Dispatch Availability - Multiple Stores
-                value:
-                  channelLinkIds:
-                  - 62********************7c
-                  - 62********************7d
-                  deliveryLocations:
-                    deliveryTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
-                    packageSize: unknown
-                    name: customer name
-                    street: customer street and number
-                    city: customer city
-                    country: customer country
-                    postalCode: postal code
-                    phone: '+111111111'
-                    coordinates:
-                      longitude: 3.73361
-                      latitude: 51.03111
-              Dispatch Availability:
-                summary: Dispatch Availability
-                value:
-                  channelLinkId: 62********************7c
-                  pickupTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
-                  deliveryLocations:
-                    deliveryTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
-                    packageSize: unknown
-                    name: customer name
-                    street: customer street and number
-                    city: customer city
-                    country: customer country
-                    postalCode: postal code
-                    source: customer address
-                    phone: '+111111111'
-                    coordinates:
-                      longitude: 3.73361
-                      latitude: 51.03111
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json:
-              examples:
-                Offers Available - Multiple Stores:
-                  summary: Offers Available - Multiple Stores
-                  value:
-                    channelLinkIds:
-                    - 61bcc34**57cc48c23eb65
-                    validationId: 62********************3e
-                    available: true
-                    expiresAt: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
-                    deliveryTimeETA: '2022-08-08 11:00:00'
-                    pickupTimeEta: '2022-08-08 10:00:00'
-                    price: 0
-                Offers Not Available:
-                  summary: Offers Not Available
-                  value: "{\n  \"available\": False, \n  \"errors\": \"No valid offers available\"\n}"
-                Offer Available:
-                  summary: Offer Available
-                  value:
-                    validationId: 62********************3e
-                    available: true
-                    expiresAt: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
-                    deliveryTimeETA: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
-                    price: 0
-        '400':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples:
-                Bad Request:
-                  summary: Bad Request
-                  value:
-                  - loc:
-                    - channelLinkId
-                    msg: field required
-                    type: value_error.missing
-                  - loc:
-                    - deliveryLocations
-                    - deliveryTime
-                    msg: field required
-                    type: value_error.missing
-          description: Bad Request
-        '401':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples:
-                Unauthorized:
-                  summary: Unauthorized
-                  value:
-                    code: token_expired
-                    description: token is expired
-          description: Unauthorized
-        '403':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples:
-                Forbidden:
-                  summary: Forbidden
-                  value:
-                    error: ChannelLinkId sent is not linked to the account
-          description: Forbidden
-        '404':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples:
-                Not Found:
-                  summary: Not Found
-                  value:
-                    error: ChannelLinkId sent is not found
-          description: Not Found
-      tags:
-      - Fulfillment
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /fulfillment/cancel:
-    post:
-      tags:
-      - Fulfillment
-      summary: Deliverect Cancel Delivery
-      responses:
-        '200':
-          description: Ok
-          content:
-            application/json:
-              examples:
-                OK:
-                  summary: OK
-                  value: '{}'
-        '400':
-          content:
-            application/json:
-              schema:
-                type: object
-                properties: {}
-              examples:
-                Bad Request:
-                  summary: Bad Request
-                  value: '{}'
-          description: Bad Request
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties: {}
-            examples:
-              Cancel Example:
-                summary: Cancel Example
-                value:
-                  deliveryJobId: 648******************874
-                  reasonTag: CUSTOMER_UNRESPONSIVE
-                  deliveryFeeCharged: 4500
-                  extraDescription: Tried many times
-      operationId: post_post_fulfillment_cancel
-      description: Deliverect Cancel Delivery
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
-  /fulfillment/generic/events:
-    post:
-      tags:
-      - Fulfillment
-      summary: Deliverect Update Delivery
-      description: 'This webhook allows to persist updates from third party delivery systems to Deliverect. Currently updates to following delivery information are supported. See examples for technical
-        details. - delivery status - pickup time & eta - delivery time & eta - courier information ##### Delivery job statuses: Following delivery job statuses exist in deliverect: | Status name | Integer
-        value | |-|-| | `IN_DELIVERY` | 80 | | `EN_ROUTE_TO_PICKUP` | 83 | | `ARRIVED_AT_PICKUP` | 85 | | `EN_ROUTE_TO_DROPOFF` | 87 | | `ARRIVED_AT_DROPOFF` | 89 | | `DELIVERED` | 90 | ##### NOTE Please
-        note, that here and later all dates and times, coming from/to Deliverect are UTC.'
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              examples:
-              - deliveryJobId: 602***66a
-                externalJobId: DJ214233
-                pickupTimeETA: '2021-05-13T13:59:00Z'
-                transportType: bicycle
-                courier:
-                  name: Mac Miller
-                  phone: '+3292331234'
-                  longitude: '51.05433703603857'
-                  latitude: '3.738214852809371'
-                locations:
-                - orderId: 602987dd539d9697c836198b
-                  channelOrderDisplayId: '1234567890'
-                  status: 40
-                  deliveryTimeETA: '2021-05-13T14:13:00Z'
-            examples:
-              Update Example:
-                summary: Update Example
-                value:
-                  deliveryJobId: 61********************b4
-                  pickupTimeETA: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
-                  transportType: bicycle
-                  trackingUrl: https://example.com
-                  courier:
-                    name: Mac Miller
-                    phone: '+3292331234'
-                    longitude: '51.05433703603857'
-                    latitude: '3.738214852809371'
-                  locations:
-                  - orderId: 61********************b4
-                    status: 83
-                    deliveryTimeETA: YYYY-MM-DDTHH:mm:ss.SSSSSSZZ
-      responses:
-        '200':
-          description: '200'
-          content:
-            application/json:
-              schema:
-                type: object
-              example: OK
-            text/plain:
-              schema:
-                type: string
-              example: OK
-        default:
-          description: default
-          content:
-            text/plain:
-              schema:
-                type: string
-              example: null
-      operationId: post_post_fulfillment_generic_events
-      x-microcks-operation:
-        delay: 0
-        dispatcher: FALLBACK
 components:
   securitySchemes:
     oauth2:
@@ -867,5 +555,3 @@ components:
         clientCredentials:
           tokenUrl: https://api.deliverect.com/oauth/token
           scopes: {}
-security:
-- oauth2: []

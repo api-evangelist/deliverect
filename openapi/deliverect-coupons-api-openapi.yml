@@ -1,0 +1,216 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Coupons API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Coupons
+  description: Coupons operations for the Deliverect Commerce API.
+paths:
+  /coupons/channel/{channelLinkId}/coupons:
+    get:
+      description: Deliverect Copy of
+      operationId: get_couponsadmin_accountId_coupons_couponId_1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    example: 1
+                    default: 0
+                  page:
+                    type: integer
+                    example: 1
+                    default: 0
+                  size:
+                    type: integer
+                    example: 50
+                    default: 0
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: string
+                          example: D23
+                        isEnabled:
+                          type: boolean
+                          example: true
+                          default: true
+                        type:
+                          type: string
+                          example: item
+                        isHidden:
+                          type: boolean
+                          example: false
+                          default: true
+                        discounts:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: flat_off
+                              value:
+                                type: integer
+                                example: 1234
+                                default: 0
+                              currency:
+                                type: string
+                                example: EUR
+                              plus:
+                                type: array
+                                items:
+                                  type: string
+                                  example: ABC-123
+                              display:
+                                type: string
+                                example: '12.34'
+                        conditions:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              type:
+                                type: string
+                                example: max_uses_per_coupon
+                              maxUsesPerCoupon:
+                                type: integer
+                                example: 3
+                                default: 0
+                        description:
+                          type: string
+                          example: my coupon
+                        id:
+                          type: string
+                          example: 690e1ef7a856cfe57553a9e1
+                        accountId:
+                          type: string
+                          example: 681cbecf4ae843d500e25e47
+                        timesUsed:
+                          type: integer
+                          example: 0
+                          default: 0
+                        created:
+                          type: string
+                          example: '2025-11-07T16:31:51.508000Z'
+                        updated:
+                          type: string
+                          example: '2025-11-07T16:31:51.509000Z'
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    total: 1
+                    page: 1
+                    size: 50
+                    items:
+                    - code: D23
+                      isEnabled: true
+                      type: item
+                      isHidden: false
+                      discounts:
+                      - type: flat_off
+                        value: 1234
+                        currency: EUR
+                        plus:
+                        - ABC-123
+                        - DEF-456
+                        display: '12.34'
+                      conditions:
+                      - type: max_uses_per_coupon
+                        maxUsesPerCoupon: 3
+                      - type: locations
+                        locationIds:
+                        - 68434f75202fe35540a31c23
+                      description: my coupon
+                      id: 690e1ef7a856cfe57553a9e1
+                      accountId: 681cbecf4ae843d500e25e47
+                      timesUsed: 0
+                      created: '2025-11-07T16:31:51.508000Z'
+                      updated: '2025-11-07T16:31:51.509000Z'
+          description: OK
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: string
+                  message:
+                    type: string
+                    example: string
+                  context:
+                    type: object
+                    properties: {}
+                required:
+                - code
+                - message
+              examples:
+                Not Found:
+                  summary: Not Found
+                  value:
+                    code: coupon_not_found
+                    message: coupon not found
+                    context: {}
+          description: Not Found
+      parameters:
+      - in: query
+        name: size
+        schema:
+          type: integer
+          default: '25'
+        description: The size value.
+        example: '25'
+      - in: query
+        name: page
+        schema:
+          type: integer
+          default: '1'
+        description: The page value.
+        example: '1'
+      - in: path
+        name: channelLinkId
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      summary: Deliverect Copy of
+      tags:
+      - Coupons
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

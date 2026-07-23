@@ -1,0 +1,486 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Opening Hours API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Opening Hours
+  description: Opening Hours operations for the Deliverect Channel API.
+paths:
+  /locations/channels/{locationId}/holidays:
+    get:
+      description: Deliverect Get_locations_channels_locationid_holidays
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    id: 63********************a7
+                    holidays:
+                    - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    channels:
+                    - id: 63********************a7
+                      holidays:
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 63********************a7
+                    description: Unique location Id
+                  holidays:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        startTime:
+                          type: string
+                          example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime:
+                          type: string
+                          example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  channels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 63********************a7
+                          description: The unique store identifier channelLinkId
+                        holidays:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startTime:
+                                type: string
+                                example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                                description: The start time of the holiday period in ISO 8601 date-time format (e.g., "2023-12-19T15:53:00Z")
+                              endTime:
+                                type: string
+                                example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                                description: The endTime of the holiday period in ISO 8601 date-time format (e.g., "2023-12-19T16:10"00Z")
+                          description: Array containing an object list of holidays
+                    description: An array of channel link objects within the location with specific holiday hours set
+                required:
+                - id
+                - holidays
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      parameters:
+      - in: path
+        name: locationId
+        schema:
+          type: string
+        required: true
+        description: Unique location Id
+        example: 5cecc6489f0001b8
+      operationId: get_locations_channels_locationid_holidays
+      summary: Deliverect Get_locations_channels_locationid_holidays
+      tags:
+      - Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /locations/openingHours:
+    post:
+      summary: Deliverect Create/Update Opening Hours
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                No Content:
+                  summary: No Content
+                  value: '{}'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - locations
+              properties:
+                locations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 609a1b2c3d4e5f6a7b8c9d0e
+                      triggerUpdate:
+                        type: boolean
+                        example: true
+                      openingHours:
+                        type: array
+                        items:
+                          type: object
+                      channels:
+                        type: array
+                        items:
+                          type: object
+            examples:
+              Update Example:
+                summary: Update Example
+                value:
+                  locations:
+                  - id: '{locationId}'
+                    triggerUpdate: true
+                    openingHours:
+                    - dayOfWeek: 1
+                      startTime: '10:00'
+                      endTime: '17:00'
+                    channels:
+                    - id: 6200****fd1f
+                      openingHours:
+                      - dayOfWeek: 1
+                        startTime: 08:00
+                        endTime: '20:00'
+      operationId: post_post_locations_openinghours
+      description: Deliverect Create/Update Opening Hours
+      tags:
+      - Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /locations/holidays:
+    post:
+      tags:
+      - Opening Hours
+      summary: Deliverect Holiday Hours for Locations
+      responses:
+        default:
+          description: default
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              Example Update:
+                summary: Example Update
+                value:
+                  locations:
+                  - id: 61c30761e41eefadd03072af
+                    holidays:
+                    - startTime: '2023-12-19T15:53:00Z'
+                      endTime: '2023-12-19T16:10:00Z'
+                    - startTime: '2023-12-20T04:00:00Z'
+                      endTime: '2023-12-20T05:00:00Z'
+      operationId: post_post_locations_holidays
+      description: Deliverect Holiday Hours for Locations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /locations/channels/holidays:
+    post:
+      tags:
+      - Opening Hours
+      summary: Deliverect Holiday Hours for Locations and ChannelLinks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              examples:
+              - locations:
+                - id: someLocationId
+                  channels:
+                  - id: someChannelLinkId
+                    holidays:
+                    - startTime: '2021-12-19T15:53:00Z'
+                      endTime: '2021-12-19T16:10:00Z'
+                    - startTime: '2022-05-18T04:00:00Z'
+                      endTime: '2022-05-18T05:00:00Z'
+                    - startTime: '2022-05-17T17:37:00Z'
+                      endTime: '2022-05-17T17:39:00Z'
+                    - startTime: '2023-08-04T09:00:00Z'
+                      endTime: '2023-08-04T19:00:00Z'
+            examples:
+              Example Update:
+                summary: Example Update
+                value:
+                  locations:
+                  - id: 63********************a7
+                    channels:
+                    - id: 63********************a7
+                      holidays:
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+      responses:
+        default:
+          description: default
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+      operationId: post_post_locations_channels_holidays
+      description: Deliverect Holiday Hours for Locations and ChannelLinks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /account/{accountId}/openingHours:
+    get:
+      tags:
+      - Opening Hours
+      summary: Deliverect Get Account Opening Hours
+      parameters:
+      - name: accountId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      operationId: get_get_account_accountid_openinghours
+      description: Deliverect Get Account Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /location/{locationId}/openingHours:
+    get:
+      tags:
+      - Opening Hours
+      summary: Deliverect Get Store Opening Hours
+      parameters:
+      - name: locationId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The locationId value.
+        example: 5cecc6489f0001b8
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    _id: 633d62de0f1565acdf**3bdf
+                    status: ACTIVE
+                    locationName: Location 1
+                    tags: []
+                    openingHours:
+                    - dayOfWeek: 1
+                      startTime: 00:00
+                      endTime: '23:59'
+                    - dayOfWeek: 2
+                      startTime: 00:00
+                      endTime: '23:59'
+                    - dayOfWeek: 3
+                      startTime: 00:00
+                      endTime: '23:59'
+                    channels:
+                    - _id: 633d6******565acdf893bf1
+                      status: 2
+                      channelName: Channel 1
+                      channel: 1
+                      tags: []
+                      openingHours: []
+                    - _id: 6476183fe******c858de0b0
+                      status: 2
+                      channelName: Channel 2
+                      channel: 10057
+                      tags: []
+                      openingHours: []
+                    - _id: 669519a1fe******040bdaf2
+                      status: 2
+                      channelName: Channel 3
+                      channel: 10000
+                      tags: []
+                      openingHours: []
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    example: 633d62de0f1565acdf**3bdf
+                  status:
+                    type: string
+                    example: ACTIVE
+                  locationName:
+                    type: string
+                    example: Location 1
+                  tags:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+                  openingHours:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dayOfWeek:
+                          type: integer
+                          example: 1
+                          default: 0
+                        startTime:
+                          type: string
+                          example: 00:00
+                        endTime:
+                          type: string
+                          example: '23:59'
+                  channels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                          example: 633d6******565acdf893bf1
+                        status:
+                          type: integer
+                          example: 2
+                          default: 0
+                        channelName:
+                          type: string
+                          example: Channel 1
+                        channel:
+                          type: integer
+                          example: 1
+                          default: 0
+                        tags:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+                        openingHours:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      operationId: get_get_location_locationid_openinghours
+      description: Deliverect Get Store Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /location/{locationId}/holidays:
+    get:
+      tags:
+      - Opening Hours
+      summary: Deliverect Holiday Hours for Locations
+      parameters:
+      - name: locationId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The locationId value.
+        example: 5cecc6489f0001b8
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: get_get_location_locationid_holidays
+      description: Deliverect Holiday Hours for Locations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

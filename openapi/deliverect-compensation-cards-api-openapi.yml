@@ -1,0 +1,54 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Compensation Cards API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Compensation Cards
+  description: Compensation Cards operations for the Deliverect Loyalty API.
+paths:
+  /loyalty/{channelLinkId}/compensationCards/validate:
+    post:
+      description: Deliverect Post_loyalty_channellinkid_compensationcards_validate
+      responses:
+        '200':
+          description: ''
+      parameters:
+      - in: path
+        name: channelLinkId
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      operationId: post_loyalty_channellinkid_compensationcards_validate
+      summary: Deliverect Post_loyalty_channellinkid_compensationcards_validate
+      tags:
+      - Compensation Cards
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

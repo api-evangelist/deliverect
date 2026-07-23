@@ -1,0 +1,453 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Locations API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Locations
+  description: Locations operations for the Deliverect Store API.
+paths:
+  /locations:
+    get:
+      tags:
+      - Locations
+      summary: Deliverect Locations
+      description: Per physical restaurant location, there will be a *Location*. This endpoint can be used to query them. You can have to specify an account, otherwise the locations of your own account will be returned
+      parameters:
+      - name: where
+        in: query
+        schema:
+          type: string
+        example:
+          account: '{{accountId}}'
+        description: The where value.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              schema:
+                type: string
+                examples:
+                - nginx/1.14.1
+            Date:
+              schema:
+                type: string
+                examples:
+                - Thu, 14 Feb 2019 16:24:59 GMT
+            Content-Type:
+              schema:
+                type: string
+                examples:
+                - application/json
+            Content-Length:
+              schema:
+                type: integer
+                examples:
+                - '1270'
+            Connection:
+              schema:
+                type: string
+                examples:
+                - keep-alive
+            X-Total-Count:
+              schema:
+                type: integer
+                examples:
+                - '1'
+            Cache-Control:
+              schema:
+                type: string
+                examples:
+                - max-age=20
+            Expires:
+              schema:
+                type: string
+                examples:
+                - Thu, 14 Feb 2019 16:25:19 GMT
+            Last-Modified:
+              schema:
+                type: string
+                examples:
+                - Thu, 14 Feb 2019 13:57:59 GMT
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                examples:
+                - '*'
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+                examples:
+                - User-Agent,Keep-Alive,Content-Type,Authorization
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+                examples:
+                - GET, POST, OPTIONS, DELETE, PUT, PATCH
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                examples:
+                - 'true'
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    _items:
+                    - _id: 61********************a4
+                      posSettings:
+                        generic:
+                          locationId: 29**10
+                          setDefaultPriceLevelOnSync: false
+                          anonymizeCustomer: false
+                          sendStreetNumber: false
+                          hasDirectTableIntegration: false
+                          sendDiscount: true
+                          sendDeliveryFee: true
+                          sendServiceCharge: true
+                          sendDeliveryFeeCondition: 0
+                          forcePayment: 0
+                          sendTip: true
+                          sendRebate: true
+                          sortModifiers: 0
+                          bufferOrders: false
+                          deliveryByChannelIsPickup: false
+                          ignoreUnknownOrderStatuses: false
+                          recalcPriceOverrides: false
+                          dontSendCancel: false
+                          readonly: false
+                          logOps: true
+                          orderItemRemarks: intactItemRemarks
+                          alwaysSendAllSnoozedProducts: true
+                          ordersWebhookURL: https://{{YourSetwebhookUrl}}/orders
+                          registerUrl: https://{{YourSetwebhookUrl}}/orders/register
+                          operationsWebhookURL: https://{{YourSetwebhookUrl}}/orders/operations
+                          storeStatusURL: https://{{YourSetwebhookUrl}}/orders/storeStatus
+                          syncProductsURL: https://{{YourSetwebhookUrl}}/syncProducts
+                          syncTablesURL: https://{{YourSetwebhookUrl}}/syncTables
+                          syncFloorsURL: https://{{YourSetwebhookUrl}}/syncFloors
+                          syncBillsURL: https://{{YourSetwebhookUrl}}/syncBills
+                          billPaymentURL: https://{{YourSetwebhookUrl}}/billPayments
+                      name: La Famiglia
+                      status: SUBSCRIBED
+                      posSystemId: 10000
+                      subscriptions:
+                      - brandId: 61********************9e
+                      address:
+                        phoneNumber: '+445556665555'
+                        houseNumber: '78'
+                        street: Main St
+                        postalCode: FX19ST
+                        city: Pleasantville
+                        stateOrProvince: TX
+                        restaurantName: La Famiglia Restaurant
+                        coordinates:
+                          type: Point
+                          coordinates:
+                          - -20.34974509999999
+                          - 11.0110892
+                        country: FR
+                      contact:
+                        phoneNumber: '+445556665555'
+                      timezone: Asia/Dubai
+                      taxExcl: false
+                      enableOutOfStock: false
+                      enablePickupScreenQR: false
+                      ignorePOSOrderStatuses: false
+                      enableWorkstations: false
+                      splitOrderItems: false
+                      account: 61********************8d
+                      region: Latin America
+                      _updated: '2022-12-28T08:38:13.710000Z'
+                      _created: '2022-11-17T05:43:05.000000Z'
+                      _deleted: false
+                      _etag: fc9144bc1b9ef7e67378d3e0c77279691c1bc3a8
+                      channelLinks:
+                      - 63********************45
+                      - 63********************22
+                      - 63********************12
+                      - 63********************1e
+                      - 63********************90
+                      deliverySystemSettings:
+                        generic:
+                          externalReference: '123'
+                          validateUrl: https://mock-dsp.staging.deliverect.com/api/jobs/validate
+                          createUrl: https://mock-dsp.staging.deliverect.com/api/jobs/create
+                          cancelUrl: https://mock-dsp.staging.deliverect.com/api/jobs/cancel
+                          registerUrl: https://mock-dsp.staging.deliverect.com/api/register
+                          active: false
+                      openingHours:
+                      - dayOfWeek: 1
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 2
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 3
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 4
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 5
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 6
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 7
+                        startTime: 00:00
+                        endTime: '23:59'
+                      lastProductSync: '2022-12-28T21:05:27.668000Z'
+                      _links:
+                        self:
+                          title: Locations
+                          href: locations/63********************e4
+                        related:
+                          account:
+                            title: accounts
+                            href: accounts/63********************8d
+                          channelLinks:
+                          - title: channelLink
+                            href: channelLinks/63********************45
+                          - title: channelLink
+                            href: channelLinks/63********************22
+                          - title: channelLink
+                            href: channelLinks/63********************12
+                          - title: channelLink
+                            href: channelLinks/63********************1e
+                          - title: channelLink
+                            href: channelLinks/63********************90
+                      channelLinksDetails:
+                        63********************22:
+                          channel: DoorDash
+                          channelId: 12
+                          name: DoorDash
+                        63********************12:
+                          channel: Generic Channel
+                          channelId: 10057
+                          name: Custom Channnel
+                        63********************1e:
+                          channel: Uber Eats
+                          channelId: 7
+                          name: Uber Eats
+                        63********************90:
+                          channel: Deliverect
+                          channelId: 1
+                          name: Test channel
+                    - _id: 63********************67
+                      posSettings: '................'
+                    _links:
+                      parent:
+                        title: home
+                        href: /
+                      self:
+                        title: locations
+                        href: locations?where={"account":"63********************8d"}
+                      next:
+                        title: next page
+                        href: locations?where={"account":"63********************8d"}&page=2
+                      last:
+                        title: last page
+                        href: locations?where={"account":"63********************8d"}&page=26
+                    _meta:
+                      page: 1
+                      max_results: 25
+                      total: 501
+                ' ':
+                  summary: ' '
+                  value:
+                    _items:
+                    - _id: 61********************a4
+                      posSettings:
+                        generic:
+                          locationId: 29**10
+                          setDefaultPriceLevelOnSync: false
+                          anonymizeCustomer: false
+                          sendStreetNumber: false
+                          hasDirectTableIntegration: false
+                          sendDiscount: true
+                          sendDeliveryFee: true
+                          sendServiceCharge: true
+                          sendDeliveryFeeCondition: 0
+                          forcePayment: 0
+                          sendTip: true
+                          sendRebate: true
+                          sortModifiers: 0
+                          bufferOrders: false
+                          deliveryByChannelIsPickup: false
+                          ignoreUnknownOrderStatuses: false
+                          recalcPriceOverrides: false
+                          dontSendCancel: false
+                          readonly: false
+                          logOps: true
+                          orderItemRemarks: intactItemRemarks
+                          alwaysSendAllSnoozedProducts: true
+                          ordersWebhookURL: https://{{YourSetwebhookUrl}}/orders
+                          registerUrl: https://{{YourSetwebhookUrl}}/orders/register
+                          operationsWebhookURL: https://{{YourSetwebhookUrl}}/orders/operations
+                          storeStatusURL: https://{{YourSetwebhookUrl}}/orders/storeStatus
+                          syncProductsURL: https://{{YourSetwebhookUrl}}/syncProducts
+                          syncTablesURL: https://{{YourSetwebhookUrl}}/syncTables
+                          syncFloorsURL: https://{{YourSetwebhookUrl}}/syncFloors
+                          syncBillsURL: https://{{YourSetwebhookUrl}}/syncBills
+                          billPaymentURL: https://{{YourSetwebhookUrl}}/billPayments
+                      name: La Famiglia
+                      status: SUBSCRIBED
+                      posSystemId: 10000
+                      subscriptions:
+                      - brandId: 61********************9e
+                      address:
+                        phoneNumber: '+445556665555'
+                        houseNumber: '78'
+                        street: Main St
+                        postalCode: FX19ST
+                        city: Pleasantville
+                        stateOrProvince: TX
+                        restaurantName: La Famiglia Restaurant
+                        coordinates:
+                          type: Point
+                          coordinates:
+                          - -20.34974509999999
+                          - 11.0110892
+                        country: FR
+                      contact:
+                        phoneNumber: '+445556665555'
+                      timezone: Asia/Dubai
+                      taxExcl: false
+                      enableOutOfStock: false
+                      enablePickupScreenQR: false
+                      ignorePOSOrderStatuses: false
+                      enableWorkstations: false
+                      splitOrderItems: false
+                      account: 61********************8d
+                      region: Latin America
+                      _updated: '2022-12-28T08:38:13.710000Z'
+                      _created: '2022-11-17T05:43:05.000000Z'
+                      _deleted: false
+                      _etag: fc9144bc1b9ef7e67378d3e0c77279691c1bc3a8
+                      channelLinks:
+                      - 63********************45
+                      - 63********************22
+                      - 63********************12
+                      - 63********************1e
+                      - 63********************90
+                      deliverySystemSettings:
+                        generic:
+                          externalReference: '123'
+                          validateUrl: https://mock-dsp.staging.deliverect.com/api/jobs/validate
+                          createUrl: https://mock-dsp.staging.deliverect.com/api/jobs/create
+                          cancelUrl: https://mock-dsp.staging.deliverect.com/api/jobs/cancel
+                          registerUrl: https://mock-dsp.staging.deliverect.com/api/register
+                          active: false
+                      openingHours:
+                      - dayOfWeek: 1
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 2
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 3
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 4
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 5
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 6
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 7
+                        startTime: 00:00
+                        endTime: '23:59'
+                      lastProductSync: '2022-12-28T21:05:27.668000Z'
+                      _links:
+                        self:
+                          title: Locations
+                          href: locations/63********************e4
+                        related:
+                          account:
+                            title: accounts
+                            href: accounts/63********************8d
+                          channelLinks:
+                          - title: channelLink
+                            href: channelLinks/63********************45
+                          - title: channelLink
+                            href: channelLinks/63********************22
+                          - title: channelLink
+                            href: channelLinks/63********************12
+                          - title: channelLink
+                            href: channelLinks/63********************1e
+                          - title: channelLink
+                            href: channelLinks/63********************90
+                      channelLinksDetails:
+                        63********************22:
+                          channel: DoorDash
+                          channelId: 12
+                          name: DoorDash
+                        63********************12:
+                          channel: Generic Channel
+                          channelId: 10057
+                          name: Custom Channnel
+                        63********************1e:
+                          channel: Uber Eats
+                          channelId: 7
+                          name: Uber Eats
+                        63********************90:
+                          channel: Deliverect
+                          channelId: 1
+                          name: Test channel
+                    - _id: 63********************67
+                      posSettings: '................'
+                    _links:
+                      parent:
+                        title: home
+                        href: /
+                      self:
+                        title: locations
+                        href: locations?where={"account":"63********************8d"}
+                      next:
+                        title: next page
+                        href: locations?where={"account":"63********************8d"}&page=2
+                      last:
+                        title: last page
+                        href: locations?where={"account":"63********************8d"}&page=26
+                    _meta:
+                      page: 1
+                      max_results: 25
+                      total: 501
+      operationId: get_get_locations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

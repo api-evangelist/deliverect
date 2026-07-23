@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel Accounts Allergens API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+security:
+- oauth2: []
+tags:
+- name: Allergens
+  description: Allergens operations for the Deliverect Store API.
+paths:
+  /allAllegens:
+    get:
+      summary: Deliverect Allergens and Tags
+      description: Get allergens and tags existing in Deliverect.
+      operationId: get_allallegens
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    allergenId:
+                      type: integer
+                      example: 1
+              examples:
+                Allergens and tags:
+                  summary: Allergens and tags
+                  value:
+                  - name: Alcohol
+                    allergenId: 1
+                  - name: Halal
+                    allergenId: 2
+                  - name: Kosher
+                    allergenId: 3
+      tags:
+      - Allergens
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}

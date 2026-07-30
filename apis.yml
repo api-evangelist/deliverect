@@ -10,7 +10,20 @@ description: >-
   uses OAuth 2.0 machine-to-machine access tokens with client_id and client_secret credentials issued after an API
   agreement, scoped by integration type.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/deliverect.png
 tags:
   - Restaurant
   - Delivery
@@ -23,202 +36,1026 @@ created: '2026-06-02'
 modified: '2026-06-02'
 specificationVersion: '0.19'
 apis:
-  - aid: deliverect:pos-api
-    name: Deliverect POS API
-    description: >-
-      Connect point-of-sale systems to Deliverect to receive and manage orders and catalogues, sync products, manage
-      inventory, and push order status updates across delivery and ordering channels. Uses OAuth 2.0 machine-to-machine
-      access tokens with the genericPOS scope. A generated OpenAPI specification is available.
-    humanURL: https://developers.deliverect.com/reference/pos_endpoints
-    baseURL: https://api.deliverect.com
-    tags:
-      - Point of Sale
-      - Orders
-      - Menu
-      - Inventory
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-pos-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/pos_endpoints
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-      - type: GettingStarted
-        url: https://developers.deliverect.com/reference/get-started
-  - aid: deliverect:commerce-api
-    name: Deliverect Commerce API
-    description: >-
-      Power digital ordering, click-and-collect, and kiosk experiences with store details, menu data, basket creation,
-      validation, discounts, and a checkout flow that injects orders to the POS. Authenticates with OAuth 2.0
-      machine-to-machine access tokens using the genericCommerce scope.
-    humanURL: https://developers.deliverect.com/reference/commerce-channel-api
-    baseURL: https://api.deliverect.com
-    tags:
-      - Online Ordering
-      - Commerce
-      - Baskets
-      - Checkout
-      - Kiosk
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-commerce-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/commerce-channel-api
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:channel-api
-    name: Deliverect Channel API
-    description: >-
-      Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze
-      products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0
-      machine-to-machine access tokens scoped via genericChannel.
-    humanURL: https://developers.deliverect.com/reference/channel_endpoints
-    baseURL: https://api.deliverect.com
-    tags:
-      - Channels
-      - Orders
-      - Menu
-      - Fulfillment
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-channel-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/channel_endpoints
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:dispatch-api
-    name: Deliverect Dispatch API
-    description: >-
-      Manage last-mile delivery by validating delivery availability, creating, updating, and cancelling delivery jobs,
-      and exchanging courier and fulfillment events. Authenticates with OAuth 2.0 machine-to-machine access tokens
-      scoped via genericFulfillment.
-    humanURL: https://developers.deliverect.com/reference/dispatch_endpoints
-    baseURL: https://api.deliverect.com
-    tags:
-      - Dispatch
-      - Delivery
-      - Fulfillment
-      - Couriers
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-dispatch-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/dispatch_endpoints
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:store-api
-    name: Deliverect Store API
-    description: >-
-      Query and update store and product availability, snooze products by PLU or tag, set busy mode, and configure
-      opening and holiday hours across locations and channels. Authenticates with OAuth 2.0 machine-to-machine access
-      tokens scoped via store or genericPOS.
-    humanURL: https://developers.deliverect.com/reference/store_endpoints
-    baseURL: https://api.deliverect.com
-    tags:
-      - Store Management
-      - Availability
-      - Opening Hours
-      - Inventory
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-store-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/store_endpoints
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:pay-api
-    name: Deliverect Pay API
-    description: >-
-      Process payment requests, list available payment gateways, retrieve payments, issue refunds, and manage payment
-      profiles for ordering transactions. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via
-      payments.
-    humanURL: https://developers.deliverect.com/reference/pay_endpoints
-    baseURL: https://api.deliverect.com
-    tags:
-      - Payments
-      - Gateways
-      - Refunds
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-pay-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/pay_endpoints
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:crm-api
-    name: Deliverect CRM API
-    description: >-
-      Manage customer profiles, identify customers by email, update delivery addresses, vehicles, and favorites, and
-      retrieve order history and favorite orders for personalized ordering. Authenticates with OAuth 2.0
-      machine-to-machine access tokens.
-    humanURL: https://developers.deliverect.com/reference/crm_endpoints
-    baseURL: https://api.deliverect.com
-    tags:
-      - CRM
-      - Customers
-      - Orders
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-crm-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/crm_endpoints
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:loyalty-api
-    name: Deliverect Loyalty API
-    description: >-
-      Integrate loyalty programs by creating and retrieving loyalty customers, reading program configuration, retrieving
-      and validating programs, and validating compensation cards. Authenticates with OAuth 2.0 machine-to-machine access
-      tokens.
-    humanURL: https://developers.deliverect.com/reference/loyalty-channel
-    baseURL: https://api.deliverect.com
-    tags:
-      - Loyalty
-      - Customers
-      - Programs
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-loyalty-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/loyalty-channel
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:kds-api
-    name: Deliverect KDS API
-    description: >-
-      Integrate Kitchen Display Systems to register devices, receive order notifications, push order status updates, and
-      sync product updates. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericKDS.
-    humanURL: https://developers.deliverect.com/reference/kds_endpoints
-    baseURL: https://api.deliverect.com
-    tags:
-      - Kitchen Display System
-      - Orders
-      - Products
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-kds-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/kds_endpoints
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
-  - aid: deliverect:gift-cards-api
-    name: Deliverect Gift Cards API
-    description: >-
-      Redeem gift cards, check balances, apply and reverse gift cards, and register gift card provider profiles for
-      ordering channels. Authenticates with OAuth 2.0 machine-to-machine access tokens.
-    humanURL: https://developers.deliverect.com/reference/giftcards
-    baseURL: https://api.deliverect.com
-    tags:
-      - Gift Cards
-      - Payments
-      - Profiles
-    properties:
-      - type: OpenAPI
-        url: openapi/deliverect-gift-cards-api-openapi-original.yml
-      - type: Documentation
-        url: https://developers.deliverect.com/reference/giftcards
-      - type: Authentication
-        url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+- aid: deliverect:deliverect-accounts-api
+  name: Deliverect Accounts API
+  description: Accounts operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-allergens-api
+  name: Deliverect Allergens API
+  description: Allergens operations for the Deliverect Store API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Allergens
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-allergens-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-authentication-api
+  name: Deliverect Authentication API
+  description: Authentication operations for the Deliverect Loyalty API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-baskets-api
+  name: Deliverect Baskets API
+  description: Baskets operations for the Deliverect Commerce API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Baskets
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-baskets-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-channel-links-api
+  name: Deliverect Channel Links API
+  description: Channel Links operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Channel Links
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-channel-links-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-checkout-api
+  name: Deliverect Checkout API
+  description: Checkout operations for the Deliverect Commerce API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Checkout
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-checkout-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-compensation-cards-api
+  name: Deliverect Compensation Cards API
+  description: Compensation Cards operations for the Deliverect Loyalty API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Compensation Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-compensation-cards-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-configuration-api
+  name: Deliverect Configuration API
+  description: Configuration operations for the Deliverect Loyalty API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-coupons-api
+  name: Deliverect Coupons API
+  description: Coupons operations for the Deliverect Commerce API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Coupons
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-coupons-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-couriers-api
+  name: Deliverect Couriers API
+  description: Couriers operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Couriers
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-couriers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-customers-api
+  name: Deliverect Customers API
+  description: Customers operations for the Deliverect CRM API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Customers
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-customers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-floors-api
+  name: Deliverect Floors API
+  description: Floors operations for the Deliverect POS API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Floors
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-floors-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-fulfillment-api
+  name: Deliverect Fulfillment API
+  description: Fulfillment operations for the Deliverect Dispatch API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Fulfillment
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-fulfillment-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-gateways-api
+  name: Deliverect Gateways API
+  description: Gateways operations for the Deliverect Pay API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-gift-cards-api
+  name: Deliverect Gift Cards API
+  description: Gift Cards operations for the Deliverect Gift Cards API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Gift Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-gift-cards-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-inventory-api
+  name: Deliverect Inventory API
+  description: Inventory operations for the Deliverect POS API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-inventory-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-jobs-api
+  name: Deliverect Jobs API
+  description: Jobs operations for the Deliverect Dispatch API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-locations-api
+  name: Deliverect Locations API
+  description: Locations operations for the Deliverect Store API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-locations-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-menus-api
+  name: Deliverect Menus API
+  description: Menus operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Menus
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-menus-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-opening-hours-api
+  name: Deliverect Opening Hours API
+  description: Opening Hours operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Opening Hours
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-opening-hours-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-orders-api
+  name: Deliverect Orders API
+  description: Orders operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-payments-api
+  name: Deliverect Payments API
+  description: Payments operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-products-api
+  name: Deliverect Products API
+  description: Products operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-products-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-profiles-api
+  name: Deliverect Profiles API
+  description: Profiles operations for the Deliverect Gift Cards API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-programs-api
+  name: Deliverect Programs API
+  description: Programs operations for the Deliverect Loyalty API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Programs
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-programs-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-registration-api
+  name: Deliverect Registration API
+  description: Registration operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Registration
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-registration-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-store-status-api
+  name: Deliverect Store Status API
+  description: Store Status operations for the Deliverect Channel API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Store Status
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-store-status-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-stores-api
+  name: Deliverect Stores API
+  description: Stores operations for the Deliverect Commerce API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Stores
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-stores-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-tables-api
+  name: Deliverect Tables API
+  description: Tables operations for the Deliverect POS API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-tables-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
+- aid: deliverect:deliverect-upsell-api
+  name: Deliverect Upsell API
+  description: Upsell operations for the Deliverect Commerce API.
+  humanURL: https://developers.deliverect.com/reference/pos_endpoints
+  baseURL: https://api.deliverect.com
+  tags:
+  - Upsell
+  properties:
+  - type: OpenAPI
+    url: openapi/deliverect-upsell-api-openapi.yml
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pos_endpoints
+  - type: Authentication
+    url: https://developers.deliverect.com/reference/machine-2-machine-access-token-1
+  - type: GettingStarted
+    url: https://developers.deliverect.com/reference/get-started
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/commerce-channel-api
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/channel_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/dispatch_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/store_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/pay_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/crm_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/loyalty-channel
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/kds_endpoints
+  - type: Documentation
+    url: https://developers.deliverect.com/reference/giftcards
 common:
   - type: AgenticAccess
     url: agentic-access/deliverect-agentic-access.yml

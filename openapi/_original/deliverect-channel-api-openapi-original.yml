@@ -1,0 +1,1829 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Channel API
+  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates
+    with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Orders
+  description: Orders operations for the Deliverect Channel API.
+- name: Menus
+  description: Menus operations for the Deliverect Channel API.
+- name: Products
+  description: Products operations for the Deliverect Channel API.
+- name: Store Status
+  description: Store Status operations for the Deliverect Channel API.
+- name: Couriers
+  description: Couriers operations for the Deliverect Channel API.
+- name: Registration
+  description: Registration operations for the Deliverect Channel API.
+- name: Payments
+  description: Payments operations for the Deliverect Channel API.
+- name: Opening Hours
+  description: Opening Hours operations for the Deliverect Channel API.
+- name: Channel Links
+  description: Channel Links operations for the Deliverect Channel API.
+- name: Accounts
+  description: Accounts operations for the Deliverect Channel API.
+paths:
+  /{channelName}/order/{channelLinkId}:
+    post:
+      summary: Deliverect Create / Cancel Order
+      description: Create a new order for a linked location.
+      operationId: post_channelname_order_channellinkid
+      parameters:
+      - name: channelName
+        in: path
+        required: true
+        schema:
+          type: string
+          default: '{channelName}'
+        description: A unique scope provided to channel integrators to create orders in authorised locations
+        example: '{channelName}'
+      - name: channelLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: '{channelLinkId}'
+        description: The unique identifier of the channel in a specific location.
+        example: '{channelLinkId}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelOrderId:
+                  type: string
+                  description: The full unique ID from the ordering channel.
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                channelOrderDisplayId:
+                  type: string
+                  description: A humanly-readable order reference.
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                validationId:
+                  type: string
+                  description: Validation ID returned from dispatch validation when used.
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                orderType:
+                  type: integer
+                  description: Order type. Use 1 for pickup, 2 for delivery, 3 for eat-in, and 4 for curbside.
+                  example: 1
+                deliveryIsAsap:
+                  type: boolean
+                  example: true
+                pickupTime:
+                  type: string
+                  example: '2026-03-15T14:30:00Z'
+                deliveryTime:
+                  type: string
+                  example: '2026-03-15T14:30:00Z'
+                placedTime:
+                  type: string
+                  example: '2026-03-15T14:30:00Z'
+                courier:
+                  type: string
+                  description: Who delivers the order.
+                  example: string
+                ageCheck:
+                  type: boolean
+                  example: true
+                deliveryAddress:
+                  type: object
+                  properties:
+                    street:
+                      type: string
+                      example: string
+                    streetNumber:
+                      type: string
+                      example: string
+                    postalCode:
+                      type: string
+                      example: string
+                    area:
+                      type: string
+                      example: string
+                    city:
+                      type: string
+                      example: string
+                    country:
+                      type: string
+                      example: BE
+                    extraAddressInfo:
+                      type: string
+                      example: string
+                    coordinates:
+                      type: object
+                      properties:
+                        latitude:
+                          type: number
+                          format: float
+                          example: 1.0
+                        longitude:
+                          type: number
+                          format: float
+                          example: 1.0
+                    verification:
+                      type: object
+                      properties:
+                        pincode:
+                          type: string
+                          example: string
+                deliveryInfo:
+                  type: object
+                  properties:
+                    packageSize:
+                      type: string
+                      example: string
+                    transportType:
+                      type: string
+                      example: string
+                decimalDigits:
+                  type: integer
+                  example: 1
+                payment:
+                  type: object
+                  properties:
+                    amount:
+                      type: integer
+                      example: 1250
+                    type:
+                      type: integer
+                      example: 1
+                    due:
+                      type: integer
+                      example: 1
+                  required:
+                  - amount
+                  - type
+                taxes:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      taxClassId:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: Deliverect's Pizza Place
+                      total:
+                        type: integer
+                        example: 1250
+                taxRemitted:
+                  type: integer
+                  example: 1
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      plu:
+                        type: string
+                        example: PIE1
+                      name:
+                        type: string
+                        example: Deliverect's Pizza Place
+                      price:
+                        type: integer
+                        example: 1250
+                      quantity:
+                        type: integer
+                        example: 1
+                      remark:
+                        type: string
+                        example: No salad
+                      discountReferenceIds:
+                        type: array
+                        items:
+                          type: integer
+                          example: 1
+                      subItems:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            plu:
+                              type: string
+                              example: PIE1
+                            name:
+                              type: string
+                              example: Deliverect's Pizza Place
+                            price:
+                              type: integer
+                              example: 1250
+                            quantity:
+                              type: integer
+                              example: 1
+                            remark:
+                              type: string
+                              example: No salad
+                            subItems:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  plu:
+                                    type: string
+                                    example: PIE1
+                                  name:
+                                    type: string
+                                    example: Deliverect's Pizza Place
+                                  price:
+                                    type: integer
+                                    example: 1250
+                                  quantity:
+                                    type: integer
+                                    example: 1
+                                  remark:
+                                    type: string
+                                    example: No salad
+                                  subItems:
+                                    type: array
+                                    items:
+                                      type: object
+                includeCutlery:
+                  type: boolean
+                  example: true
+                table:
+                  type: string
+                  example: string
+                orderIsAlreadyPaid:
+                  type: boolean
+                  example: true
+                note:
+                  type: string
+                  example: No salad
+                numberOfCustomers:
+                  type: integer
+                  example: 1
+                customer:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    companyName:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    phoneNumber:
+                      type: string
+                      example: '+15555550123'
+                    phoneAccessCode:
+                      type: string
+                      example: '+15555550123'
+                    email:
+                      type: string
+                      example: customer@example.com
+                    tin:
+                      type: string
+                      example: string
+                    note:
+                      type: string
+                      example: No salad
+                deliveryCost:
+                  type: integer
+                  example: 1250
+                deliveryCostTax:
+                  type: integer
+                  example: 1250
+                serviceCharge:
+                  type: integer
+                  example: 1
+                serviceChargeTax:
+                  type: integer
+                  example: 1
+                tip:
+                  type: integer
+                  example: 1250
+                driverTip:
+                  type: integer
+                  example: 1250
+                bagFee:
+                  type: integer
+                  example: 1250
+                discountTotal:
+                  type: integer
+                  example: 1250
+                discounts:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      type:
+                        type: string
+                        example: string
+                      provider:
+                        type: string
+                        example: string
+                      name:
+                        type: string
+                        example: Deliverect's Pizza Place
+                      channelDiscountCode:
+                        type: string
+                        example: string
+                      referenceId:
+                        type: integer
+                        example: 1
+                      value:
+                        type: integer
+                        example: 1
+                      amount:
+                        type: integer
+                        example: 1250
+              required:
+              - channelOrderId
+              - channelOrderDisplayId
+              - orderType
+              - courier
+              - payment
+            examples:
+              Create Order (Tax exclusive):
+                summary: Create Order (Tax exclusive)
+                value:
+                  channelOrderId: TEST****629
+                  channelOrderDisplayId: T**629
+                  validationId: 62********************3x
+                  orderType: 1
+                  deliveryIsAsap: true
+                  pickupTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  deliveryTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  placedTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  courier: restaurant
+                  ageCheck: false
+                  deliveryAddress:
+                    street: Adelaide Street East
+                    streetNumber: '207'
+                    postalCode: M5A1N4
+                    area: Distillery District
+                    city: Toronto
+                    country: Canada
+                    extraAddressInfo: 1st floor
+                    coordinates:
+                      latitude: 43.65152
+                      longitude: -79.37128
+                    verification:
+                      pincode: ''
+                  deliveryInfo:
+                    packageSize: small
+                    transportType: bicycle
+                  decimalDigits: 2
+                  payment:
+                    amount: 1800
+                    type: 0
+                    due: 0
+                  taxes:
+                  - taxClassId: 0
+                    name: taxes
+                    total: 77
+                  taxRemitted: 77
+                  items:
+                  - plu: P-SATE
+                    name: Chicken Sate
+                    price: 450
+                    quantity: 1
+                    remark: well done
+                    discountReferenceIds:
+                    - 1
+                    subItems:
+                    - plu: RICE-01
+                      name: White Rice
+                      price: 450
+                      quantity: 1
+                      subItems:
+                      - plu: SAUCE-01
+                        name: Sate Sauce
+                        price: 50
+                        quantity: 2
+                        subItems: []
+                  includeCutlery: false
+                  table: ''
+                  orderIsAlreadyPaid: true
+                  note: ''
+                  numberOfCustomers: 1
+                  customer:
+                    name: Jane
+                    companyName: Doe
+                    phoneNumber: 0618776767
+                    phoneAccessCode: '5040'
+                    email: test@test.com
+                    tin: '1234'
+                    note: call once you arrive
+                  deliveryCost: 300
+                  deliveryCostTax: 0
+                  serviceCharge: 400
+                  serviceChargeTax: 0
+                  tip: 200
+                  driverTip: 0
+                  bagFee: 0
+                  discountTotal: -100
+                  discounts:
+                  - type: order_flat_off
+                    provider: channel
+                    name: Test discount
+                    channelDiscountCode: test 1234
+                    referenceId: 1
+                    value: 100
+                    amount: 100
+              Create Order (Tax inclusive):
+                summary: Create Order (Tax inclusive)
+                value:
+                  channelOrderId: TEST****628
+                  channelOrderDisplayId: T**628
+                  validationId: 62********************3w
+                  orderType: 1
+                  deliveryIsAsap: true
+                  pickupTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  deliveryTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  placedTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  courier: restaurant
+                  ageCheck: false
+                  deliveryAddress:
+                    street: Folgate Street
+                    streetNumber: '35'
+                    postalCode: E1 6BX
+                    area: Spitalfields
+                    city: London
+                    country: United Kingdom
+                    extraAddressInfo: Ground Floor, near Spitalfields Market
+                    coordinates:
+                      latitude: 51.51942
+                      longitude: -0.07771
+                    verification:
+                      pincode: '1234'
+                  deliveryInfo:
+                    packageSize: small
+                    transportType: bicycle
+                  decimalDigits: 2
+                  payment:
+                    amount: 1800
+                    type: 0
+                    due: 0
+                  taxes: []
+                  taxRemitted: 0
+                  items:
+                  - plu: P-SATE
+                    name: Chicken Sate
+                    price: 450
+                    quantity: 1
+                    remark: well done
+                    discountReferenceIds:
+                    - 1
+                    subItems:
+                    - plu: RICE-01
+                      name: White Rice
+                      price: 450
+                      quantity: 1
+                      subItems:
+                      - plu: SAUCE-01
+                        name: Sate Sauce
+                        price: 50
+                        quantity: 2
+                        subItems: []
+                  includeCutlery: false
+                  table: ''
+                  orderIsAlreadyPaid: true
+                  note: ''
+                  numberOfCustomers: 1
+                  customer:
+                    name: John
+                    companyName: Doe
+                    phoneNumber: 0618776767
+                    phoneAccessCode: '2105'
+                    email: test@test.com
+                    tin: '1234'
+                    note: call once you arrive
+                  deliveryCost: 300
+                  deliveryCostTax: 0
+                  serviceCharge: 400
+                  serviceChargeTax: 0
+                  tip: 200
+                  driverTip: 0
+                  bagFee: 0
+                  discountTotal: -100
+                  discounts:
+                  - type: order_flat_off
+                    provider: channel
+                    name: Test discount
+                    channelDiscountCode: test 1234
+                    referenceId: 1
+                    value: 100
+                    amount: 100
+              Cancel Order:
+                summary: Cancel Order
+                value:
+                  channelOrderId: '{{channelOrderId}}'
+                  channelOrderDisplayId: '{{channelOrderDisplayId}}'
+                  cancellationReason: CANCELLATION
+                  status: 100
+      responses:
+        '200':
+          description: Successful response
+        '201':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Created:
+                  summary: Created
+                  value: '{}'
+          description: Created
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value:
+                    orderFieldsErrors:
+                      channelOrderId: Missing from the payload.
+                      channelOrderDisplayId: Missing from the payload.
+                      items: Missing from the payload.
+                      decimalDigits: Missing from the payload.
+                    orderPaymentErrors:
+                      amount: Missing from the payload.
+                      type: Missing from the payload.
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Unauthorized:
+                  summary: Unauthorized
+                  value:
+                    code: token_expired
+                    description: token is expired
+          description: Unauthorized
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Not Found:
+                  summary: Not Found
+                  value:
+                    message: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+          description: Not Found
+        '500':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Internal Server Error:
+                  summary: Internal Server Error
+                  value:
+                    error:
+                      code: internal_server_error
+                      message: Internal server error
+          description: Internal Server Error
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/order_status:
+    post:
+      summary: Deliverect Order Status Update
+      description: Deliverect Order Status Update
+      operationId: channel_order_status
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/menu_update/:
+    post:
+      summary: Deliverect Menu Update
+      description: Customers will publish their menu to a provided webhook URL. This delivers JSON containing all the necessary attributes to display their menu as intended
+      operationId: channel_menu_update
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              Menu Example:
+                summary: Menu Example
+                value:
+                  availabilities:
+                  - dayOfWeek: 1
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 2
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 3
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 4
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 5
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 6
+                    endTime: '17:00'
+                    startTime: 09:00
+                  - dayOfWeek: 6
+                    endTime: '22:00'
+                    startTime: '19:00'
+                  - dayOfWeek: 7
+                    endTime: '17:00'
+                    startTime: 09:00
+                  bundles: {}
+                  categories:
+                  - _id: 65********************87
+                    name: Steaks
+                    description: ''
+                    descriptionTranslations: {}
+                    nameTranslations: {}
+                    account: 62********************f1
+                    posLocationId: ''
+                    posCategoryType: ''
+                    posCategoryId: ''
+                    imageUrl: ''
+                    subCategories: []
+                    products: []
+                    availabilities: []
+                    level: 1
+                    menu: 65********************79
+                    sortedChannelProductIds: []
+                    subProducts:
+                    - 65********************30
+                    subProductSortOrder: []
+                  channelLinkId: 65********************7f
+                  currency: 3
+                  description: ''
+                  descriptionTranslations:
+                    fr: Un exemple de menu de diffu00e9rentes configurations de produits, profitez-enu00a0!
+                  menu: Example Menu
+                  menuId: 65********************79
+                  menuImageURL: ''
+                  menuType: 0
+                  modifierGroups:
+                    65********************31:
+                      _id: 65********************31
+                      name: Cooking instructions
+                      description: ''
+                      descriptionTranslations: {}
+                      nameTranslations:
+                        es: Cocinado
+                        fr: Cuisson
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      location: 65********************32
+                      max: 1
+                      min: 1
+                      multiply: 1
+                      plu: MOD-01
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      productTags: []
+                      productType: 3
+                      subProducts:
+                      - 65********************32
+                      - 65********************33
+                      parentId: 65********************30
+                      snoozed: false
+                      subProductSortOrder: []
+                  modifiers:
+                    65********************32:
+                      _id: 65********************32
+                      name: Rare
+                      description: ''
+                      descriptionTranslations: {}
+                      nameTranslations:
+                        es: Poco hecho
+                        fr: Saignant
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      location: 65********************32
+                      max: 0
+                      min: 0
+                      multiply: 1
+                      plu: COOK-01
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      price: 0
+                      productTags: []
+                      productType: 2
+                      subProducts: []
+                      parentId: 65********************31
+                      snoozed: false
+                      subProductSortOrder: []
+                    65********************34:
+                      _id: 65********************34
+                      name: Well Done
+                      description: ''
+                      descriptionTranslations: {}
+                      nameTranslations:
+                        es: Muy hecho
+                        fr: Bien cuit
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      location: 65********************32
+                      max: 0
+                      min: 0
+                      multiply: 1
+                      plu: COOK-03
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      price: 0
+                      productTags: []
+                      productType: 2
+                      subProducts: []
+                      parentId: 65********************31
+                      snoozed: false
+                      subProductSortOrder: []
+                  menuTranslations:
+                    fr: Exemple de Menu
+                  nestedModifiers: true
+                  products:
+                    65********************30:
+                      _id: 65********************30
+                      name: Delicious Steak and Frites ud83dude0b
+                      description: ''
+                      descriptionTranslations:
+                        fr: Exemple de produit de base avec - groupes de modificateurs - variables min/max - su00e9lection par du00e9faut - traductions
+                      nameTranslations:
+                        es: Deliciosos Bistecs Fritos
+                        fr: Steak Frites Du00e9licieux
+                      account: 62********************f1
+                      capacityUsages: []
+                      deliveryTax: 9000
+                      eatInTax: 9000
+                      takeawayTax: 9000
+                      imageUrl: ''
+                      location: 65********************32
+                      max: 0
+                      min: 0
+                      multiply: 1
+                      plu: STK-01
+                      posCategoryIds: []
+                      posProductCategoryId: ''
+                      posProductId: ''
+                      price: 1500
+                      productTags: []
+                      productType: 1
+                      subProducts:
+                      - 65********************31
+                      - 65********************35
+                      parentId: 65********************87
+                      snoozed: false
+                      subProductSortOrder: []
+                      referenceId: STK-01
+                  productTags:
+                  - 104
+                  - 108
+                  snoozedProducts: {}
+                  validations: []
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Menus
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/snooze:
+    post:
+      summary: Deliverect Snooze / Unsnooze Products
+      description: Webhook events will be sent when items are snoozed or unsnoozed
+      operationId: channel_snooze
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: string
+                  example: 5b****71c6489f0029****d4
+                locationId:
+                  type: string
+                  example: 5c****ecc6489f0001****b8
+                channelLinkId:
+                  type: string
+                  example: 5e****abc11dec0001****9b
+                operations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      action:
+                        type: string
+                        example: snooze
+                      data:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                plu:
+                                  type: string
+                                  example: PIE1
+                                snoozeStart:
+                                  type: string
+                                  format: date-time
+                                  example: '2020-03-24T16:21:54.955000Z'
+                                snoozeEnd:
+                                  type: string
+                                  format: date-time
+                                  example: '2020-03-24T22:21:54.955000Z'
+                      allSnoozedItems:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            plu:
+                              type: string
+                              example: PIE1
+                            snoozeStart:
+                              type: string
+                              format: date-time
+                              example: '2020-03-24T16:21:54.955000Z'
+                            snoozeEnd:
+                              type: string
+                              format: date-time
+                              example: '2020-03-24T22:21:54.955000Z'
+            examples:
+              channel_snooze_request:
+                summary: Default channel_snooze request
+                x-microcks-default: true
+                value:
+                  accountId: 5b****71c6489f0029****d4
+                  locationId: 5c****ecc6489f0001****b8
+                  channelLinkId: 5e****abc11dec0001****9b
+                  operations:
+                  - action: snooze
+                    data:
+                      items:
+                      - plu: PIE1
+                        snoozeStart: '2020-03-24T16:21:54.955000Z'
+                        snoozeEnd: '2020-03-24T22:21:54.955000Z'
+                    allSnoozedItems:
+                    - plu: PIE1
+                      snoozeStart: '2020-03-24T16:21:54.955000Z'
+                      snoozeEnd: '2020-03-24T22:21:54.955000Z'
+                    - plu: MSB1
+                      snoozeStart: '2020-03-24T16:21:54.955000Z'
+                      snoozeEnd: '2020-03-24T22:21:54.955000Z'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/busy_mode:
+    post:
+      summary: Deliverect Busy Mode
+      description: When a store status changes to open or closed, a webhook event will be sent
+      operationId: channel_busy_mode
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Store Status
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/courier_update:
+    post:
+      summary: Deliverect Courier Update
+      description: This webhook delivers real-time updates on each delivery, based on information provided by the integrated Dispatch partner.
+      operationId: channel_courier_update
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Couriers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/prep_time:
+    post:
+      summary: Deliverect Preparation Time Update
+      description: '{{YourSetwebhookUrl}}'
+      operationId: channel_prep_time
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelOrderId:
+                  type: string
+                  example: X7CESD
+                orderId:
+                  type: string
+                  example: 5e****abc11dec0001****9b
+                location:
+                  type: string
+                  example: 5e****abc11dec0001****0b
+                status:
+                  type: integer
+                  example: 20
+                pickupTime:
+                  type: string
+                  format: date-time
+                  example: '2021-04-20T16:20:00Z'
+            examples:
+              channel_prep_time_request:
+                summary: Default channel_prep_time request
+                x-microcks-default: true
+                value:
+                  channelOrderId: X7CESD
+                  orderId: 5e****abc11dec0001****9b
+                  location: 5e****abc11dec0001****0b
+                  status: 20
+                  pickupTime: '2021-04-20T16:20:00Z'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/register:
+    post:
+      summary: Deliverect Channel Registration
+      description: Deliverect Channel Registration
+      operationId: channel_register
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value:
+                    statusUpdateURL: https://integrator.com/statusUpdate
+                    menuUpdateURL: https://integrator.com/menuUpdate
+                    snoozeUnsnoozeURL: https://integrator.com/snoozeUnsnooze
+                    busyModeURL: https://integrator.com/busyMode
+                    updatePrepTimeURL: https://integrator.com/updatePrepTimeURL
+                    paymentUpdateURL: https://yourwebhook.com/payment_update
+                    courierUpdateURL: https://yourwebhook.com/courier_update
+                    authorizationURL: https://yourwebhook.com/authorization
+                    menuUrl: https://integrator.com/store
+              schema:
+                type: object
+                properties:
+                  statusUpdateURL:
+                    type: string
+                    example: https://integrator.com/statusUpdate
+                  menuUpdateURL:
+                    type: string
+                    example: https://integrator.com/menuUpdate
+                  snoozeUnsnoozeURL:
+                    type: string
+                    example: https://integrator.com/snoozeUnsnooze
+                  busyModeURL:
+                    type: string
+                    example: https://integrator.com/busyMode
+                  updatePrepTimeURL:
+                    type: string
+                    example: https://integrator.com/updatePrepTimeURL
+                  paymentUpdateURL:
+                    type: string
+                    example: https://yourwebhook.com/payment_update
+                  courierUpdateURL:
+                    type: string
+                    example: https://yourwebhook.com/courier_update
+                  menuUrl:
+                    type: string
+                    example: https://integrator.com/store
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme:
+        code-samples:
+        - language: curl
+          code: "curl --location --request GET 'https://yourwebhook.com/register' \\\n--header 'Content-Type: application/json' \\\n--data '{\n    \"status\": \"register\",\n    \"channelLocationId\": \"\
+            UniqueIdInChannelForThisLocation\",\n    \"channelLinkId\": \"{{channelLinkId}}\",\n    \"locationId\": \"{{locationId}}\",\n    \"channelLinkName\": \"Order Boss\"\n}'"
+        samples-languages:
+        - curl
+      tags:
+      - Registration
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/amendments:
+    post:
+      summary: Deliverect Amendments
+      description: When a store processes amendments for one or more items within an order, this webhook will deliver the amendment details
+      operationId: channel_amendments
+      deprecated: false
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channel/payment_update:
+    post:
+      summary: Deliverect Payment Update
+      description: Deliverect Payment Update
+      operationId: channel_payment_update
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Payments
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /locations/channels/{locationId}/holidays:
+    get:
+      description: Deliverect Get_locations_channels_locationid_holidays
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    id: 63********************a7
+                    holidays:
+                    - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    channels:
+                    - id: 63********************a7
+                      holidays:
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 63********************a7
+                    description: Unique location Id
+                  holidays:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        startTime:
+                          type: string
+                          example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime:
+                          type: string
+                          example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  channels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 63********************a7
+                          description: The unique store identifier channelLinkId
+                        holidays:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              startTime:
+                                type: string
+                                example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                                description: The start time of the holiday period in ISO 8601 date-time format (e.g., "2023-12-19T15:53:00Z")
+                              endTime:
+                                type: string
+                                example: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                                description: The endTime of the holiday period in ISO 8601 date-time format (e.g., "2023-12-19T16:10"00Z")
+                          description: Array containing an object list of holidays
+                    description: An array of channel link objects within the location with specific holiday hours set
+                required:
+                - id
+                - holidays
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      parameters:
+      - in: path
+        name: locationId
+        schema:
+          type: string
+        required: true
+        description: Unique location Id
+        example: 5cecc6489f0001b8
+      operationId: get_locations_channels_locationid_holidays
+      summary: Deliverect Get_locations_channels_locationid_holidays
+      tags:
+      - Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channelLinks:
+    get:
+      tags:
+      - Channel Links
+      description: Deliverect Get_channellinks
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      operationId: get_channellinks
+      summary: Deliverect Get_channellinks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /allChannels:
+    get:
+      description: Deliverect Channel Integrators
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                Sample Response:
+                  summary: Sample Response
+                  value:
+                  - name: DELIVEROO
+                    channelId: 2
+                  - name: UBER_EATS
+                    channelId: 7
+                  - name: DOORDASH
+                    channelId: 12
+                  - name: JUST_EAT
+                    channelId: 9
+                  - name: GRUBHUB
+                    channelId: 42
+                  - name: WOLT
+                    channelId: 16
+                  - name: MENULOG
+                    channelId: 26
+                  - name: HUNGER_STATION
+                    channelId: 40
+                  - name: PEDIDOSYA_DH
+                    channelId: 54
+                  - name: MEITUAN
+                    channelId: 53
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      parameters: []
+      operationId: get_allchannels
+      summary: Deliverect Channel Integrators
+      tags:
+      - Channel Links
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /accounts:
+    get:
+      tags:
+      - Accounts
+      description: Deliverect Get_accounts
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    _items:
+                    - _id: 5f1***131
+                      name: Generic account
+                      accountType: 1
+                      currency: 1
+                      posSystem: 10000
+                      _updated: '2021-05-18T08:02:16.000000Z'
+                      _created: '2020-07-24T07:36:49.000000Z'
+                      _deleted: false
+                      _etag: 004a4df4bcce3cae83fd530c4a502278633ffd42
+                      locations:
+                      - 5f1***133
+                      - 606***b86
+                      - 606***555
+                      accounts: []
+                      brands:
+                      - name: Generic account
+                        brandId: 606***6c5
+                      deliverectVersion: '2.0'
+                      featureFlags:
+                        menuLocationOverrides: false
+                        autoApply: false
+                        pullAvailabilities: false
+                        combinedProductsPage: false
+                        enableSelfOnboarding: false
+                        reportsV2: false
+                        enableDiscounts: false
+                        enableDelivery: false
+                      region: EU
+                      settings:
+                        taxExcl: false
+                      whitelabel: deliverect
+                      users:
+                      - 607***ca68
+                      reportingEndpoints:
+                      - endpoint: https://reporting-endpoint.com/reporting/newOrder
+                        statusTrigger:
+                        - 20
+                        endpointType: 10
+                      _links:
+                        self:
+                          title: accounts
+                          href: accounts/5f1***131
+                        related:
+                          users:
+                          - title: users
+                            href: users/607***a68
+                          locations:
+                          - title: Locations
+                            href: locations/5f1***133
+                          - title: Locations
+                            href: locations/606***b86
+                          - title: Locations
+                            href: locations/606***555
+                          accounts: []
+                    _links:
+                      parent:
+                        title: home
+                        href: /
+                      self:
+                        title: accounts
+                        href: accounts
+                      next:
+                        title: next page
+                        href: accounts?page=2
+                      last:
+                        title: last page
+                        href: accounts?page=11
+                    _meta:
+                      page: 1
+                      max_results: 25
+                      total: 11
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Unauthorized:
+                  summary: Unauthorized
+                  value:
+                    _status: ERR
+                    _error:
+                      code: 401
+                      message: Please provide proper credentials
+          description: Unauthorized
+      parameters: []
+      operationId: get_accounts
+      summary: Deliverect Get_accounts
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /{channelName}/menuStatus/{_id}:
+    post:
+      summary: Deliverect Menu Update (Async)
+      description: Receive menu update callback status.
+      operationId: post_channelname_menustatus_id
+      parameters:
+      - name: channelName
+        in: path
+        required: true
+        schema:
+          type: string
+          default: my-channel
+        description: The channelName value.
+        example: my-channel
+      - name: _id
+        in: path
+        required: true
+        schema:
+          type: string
+          default: menu-update-id
+        description: The _id value.
+        example: menu-update-id
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: confirmed
+                comment:
+                  type: string
+                  example: string
+              required:
+              - status
+            examples:
+              Menu Update:
+                summary: Menu Update
+                value:
+                  status: ONLINE
+                  comment: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      tags:
+      - Menus
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /{channelName}/updateStoreStatus/{channelLinkId}:
+    post:
+      summary: Deliverect Update Store Status (open/closed)
+      description: Update the status of a store.
+      operationId: post_channelname_updatestorestatus_channellinkid
+      parameters:
+      - name: channelName
+        in: path
+        required: true
+        schema:
+          type: string
+          default: my-channel
+        description: The channelName value.
+        example: my-channel
+      - name: channelLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: 61bcc34f657cc48c23eb60d5
+        description: The channelLinkId value.
+        example: 61bcc34f657cc48c23eb60d5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                  - open
+                  - closed
+                  example: open
+                reason:
+                  type: string
+                  example: string
+              required:
+              - status
+              - reason
+            examples:
+              Close Store:
+                summary: Close Store
+                value:
+                  status: closed
+                  reason: Too many failed orders
+              Open Store:
+                summary: Open Store
+                value:
+                  status: open
+                  reason: Channel is opened
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    message: Changed store status
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value:
+                    message: 'Invalid value passed in status field: ''invalidStatus'''
+          description: Bad Request
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Forbidden:
+                  summary: Forbidden
+                  value:
+                    message: You don't have permissions to perform this action
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Not Found:
+                  summary: Not Found
+                  value:
+                    message: Channel link id {channelLinkId} not found.
+          description: Not Found
+      tags:
+      - Store Status
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /{channelName}/updateRating:
+    post:
+      summary: Deliverect Order Rating Update
+      description: Update rating for a previously placed order.
+      operationId: post_channelname_updaterating
+      parameters:
+      - name: channelName
+        in: path
+        required: true
+        schema:
+          type: string
+          default: my-channel
+        description: The channelName value.
+        example: my-channel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelOrderId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                orderDate:
+                  type: string
+                  format: date-time
+                  example: '2026-03-15T14:30:00Z'
+                channelLinkId:
+                  type: string
+                  example: 5e8abc11dec0001a009b
+                rating:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      subject:
+                        type: integer
+                        example: 1
+                      rating:
+                        type: integer
+                        example: 1
+                      comment:
+                        type: string
+                        example: string
+                      reason:
+                        type: integer
+                        example: 1
+                    required:
+                    - subject
+                    - rating
+              required:
+              - channelOrderId
+              - orderDate
+              - channelLinkId
+              - rating
+            examples:
+              Order Rating Update:
+                summary: Order Rating Update
+                value:
+                  channelOrderId: CXTDBKMZ-1229
+                  orderDate: '2021-04-13T11:53:34.453Z'
+                  channelLinkId: 606d8489fcd8eddf13b121a6
+                  rating:
+                  - reason: 10000
+                    rating: 5
+                    comment: Food was amazing.
+                    subject: 1
+                  - rating: 5
+                    subject: 2
+      responses:
+        '200':
+          description: Successful response
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /{channelName}/courierUpdate/{channelLinkId}:
+    post:
+      summary: Deliverect Update Courier Status
+      description: Update courier or guest delivery status.
+      operationId: post_channelname_courierupdate_channellinkid
+      parameters:
+      - name: channelName
+        in: path
+        required: true
+        schema:
+          type: string
+          default: my-channel
+        description: The channelName value.
+        example: my-channel
+      - name: channelLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: 61bcc34f657cc48c23eb60d5
+        description: The channelLinkId value.
+        example: 61bcc34f657cc48c23eb60d5
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelOrderId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                courierUpdate:
+                  type: object
+                  properties:
+                    status:
+                      type: integer
+                      example: 20
+                    arrivalTime:
+                      type: string
+                      format: date-time
+                      example: '2026-03-15T14:30:00Z'
+                    deliveryTime:
+                      type: string
+                      format: date-time
+                      example: '2026-03-15T14:30:00Z'
+                    courier:
+                      type: object
+                      properties:
+                        firstName:
+                          type: string
+                          example: Deliverect's Pizza Place
+                        lastName:
+                          type: string
+                          example: Deliverect's Pizza Place
+                        phoneNumber:
+                          type: string
+                          example: '+15555550123'
+                  required:
+                  - status
+              required:
+              - channelOrderId
+              - courierUpdate
+            examples:
+              Courier Update:
+                summary: Courier Update
+                value:
+                  channelOrderId: 63171d0000000d34b5efe
+                  courierUpdate:
+                    status: 85
+                    arrivalTime: '2022-10-25T16:24:40.482Z'
+                    deliveryTime: '2022-10-25T16:54:40.482Z'
+                    courier:
+                      firstName: Joe
+                      lastName: Driver
+                      phoneNumber: +44 20 3936 1162
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+      tags:
+      - Couriers
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

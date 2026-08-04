@@ -1,0 +1,767 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Pay API
+  description: Process payment requests, list available payment gateways, retrieve payments, issue refunds, and manage payment profiles for ordering transactions. Authenticates with OAuth 2.0 machine-to-machine
+    access tokens scoped via payments.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Gateways
+  description: Gateways operations for the Deliverect Pay API.
+- name: Payments
+  description: Payments operations for the Deliverect Pay API.
+- name: Profiles
+  description: Profiles operations for the Deliverect Pay API.
+paths:
+  /pay/channel/{channelLinkId}/gatewayProfiles:
+    get:
+      summary: Deliverect Get Payment Gateways
+      description: Deliverect Get Payment Gateways
+      operationId: pay_endpoints_get_payment_gateways
+      parameters:
+      - in: path
+        name: channelLinkId
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "[\n    {\n        \"id\": \"6672fd224e8abca97dbe07cf\",\n        \"type\": \"online\"\n    },\n    {\n        \"id\": \"668541624a4a391b8fd2fc4d\",\n        \"type\": \"card\"\n\
+                    \    }\n]"
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 6672fd224e8abca97dbe07cf
+                    type:
+                      type: string
+                      example: online
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Gateways
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /pay/channel/{channelLinkId}/payments/request:
+    post:
+      summary: Deliverect Request Payment
+      description: Deliverect Request Payment
+      operationId: pay_endpoints_request_payment
+      parameters:
+      - name: channelLinkId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - gatewayProfileId
+              - mode
+              - amount
+              - currency
+              - payable
+              properties:
+                gatewayProfileId:
+                  type: string
+                  description: '"id" retrieved via Get Payment Gateways endpoint'
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                mode:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      enum:
+                      - offline
+                      - redirect
+                      - terminal
+                      - token
+                      example: offline
+                    returnUrl:
+                      type: string
+                      example: https://example.com/path/abc123
+                    tokenId:
+                      type: string
+                      description: '"id" retrieved via [Get Customer Tokens endpoint](https://developers.deliverect.com/reference/pay_endpoints-get-customer-tokens). Used only when `type="token"`'
+                      example: 609a1b2c3d4e5f6a7b8c9d0e
+                amount:
+                  type: integer
+                  format: int32
+                  example: 1250
+                currency:
+                  type: string
+                  example: EUR
+                payableReference:
+                  type: string
+                  description: This field is deprecated. Use the `payable` field instead.
+                  example: string
+                payer:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    email:
+                      type: string
+                      example: customer@example.com
+                    reference:
+                      type: string
+                      example: string
+                    ip:
+                      type: string
+                      description: The payer's IP address
+                      example: string
+                payable:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      description: A unique reference to the payable subject.
+                      example: 609a1b2c3d4e5f6a7b8c9d0e
+                billingAddress:
+                  type: object
+                  properties:
+                    country:
+                      type: string
+                      example: BE
+                    city:
+                      type: string
+                      example: string
+                    postalCode:
+                      type: string
+                      example: string
+                    street:
+                      type: string
+                      example: string
+                    houseNumber:
+                      type: string
+                      example: string
+                    stateOrProvince:
+                      type: string
+                      example: string
+                captureMode:
+                  type: string
+                  default: immediate
+                  enum:
+                  - immediate
+                  - manual
+                  example: immediate
+            examples:
+              Request Re-direct:
+                value:
+                  gatewayProfileId: 6659eddc88ac699157639719
+                  mode:
+                    type: redirect
+                    returnUrl: https://ordering-system/order
+                    logoUrl: https://ordering-system/logo.jpeg
+                  amount: '1234'
+                  currency: EUR
+                  payableReference: order-123456
+                  payer:
+                    name: John Doe
+                    email: john.doe@acme.com
+                    reference: crm-id-1234
+                    ip: 102.129.200.16
+                  payable:
+                    id: order-12345
+                    items:
+                    - quantity: 1
+                      plu: burger-1
+                      name: The burger
+                      description: The best burger
+                      unitPrice: 3000
+                      total: 3000
+                      taxTotal: 0
+                      discountTotal: 0
+                  billingAddress:
+                    country: US
+                    city: New York
+                    stateOrProvince: NY
+                    postalCode: '19087'
+                    street: 5th Avenue
+                    houseNumber: '826'
+                summary: Request Re-direct
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                pending - redirect:
+                  value: "{\n    \"paymentId\": \"66608ce6406d23da081e1716\",\n    \"paymentStatus\": \"pending\",\n    \"action\": {\n        \"type\": \"redirect\",\n        \"url\": \"https://payment-gateway/complete-payment\"\
+                    \n    }\n}"
+                authorized:
+                  value: "{\n    \"paymentId\": \"66608ce6406d23da081e1716\",\n    \"paymentStatus\": \"authorized\",\n    \"action\": null\n}"
+                refused:
+                  value: "{\n    \"paymentId\": \"66608ce6406d23da081e1716\",\n    \"paymentStatus\": \"refused\",\n    \"action\": null\n}"
+                pending - terminal:
+                  value: "{\n    \"paymentId\": \"66608ce6406d23da081e1716\",\n    \"paymentStatus\": \"pending\",\n    \"action\": {\n        \"type\": \"terminal\"\n    }\n}"
+              schema:
+                oneOf:
+                - title: pending - redirect
+                  type: object
+                  properties:
+                    paymentId:
+                      type: string
+                      example: 66608ce6406d23da081e1716
+                    paymentStatus:
+                      type: string
+                      example: pending
+                    action:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: redirect
+                        url:
+                          type: string
+                          example: https://payment-gateway/complete-payment
+                - title: authorized
+                  type: object
+                  properties:
+                    paymentId:
+                      type: string
+                      example: 66608ce6406d23da081e1716
+                    paymentStatus:
+                      type: string
+                      example: authorized
+                    action: {}
+                - title: refused
+                  type: object
+                  properties:
+                    paymentId:
+                      type: string
+                      example: 66608ce6406d23da081e1716
+                    paymentStatus:
+                      type: string
+                      example: refused
+                    action: {}
+                - title: pending - terminal
+                  type: object
+                  properties:
+                    paymentId:
+                      type: string
+                      example: 66608ce6406d23da081e1716
+                    paymentStatus:
+                      type: string
+                      example: pending
+                    action:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: terminal
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                bad request:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      x-readme: {}
+      tags:
+      - Payments
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /pay/channel/{channelLinkId}/payments/{paymentId}:
+    get:
+      summary: Deliverect Get Payment
+      description: Deliverect Get Payment
+      operationId: pay_endpoints_get_payment
+      parameters:
+      - name: channelLinkId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      - name: paymentId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The paymentId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"id\": \"6687aee6424adb6b0114b896\",\n    \"payableReference\": \"order-123456\",\n    \"amount\": 1000,\n    \"currency\": \"EUR\",\n    \"payer\": {\n        \"name\"\
+                    : \"John Doe\",\n        \"email\": \"john@doe.com\",\n        \"reference\": \"cus-123456\"\n    },\n    \"status\": \"authorized\",\n    \"failureReason\": null\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 6687aee6424adb6b0114b896
+                  payableReference:
+                    type: string
+                    example: order-123456
+                  amount:
+                    type: integer
+                    example: 1000
+                    default: 0
+                  currency:
+                    type: string
+                    example: EUR
+                  payer:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: John Doe
+                      email:
+                        type: string
+                        example: john@doe.com
+                      reference:
+                        type: string
+                        example: cus-123456
+                  status:
+                    type: string
+                    example: authorized
+                  failureReason:
+                    type: string
+                    example: string
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Payments
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /pay/channel/{channelLinkId}/payments/{paymentId}/refund:
+    post:
+      summary: Deliverect Refund Payment
+      description: Deliverect Refund Payment
+      operationId: pay_endpoints_refund_payment
+      parameters:
+      - name: channelLinkId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The channelLinkId value.
+        example: 5e8abc11dec0001a009b
+      - in: path
+        name: paymentId
+        schema:
+          type: string
+        required: true
+        description: The paymentId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: integer
+                  example: 1250
+              required:
+              - amount
+            examples:
+              Example:
+                summary: Example
+                value:
+                  amount: 100
+      responses:
+        '200':
+          description: '200'
+      x-internal: false
+      tags:
+      - Payments
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /request:
+    post:
+      summary: Deliverect Request Payment
+      description: Deliverect Request Payment
+      operationId: payplatform_payments_request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - gatewayProfileId
+              - amount
+              - currency
+              - returnUrl
+              - reference
+              properties:
+                gatewayProfileId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                amount:
+                  type: integer
+                  format: int32
+                  example: 1250
+                currency:
+                  type: string
+                  example: EUR
+                returnUrl:
+                  type: string
+                  example: https://example.com/path/abc123
+                reference:
+                  type: string
+                  example: string
+                logoUrl:
+                  type: string
+                  example: https://example.com/path/abc123
+                payer:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    email:
+                      type: string
+                      example: customer@example.com
+                    reference:
+                      type: string
+                      example: string
+            examples:
+              Request Example:
+                value:
+                  gatewayProfileId: 66d721b3df0f5a9fda62dd8b
+                  amount: '1234'
+                  currency: EUR
+                  reference: order-123456
+                  payer:
+                    name: Customer Name
+                    email: email@customer.com
+                    reference: customer_external_id_123
+                  returnUrl: https://ordering-system/order
+                  logoUrl: https://ordering-system/logo.jpeg
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Pending:
+                  value: "{\n    \"update\": {\n        \"gatewayId\": \"payment_id_123456\",\n        \"status\": \"pending\"\n    },\n    \"action\": {\n        \"type\": \"redirect\",\n        \"url\"\
+                    : \"https://generic-gateway.com/complete-payment\"\n    }      \n}"
+                Authorized:
+                  value: "{\n    \"update\": {\n        \"gatewayId\": \"payment_id_123456\",\n        \"status\": \"authorized\",\n        \"method\": \"visa\"\n    },\n    \"action\": null\n}"
+                Refused:
+                  value: "{\n    \"update\": {\n        \"gatewayId\": null,\n        \"status\": \"refused\",\n        \"method\": \"visa\"  \n    },\n    \"action\": null\n}"
+              schema:
+                oneOf:
+                - title: Pending
+                  type: object
+                  properties:
+                    update:
+                      type: object
+                      properties:
+                        gatewayId:
+                          type: string
+                          example: payment_id_123456
+                        status:
+                          type: string
+                          example: pending
+                    action:
+                      type: object
+                      properties:
+                        type:
+                          type: string
+                          example: redirect
+                        url:
+                          type: string
+                          example: https://generic-gateway.com/complete-payment
+                - title: Authorized
+                  type: object
+                  properties:
+                    update:
+                      type: object
+                      properties:
+                        gatewayId:
+                          type: string
+                          example: payment_id_123456
+                        status:
+                          type: string
+                          example: authorized
+                        method:
+                          type: string
+                          example: visa
+                    action: {}
+                - title: Refused
+                  type: object
+                  properties:
+                    update:
+                      type: object
+                      properties:
+                        gatewayId: {}
+                        status:
+                          type: string
+                          example: refused
+                        method:
+                          type: string
+                          example: visa
+                    action: {}
+      deprecated: false
+      tags:
+      - Payments
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /refund:
+    post:
+      summary: Deliverect Refund Payment
+      description: Deliverect Refund Payment
+      operationId: payplatform_payments_refund
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - paymentId
+              - amount
+              properties:
+                paymentId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                amount:
+                  type: integer
+                  format: int32
+                  example: 1250
+            examples:
+              Request Example:
+                value:
+                  paymentId: gateway-payment-id
+                  amount: 1234
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Succeeded:
+                  value: "{\n    \"gatewayId\": \"gateway-refund-id\",\n    \"status\": \"succeeded\"\n}"
+                Pending:
+                  value: "{\n    \"gatewayId\": \"gateway-refund-id\",\n    \"status\": \"pending\"\n}"
+                Failed:
+                  value: "{\n    \"gatewayId\": null,\n    \"status\": \"failed\"\n}"
+              schema:
+                oneOf:
+                - title: Succeeded
+                  type: object
+                  properties:
+                    gatewayId:
+                      type: string
+                      example: gateway-refund-id
+                    status:
+                      type: string
+                      example: succeeded
+                - title: Pending
+                  type: object
+                  properties:
+                    gatewayId:
+                      type: string
+                      example: gateway-refund-id
+                    status:
+                      type: string
+                      example: pending
+                - title: Failed
+                  type: object
+                  properties:
+                    gatewayId: {}
+                    status:
+                      type: string
+                      example: failed
+      deprecated: false
+      tags:
+      - Payments
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /register:
+    post:
+      summary: Deliverect Register Profile
+      description: Deliverect Register Profile
+      operationId: payplatform_payments_profile_register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - gatewayProfileId
+              - accountId
+              - apiKey
+              - webhookUrl
+              properties:
+                gatewayProfileId:
+                  type: string
+                  description: Unique identifier of the payment gateway within a Deliverect customer account
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                accountId:
+                  type: string
+                  example: 5b71c6489f00290d4
+                apiKey:
+                  type: string
+                  description: API key is the unique identifier of the customer within the payment gateway
+                  example: string
+                webhookUrl:
+                  type: string
+                  description: Webhook URL which partners will send payment related update events
+                  example: https://example.com/path/abc123
+            examples:
+              Request Example:
+                value:
+                  gatewayProfileId: 66d721b3df0f5a9fda62dd8b
+                  accountId: 66570956c77ccc6b9d75e445
+                  apiKey: api-key
+                  webhookUrl: https://api.staging.deliverect.com/pay/events/integrationName/gatewayProfiles/66d721b3df0f5a9fda62dd8b
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"requestPaymentURL\": \"https://yourwebhook.com/payments/request\",\n    \"refundPaymentURL\": \"https://yourwebhook.com/payments/refund\",\n    \"unregisterGatewayProfileURL\"\
+                    : \"https://yourwebhook.com/payments/unregister-profile\"\n}"
+              schema:
+                type: object
+                properties:
+                  requestPaymentURL:
+                    type: string
+                    example: https://yourwebhook.com/payments/request
+                  refundPaymentURL:
+                    type: string
+                    example: https://yourwebhook.com/payments/refund
+                  unregisterGatewayProfileURL:
+                    type: string
+                    example: https://yourwebhook.com/payments/unregister-profile
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Profiles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /unregister-profile:
+    post:
+      summary: Deliverect Unregister Profile Event
+      description: When the gateway profile is uninstalled, the partner is expected to handle the unregistered event so that the profile can be uninstalled and disabled.
+      operationId: payplatform_payments_unregister_profile
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - accountId
+              - gatewayProfileId
+              properties:
+                accountId:
+                  type: string
+                  description: The ID of the account the gateway profile belongs to.
+                  example: 5b71c6489f00290d4
+                gatewayProfileId:
+                  type: string
+                  description: The ID of the profile being unregistered.
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+            examples:
+              payplatform_payments_unregister_profileRequest:
+                summary: Default payplatform_payments_unregister_profile request
+                x-microcks-default: true
+                value:
+                  accountId: 5b71c6489f00290d4
+                  gatewayProfileId: 609a1b2c3d4e5f6a7b8c9d0e
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Profiles
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

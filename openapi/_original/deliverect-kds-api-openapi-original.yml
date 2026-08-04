@@ -1,0 +1,249 @@
+openapi: 3.1.0
+info:
+  title: Deliverect KDS API
+  description: Integrate Kitchen Display Systems to register devices, receive order notifications, push order status updates, and sync product updates. Authenticates with OAuth 2.0 machine-to-machine access
+    tokens scoped via genericKDS.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Orders
+  description: Orders operations for the Deliverect KDS API.
+- name: Products
+  description: Products operations for the Deliverect KDS API.
+- name: Registration
+  description: Registration operations for the Deliverect KDS API.
+paths:
+  /kds_order_notification:
+    post:
+      description: Deliverect Kds_order_notification
+      operationId: kds_order_notification
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      x-readme: {}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locationId:
+                  type: string
+                  example: 5cecc6489f0001b8
+                channelLinkId:
+                  type: string
+                  example: 5e8abc11dec0001a009b
+                checkoutId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                status:
+                  type: string
+                  enum:
+                  - completed
+                  - failed
+                  example: completed
+                reason:
+                  type: string
+                  example: string
+                updatedAt:
+                  type: string
+                  example: '2026-03-15T14:30:00Z'
+              required:
+              - locationId
+              - channelLinkId
+              - checkoutId
+              - status
+              - reason
+              - updatedAt
+            examples:
+              kds_order_notificationRequest:
+                summary: Default kds_order_notification request
+                x-microcks-default: true
+                value:
+                  locationId: 5cecc6489f0001b8
+                  channelLinkId: 5e8abc11dec0001a009b
+                  checkoutId: 609a1b2c3d4e5f6a7b8c9d0e
+                  status: completed
+                  reason: string
+                  updatedAt: '2026-03-15T14:30:00Z'
+      summary: Deliverect Kds_order_notification
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /kds/order_status_update:
+    post:
+      description: Deliverect Kds_order_status_update
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      operationId: kds_order_status_update
+      x-readme:
+        code-samples:
+        - code: "{\n    \"locationId\": \"68e79268f01c94e78a7d0e6f\",\n    \"channelLinkId\": \"68e7927d80bf1e739f3d1b03\",\n    \"checkoutId\": \"68ee33442744b20a958e024b\",\n    \"status\": \"completed\"\
+            ,\n    \"reason\": null,\n    \"updatedAt\": \"2025-10-14T11:25:57.846719+00:00\"\n}"
+          language: shell
+          name: SUCCESS
+        - code: "{\n    \"locationId\": \"****01c94e78a7d0e6f\",\n    \"channelLinkId\": \"68e7927d80bf1e739f3d1b03\",\n    \"checkoutId\": \"68e***f01c94e78a7fe9b0\",\n    \"status\": \"failed\",\n   \
+            \ \"reason\": \"68****e78a7fe9b1: document not found\",\n    \"updatedAt\": \"2025-10-09T16:09:43.691864+00:00\"\n  }"
+          language: shell
+          name: FAILED
+        samples-languages:
+        - shell
+      summary: Deliverect Kds_order_status_update
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /kds/productUpdate:
+    post:
+      description: Deliverect Kds_productupdate
+      operationId: kds_productupdate
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                kds_productupdate200Example:
+                  summary: Default kds_productupdate 200 response
+                  x-microcks-default: true
+                  value: {}
+      parameters:
+      - in: header
+        name: Content-Type
+        schema:
+          type: string
+          default: application/json
+        required: false
+        description: application/json
+        example: application/json
+      - in: header
+        name: Accept
+        schema:
+          type: string
+          default: application/json
+        description: application/json
+        example: application/json
+      - in: header
+        name: User-Agent
+        schema:
+          type: string
+          default: Deliverect/{version}
+        description: Deliverect/{version}
+        example: Deliverect/{version}
+      - in: header
+        name: X-Server-Authorization-HMAC-SHA256
+        schema:
+          type: string
+          default: '{signature}'
+        description: '{signature}'
+        example: '{signature}'
+      summary: Deliverect Kds_productupdate
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /kds/register_kds:
+    post:
+      description: Deliverect Kds_register_kds
+      responses:
+        '200':
+          description: ''
+      parameters: []
+      operationId: kds_register_kds
+      summary: Deliverect Kds_register_kds
+      tags:
+      - Registration
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /kds/orderStatus/{orderId}:
+    post:
+      tags:
+      - Orders
+      summary: Deliverect Update Order Status
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderId:
+                  type: string
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                status:
+                  type: integer
+                  example: 20
+                reason:
+                  type: string
+                  example: string
+              required:
+              - orderId
+              - status
+            examples: {}
+      parameters:
+      - name: orderId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The orderId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    result: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      operationId: post_post_kds_orderstatus_orderid
+      description: Deliverect Update Order Status
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

@@ -1,0 +1,2650 @@
+openapi: 3.1.0
+info:
+  title: Deliverect POS API
+  description: Connect point-of-sale systems to Deliverect to receive orders, sync products and catalogues, manage inventory, and push order status updates across delivery and ordering channels. Authenticates
+    with OAuth 2.0 machine-to-machine access tokens scoped via genericPOS.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Registration
+  description: Registration operations for the Deliverect POS API.
+- name: Products
+  description: Products operations for the Deliverect POS API.
+- name: Orders
+  description: Orders operations for the Deliverect POS API.
+- name: Floors
+  description: Floors operations for the Deliverect POS API.
+- name: Tables
+  description: Tables operations for the Deliverect POS API.
+- name: Inventory
+  description: Inventory operations for the Deliverect POS API.
+paths:
+  /register:
+    post:
+      summary: Deliverect Register POS
+      description: '*This is a webhook set by the POS'
+      operationId: pos_register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location:
+                  type: string
+                  default: ''
+                  example: string
+              required:
+              - location
+            examples:
+              pos_registerRequest:
+                summary: Default pos_register request
+                x-microcks-default: true
+                value:
+                  location: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"ordersWebhookURL\": \"https://integrator.com/ordersWebhookURL\",\n  \"syncProductsURL\": \"https://integrator.com/syncProductsURL\",\n  \"syncTablesURL\": \"https://integrator.com/syncTablesURL\"\
+                    ,\n  \"syncFloorsURL\": \"https://integrator.com/syncFloorsURL\",\n  \"operationsWebhookURL\": \"https://integrator.com/operationsURL\",\n  \"storeStatusWebhookURL\": \"https://integrator.com/storeStatusURL\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  ordersWebhookURL:
+                    type: string
+                    example: https://integrator.com/ordersWebhookURL
+                  syncProductsURL:
+                    type: string
+                    example: https://integrator.com/syncProductsURL
+                  syncTablesURL:
+                    type: string
+                    example: https://integrator.com/syncTablesURL
+                  syncFloorsURL:
+                    type: string
+                    example: https://integrator.com/syncFloorsURL
+                  operationsWebhookURL:
+                    type: string
+                    example: https://integrator.com/operationsURL
+                  storeStatusWebhookURL:
+                    type: string
+                    example: https://integrator.com/storeStatusURL
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Registration
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /syncProducts:
+    get:
+      summary: Deliverect Sync Products
+      description: '*This is a GET webhook set by the POS'
+      operationId: pos_syncproducts
+      responses:
+        '204':
+          description: '204'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ' '
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"error\": \"Product Sync aborted: Too many products 17 would be deleted.\\nThis may affect your menus and is irreversible. If you still want to proceed, please use the\
+                    \ \\\"Force Sync\\\" option.\"\n}"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: 'Product Sync aborted: Too many products 17 would be deleted.
+
+                      This may affect your menus and is irreversible. If you still want to proceed, please use the "Force Sync" option.'
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /orders:
+    post:
+      summary: Deliverect Order Notification
+      description: '*This will be the same webhook endpoint set by the POS for Order Notifications'
+      operationId: pos_ordercancel
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                OK success:
+                  value: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /floors/locationId:
+    get:
+      summary: Deliverect Sync Floors
+      description: '*This is a GET webhook set by the POS'
+      operationId: pos_floors_locationid
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Floors
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /tables/locationId:
+    get:
+      summary: Deliverect Sync Tables
+      description: '*This is a GET webhook set by the POS'
+      operationId: pos_tables_locationid
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Tables
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v2/locations/{locationId}/syncProducts:
+    get:
+      tags:
+      - Products
+      description: This endpoint initiates the product sync request for a specified location. When called, Deliverect will trigger a product sync from the connected POS system for the given location.
+      operationId: get_v2_locations_locationid_syncproducts
+      parameters:
+      - in: path
+        name: locationId
+        schema:
+          type: string
+        required: true
+        description: The unique identifier of the location to sync products for.
+        example: 5cecc6489f0001b8
+      - in: query
+        name: forceUpdate
+        schema:
+          type: string
+          default: 'true'
+        description: When set to `true`, forces a full product sync even if products have not changed since the last sync.
+        example: 'true'
+      responses:
+        '200':
+          description: Product sync request initiated successfully.
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: {}
+        '400':
+          description: Bad Request — the sync request could not be processed. This may occur if the location ID is invalid or the location does not have a POS system configured.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: {}
+      summary: Deliverect Get_v2_locations_locationid_syncproducts
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /productAndCategories:
+    post:
+      tags:
+      - Products
+      summary: Deliverect Insert/update Products and Categories
+      description: 'Insert/update Products The ''Source of Truth'' in terms of product data and structure is almost always sourced from an integrated POS system. When a POS successfully syncs products with
+        their unique identifiers (PLUs), these will be selected by the customer for inclusion in their menu(s). In turn, orders will be created with these same PLUs and injected into the POS '
+      operationId: insertUpdateProductsAndCategories
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - accountId
+              - locationId
+              - products
+              - categories
+              properties:
+                accountId:
+                  type: string
+                  description: The customer account ID in Deliverect
+                  example: 5b71c6489f00290d4
+                locationId:
+                  type: string
+                  example: 5cecc6489f0001b8
+                products:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                        example: Deliverect's Pizza Place
+                      plu:
+                        type: string
+                        example: PIE1
+                      price:
+                        type: integer
+                        format: int32
+                        example: 1250
+                      description:
+                        type: string
+                        example: No salad
+                      productType:
+                        type: integer
+                        format: int32
+                        example: 1
+                      gtin:
+                        type: array
+                        description: GTIN (Global Trade Item Number) for product, which could be EAN code
+                        default: []
+                        items:
+                          type: string
+                          example: string
+                      isVariant:
+                        type: boolean
+                        example: true
+                      isCombo:
+                        type: boolean
+                        example: true
+                      deliveryTax:
+                        type: integer
+                        format: int32
+                        example: 1
+                      takeawayTax:
+                        type: integer
+                        format: int32
+                        example: 1
+                      eatInTax:
+                        type: integer
+                        format: int32
+                        example: 1
+                      priceLevels:
+                        type: object
+                        properties:
+                          TA:
+                            type: integer
+                            format: int32
+                            example: 1
+                          DL:
+                            type: integer
+                            format: int32
+                            example: 1
+                          UE:
+                            type: integer
+                            format: int32
+                            example: 1
+                      overloads:
+                        type: array
+                        items:
+                          properties:
+                            scopes:
+                              type: array
+                              default: []
+                              items:
+                                type: string
+                                example: string
+                            bundlePrice:
+                              type: integer
+                              format: int32
+                              example: 1250
+                            price:
+                              type: integer
+                              format: int32
+                              example: 1250
+                            name:
+                              type: string
+                              example: Deliverect's Pizza Place
+                          type: object
+                      posProductId:
+                        type: string
+                        example: 609a1b2c3d4e5f6a7b8c9d0e
+                      posCategoryIds:
+                        type: array
+                        default: []
+                        items:
+                          type: string
+                          example: string
+                      imageUrl:
+                        type: string
+                        example: https://example.com/path/abc123
+                      nameTranslations:
+                        type: object
+                        properties:
+                          en:
+                            type: string
+                            example: string
+                          es:
+                            type: string
+                            example: string
+                          fr:
+                            type: string
+                            example: string
+                          nl:
+                            type: string
+                            example: string
+                          ar:
+                            type: string
+                            example: string
+                          el:
+                            type: string
+                            example: string
+                      productTags:
+                        type: array
+                        default: []
+                        items:
+                          type: integer
+                          format: int32
+                          example: 1
+                      multiMax:
+                        type: integer
+                        description: sets the maximum quantity orderable of any one item in a group, can also set the maximum quantity of a product to be ordered in a basket
+                        format: int32
+                        example: 1
+                      defaultQuantity:
+                        type: integer
+                        description: 'applicable to modifiers (productType: 2) to ''pre-select'' an option'
+                        format: int32
+                        example: 1
+                      nutritionalInfo:
+                        type: object
+                        properties:
+                          fat:
+                            type: integer
+                            format: int32
+                            example: 1
+                          protein:
+                            type: integer
+                            format: int32
+                            example: 1
+                          sugar:
+                            type: integer
+                            format: int32
+                            example: 1
+                          addedSugar:
+                            type: integer
+                            format: int32
+                            example: 1
+                          saturatedFat:
+                            type: integer
+                            format: int32
+                            example: 1
+                          carbohydrates:
+                            type: integer
+                            format: int32
+                            example: 1
+                          salt:
+                            type: integer
+                            format: int32
+                            example: 1
+                          transFat:
+                            type: integer
+                            format: int32
+                            example: 1
+                          monoUnsaturatedFat:
+                            type: integer
+                            format: int32
+                            example: 1
+                          polyUnsaturatedFat:
+                            type: integer
+                            format: int32
+                            example: 1
+                          cholesterol:
+                            type: integer
+                            format: int32
+                            example: 1
+                          starch:
+                            type: integer
+                            format: int32
+                            example: 1
+                          sodium:
+                            type: integer
+                            format: int32
+                            example: 1
+                          fiber:
+                            type: integer
+                            format: int32
+                            example: 1
+                          vitaminC:
+                            type: integer
+                            format: int32
+                            example: 1
+                          calcium:
+                            type: integer
+                            format: int32
+                            example: 1
+                          magnesium:
+                            type: integer
+                            format: int32
+                            example: 1
+                          chloride:
+                            type: integer
+                            format: int32
+                            example: 1
+                          fluoride:
+                            type: integer
+                            format: int32
+                            example: 1
+                          potassium:
+                            type: integer
+                            format: int32
+                            example: 1
+                          polyols:
+                            type: integer
+                            format: int32
+                            example: 1
+                          servingSize:
+                            type: object
+                            properties:
+                              amount:
+                                type: integer
+                                format: int32
+                                example: 1250
+                              unitType:
+                                type: integer
+                                format: int32
+                                example: 1
+                              countUnitDescription:
+                                type: string
+                                example: No salad
+                          netQuantity:
+                            type: object
+                            properties:
+                              amount:
+                                type: integer
+                                format: int32
+                                example: 1250
+                              unitType:
+                                type: integer
+                                format: int32
+                                example: 1
+                              countUnitDescription:
+                                type: string
+                                example: No salad
+                      supplementalInfo:
+                        type: object
+                        properties:
+                          instructionsForUse:
+                            type: string
+                            example: string
+                          ingredients:
+                            type: array
+                            items:
+                              type: string
+                              example: string
+                          additives:
+                            type: array
+                            items:
+                              type: string
+                              example: string
+                          prepackaged:
+                            type: boolean
+                            example: true
+                          deposit:
+                            type: integer
+                            format: int32
+                            example: 1
+                      bottleDepositPrice:
+                        type: integer
+                        format: int32
+                        example: 1250
+                      visible:
+                        type: boolean
+                        example: true
+                      subProducts:
+                        type: array
+                        default: []
+                        items:
+                          type: string
+                          example: string
+                      kitchenName:
+                        type: string
+                        description: An optional additional name for the product that will be sent through with the order
+                        example: Deliverect's Pizza Place
+                    required:
+                    - name
+                    - plu
+                    - price
+                    - productType
+                    - deliveryTax
+                    type: object
+                categories:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                        default: Build your own Pizza
+                        example: Build your own Pizza
+                      posCategoryId:
+                        type: string
+                        default: PZ
+                        example: PZ
+                    type: object
+                priceLevels:
+                  type: array
+                  items:
+                    properties:
+                      name:
+                        type: string
+                        default: Takeaway
+                        example: Takeaway
+                      posId:
+                        type: string
+                        default: TA
+                        example: TA
+                    type: object
+              example:
+                accountId: 6**f578fa205bc3eca854***
+                locationId: 6**91e9273d6950b4b0a8***
+                products:
+                - productType: 1
+                  plu: STK-01
+                  price: 1500
+                  name: Delicious Steak Frites
+                  kitchenName: Steak
+                  posProductId: POS-ID-001
+                  posCategoryIds:
+                  - STK
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/steak-622862588c506f015be6018e.jpeg
+                  description: Delicious Steak Frites
+                  descriptionTranslations:
+                    es: Deliciosos Bistecs Fritos
+                    fr: Steak Frites Délicieux
+                    nl: Heerlijke Biefstuk Frites
+                    ar: شريحة لحم فريتس
+                    el: Νοστιμη χοιρινή παντσέτα με πατάτες
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  nameTranslations:
+                    en: Delicious Steak Frites
+                    es: Deliciosos Bistecs Fritos
+                    fr: Steak Frites Délicieux
+                    nl: Heerlijke Biefstuk Frites
+                    ar: شريحة لحم فريتس
+                    el: Νοστιμη χοιρινή παντσέτα με πατάτες
+                  eatInTax: 9000
+                  multiMax: 1
+                  nutritionalInfo:
+                    fat: 1
+                    sugar: 4
+                    saturatedFat: 1
+                    carbohydrates: 1
+                    protein: 1
+                    salt: 1
+                  subProducts:
+                  - AUTO-01
+                  - MOD-01
+                  - MOD-02
+                - productType: 3
+                  plu: MOD-01
+                  name: Cooking instructions
+                  posProductId: POS-ID-009
+                  posCategoryIds:
+                  - POS-CAT-001
+                  imageUrl: ''
+                  description: Cooking Instructions
+                  descriptionTranslations:
+                    es: Cocinado
+                    fr: Cuisson
+                    nl: Kook instructies
+                    ar: تعليمات الطبخ
+                    el: Οδηγίες μαγειρέματος
+                  deliveryTax: 6000
+                  takeawayTax: 6000
+                  nameTranslations:
+                    en: Cooking Instructions
+                    es: Cocinado
+                    fr: Cuisson
+                    nl: Kook instructies
+                    ar: تعليمات الطبخ
+                    el: Οδηγίες μαγειρέματος
+                  min: 1
+                  max: 1
+                  subProducts:
+                  - COOK-01
+                  - COOK-02
+                  - COOK-03
+                - productType: 3
+                  plu: MOD-02
+                  name: Add a side
+                  posProductId: POS-ID-014
+                  posCategoryIds: INTERNAL-POS-CAT-2
+                  imageUrl: https://www.stockvault.net/data/2009/07/20/109569/preview16.jpg
+                  description: Pizza made for cheese fanatics
+                  deliveryTax: 6000
+                  takeawayTax: 6000
+                  nameTranslations:
+                    en: Choose a side
+                    es: Elige tu acompañamiento
+                    fr: Choisissez votre garniture
+                    nl: Kies je bijgerecht
+                    ar: اختر طبقك الجانبي
+                    el: Διαλέξτε ακόμα
+                  subProducts:
+                  - SI-01
+                  - SI-02
+                  - SI-03
+                  min: 0
+                  max: 0
+                  multiMax: 3
+                - productType: 3
+                  plu: AUTO-01
+                  price: 900
+                  name: Garnishes
+                  posProductId: POS-ID-032
+                  imageUrl: ''
+                  description: ''
+                  deliveryTax: 6000
+                  takeawayTax: 6000
+                  min: 0
+                  max: 0
+                  autoApply:
+                  - plu: PR1
+                  - plu: PR2
+                  subProducts:
+                  - PR1
+                  - PR2
+                - productType: 2
+                  plu: PR1
+                  price: 0
+                  name: Parsley
+                  posProductId: PA_POS-0023
+                  posCategoryIds: ''
+                  imageUrl: ''
+                  description: ''
+                  deliveryTax: 0
+                  takeawayTax: 0
+                  defaultQuantity: 3
+                - productType: 2
+                  plu: PR2
+                  price: 0
+                  name: Melted Butter
+                  posProductId: PA_POS-0024
+                  posCategoryIds: ''
+                  imageUrl: ''
+                  description: ''
+                  deliveryTax: 0
+                  takeawayTax: 0
+                - productType: 2
+                  plu: COOK-01
+                  price: 0
+                  name: Rare
+                  posProductId: POS-ID-003
+                  posCategoryIds:
+                  - POS-CAT-001
+                  imageUrl: ''
+                  description: ''
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  nameTranslations:
+                    en: Rare
+                    es: Poco hecho
+                    fr: Saignant
+                    nl: Rood
+                    ar: غير ناضج جيدا
+                    el: Ωμό
+                - productType: 2
+                  plu: COOK-02
+                  price: 0
+                  name: Medium Rare
+                  posProductId: POS-ID-004
+                  posCategoryIds: INTERNAL-POS-CAT-2
+                  imageUrl: ''
+                  description: ''
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  nameTranslations:
+                    en: Medium Rare
+                    es: Al punto
+                    fr: À point
+                    nl: Half doorbakken
+                    ar: مُتَوَسِّط النُضْجِ
+                    el: Μισοψημένο
+                - productType: 2
+                  plu: COOK-03
+                  price: 0
+                  name: Well Done
+                  posProductId: POS-ID-005
+                  posCategoryIds: INTERNAL-POS-CAT-2
+                  imageUrl: ''
+                  description: ''
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  nameTranslations:
+                    en: Well done
+                    es: Muy hecho
+                    fr: Bien cuit
+                    nl: Doorbakken
+                    ar: مطبوخ جيدا
+                    el: καλοψημένο
+                - productType: 2
+                  plu: SI-01
+                  price: 0
+                  name: Fries
+                  posProductId: POS-ID-012
+                  posCategoryIds:
+                  - SD
+                  imageUrl: ''
+                  description: Fries
+                  descriptionTranslations:
+                    es: Patatas fritas
+                    fr: Frites
+                    nl: Frietjes
+                    ar: بطاطس مقلية
+                    ελ: Πατάτες
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  nameTranslations:
+                    en: Fries
+                    es: Patatas fritas
+                    fr: Frites
+                    nl: Frietjes
+                    ar: بطاطس مقلية
+                    ελ: Πατάτες
+                  eatInTax: 9000
+                  defaultQuantity: 1
+                - productType: 2
+                  plu: SI-02
+                  price: 200
+                  name: Salad
+                  kitchenName: ''
+                  posProductId: POS-ID-013
+                  posCategoryIds:
+                  - SD
+                  imageUrl: ''
+                  description: Salad
+                  descriptionTranslations:
+                    es: Ensalada
+                    fr: Salade
+                    nl: Salade
+                    ar: سلطة
+                    ελ: Σαλάτα
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  nameTranslations:
+                    en: Salad
+                    es: Ensalada
+                    fr: Salade
+                    nl: Salade
+                    ar: سلطة
+                    ελ: Σαλάτα
+                  eatInTax: 9000
+                - productType: 2
+                  plu: SI-03
+                  price: 100
+                  name: Mashed Potato
+                  kitchenName: Mash
+                  posProductId: POS-ID-014
+                  posCategoryIds:
+                  - SD
+                  imageUrl: ''
+                  description: Mashed Potato
+                  descriptionTranslations:
+                    es: Puré de patata
+                    fr: Purée de pommes de terre
+                    nl: Aardappelpuree
+                    ar: البطاطا المهروسة
+                    el: Πουρές πατάτας
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  nameTranslations:
+                    en: Mashed Potato
+                    es: Puré de patata
+                    fr: Purée de pommes de terre
+                    nl: Aardappelpuree
+                    ar: البطاطا المهروسة
+                    el: Πουρές πατάτας
+                  eatInTax: 9000
+                categories:
+                - name: Steaks
+                  posCategoryId: STK
+                - name: Sides
+                  posCategoryId: SD
+            examples:
+              Sample:
+                summary: Sample
+                value:
+                  accountId: '{{accountId}'
+                  locationId: '{{locationId}}'
+                  products:
+                  - name: Chicken Sate
+                    description: Product with Nested Modifiers - Multimax variables - Allergens (tags)
+                    productType: 1
+                    plu: P-SATE
+                    price: 450
+                    posProductId: POS-ID-009
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - CHK
+                    productTags:
+                    - 104
+                    - 108
+                    - 109
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/satay-62284e3c8c506f015be60184.jpeg
+                    subProducts:
+                    - MG-RICE
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Burger Combo (Drink not Included)
+                    description: Combo with Bundles - Modifier Groups as Upsell
+                    productType: 1
+                    isCombo: true
+                    plu: P-BRGR
+                    price: 950
+                    posProductId: POS-ID-0001
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - STK
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/burger-62286be78c506f015be60190.jpeg
+                    subProducts:
+                    - BNDL-BRG
+                    - UPSLL-01
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    sortOrder: 0
+                  - name: Chicken Tenders
+                    description: Variant prices for different sizes will show cheapaest on top level product
+                    productType: 1
+                    isVariant: true
+                    plu: VAR-PROD-1
+                    price: 0
+                    posProductId: POS-ID-057
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - CHK
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/chicken-62285f90db5986001ebf58d5.jpg
+                    subProducts:
+                    - MG-VAR-1
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Delicious Steak Frites
+                    description: Basic Example Product with - Modifier groups - min/max variables - default selection - translations
+                    nameTranslations:
+                      nl: Heerlijke Biefstuk Frites
+                      ar: شريحة لحم فريتس
+                      es: Deliciosos Bistecs Fritos
+                      en: Delicious Steak Frites
+                      fr: Steak Frites Délicieux
+                      el: Νοστιμη χοιρινή παντσέτα με πατάτες
+                    descriptionTranslations:
+                      fr: Steak Frites Délicieux
+                      nl: Heerlijke Biefstuk Frites
+                      ar: شريحة لحم فريتس
+                      el: Νοστιμη χοιρινή παντσέτα με πατάτες
+                      es: Deliciosos Bistecs Fritos
+                    productType: 1
+                    plu: STK-01
+                    price: 1500
+                    posProductId: POS-ID-001
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - STK
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/steak-622862588c506f015be6018e.jpeg
+                    multiMax: 1
+                    subProducts:
+                    - MOD-01
+                    - MOD-02
+                    - AUTO-01
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    kitchenName: Steak
+                    nutritionalInfo:
+                      fat: 1
+                      sugar: 4
+                      saturatedFat: 1
+                      carbohydrates: 1
+                      protein: 1
+                      salt: 1
+                  - name: Build a Poke Bowl
+                    description: Select a size then choose your ingredients
+                    productType: 1
+                    isCombo: true
+                    plu: P-PB-01
+                    price: 1000
+                    posProductId: POS-ID-032
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - POKB
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/poke-622850c8b303fc03a148de44.jpg
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - POKE-SZ
+                    - BNDL-01
+                    - BNDL-02
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Build your own Pizza
+                    description: Build your own pizza, first topping is free!
+                    productType: 1
+                    plu: PIZZ-00
+                    price: 800
+                    posProductId: POS-ID-0001
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - PZ
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/pizza-6228525eb303fc03a148de46.jpeg
+                    min: 0
+                    max: 5
+                    maxFree: 1
+                    subProducts:
+                    - FREE-TOP
+                    - PIZZ-TOP
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Pineapple
+                    description: ''
+                    productType: 2
+                    plu: Pine
+                    price: 0
+                    posProductId: POS-ID-056
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    overloads:
+                    - scopes:
+                      - FREE-TOP
+                      price: 0
+                    - scopes:
+                      - PIZZ-TOP
+                      price: 100
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: The Hawaiian
+                    description: Italys favourite Pizza!
+                    productType: 1
+                    plu: PIZZ-01
+                    price: 800
+                    posProductId: POS-ID-0001
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - PZ
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/hawaiian-622855c7b303fc03a148de48.jpeg
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    priceLevels:
+                      DL: 900
+                      TA: 825
+                      1PO: 850
+                  - name: Select your Burger
+                    description: Make the selection
+                    productType: 3
+                    plu: BNDL-1
+                    posProductId: POS-ID-021
+                    posProductCategoryId: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - DLX-1
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Onions
+                    productType: 2
+                    plu: ONI
+                    price: 0
+                    posProductId: POS-ID-00031
+                    defaultQuantity: 1
+                  - name: Tomato
+                    productType: 2
+                    plu: TOM
+                    price: 0
+                    defaultQuantity: 1
+                  - name: Fries Selection
+                    description: ''
+                    productType: 3
+                    isVariantGroup: true
+                    plu: MG-FRS
+                    posProductId: POS-ID-021
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - P-FRS-S
+                    - P-FRS-M
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    sortOrder: 2
+                  - name: French Fries
+                    description: Plain fries from France
+                    productType: 1
+                    plu: P-FRS-S
+                    price: 200
+                    posProductId: POS-ID-0002
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - SD
+                    imageUrl: https://res.cloudinary.com/dyjxkus2h/image/upload/v1774957023/u9rr1srf6q6mapnsbg3k.jpg
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Curly Fries
+                    description: Spiralised potatoes, fried
+                    productType: 1
+                    plu: P-FRS-M
+                    price: 200
+                    posProductId: POS-ID-024
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - SD
+                    imageUrl: https://res.cloudinary.com/dyjxkus2h/image/upload/v1774956887/eljk574rb3mwagajyrau.jpg
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Add a Drink?
+                    description: ''
+                    productType: 3
+                    plu: UPSLL-01
+                    posProductId: POS-ID-0002
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    multiMax: 0
+                    overloads:
+                    - scopes:
+                      - P-BRGR
+                      name: Add a Drink? (not included)
+                    subProducts:
+                    - DRNK-01
+                    - DRNK-03
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    isUpsell: true
+                  - name: Coca Cola
+                    description: Cola flavoured sugar and caffeine.
+                    productType: 1
+                    plu: DRNK-01
+                    price: 400
+                    posProductId: POS-ID-0003
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - DRK
+                    productTags:
+                    - 10
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/cocacola-622854a78c506f015be6018a.jpeg
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    gtin:
+                    - 00049000012590
+                    - '8901764012273'
+                    - '5310006000009'
+                  - name: Ginger Beer
+                    description: Made with the finest, locally grown ginger and sugarcane
+                    productType: 1
+                    plu: DRNK-03
+                    price: 400
+                    posProductId: POS-ID-0005
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - DRK
+                    productTags:
+                    - 10
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/gingerbeer-62285548db5986001ebf58d1.jpg
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    bottleDepositPrice: 100
+                    priceLevels:
+                      TA: 350
+                      EI: 280
+                      DE: 380
+                    gtin:
+                    - '8712345000103'
+                    - '74993001078'
+                    beverageInfo:
+                      caffeine: 13
+                      alcohol: 3
+                    supplementalInfo:
+                      instructionsForUse: Cool before drink.
+                      ingredients:
+                      - Water
+                      - Sugar
+                      additives:
+                      - Artificial Food Coloring
+                      - Sodium Nitrite
+                      - Salt
+                      - Aspartame
+                      prepackaged: true
+                      deposit: 0
+                    calories: 500
+                    packaging:
+                      count: 1
+                      reusable: true
+                      storageInstructions: Keep cool
+                    caloriesRangeHigh: 750
+                    nutritionalInfo:
+                      fat: 2
+                      sugar: 2
+                      saturatedFat: 1.5
+                      carbohydrates: 1.5
+                      protein: 2
+                      salt: 2
+                      servingSize:
+                        amount: 3
+                        unitType: 3
+                        countUnitDescription: g
+                      netQuantity:
+                        amount: 12
+                        unitType: 1
+                        countUnitDescription: g
+                  - name: Rice Selection
+                    description: ''
+                    productType: 3
+                    plu: MG-RICE
+                    posProductId: POS-ID-010
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    multiMax: 99
+                    subProducts:
+                    - RICE-01
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: White Rice
+                    description: White coloured rice
+                    productType: 1
+                    plu: RICE-01
+                    price: 450
+                    posProductId: POS-ID-012
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - SD
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/nasiputi-1610290140494.jpg
+                    min: 0
+                    max: 0
+                    subProducts:
+                    - MG-SAUCES
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Choose a sauce
+                    description: ''
+                    productType: 3
+                    plu: MG-SAUCES
+                    posProductId: POS-ID-016
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - SAUCE-01
+                    - SAUCE-02
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Sate Sauce
+                    description: ''
+                    productType: 2
+                    plu: SAUCE-01
+                    price: 50
+                    posProductId: POS-ID-017
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    defaultQuantity: 1
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Hot Sauce
+                    description: ''
+                    productType: 2
+                    plu: SAUCE-02
+                    price: 50
+                    posProductId: POS-ID-018
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Burger Selection
+                    description: ''
+                    productType: 4
+                    plu: BNDL-BRG
+                    posProductId: POS-ID-020
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - P-BURG-CHK
+                    - P-BURG-CHE
+                    - P-BURG-VEG
+                    - DLX-1
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    sortOrder: 1
+                  - name: Chicken Burger
+                    description: Crispy coated chicken thigh, iceberg lettuce, pickles, slice of cheese & mayo, all in a toasted brioche bun.
+                    productType: 1
+                    isVariant: true
+                    plu: P-BURG-CHK
+                    price: 800
+                    posProductId: POS-ID-026
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - STK
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/chkburger-6228c1dcdb5986001ebf58df.jpeg
+                    min: 0
+                    max: 0
+                    autoApply:
+                    - plu: TOM
+                    - plu: ONI
+                    subProducts:
+                    - MG-FRS
+                    - UPSLL-01
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Cheeseburger
+                    description: 100% beef patty, cheddar, caramelized onions, mayonnaise, pickles in a Pretzel bun
+                    productType: 1
+                    isVariant: false
+                    plu: P-BURG-CHE
+                    price: 850
+                    posProductId: POS-ID-027
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - STK
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/cheeseburger-62286e26db5986001ebf58d7.jpg
+                    min: 0
+                    max: 0
+                    subProducts:
+                    - MG-FRS
+                    - UPSLL-01
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    supplementalInfo:
+                      prepackaged: true
+                      additives:
+                      - COLORANT_UNSPECIFIED
+                      - COLORANT_ADVERSE_EFFECT
+                      - UNSPECIFIED
+                      - PRESERVATIVES_UNSPECIFIED
+                      - PRESERVATIVES_NITRITE_CURING_SALT
+                      - PRESERVATIVES_NITRATE
+                      - PRESERVATIVES_NITRATE_CURING_SALT_AND_NITRATE
+                      - ANTIOXIDANT
+                      - FLAVOURE_ENHANCER
+                      - SULFITES
+                      - BLACKENED
+                      - WAXED
+                      - PHOSPHATE
+                      - SWEETENER_UNSPECIFIED
+                      - SWEETENER_PHENYLALANINE
+                      - SWEETENER_LAXATIVE
+                      - CAFFEINE_UNSPECIFIED
+                      - CAFFEINE_HIGH_CAFFEINE
+                      - CAFFEINE_CAFFEINE
+                      - QUININE
+                      - GENETICALLY_MODIFIED
+                      - ACIDIFIERS
+                      - STABILISERS
+                      - PROTEIN_UNSPECIFIED
+                      - PROTEIN_MILK_PROTEIN
+                      - PROTEIN_STARCH
+                      - PROTEIN_EGG_WHITE
+                      deposit: 1
+                      ingredients:
+                      - Water
+                      - Sugar
+                      instructionsForUse: ''
+                      legalName: ''
+                      fbo:
+                        name: ''
+                        address: ''
+                        brand: ''
+                        countryOfOrigin: ''
+                    beverageInfo:
+                      caffeine: 1
+                      alcohol: 1
+                    calories: 200
+                    packaging:
+                      count: 1
+                      reusable: true
+                      storageInstructions: ''
+                    caloriesRangeHigh: 300
+                    nutritionalInfo:
+                      netQuantity:
+                        amount: 2
+                        countUnitDescription: gram
+                        unitType: 1
+                      servingSize:
+                        amount: 2
+                        countUnitDescription: gram
+                        unitType: 1
+                      fat: 1
+                      sugar: 1
+                      saturatedFat: 1
+                      carbohydrates: 1
+                      protein: 1
+                      salt: 1
+                      monoUnsaturatedFat: 1
+                      polyUnsaturatedFat: 1
+                      starch: 1
+                      sodium: 1
+                      fiber: 1
+                      vitaminC: 1
+                      calcium: 1
+                      magnesium: 1
+                      chloride: 1
+                      fluoride: 1
+                      potassium: 1
+                      polyols: 1
+                  - name: Veggie Burger
+                    description: Black bean burgers with sweet potato, mushrooms, quinoa, and pecans.
+                    productType: 1
+                    plu: P-BURG-VEG
+                    price: 750
+                    posProductId: POS-ID-028
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - STK
+                    productTags:
+                    - 5
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/veggieburger-62286cbac715b403b0eb7294.jpeg
+                    min: 0
+                    max: 0
+                    subProducts:
+                    - MG-FRS
+                    - UPSLL-01
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: How many pieces?
+                    description: ''
+                    productType: 3
+                    isVariantGroup: true
+                    plu: MG-VAR-1
+                    posProductId: POS-ID-058
+                    posProductCategoryId: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - VAR-1
+                    - VAR-2
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: 3 Pieces
+                    description: ''
+                    productType: 1
+                    plu: VAR-1
+                    price: 800
+                    posProductId: POS-ID-059
+                    posProductCategoryId: ''
+                    imageUrl: https://resizer.staging.deliverect.com/xjen-2xRW9YzpXuWWG0brT-rs9z4W41LGVS36PELDzw/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1zdGFnaW5nL2ltYWdlcy82NmIzNTJlZjBjZDU3OTkyMTU0M2IzODAvMy1waWVjZS1jaGlja2VuLXRlbmRlcnMtNjcyMGYxNTRmMTgxNTI2ZjIzZTI3MGQ2LmpwZw==.jpg
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    posValues:
+                      eatInTax: 9000
+                  - name: 6 Pieces
+                    description: ''
+                    productType: 1
+                    plu: VAR-2
+                    price: 1100
+                    posProductId: POS-ID-060
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Cooking instructions
+                    description: Cooking Instructions
+                    nameTranslations:
+                      nl: Kook instructies
+                      ar: تعليمات الطبخ
+                      es: Cocinado
+                      en: Cooking Instructions
+                      fr: Cuisson
+                      el: Οδηγίες μαγειρέματος
+                    descriptionTranslations:
+                      fr: Cuisson
+                      nl: Kook instructies
+                      ar: تعليمات الطبخ
+                      el: Οδηγίες μαγειρέματος
+                      es: Cocinado
+                    productType: 3
+                    plu: MOD-01
+                    posProductId: POS-ID-002
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - POS-CAT-001
+                    imageUrl: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - COOK-01
+                    - COOK-02
+                    - COOK-03
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Rare
+                    description: ''
+                    nameTranslations:
+                      nl: Rood
+                      ar: غير ناضج جيدا
+                      es: Poco hecho
+                      en: Rare
+                      fr: Saignant
+                      el: Ωμό
+                    productType: 2
+                    plu: COOK-01
+                    price: 0
+                    posProductId: POS-ID-004
+                    posProductCategoryId: ''
+                    posCategoryIds:
+                    - POS-CAT-001
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Medium Rare
+                    description: ''
+                    nameTranslations:
+                      en: Medium Rare
+                      es: Al punto
+                      fr: À point
+                      nl: Half doorbakken
+                      ar: مُتَوَسِّط النُضْجِ
+                      el: Μισοψημένο
+                    productType: 2
+                    plu: COOK-02
+                    price: 0
+                    posProductId: POS-ID-005
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Well Done
+                    description: ''
+                    nameTranslations:
+                      en: Well done
+                      es: Muy hecho
+                      fr: Bien cuit
+                      nl: Doorbakken
+                      ar: مطبوخ جيدا
+                      el: καλοψημένο
+                    productType: 2
+                    plu: COOK-03
+                    price: 0
+                    posProductId: POS-ID-006
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Add a side
+                    description: ''
+                    nameTranslations:
+                      nl: Kies je bijgerecht
+                      ar: اختر طبقك الجانبي
+                      es: Elige tu acompañamiento
+                      en: Choose a side
+                      fr: Choisissez votre garniture
+                      el: Διαλέξτε ακόμα
+                    productType: 3
+                    plu: MOD-02
+                    posProductId: POS-ID-003
+                    posProductCategoryId: ''
+                    posCategoryIds: INTERNAL-POS-CAT-2
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/pizza-6228525eb303fc03a148de46.jpeg
+                    min: 1
+                    max: 0
+                    multiMax: 3
+                    subProducts:
+                    - SI-01
+                    - SI-02
+                    - SI-03
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Fries
+                    description: Fries
+                    nameTranslations:
+                      nl: Frietjes
+                      ar: بطاطس مقلية
+                      es: Patatas fritas
+                      en: Fries
+                      fr: Frites
+                      ελ: Πατάτες
+                    descriptionTranslations:
+                      nl: Frietjes
+                      ar: بطاطس مقلية
+                      es: Patatas fritas
+                      fr: Frites
+                      ελ: Πατάτες
+                    productType: 2
+                    plu: SI-01
+                    price: 0
+                    posProductId: POS-ID-006
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    defaultQuantity: 1
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Salad
+                    description: Salad
+                    nameTranslations:
+                      nl: Salade
+                      ar: سلطة
+                      es: Ensalada
+                      en: Salad
+                      fr: Salade
+                      ελ: Σαλάτα
+                    descriptionTranslations:
+                      nl: Salade
+                      ar: سلطة
+                      es: Ensalada
+                      fr: Salade
+                      ελ: Σαλάτα
+                    productType: 2
+                    plu: SI-02
+                    price: 200
+                    posProductId: POS-ID-007
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    kitchenName: ''
+                  - name: Mashed Potato
+                    description: Mashed Potato
+                    nameTranslations:
+                      nl: Aardappelpuree
+                      ar: البطاطا المهروسة
+                      es: Puré de patata
+                      en: Mashed Potato
+                      fr: Purée de pommes de terre
+                      el: Πουρές πατάτας
+                    descriptionTranslations:
+                      nl: Aardappelpuree
+                      ar: البطاطا المهروسة
+                      es: Puré de patata
+                      fr: Purée de pommes de terre
+                      el: Πουρές πατάτας
+                    productType: 2
+                    plu: SI-03
+                    price: 100
+                    posProductId: POS-ID-008
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    kitchenName: Mash
+                  - name: Garnishes
+                    description: ''
+                    productType: 3
+                    plu: AUTO-01
+                    price: 900
+                    posProductId: POS-ID-032
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    autoApply:
+                    - plu: PR1
+                    - plu: PR2
+                    subProducts:
+                    - PR1
+                    - PR2
+                    deliveryTax: 6000
+                    takeawayTax: 6000
+                  - name: Parsley
+                    description: ''
+                    productType: 2
+                    plu: PR1
+                    price: 0
+                    posProductId: PA_POS-0023
+                    posCategoryIds: ''
+                    imageUrl: ''
+                    defaultQuantity: 3
+                    deliveryTax: 0
+                    takeawayTax: 0
+                  - name: Melted Butter
+                    description: ''
+                    productType: 2
+                    plu: PR2
+                    price: 0
+                    posProductId: PA_POS-0024
+                    posCategoryIds: ''
+                    imageUrl: ''
+                    deliveryTax: 0
+                    takeawayTax: 0
+                  - name: Choose your size
+                    description: ''
+                    productType: 3
+                    plu: POKE-SZ
+                    posProductId: POS-ID-0012
+                    posProductCategoryId: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - SZ-01
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Mini Poke Bowl
+                    description: A little bowl of Poke
+                    productType: 1
+                    plu: SZ-01
+                    price: 800
+                    posProductId: POS-ID-034
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    subProducts:
+                    - BNDL-01-SML
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Choose Your Protein
+                    description: ''
+                    productType: 4
+                    plu: BNDL-01-SML
+                    price: 0
+                    posProductId: POS-ID-037
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - PRT-01
+                    - PRT-02
+                    deliveryTax: 6000
+                    takeawayTax: 6000
+                  - name: Yuzu Salmon
+                    description: ''
+                    productType: 1
+                    plu: PRT-01
+                    price: 0
+                    posProductId: POS-ID-042
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    overloads:
+                    - scopes:
+                      - BNDL-01-SML
+                      bundlePrice: 180
+                    - scopes:
+                      - BNDL-LG
+                      bundlePrice: 250
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Spicy Tuna
+                    description: ''
+                    productType: 1
+                    plu: PRT-02
+                    price: 0
+                    posProductId: POS-ID-043
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Choose Your Base
+                    description: ''
+                    productType: 4
+                    plu: BNDL-01
+                    posProductId: POS-ID-036
+                    posProductCategoryId: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - BS-01
+                    - BS-02
+                    deliveryTax: 6000
+                    takeawayTax: 6000
+                  - name: Sushi Rice
+                    description: ''
+                    productType: 1
+                    plu: BS-01
+                    price: 0
+                    posProductId: POS-ID-040
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Cruncy Cabbage Slaw
+                    description: ''
+                    productType: 1
+                    plu: BS-02
+                    price: 0
+                    posProductId: POS-ID-041
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Add Extras
+                    description: ''
+                    productType: 3
+                    plu: BNDL-02
+                    posProductId: POS-ID-039
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 3
+                    multiMax: 3
+                    subProducts:
+                    - XTRA-TOF
+                    - PRT-03
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                    isUpsell: true
+                  - name: Spicy Tofu
+                    description: ''
+                    productType: 1
+                    plu: XTRA-TOF
+                    price: 0
+                    posProductId: POS-ID-045
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Teriyaki Chicken
+                    description: ''
+                    productType: 1
+                    plu: PRT-03
+                    price: 0
+                    posProductId: POS-ID-044
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Choose your First Topping
+                    description: ''
+                    productType: 3
+                    plu: FREE-TOP
+                    posProductId: POS-ID-049
+                    posProductCategoryId: ''
+                    min: 1
+                    max: 1
+                    subProducts:
+                    - PEPP
+                    - MUSH
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Pepperoni
+                    description: ''
+                    productType: 2
+                    plu: PEPP
+                    price: 0
+                    posProductId: POS-ID-051
+                    posProductCategoryId: ''
+                    imageUrl: ''
+                    min: 0
+                    max: 0
+                    overloads:
+                    - scopes:
+                      - FREE-TOP
+                      price: 0
+                    - scopes:
+                      - PIZZ-TOP
+                      price: 100
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Mushroom
+                    description: ''
+                    productType: 2
+                    plu: MUSH
+                    price: 0
+                    posProductId: POS-ID-053
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    overloads:
+                    - scopes:
+                      - FREE-TOP
+                      price: 0
+                    - scopes:
+                      - PIZZ-TOP
+                      price: 100
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  - name: Add extra toppings
+                    description: ''
+                    productType: 3
+                    plu: PIZZ-TOP
+                    posProductId: POS-ID-050
+                    posProductCategoryId: ''
+                    min: 0
+                    max: 0
+                    multiMax: 10
+                    subProducts:
+                    - PEPP
+                    - MUSH
+                    deliveryTax: 9000
+                    takeawayTax: 9000
+                    eatInTax: 9000
+                  categories:
+                  - posCategoryId: STK
+                    description: ''
+                    name: Steak & Burgers
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/618a2c5306a6208df4e9d061/Steaks%20and%20Burgers-6772a08c467817883c7ae27d.jpg
+                  - posCategoryId: CHK
+                    description: ''
+                    name: Chicken
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/618a2c5306a6208df4e9d061/Chicken-6772a111d6ff7c6facadf7ea.jpeg
+                  - posCategoryId: PZ
+                    description: ''
+                    name: Pizzas
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/618a2c5306a6208df4e9d061/Pizza-6772a0fb8d35e1e63aa25a53.jpg
+                  - posCategoryId: POKB
+                    description: ''
+                    name: Poke Bowls
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/618a2c5306a6208df4e9d061/Poke%20Bowls-6772a0e28d35e1e63aa25a50.jpg
+                  - posCategoryId: SD
+                    description: ''
+                    name: Side Dishes
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/618a2c5306a6208df4e9d061/Sides-6772a0ade9c10b3d77b489a4.jpg
+                  - posCategoryId: DRK
+                    description: ''
+                    name: Drinks
+                    imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/618a2c5306a6208df4e9d061/Drinks-6772a0cd6448d47caa95c689.jpg
+                  priceLevels:
+                  - name: Takeaway
+                    posId: TA
+                  - name: Delivery
+                    posId: DL
+                  - name: FirstParty
+                    posId: 1PO
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  products:
+                    type: object
+                    properties:
+                      inserted:
+                        type: integer
+                        example: 1
+                        default: 0
+                      updated:
+                        type: integer
+                        example: 0
+                        default: 0
+                      deleted:
+                        type: integer
+                        example: 0
+                        default: 0
+                      ignored:
+                        type: integer
+                        example: 0
+                        default: 0
+                  modifiers:
+                    type: object
+                    properties:
+                      inserted:
+                        type: integer
+                        example: 6
+                        default: 0
+                      updated:
+                        type: integer
+                        example: 0
+                        default: 0
+                      deleted:
+                        type: integer
+                        example: 0
+                        default: 0
+                      ignored:
+                        type: integer
+                        example: 0
+                        default: 0
+                  modifierGroups:
+                    type: object
+                    properties:
+                      inserted:
+                        type: integer
+                        example: 2
+                        default: 0
+                      updated:
+                        type: integer
+                        example: 0
+                        default: 0
+                      deleted:
+                        type: integer
+                        example: 0
+                        default: 0
+                      ignored:
+                        type: integer
+                        example: 0
+                        default: 0
+                  bundles:
+                    type: object
+                    properties:
+                      inserted:
+                        type: integer
+                        example: 0
+                        default: 0
+                      updated:
+                        type: integer
+                        example: 0
+                        default: 0
+                      deleted:
+                        type: integer
+                        example: 0
+                        default: 0
+                      ignored:
+                        type: integer
+                        example: 0
+                        default: 0
+                  priceLevels:
+                    type: integer
+                    example: 0
+                    default: 0
+                  warnings:
+                    type: integer
+                    example: 0
+                    default: 0
+                  errors:
+                    type: integer
+                    example: 0
+                    default: 0
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    products:
+                      inserted: 1
+                      updated: 0
+                      deleted: 0
+                      ignored: 0
+                    modifiers:
+                      inserted: 6
+                      updated: 0
+                      deleted: 0
+                      ignored: 0
+                    modifierGroups:
+                      inserted: 2
+                      updated: 0
+                      deleted: 0
+                      ignored: 0
+                    bundles:
+                      inserted: 0
+                      updated: 0
+                      deleted: 0
+                      ignored: 0
+                    priceLevels: 0
+                    warnings: 0
+                    errors: 0
+        '403':
+          description: '403'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: Authorization error
+                  description:
+                    type: string
+                    example: Not allowed access to this account.
+                example: "{\n    \"code\": \"Authorization error\",\n    \"description\": \"Not allowed access to this account.\"\n}"
+              examples:
+                Forbidden:
+                  summary: Forbidden
+                  value:
+                    code: Authorization error
+                    description: Not allowed access to this account.
+        '404':
+          description: '404'
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - type: object
+                  properties:
+                    error:
+                      type: string
+                      example: Account 5b****71c6489f0029****d4 not found
+                - type: object
+                  properties:
+                    error:
+                      type: string
+                      example: Location 5c****ecc6489f0001****b8 not found
+                example: "{\n    \"error\": \"Location 5c****ecc6489f0001****b8 not found\"\n}"
+              examples:
+                Not Found:
+                  summary: Not Found
+                  value:
+                    error: Location 5c****ecc6489f0001****b8 not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /product_sync_callback:
+    post:
+      summary: Deliverect Asynchronous Insert / Update Products
+      description: The webhook will be delivered to a specified endpoint, and the response will include the **`operationReportId`** and the summary of products synced as per below example.
+      operationId: pos_api_product_sync_callback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                operationReportId:
+                  type: string
+                  example: 507f****************9011
+                products:
+                  type: object
+                  properties:
+                    inserted:
+                      type: integer
+                      example: 1
+                    updated:
+                      type: integer
+                      example: 0
+                    deleted:
+                      type: integer
+                      example: 0
+                    ignored:
+                      type: integer
+                      example: 0
+                modifiers:
+                  type: object
+                  properties:
+                    inserted:
+                      type: integer
+                      example: 6
+                    updated:
+                      type: integer
+                      example: 0
+                    deleted:
+                      type: integer
+                      example: 0
+                    ignored:
+                      type: integer
+                      example: 0
+                modifierGroups:
+                  type: object
+                  properties:
+                    inserted:
+                      type: integer
+                      example: 2
+                    updated:
+                      type: integer
+                      example: 0
+                    deleted:
+                      type: integer
+                      example: 0
+                    ignored:
+                      type: integer
+                      example: 0
+                bundles:
+                  type: object
+                  properties:
+                    inserted:
+                      type: integer
+                      example: 0
+                    updated:
+                      type: integer
+                      example: 0
+                    deleted:
+                      type: integer
+                      example: 0
+                    ignored:
+                      type: integer
+                      example: 0
+                priceLevels:
+                  type: integer
+                  example: 0
+                warnings:
+                  type: integer
+                  example: 0
+                errors:
+                  type: integer
+                  example: 0
+            examples:
+              pos_api_product_sync_callback_request:
+                summary: Default pos_api_product_sync_callback request
+                x-microcks-default: true
+                value:
+                  operationReportId: 507f****************9011
+                  products:
+                    inserted: 1
+                    updated: 0
+                    deleted: 0
+                    ignored: 0
+                  modifiers:
+                    inserted: 6
+                    updated: 0
+                    deleted: 0
+                    ignored: 0
+                  modifierGroups:
+                    inserted: 2
+                    updated: 0
+                    deleted: 0
+                    ignored: 0
+                  bundles:
+                    inserted: 0
+                    updated: 0
+                    deleted: 0
+                    ignored: 0
+                  priceLevels: 0
+                  warnings: 0
+                  errors: 0
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /catalog/accounts/{accountId}/inventoryUploadUrl:
+    post:
+      summary: Deliverect Inventory Update
+      description: To support changes to item availability, Deliverect can receive an inventory file.
+      operationId: inventory_update
+      parameters:
+      - name: accountId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      - name: X-Deliverect-Version
+        in: header
+        schema:
+          type: string
+          default: retail
+        required: true
+        description: The X-Deliverect-Version value.
+        example: retail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                callbackUrl:
+                  type: string
+                  description: Will be used to notify you when the inventory file has been processed.
+                  example: https://example.com/path/abc123
+            examples:
+              Request Example:
+                value:
+                  callbackUrl: https://example.com/inventoryCallback
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"fileId\": \"4e*********************************c1\",\n    \"signedUrl\": \"https://storage.googleapis.com/...\",\n    \"headers\": {\n        \"x-goog-meta-user\": \"\
+                    61********************b4\",\n        \"x-goog-meta-callback\": \"https://example.com/inventoryCallback\",\n        \"content-type\": \"text/csv\",\n        \"Host\": \"storage.googleapis.com\"\
+                    \n    }\n}"
+              schema:
+                type: object
+                properties:
+                  fileId:
+                    type: string
+                    example: 4e*********************************c1
+                  signedUrl:
+                    type: string
+                    example: https://storage.googleapis.com/...
+                  headers:
+                    type: object
+                    properties:
+                      x-goog-meta-user:
+                        type: string
+                        example: 61********************b4
+                      x-goog-meta-callback:
+                        type: string
+                        example: https://example.com/inventoryCallback
+                      content-type:
+                        type: string
+                        example: text/csv
+                      Host:
+                        type: string
+                        example: storage.googleapis.com
+        '400':
+          description: '400'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+      x-readme:
+        code-samples:
+        - language: python
+          name: Python
+          code: 'import requests
+
+
+            url = "https://api.staging.deliverect.io/catalog/accounts/{accountId}/inventoryUploadUrl"
+
+
+            payload = {''callbackUrl'': ''https://example.com/inventoryCallback''}
+
+            headers = {''Authorization'': ''Bearer {TOKEN}''}
+
+
+            response = requests.post(url, headers=headers, json=payload)
+
+
+            print(response.text)'
+        samples-languages:
+        - python
+      tags:
+      - Inventory
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /orderStatus/{orderId}:
+    post:
+      description: Deliverect Post_orderstatus_orderid
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    result: OK
+                Status Updated + Pickup time changed:
+                  summary: Status Updated + Pickup time changed
+                  value:
+                    result: OK
+                    pickupTime: '2023-02-09T13:00:38.006000Z'
+                    deliveryTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      parameters:
+      - in: path
+        name: orderId
+        schema:
+          type: string
+        required: true
+        description: The orderId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - orderId
+              - receiptId
+              - status
+              properties:
+                orderId:
+                  type: string
+                  description: The original _id that was sent to the POS order webhook
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                receiptId:
+                  type: string
+                  description: Internal ID assigned by the POS, typically in a human-readable format for printed receipts.
+                  example: 609a1b2c3d4e5f6a7b8c9d0e
+                status:
+                  type: integer
+                  description: Status to update
+                  example: 20
+                pickupTime:
+                  type: string
+                  format: date-time
+                  description: Updated pickupTime is in UTC yyyy-MM-ddTHH:mm:ssZ
+                  example: '2026-03-15T14:30:00Z'
+                reason:
+                  type: string
+                  description: Reason for a status change e.g. 'ITEM OUT OF STOCK'
+                  example: string
+                timeStamp:
+                  type: string
+                  format: date-time
+                  description: Timestamp when the status was applied
+                  example: '2026-03-15T14:30:00Z'
+            examples:
+              Failed Order:
+                summary: Failed Order
+                value:
+                  orderId: 63********************a7
+                  status: 120
+                  reason: Invalid PLU
+                  timeStamp: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  receiptId: ''
+              Order Cancelled:
+                summary: Order Cancelled
+                value:
+                  orderId: 63********************a7
+                  status: 110
+                  reason: cancellation
+                  timeStamp: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  receiptId: ''
+              Order Accepted + Pickup Time Updated:
+                summary: Order Accepted + Pickup Time Updated
+                value:
+                  orderId: 63********************a7
+                  status: 20
+                  receiptId: T3651A85-1
+                  pickupTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  timeStamp: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+      operationId: post_orderstatus_orderid
+      summary: Deliverect Post_orderstatus_orderid
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /fulfillment/location/{orderId}:
+    get:
+      summary: Deliverect Order Delivery Update
+      operationId: order_delivery_update
+      parameters:
+      - name: orderId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The orderId value.
+        example: 609a1b2c3d4e5f6a7b8c9d0e
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - channelOrderId
+                - orderId
+                - location
+                - status
+                - deliveryETA
+                - courier
+                properties:
+                  channelOrderId:
+                    type: string
+                    example: channelOrderId
+                  orderId:
+                    type: string
+                    example: 5e****abc11dec0001****9b
+                  location:
+                    type: string
+                    example: 5e****abc11dec0001****9c
+                  status:
+                    type: integer
+                    example: 70
+                  deliveryETA:
+                    type: string
+                    example: '2021-07-15 11:45:36.332906'
+                  courier:
+                    type: object
+                    required:
+                    - longitude
+                    - latitude
+                    properties:
+                      longitude:
+                        type: string
+                        example: '5.895168'
+                      latitude:
+                        type: string
+                        example: '53.370216'
+              examples:
+                Result:
+                  summary: Result
+                  value:
+                    channelOrderId: channelOrderId
+                    orderId: 5e****abc11dec0001****9b
+                    location: 5e****abc11dec0001****9c
+                    status: 70
+                    deliveryETA: '2021-07-15 11:45:36.332906'
+                    courier:
+                      longitude: '5.895168'
+                      latitude: '53.370216'
+      description: Deliverect Order Delivery Update
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /updatePreparationTime:
+    post:
+      description: Deliverect Post_updatepreparationtime
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order:
+                  type: string
+                  example: string
+                minutes:
+                  type: integer
+                  example: 1
+              required:
+              - minutes
+              - order
+            examples:
+              Example:
+                summary: Example
+                value:
+                  order: '{orderId}'
+                  minutes: 15
+      operationId: post_updatepreparationtime
+      summary: Deliverect Post_updatepreparationtime
+      tags:
+      - Orders
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

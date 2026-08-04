@@ -1,0 +1,871 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Dispatch API
+  description: Manage last-mile delivery by validating delivery availability, creating, updating, and cancelling delivery jobs, and exchanging courier and fulfillment events. Authenticates with OAuth 2.0
+    machine-to-machine access tokens scoped via genericFulfillment.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Jobs
+  description: Jobs operations for the Deliverect Dispatch API.
+- name: Fulfillment
+  description: Fulfillment operations for the Deliverect Dispatch API.
+paths:
+  /validate_job:
+    post:
+      summary: Deliverect Validate Delivery Job
+      description: The initial dispatch notification that a new job is available which needs validated as being deliverable
+      operationId: dispatch_validate_job
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Can Deliver:
+                  value: "{\n  \"jobId\": \"627a6f4c2*****3fbc79a\",\n  \"canDeliver\": true,\n  \"distance\":10,\n  \"pickupTimeETA\": \"2022-05-10T14:47:31.649000Z\",\n  \"deliveryLocations\": [\n   \
+                    \ {\n      \"deliveryId\": \"ABC567\",\n      \"orderId\": \"627a6f*****5c09221a9837\",\n      \"deliveryTimeETA\": \"2022-05-10T14:57:31.649000Z\"\n    }\n  ],\n  \"price\": {\n   \
+                    \ \"price\": 750,\n    \"taxRate\": 10000\n  }\n}"
+                Cannot Deliver:
+                  value: "{\n  \"jobId\": \"651******************22a\",\n  \"canDeliver\": false,\n  \"errors\": [\n    {\n      \"deliveryId\": \"J****FI\",\n      \"orderId\": \"651******************215\"\
+                    ,\n      \"channelOrderDisplayId\": \"T1***51\",\n      \"reason\": 20,\n      \"description\": \"No drivers available at this time\"\n    }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  jobId:
+                    type: string
+                    example: 627a6f4c2*****3fbc79a
+                  canDeliver:
+                    type: boolean
+                    example: true
+                    default: true
+                  distance:
+                    type: integer
+                    example: 10
+                    default: 0
+                  pickupTimeETA:
+                    type: string
+                    example: '2022-05-10T14:47:31.649000Z'
+                  deliveryLocations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        deliveryId:
+                          type: string
+                          example: ABC567
+                        orderId:
+                          type: string
+                          example: 627a6f*****5c09221a9837
+                        deliveryTimeETA:
+                          type: string
+                          example: '2022-05-10T14:57:31.649000Z'
+                  price:
+                    type: object
+                    properties:
+                      price:
+                        type: integer
+                        example: 750
+                        default: 0
+                      taxRate:
+                        type: integer
+                        example: 10000
+                        default: 0
+        '400':
+          description: '400'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+        '422':
+          description: '422'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: ''
+      deprecated: false
+      tags:
+      - Jobs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dispatch/create_job:
+    post:
+      summary: Deliverect Create Delivery Job
+      description: Once a delivery job is validated a second webhook event will be sent to confirm the full details
+      operationId: dispatch_create_job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jobId:
+                  type: string
+                  example: 609***72e
+                account:
+                  type: string
+                  example: 5f1***131
+                pickupTime:
+                  type: string
+                  format: date-time
+                  example: '2021-05-13T13:40:04Z'
+                transportType:
+                  type: string
+                  example: unknown
+                driverTip:
+                  type: integer
+                  example: 500
+                pickupLocation:
+                  type: object
+                  properties:
+                    location:
+                      type: string
+                      example: 606***555
+                    name:
+                      type: string
+                      example: Deliverects Pizza Place
+                    remarks:
+                      type: string
+                      example: please use the backdoor for order pickup
+                    street:
+                      type: string
+                      example: van Ghentlaan
+                    streetNumber:
+                      type: string
+                      example: '3'
+                    postalCode:
+                      type: string
+                      example: 9000 LK
+                    city:
+                      type: string
+                      example: Leusden
+                    latitude:
+                      type: string
+                      example: '52.379189'
+                    longitude:
+                      type: string
+                      example: '4.899431'
+                deliveryLocations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      orderId:
+                        type: string
+                        example: 609***4dd
+                      channelOrderDisplayId:
+                        type: string
+                        example: MT4YVTPL
+                      deliveryTime:
+                        type: string
+                        format: date-time
+                        example: '2021-05-13T13:55:00Z'
+                      packageSize:
+                        type: string
+                        example: medium
+                      orderDescription:
+                        type: string
+                        example: hot food
+                      company:
+                        type: string
+                        example: BrainQuantums
+                      name:
+                        type: string
+                        example: V. Bertels
+                      street:
+                        type: string
+                        example: Refugehof
+                      streetNumber:
+                        type: string
+                        example: '49'
+                      postalCode:
+                        type: string
+                        example: 9001 AB
+                      city:
+                        type: string
+                        example: Leusden
+                      phone:
+                        type: string
+                        example: '+32123456789'
+                      phoneAccessCode:
+                        type: string
+                        example: '342241214'
+                      deliveryRemarks:
+                        type: string
+                        example: Dont ring door bell.
+                      latitude:
+                        type: string
+                        example: '52.379189'
+                      longitude:
+                        type: string
+                        example: '4.899431'
+                      payment:
+                        type: object
+                        properties:
+                          orderIsAlreadyPaid:
+                            type: boolean
+                            example: true
+                          amount:
+                            type: integer
+                            example: 1100
+                          paymentType:
+                            type: integer
+                            example: 0
+                ageCheck:
+                  type: boolean
+                  example: false
+            examples:
+              dispatch_create_job_request:
+                summary: Default dispatch_create_job request
+                x-microcks-default: true
+                value:
+                  jobId: 609***72e
+                  account: 5f1***131
+                  pickupTime: '2021-05-13T13:40:04Z'
+                  transportType: unknown
+                  driverTip: 500
+                  pickupLocation:
+                    location: 606***555
+                    name: Deliverects Pizza Place
+                    remarks: please use the backdoor for order pickup
+                    street: van Ghentlaan
+                    streetNumber: '3'
+                    postalCode: 9000 LK
+                    city: Leusden
+                    latitude: '52.379189'
+                    longitude: '4.899431'
+                  deliveryLocations:
+                  - orderId: 609***4dd
+                    channelOrderDisplayId: MT4YVTPL
+                    deliveryTime: '2021-05-13T13:55:00Z'
+                    packageSize: medium
+                    orderDescription: hot food
+                    company: BrainQuantums
+                    name: V. Bertels
+                    street: Refugehof
+                    streetNumber: '49'
+                    postalCode: 9001 AB
+                    city: Leusden
+                    phone: '+32123456789'
+                    phoneAccessCode: '342241214'
+                    deliveryRemarks: Dont ring door bell.
+                    latitude: '52.379189'
+                    longitude: '4.899431'
+                    payment:
+                      orderIsAlreadyPaid: true
+                      amount: 1100
+                      paymentType: 0
+                  ageCheck: false
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '422':
+          description: '422'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t[{\n\t\t“reason”: DeliveryJobErrorReason,\n\t\t“description”: string,\n\t\t“extraDetails”: string\n\t}]\n}"
+      deprecated: false
+      tags:
+      - Jobs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dispatch/updateJob:
+    post:
+      summary: Deliverect Copy of Cancel Delivery Job
+      description: A merchant or ordering channel may cancel the order, which in turn will cancel the delivery job
+      operationId: dispatch_updatejob
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                _id:
+                  type: string
+                  example: 5c8fbfd3c6489f00010e50d1
+                externalJobId:
+                  type: string
+                  example: ABC123
+                deliveryLocations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      deliveryId:
+                        type: string
+                        example: ABC567
+                      orderId:
+                        type: string
+                        example: 5f47a223280a29046404e2af
+                      channelOrderDisplayId:
+                        type: string
+                        example: MT4YVTPL
+                      deliveryTime:
+                        type: string
+                        format: date-time
+                        example: '2019-02-20T16:45:00.000000Z'
+                      packageSize:
+                        type: string
+                        example: small
+                      orderDescription:
+                        type: string
+                        example: hot food
+                      company:
+                        type: string
+                        example: BrainQuantums
+                      name:
+                        type: string
+                        example: V. Bertels
+                      street:
+                        type: string
+                        example: Refugehof
+                      streetNumber:
+                        type: string
+                        example: '49'
+                      postalCode:
+                        type: string
+                        example: 9001 AB
+                      city:
+                        type: string
+                        example: Leusden
+                      phone:
+                        type: string
+                        example: '+32123456789'
+                      latitude:
+                        type: string
+                        example: '52.370216'
+                      longitude:
+                        type: string
+                        example: '4.895168'
+                      deliveryRemarks:
+                        type: string
+                        example: please knock 3x, baby is sleeping
+                      payment:
+                        type: object
+                        properties:
+                          orderIsAlreadyPaid:
+                            type: boolean
+                            example: false
+                          amount:
+                            type: integer
+                            example: 1500
+                          paymentType:
+                            type: integer
+                            example: 2
+                          paysWith:
+                            type: integer
+                            example: 2000
+            examples:
+              dispatch_updatejob_request:
+                summary: Default dispatch_updatejob request
+                x-microcks-default: true
+                value:
+                  _id: 5c8fbfd3c6489f00010e50d1
+                  externalJobId: ABC123
+                  deliveryLocations:
+                  - deliveryId: ABC567
+                    orderId: 5f47a223280a29046404e2af
+                    channelOrderDisplayId: MT4YVTPL
+                    deliveryTime: '2019-02-20T16:45:00.000000Z'
+                    packageSize: small
+                    orderDescription: hot food
+                    company: BrainQuantums
+                    name: V. Bertels
+                    street: Refugehof
+                    streetNumber: '49'
+                    postalCode: 9001 AB
+                    city: Leusden
+                    phone: '+32123456789'
+                    latitude: '52.370216'
+                    longitude: '4.895168'
+                    deliveryRemarks: please knock 3x, baby is sleeping
+                    payment:
+                      orderIsAlreadyPaid: false
+                      amount: 1500
+                      paymentType: 2
+                      paysWith: 2000
+                  - orderId: 5f47a484d08f00f30f04e7eb
+                    channelOrderDisplayId: 82DE5
+                    deliveryTime: '2019-02-20T16:45:00.000000Z'
+                    packageSize: large
+                    orderDescription: hot food
+                    name: C. Landman
+                    street: Prinsengracht
+                    streetNumber: '198'
+                    postalCode: 9101 CG
+                    city: Leusden
+                    phone: '+3212987654'
+                    latitude: '52.370216'
+                    longitude: '4.895168'
+                    deliveryRemarks: ''
+                    payment:
+                      orderIsAlreadyPaid: true
+                      amount: 1000
+                      paymentType: 3
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Jobs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /dispatch/cancel_job:
+    post:
+      summary: Deliverect Cancel Delivery Job
+      description: A merchant or ordering channel may cancel the order, which in turn will cancel the delivery job
+      operationId: dispatch_cancel_job
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                jobId:
+                  type: string
+                  example: 5c8******************0d1
+                account:
+                  type: string
+                  example: 5be******************e57
+                pickupLocation:
+                  type: object
+                  properties:
+                    location:
+                      type: string
+                      example: 5ea******************4a9
+                deliveryLocations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      orderId:
+                        type: string
+                        example: 5f4******************2af
+                      channelOrderDisplayId:
+                        type: string
+                        example: MT4YVTPL
+                      deliveryId:
+                        type: string
+                        example: ABC567
+                courier:
+                  type: object
+                  properties:
+                    courierId:
+                      type: string
+                      example: D1234
+            examples:
+              dispatch_cancel_job_request:
+                summary: Default dispatch_cancel_job request
+                x-microcks-default: true
+                value:
+                  jobId: 5c8******************0d1
+                  account: 5be******************e57
+                  pickupLocation:
+                    location: 5ea******************4a9
+                  deliveryLocations:
+                  - orderId: 5f4******************2af
+                    channelOrderDisplayId: MT4YVTPL
+                    deliveryId: ABC567
+                  courier:
+                    courierId: D1234
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - Jobs
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /fulfillment/validate:
+    post:
+      summary: Deliverect Dispatch Availability
+      description: Validate dispatch availability for a delivery location.
+      operationId: post_fulfillment_validate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                channelLinkId:
+                  type: string
+                  example: 5e8abc11dec0001a009b
+                deliveryLocations:
+                  type: object
+                  properties:
+                    packageSize:
+                      type: string
+                      example: string
+                    name:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    phone:
+                      type: string
+                      example: '+15555550123'
+                    street:
+                      type: string
+                      example: string
+                    streetNumber:
+                      type: string
+                      example: string
+                    city:
+                      type: string
+                      example: string
+                    country:
+                      type: string
+                      example: BE
+                    postalCode:
+                      type: string
+                      example: string
+                    deliveryTime:
+                      type: string
+                      format: date-time
+                      example: '2026-03-15T14:30:00Z'
+                    coordinates:
+                      type: object
+                      properties:
+                        coordinates:
+                          type: array
+                          items:
+                            type: number
+                            example: 1.0
+                          minItems: 2
+                          maxItems: 2
+                  required:
+                  - street
+                  - city
+                  - country
+                  - postalCode
+                  - deliveryTime
+                pickupTime:
+                  type: string
+                  example: '2026-03-15T14:30:00Z'
+              required:
+              - channelLinkId
+              - deliveryLocations
+              - pickupTime
+            examples:
+              Dispatch Availability - Multiple Stores:
+                summary: Dispatch Availability - Multiple Stores
+                value:
+                  channelLinkIds:
+                  - 62********************7c
+                  - 62********************7d
+                  deliveryLocations:
+                    deliveryTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    packageSize: unknown
+                    name: customer name
+                    street: customer street and number
+                    city: customer city
+                    country: customer country
+                    postalCode: postal code
+                    phone: '+111111111'
+                    coordinates:
+                      longitude: 3.73361
+                      latitude: 51.03111
+              Dispatch Availability:
+                summary: Dispatch Availability
+                value:
+                  channelLinkId: 62********************7c
+                  pickupTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  deliveryLocations:
+                    deliveryTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    packageSize: unknown
+                    name: customer name
+                    street: customer street and number
+                    city: customer city
+                    country: customer country
+                    postalCode: postal code
+                    source: customer address
+                    phone: '+111111111'
+                    coordinates:
+                      longitude: 3.73361
+                      latitude: 51.03111
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                Offers Available - Multiple Stores:
+                  summary: Offers Available - Multiple Stores
+                  value:
+                    channelLinkIds:
+                    - 61bcc34**57cc48c23eb65
+                    validationId: 62********************3e
+                    available: true
+                    expiresAt: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    deliveryTimeETA: '2022-08-08 11:00:00'
+                    pickupTimeEta: '2022-08-08 10:00:00'
+                    price: 0
+                Offers Not Available:
+                  summary: Offers Not Available
+                  value: "{\n  \"available\": False, \n  \"errors\": \"No valid offers available\"\n}"
+                Offer Available:
+                  summary: Offer Available
+                  value:
+                    validationId: 62********************3e
+                    available: true
+                    expiresAt: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    deliveryTimeETA: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                    price: 0
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value:
+                  - loc:
+                    - channelLinkId
+                    msg: field required
+                    type: value_error.missing
+                  - loc:
+                    - deliveryLocations
+                    - deliveryTime
+                    msg: field required
+                    type: value_error.missing
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Unauthorized:
+                  summary: Unauthorized
+                  value:
+                    code: token_expired
+                    description: token is expired
+          description: Unauthorized
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Forbidden:
+                  summary: Forbidden
+                  value:
+                    error: ChannelLinkId sent is not linked to the account
+          description: Forbidden
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Not Found:
+                  summary: Not Found
+                  value:
+                    error: ChannelLinkId sent is not found
+          description: Not Found
+      tags:
+      - Fulfillment
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /fulfillment/cancel:
+    post:
+      tags:
+      - Fulfillment
+      summary: Deliverect Cancel Delivery
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              Cancel Example:
+                summary: Cancel Example
+                value:
+                  deliveryJobId: 648******************874
+                  reasonTag: CUSTOMER_UNRESPONSIVE
+                  deliveryFeeCharged: 4500
+                  extraDescription: Tried many times
+      operationId: post_post_fulfillment_cancel
+      description: Deliverect Cancel Delivery
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /fulfillment/generic/events:
+    post:
+      tags:
+      - Fulfillment
+      summary: Deliverect Update Delivery
+      description: 'This webhook allows to persist updates from third party delivery systems to Deliverect. Currently updates to following delivery information are supported. See examples for technical
+        details. - delivery status - pickup time & eta - delivery time & eta - courier information ##### Delivery job statuses: Following delivery job statuses exist in deliverect: | Status name | Integer
+        value | |-|-| | `IN_DELIVERY` | 80 | | `EN_ROUTE_TO_PICKUP` | 83 | | `ARRIVED_AT_PICKUP` | 85 | | `EN_ROUTE_TO_DROPOFF` | 87 | | `ARRIVED_AT_DROPOFF` | 89 | | `DELIVERED` | 90 | ##### NOTE Please
+        note, that here and later all dates and times, coming from/to Deliverect are UTC.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              examples:
+              - deliveryJobId: 602***66a
+                externalJobId: DJ214233
+                pickupTimeETA: '2021-05-13T13:59:00Z'
+                transportType: bicycle
+                courier:
+                  name: Mac Miller
+                  phone: '+3292331234'
+                  longitude: '51.05433703603857'
+                  latitude: '3.738214852809371'
+                locations:
+                - orderId: 602987dd539d9697c836198b
+                  channelOrderDisplayId: '1234567890'
+                  status: 40
+                  deliveryTimeETA: '2021-05-13T14:13:00Z'
+            examples:
+              Update Example:
+                summary: Update Example
+                value:
+                  deliveryJobId: 61********************b4
+                  pickupTimeETA: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                  transportType: bicycle
+                  trackingUrl: https://example.com
+                  courier:
+                    name: Mac Miller
+                    phone: '+3292331234'
+                    longitude: '51.05433703603857'
+                    latitude: '3.738214852809371'
+                  locations:
+                  - orderId: 61********************b4
+                    status: 83
+                    deliveryTimeETA: YYYY-MM-DDTHH:mm:ss.SSSSSSZZ
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              schema:
+                type: object
+              example: OK
+            text/plain:
+              schema:
+                type: string
+              example: OK
+        default:
+          description: default
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+      operationId: post_post_fulfillment_generic_events
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

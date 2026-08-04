@@ -1,0 +1,3521 @@
+openapi: 3.1.0
+info:
+  title: Deliverect Store API
+  description: Query and update store and product availability, snooze products by PLU or tag, set busy mode, and configure opening and holiday hours across locations and channels. Authenticates with OAuth
+    2.0 machine-to-machine access tokens scoped via store or genericPOS.
+  version: '1.0'
+  x-generated-from: documentation
+  x-source-url: https://developers.deliverect.com/reference
+  x-last-validated: '2026-06-02'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: All Rights Reserved
+servers:
+- url: https://api.deliverect.com
+  description: Production
+- url: https://api.staging.deliverect.com
+  description: Staging
+tags:
+- name: Locations
+  description: Locations operations for the Deliverect Store API.
+- name: Products
+  description: Products operations for the Deliverect Store API.
+- name: Store Status
+  description: Store Status operations for the Deliverect Store API.
+- name: Opening Hours
+  description: Opening Hours operations for the Deliverect Store API.
+- name: Tables
+  description: Tables operations for the Deliverect Store API.
+- name: Allergens
+  description: Allergens operations for the Deliverect Store API.
+paths:
+  /locations:
+    get:
+      tags:
+      - Locations
+      summary: Deliverect Locations
+      description: Per physical restaurant location, there will be a *Location*. This endpoint can be used to query them. You can have to specify an account, otherwise the locations of your own account
+        will be returned
+      parameters:
+      - name: where
+        in: query
+        schema:
+          type: string
+        example:
+          account: '{{accountId}}'
+        description: The where value.
+      responses:
+        '200':
+          description: OK
+          headers:
+            Server:
+              schema:
+                type: string
+                examples:
+                - nginx/1.14.1
+            Date:
+              schema:
+                type: string
+                examples:
+                - Thu, 14 Feb 2019 16:24:59 GMT
+            Content-Type:
+              schema:
+                type: string
+                examples:
+                - application/json
+            Content-Length:
+              schema:
+                type: integer
+                examples:
+                - '1270'
+            Connection:
+              schema:
+                type: string
+                examples:
+                - keep-alive
+            X-Total-Count:
+              schema:
+                type: integer
+                examples:
+                - '1'
+            Cache-Control:
+              schema:
+                type: string
+                examples:
+                - max-age=20
+            Expires:
+              schema:
+                type: string
+                examples:
+                - Thu, 14 Feb 2019 16:25:19 GMT
+            Last-Modified:
+              schema:
+                type: string
+                examples:
+                - Thu, 14 Feb 2019 13:57:59 GMT
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                examples:
+                - '*'
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+                examples:
+                - User-Agent,Keep-Alive,Content-Type,Authorization
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+                examples:
+                - GET, POST, OPTIONS, DELETE, PUT, PATCH
+            Access-Control-Allow-Credentials:
+              schema:
+                type: boolean
+                examples:
+                - 'true'
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                ? ''
+                : summary: ''
+                  value:
+                    _items:
+                    - _id: 61********************a4
+                      posSettings:
+                        generic:
+                          locationId: 29**10
+                          setDefaultPriceLevelOnSync: false
+                          anonymizeCustomer: false
+                          sendStreetNumber: false
+                          hasDirectTableIntegration: false
+                          sendDiscount: true
+                          sendDeliveryFee: true
+                          sendServiceCharge: true
+                          sendDeliveryFeeCondition: 0
+                          forcePayment: 0
+                          sendTip: true
+                          sendRebate: true
+                          sortModifiers: 0
+                          bufferOrders: false
+                          deliveryByChannelIsPickup: false
+                          ignoreUnknownOrderStatuses: false
+                          recalcPriceOverrides: false
+                          dontSendCancel: false
+                          readonly: false
+                          logOps: true
+                          orderItemRemarks: intactItemRemarks
+                          alwaysSendAllSnoozedProducts: true
+                          ordersWebhookURL: https://{{YourSetwebhookUrl}}/orders
+                          registerUrl: https://{{YourSetwebhookUrl}}/orders/register
+                          operationsWebhookURL: https://{{YourSetwebhookUrl}}/orders/operations
+                          storeStatusURL: https://{{YourSetwebhookUrl}}/orders/storeStatus
+                          syncProductsURL: https://{{YourSetwebhookUrl}}/syncProducts
+                          syncTablesURL: https://{{YourSetwebhookUrl}}/syncTables
+                          syncFloorsURL: https://{{YourSetwebhookUrl}}/syncFloors
+                          syncBillsURL: https://{{YourSetwebhookUrl}}/syncBills
+                          billPaymentURL: https://{{YourSetwebhookUrl}}/billPayments
+                      name: La Famiglia
+                      status: SUBSCRIBED
+                      posSystemId: 10000
+                      subscriptions:
+                      - brandId: 61********************9e
+                      address:
+                        phoneNumber: '+445556665555'
+                        houseNumber: '78'
+                        street: Main St
+                        postalCode: FX19ST
+                        city: Pleasantville
+                        stateOrProvince: TX
+                        restaurantName: La Famiglia Restaurant
+                        coordinates:
+                          type: Point
+                          coordinates:
+                          - -20.34974509999999
+                          - 11.0110892
+                        country: FR
+                      contact:
+                        phoneNumber: '+445556665555'
+                      timezone: Asia/Dubai
+                      taxExcl: false
+                      enableOutOfStock: false
+                      enablePickupScreenQR: false
+                      ignorePOSOrderStatuses: false
+                      enableWorkstations: false
+                      splitOrderItems: false
+                      account: 61********************8d
+                      region: Latin America
+                      _updated: '2022-12-28T08:38:13.710000Z'
+                      _created: '2022-11-17T05:43:05.000000Z'
+                      _deleted: false
+                      _etag: fc9144bc1b9ef7e67378d3e0c77279691c1bc3a8
+                      channelLinks:
+                      - 63********************45
+                      - 63********************22
+                      - 63********************12
+                      - 63********************1e
+                      - 63********************90
+                      deliverySystemSettings:
+                        generic:
+                          externalReference: '123'
+                          validateUrl: https://mock-dsp.staging.deliverect.com/api/jobs/validate
+                          createUrl: https://mock-dsp.staging.deliverect.com/api/jobs/create
+                          cancelUrl: https://mock-dsp.staging.deliverect.com/api/jobs/cancel
+                          registerUrl: https://mock-dsp.staging.deliverect.com/api/register
+                          active: false
+                      openingHours:
+                      - dayOfWeek: 1
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 2
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 3
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 4
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 5
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 6
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 7
+                        startTime: 00:00
+                        endTime: '23:59'
+                      lastProductSync: '2022-12-28T21:05:27.668000Z'
+                      _links:
+                        self:
+                          title: Locations
+                          href: locations/63********************e4
+                        related:
+                          account:
+                            title: accounts
+                            href: accounts/63********************8d
+                          channelLinks:
+                          - title: channelLink
+                            href: channelLinks/63********************45
+                          - title: channelLink
+                            href: channelLinks/63********************22
+                          - title: channelLink
+                            href: channelLinks/63********************12
+                          - title: channelLink
+                            href: channelLinks/63********************1e
+                          - title: channelLink
+                            href: channelLinks/63********************90
+                      channelLinksDetails:
+                        63********************22:
+                          channel: DoorDash
+                          channelId: 12
+                          name: DoorDash
+                        63********************12:
+                          channel: Generic Channel
+                          channelId: 10057
+                          name: Custom Channnel
+                        63********************1e:
+                          channel: Uber Eats
+                          channelId: 7
+                          name: Uber Eats
+                        63********************90:
+                          channel: Deliverect
+                          channelId: 1
+                          name: Test channel
+                    - _id: 63********************67
+                      posSettings: '................'
+                    _links:
+                      parent:
+                        title: home
+                        href: /
+                      self:
+                        title: locations
+                        href: locations?where={"account":"63********************8d"}
+                      next:
+                        title: next page
+                        href: locations?where={"account":"63********************8d"}&page=2
+                      last:
+                        title: last page
+                        href: locations?where={"account":"63********************8d"}&page=26
+                    _meta:
+                      page: 1
+                      max_results: 25
+                      total: 501
+                ' ':
+                  summary: ' '
+                  value:
+                    _items:
+                    - _id: 61********************a4
+                      posSettings:
+                        generic:
+                          locationId: 29**10
+                          setDefaultPriceLevelOnSync: false
+                          anonymizeCustomer: false
+                          sendStreetNumber: false
+                          hasDirectTableIntegration: false
+                          sendDiscount: true
+                          sendDeliveryFee: true
+                          sendServiceCharge: true
+                          sendDeliveryFeeCondition: 0
+                          forcePayment: 0
+                          sendTip: true
+                          sendRebate: true
+                          sortModifiers: 0
+                          bufferOrders: false
+                          deliveryByChannelIsPickup: false
+                          ignoreUnknownOrderStatuses: false
+                          recalcPriceOverrides: false
+                          dontSendCancel: false
+                          readonly: false
+                          logOps: true
+                          orderItemRemarks: intactItemRemarks
+                          alwaysSendAllSnoozedProducts: true
+                          ordersWebhookURL: https://{{YourSetwebhookUrl}}/orders
+                          registerUrl: https://{{YourSetwebhookUrl}}/orders/register
+                          operationsWebhookURL: https://{{YourSetwebhookUrl}}/orders/operations
+                          storeStatusURL: https://{{YourSetwebhookUrl}}/orders/storeStatus
+                          syncProductsURL: https://{{YourSetwebhookUrl}}/syncProducts
+                          syncTablesURL: https://{{YourSetwebhookUrl}}/syncTables
+                          syncFloorsURL: https://{{YourSetwebhookUrl}}/syncFloors
+                          syncBillsURL: https://{{YourSetwebhookUrl}}/syncBills
+                          billPaymentURL: https://{{YourSetwebhookUrl}}/billPayments
+                      name: La Famiglia
+                      status: SUBSCRIBED
+                      posSystemId: 10000
+                      subscriptions:
+                      - brandId: 61********************9e
+                      address:
+                        phoneNumber: '+445556665555'
+                        houseNumber: '78'
+                        street: Main St
+                        postalCode: FX19ST
+                        city: Pleasantville
+                        stateOrProvince: TX
+                        restaurantName: La Famiglia Restaurant
+                        coordinates:
+                          type: Point
+                          coordinates:
+                          - -20.34974509999999
+                          - 11.0110892
+                        country: FR
+                      contact:
+                        phoneNumber: '+445556665555'
+                      timezone: Asia/Dubai
+                      taxExcl: false
+                      enableOutOfStock: false
+                      enablePickupScreenQR: false
+                      ignorePOSOrderStatuses: false
+                      enableWorkstations: false
+                      splitOrderItems: false
+                      account: 61********************8d
+                      region: Latin America
+                      _updated: '2022-12-28T08:38:13.710000Z'
+                      _created: '2022-11-17T05:43:05.000000Z'
+                      _deleted: false
+                      _etag: fc9144bc1b9ef7e67378d3e0c77279691c1bc3a8
+                      channelLinks:
+                      - 63********************45
+                      - 63********************22
+                      - 63********************12
+                      - 63********************1e
+                      - 63********************90
+                      deliverySystemSettings:
+                        generic:
+                          externalReference: '123'
+                          validateUrl: https://mock-dsp.staging.deliverect.com/api/jobs/validate
+                          createUrl: https://mock-dsp.staging.deliverect.com/api/jobs/create
+                          cancelUrl: https://mock-dsp.staging.deliverect.com/api/jobs/cancel
+                          registerUrl: https://mock-dsp.staging.deliverect.com/api/register
+                          active: false
+                      openingHours:
+                      - dayOfWeek: 1
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 2
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 3
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 4
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 5
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 6
+                        startTime: 00:00
+                        endTime: '23:59'
+                      - dayOfWeek: 7
+                        startTime: 00:00
+                        endTime: '23:59'
+                      lastProductSync: '2022-12-28T21:05:27.668000Z'
+                      _links:
+                        self:
+                          title: Locations
+                          href: locations/63********************e4
+                        related:
+                          account:
+                            title: accounts
+                            href: accounts/63********************8d
+                          channelLinks:
+                          - title: channelLink
+                            href: channelLinks/63********************45
+                          - title: channelLink
+                            href: channelLinks/63********************22
+                          - title: channelLink
+                            href: channelLinks/63********************12
+                          - title: channelLink
+                            href: channelLinks/63********************1e
+                          - title: channelLink
+                            href: channelLinks/63********************90
+                      channelLinksDetails:
+                        63********************22:
+                          channel: DoorDash
+                          channelId: 12
+                          name: DoorDash
+                        63********************12:
+                          channel: Generic Channel
+                          channelId: 10057
+                          name: Custom Channnel
+                        63********************1e:
+                          channel: Uber Eats
+                          channelId: 7
+                          name: Uber Eats
+                        63********************90:
+                          channel: Deliverect
+                          channelId: 1
+                          name: Test channel
+                    - _id: 63********************67
+                      posSettings: '................'
+                    _links:
+                      parent:
+                        title: home
+                        href: /
+                      self:
+                        title: locations
+                        href: locations?where={"account":"63********************8d"}
+                      next:
+                        title: next page
+                        href: locations?where={"account":"63********************8d"}&page=2
+                      last:
+                        title: last page
+                        href: locations?where={"account":"63********************8d"}&page=26
+                    _meta:
+                      page: 1
+                      max_results: 25
+                      total: 501
+      operationId: get_get_locations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /products:
+    get:
+      tags:
+      - Products
+      summary: Deliverect Get Products for Account
+      parameters:
+      - name: where
+        in: query
+        schema:
+          type: string
+        example:
+          account: '{{accountId}}'
+        description: The where value.
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                          example: 622fd8b********eb7dc24d
+                        name:
+                          type: string
+                          example: Add a side
+                        description:
+                          type: string
+                          example: ''
+                        nameTranslations:
+                          type: object
+                          properties:
+                            en:
+                              type: string
+                              example: Choose a side
+                            es:
+                              type: string
+                              example: Elige tu acompañamiento
+                            fr:
+                              type: string
+                              example: Choisissez votre garniture
+                            nl:
+                              type: string
+                              example: Kies je bijgerecht
+                        descriptionTranslations:
+                          type: object
+                          properties: {}
+                        _created:
+                          type: string
+                          example: '2022-03-15T00:07:16.422000Z'
+                        _updated:
+                          type: string
+                          example: '2022-03-15T00:07:16.422000Z'
+                        _etag:
+                          type: string
+                          example: 2715877681451ad6ddae50679c044bb56bef30ac
+                        account:
+                          type: string
+                          example: 5ff6ee089328c8aefeeabe33
+                        location:
+                          type: string
+                          example: 5ff6ee659328c8aefeeac2a7
+                        productType:
+                          type: integer
+                          example: 3
+                          default: 0
+                        plu:
+                          type: string
+                          example: MOD-02
+                        multiply:
+                          type: integer
+                          example: 1
+                          default: 0
+                        posProductId:
+                          type: string
+                          example: POS-ID-003
+                        posProductCategoryId:
+                          type: string
+                          example: ''
+                        subProducts:
+                          type: array
+                          items:
+                            type: string
+                            example: 622fd8b4ac990eb2eb7dc255
+                        productTags:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+                        posCategoryIds:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+                        isInternal:
+                          type: boolean
+                          example: false
+                          default: true
+                        max:
+                          type: integer
+                          example: 0
+                          default: 0
+                        min:
+                          type: integer
+                          example: 1
+                          default: 0
+                        sortOrder:
+                          type: integer
+                          example: 0
+                          default: 0
+                        capacityUsages:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+                        priceLevels:
+                          type: object
+                          properties: {}
+                        deliveryTax:
+                          type: integer
+                          example: 9000
+                          default: 0
+                        takeawayTax:
+                          type: integer
+                          example: 9000
+                          default: 0
+                        eatInTax:
+                          type: integer
+                          example: 9000
+                          default: 0
+                        _links:
+                          type: object
+                          properties:
+                            self:
+                              type: object
+                              properties:
+                                title:
+                                  type: string
+                                  example: products
+                                href:
+                                  type: string
+                                  example: products/622fd8b4ac990eb2eb7dc24d
+                            related:
+                              type: object
+                              properties:
+                                subProducts:
+                                  type: array
+                                  items:
+                                    type: object
+                                    properties:
+                                      title:
+                                        type: string
+                                        example: products
+                                      href:
+                                        type: string
+                                        example: products/622fd8b4ac990eb2eb7dc255
+                  _links:
+                    type: object
+                    properties:
+                      parent:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                            example: home
+                          href:
+                            type: string
+                            example: /
+                      self:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                            example: products
+                          href:
+                            type: string
+                            example: products?where={"account":"5ff6ee089328c8aefeeabe33"}
+                      next:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                            example: next page
+                          href:
+                            type: string
+                            example: products?where={"account":"5ff6ee089328c8aefeeabe33"}&page=2
+                      last:
+                        type: object
+                        properties:
+                          title:
+                            type: string
+                            example: last page
+                          href:
+                            type: string
+                            example: products?where={"account":"5ff6ee089328c8aefeeabe33"}&page=3
+                  _meta:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                        example: 1
+                        default: 0
+                      max_results:
+                        type: integer
+                        example: 25
+                        default: 0
+                      total:
+                        type: integer
+                        example: 64
+                        default: 0
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    _items:
+                    - _id: 622fd8b********eb7dc24d
+                      name: Add a side
+                      description: ''
+                      nameTranslations:
+                        en: Choose a side
+                        es: Elige tu acompañamiento
+                        fr: Choisissez votre garniture
+                        nl: Kies je bijgerecht
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.422000Z'
+                      _updated: '2022-03-15T00:07:16.422000Z'
+                      _etag: 2715877681451ad6ddae50679c044bb56bef30ac
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 3
+                      plu: MOD-02
+                      multiply: 1
+                      posProductId: POS-ID-003
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc255
+                      - 622fd8b4ac990eb2eb7dc257
+                      - 622fd8b4ac990eb2eb7dc259
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 1
+                      sortOrder: 0
+                      capacityUsages: []
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc24d
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc255
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc257
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc259
+                    - _id: 622fd8b4ac990eb2eb7dc24f
+                      name: Rare
+                      description: ''
+                      nameTranslations:
+                        en: Rare
+                        es: Poco hecho
+                        fr: Saignant
+                        nl: Rood
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.422000Z'
+                      _updated: '2022-03-15T00:07:16.422000Z'
+                      _etag: be71204aaf77a4cf1676d698ec32a76a090f0e41
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 2
+                      plu: COOK-01
+                      multiply: 1
+                      posProductId: POS-ID-004
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 0
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc24f
+                    - _id: 622fd8b4ac990eb2eb7dc251
+                      name: Medium Rare
+                      description: ''
+                      nameTranslations:
+                        en: Medium Rare
+                        es: Al punto
+                        fr: À point
+                        nl: Half doorbakken
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.422000Z'
+                      _updated: '2022-03-15T00:07:16.422000Z'
+                      _etag: 16bba91773586b8aac42ae02e16a9384073bf809
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 2
+                      plu: COOK-02
+                      multiply: 1
+                      posProductId: POS-ID-005
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 0
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc251
+                    - _id: 622fd8b4ac990eb2eb7dc255
+                      name: Fries
+                      description: ''
+                      nameTranslations:
+                        en: Fries
+                        es: Patatas fritas
+                        fr: Frites
+                        nl: Frietjes
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.422000Z'
+                      _updated: '2022-03-15T00:07:16.422000Z'
+                      _etag: 2f6c78768a648d49a91723e365b38db4b0fcb94c
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 2
+                      plu: SI-01
+                      multiply: 1
+                      posProductId: POS-ID-006
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      defaultQuantity: 1
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 0
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc255
+                    - _id: 622fd8b4ac990eb2eb7dc257
+                      name: Salad
+                      description: ''
+                      nameTranslations:
+                        en: Salad
+                        es: Ensalada
+                        fr: Salade
+                        nl: Salade
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.422000Z'
+                      _updated: '2022-03-15T00:07:16.422000Z'
+                      _etag: fbd9ebc70111fea3ce22cfcfdf8938f5490974ae
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 2
+                      plu: SI-02
+                      multiply: 1
+                      posProductId: POS-ID-007
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 200
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc257
+                    - _id: 622fd8b4ac990eb2eb7dc259
+                      name: Mashed Potato
+                      description: ''
+                      nameTranslations:
+                        en: Mashed Potato
+                        es: Puré de patata
+                        fr: Purée de pommes de terre
+                        nl: Aardappelpuree
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.422000Z'
+                      _updated: '2022-03-15T00:07:16.422000Z'
+                      _etag: 05d48dd6689a7885f01971197480b9ce8fb24151
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 2
+                      plu: SI-03
+                      multiply: 1
+                      posProductId: POS-ID-008
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 100
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc259
+                    - _id: 622fd8b4ac990eb2eb7dc25b
+                      name: Chicken Sate
+                      description: Product with Nested Modifiers - Multimax variables - Allergens (tags)
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.422000Z'
+                      _updated: '2022-03-15T00:07:16.422000Z'
+                      _etag: f9d4e488bc46c73379bc7f44ec26402c7167878f
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: P-SATE
+                      multiply: 1
+                      posProductId: POS-ID-009
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc25d
+                      - 622fd8b4ac990eb2eb7dc25f
+                      productTags:
+                      - 104
+                      - 108
+                      posCategoryIds:
+                      - SATE
+                      imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/satay-62284e3c8c506f015be60184.jpeg
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 450
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc25b
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc25d
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc25f
+                    - _id: 622fd8b4ac990eb2eb7dc261
+                      name: White Rice
+                      description: White coloured rice
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: 93d3797000158ddbfba6e555975812b00fd440f9
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: RICE-01
+                      multiply: 1
+                      posProductId: POS-ID-012
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc269
+                      productTags: []
+                      posCategoryIds:
+                      - SD
+                      imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/nasiputi-1610290140494.jpg
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 450
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc261
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc269
+                    - _id: 622fd8b4ac990eb2eb7dc265
+                      name: Egg Noodles
+                      description: Egg noodles and veggies fried and tossed with a delicious sauce
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: 82fe6073cf8ad734790611a88c994b878700eb98
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: NOOD-01
+                      multiply: 1
+                      posProductId: POS-ID-014
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc269
+                      productTags: []
+                      posCategoryIds:
+                      - SD
+                      imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/bamigoreng-1610289922969.jpg
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 450
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc265
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc269
+                    - _id: 622fd8b4ac990eb2eb7dc267
+                      name: Ramen Noodles
+                      description: Chinese-style wheat noodles
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: 31517b482377d626dba89d13fd72bda726ed4b3e
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: NOOD-02
+                      multiply: 1
+                      posProductId: POS-ID-015
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc269
+                      productTags: []
+                      posCategoryIds:
+                      - SD
+                      imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/Mihoen-2-1-1610289870157.jpg
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 450
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc267
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc269
+                    - _id: 622fd8b4ac990eb2eb7dc26b
+                      name: Sate Sauce
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: 424be2d9e4483177d78aef72749492572f977997
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 2
+                      plu: SAUCE-01
+                      multiply: 1
+                      posProductId: POS-ID-017
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 50
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc26b
+                    - _id: 622fd8b4ac990eb2eb7dc26d
+                      name: Hot Sauce
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: e9d50ad67406d4c6b833df8763b3a0a2a9cded5f
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 2
+                      plu: SAUCE-02
+                      multiply: 1
+                      posProductId: POS-ID-018
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 50
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc26d
+                    - _id: 622fd8b4ac990eb2eb7dc26f
+                      name: Burger Combo (Drink not Included)
+                      description: Combo with Bundles - Modifier Groups as Upsell
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: f7e7f78062028d530e3bbf7ab82c95457aa23924
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: P-BRGR
+                      multiply: 1
+                      posProductId: POS-ID-019
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc271
+                      - 622fd8b4ac990eb2eb7dc273
+                      - 622fd8b4ac990eb2eb7dc275
+                      productTags: []
+                      posCategoryIds:
+                      - BURG
+                      imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/burger-62286be78c506f015be60190.jpeg
+                      isInternal: false
+                      isCombo: true
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 950
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc26f
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc271
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc273
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc275
+                    - _id: 622fd8b4ac990eb2eb7dc273
+                      name: Fries Selection
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: a91312a5e9fae3539769038c06b8f246744a40f2
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 3
+                      plu: MG-FRS
+                      multiply: 1
+                      posProductId: POS-ID-021
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc277
+                      - 622fd8b4ac990eb2eb7dc279
+                      - 622fd8b4ac990eb2eb7dc27b
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 1
+                      min: 1
+                      sortOrder: 0
+                      capacityUsages: []
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc273
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc277
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc279
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc27b
+                    - _id: 622fd8b4ac990eb2eb7dc275
+                      name: Add a Drink? (not included)
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-07-06T08:03:11.000000Z'
+                      _etag: def3a76097f22874ed0ec2e5481b74865c113467
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 3
+                      plu: UPSLL-01
+                      multiply: 1
+                      posProductId: POS-ID-022
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc283
+                      - 622fd8b4ac990eb2eb7dc285
+                      - 622fd8b4ac990eb2eb7dc287
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      multiMax: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc275
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc283
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc285
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc287
+                    - _id: 622fd8b4ac990eb2eb7dc277
+                      name: French Fries
+                      description: Plain fries from France
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.423000Z'
+                      _updated: '2022-03-15T00:07:16.423000Z'
+                      _etag: 77b6eef509fed9c3787dc17aa8cfe6bfe6915f9d
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: P-FRS-S
+                      multiply: 1
+                      posProductId: POS-ID-023
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds:
+                      - FRS
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 200
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc277
+                    - _id: 622fd8b4ac990eb2eb7dc27d
+                      name: Chicken Burger
+                      description: Crispy coated chicken thigh, iceberg lettuce, pickles, slice of cheese & mayo, all in a toasted brioche bun.
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.424000Z'
+                      _updated: '2022-03-15T00:07:16.424000Z'
+                      _etag: f123a4c0c5a34ac30e132d965f25345779f12024
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: P-BURG-CHK
+                      multiply: 1
+                      posProductId: POS-ID-026
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds:
+                      - BURG
+                      imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/chkburger-6228c1dcdb5986001ebf58df.jpeg
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 800
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc27d
+                    - _id: 622fd8b4ac990eb2eb7dc287
+                      name: Ginger Beer
+                      description: Australia's favourite ginger beer!
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.424000Z'
+                      _updated: '2022-03-15T00:07:16.424000Z'
+                      _etag: 62bb35e3c3f2a5e6f7459d8a5d3ee756b29b6d7c
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: DRNK-03
+                      multiply: 1
+                      posProductId: POS-ID-031
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds:
+                      - DRK
+                      imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/gingerbeer-62285548db5986001ebf58d1.jpg
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 400
+                      bottleDepositPrice: 100
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc287
+                    - _id: 622fd8b4ac990eb2eb7dc28d
+                      name: Mini Poke Bowl
+                      description: A little bowl of Poke
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.424000Z'
+                      _updated: '2022-03-15T00:07:16.424000Z'
+                      _etag: f4c1a3f3fb705345ef489c904c93cd158ec06a49
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: SZ-01
+                      multiply: 1
+                      posProductId: POS-ID-034
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc293
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 800
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc28d
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc293
+                    - _id: 622fd8b4ac990eb2eb7dc28f
+                      name: Large Poke Bowl
+                      description: A big bowl of Poke
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.424000Z'
+                      _updated: '2022-03-15T00:07:16.424000Z'
+                      _etag: 542f83a681b422a0ff3f345a387280fd0a0d5c45
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: SZ-02
+                      multiply: 1
+                      posProductId: POS-ID-035
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc295
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 1200
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc28f
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc295
+                    - _id: 622fd8b4ac990eb2eb7dc291
+                      name: Choose Your Base
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.424000Z'
+                      _updated: '2022-03-15T00:07:16.424000Z'
+                      _etag: 8cd586d4610a753e9d2748467d6f911d39b73740
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 4
+                      plu: BNDL-01
+                      multiply: 1
+                      posProductId: POS-ID-036
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc299
+                      - 622fd8b4ac990eb2eb7dc29b
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 1
+                      min: 1
+                      sortOrder: 0
+                      capacityUsages: []
+                      priceLevels: {}
+                      deliveryTax: 6000
+                      takeawayTax: 6000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc291
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc299
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc29b
+                    - _id: 622fd8b4ac990eb2eb7dc293
+                      name: Choose Your Protein
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.424000Z'
+                      _updated: '2022-03-15T00:07:16.424000Z'
+                      _etag: fb449d2323d61657c1ba8bc94db1132d56eda269
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 4
+                      plu: BNDL-01-SML
+                      multiply: 1
+                      posProductId: POS-ID-037
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc29d
+                      - 622fd8b4ac990eb2eb7dc29f
+                      - 622fd8b4ac990eb2eb7dc2a1
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 1
+                      min: 1
+                      sortOrder: 0
+                      capacityUsages: []
+                      priceLevels: {}
+                      deliveryTax: 6000
+                      takeawayTax: 6000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc293
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc29d
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc29f
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc2a1
+                    - _id: 622fd8b4ac990eb2eb7dc295
+                      name: Choose Your Protein
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.424000Z'
+                      _updated: '2022-03-15T00:07:16.424000Z'
+                      _etag: 9bb1989fc9d54146b320cc693f87ef5d42a1cd1b
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 4
+                      plu: BNDL-LG
+                      multiply: 1
+                      posProductId: POS-ID-038
+                      posProductCategoryId: ''
+                      subProducts:
+                      - 622fd8b4ac990eb2eb7dc29d
+                      - 622fd8b4ac990eb2eb7dc29f
+                      - 622fd8b4ac990eb2eb7dc2a1
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 1
+                      min: 1
+                      sortOrder: 0
+                      capacityUsages: []
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc295
+                        related:
+                          subProducts:
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc29d
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc29f
+                          - title: products
+                            href: products/622fd8b4ac990eb2eb7dc2a1
+                    - _id: 622fd8b4ac990eb2eb7dc29f
+                      name: Spicy Tuna
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.425000Z'
+                      _updated: '2022-03-15T00:07:16.425000Z'
+                      _etag: 68ed7cc40d43e2236ea9e75da897653a3f3c77d4
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: PRT-02
+                      multiply: 1
+                      posProductId: POS-ID-043
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 0
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc29f
+                    - _id: 622fd8b4ac990eb2eb7dc2a1
+                      name: Teriyaki Chicken
+                      description: ''
+                      nameTranslations: {}
+                      descriptionTranslations: {}
+                      _created: '2022-03-15T00:07:16.429000Z'
+                      _updated: '2022-03-15T00:07:16.429000Z'
+                      _etag: 584dacd4970848bffb6513e1826f2ae26fb23f83
+                      account: 5ff6ee089328c8aefeeabe33
+                      location: 5ff6ee659328c8aefeeac2a7
+                      productType: 1
+                      plu: PRT-03
+                      multiply: 1
+                      posProductId: POS-ID-044
+                      posProductCategoryId: ''
+                      subProducts: []
+                      productTags: []
+                      posCategoryIds: []
+                      isInternal: false
+                      max: 0
+                      min: 0
+                      sortOrder: 0
+                      capacityUsages: []
+                      price: 0
+                      priceLevels: {}
+                      deliveryTax: 9000
+                      takeawayTax: 9000
+                      eatInTax: 9000
+                      _links:
+                        self:
+                          title: products
+                          href: products/622fd8b4ac990eb2eb7dc2a1
+                    _links:
+                      parent:
+                        title: home
+                        href: /
+                      self:
+                        title: products
+                        href: products?where={"account":"5ff6ee089328c8aefeeabe33"}
+                      next:
+                        title: next page
+                        href: products?where={"account":"5ff6ee089328c8aefeeabe33"}&page=2
+                      last:
+                        title: last page
+                        href: products?where={"account":"5ff6ee089328c8aefeeabe33"}&page=3
+                    _meta:
+                      page: 1
+                      max_results: 25
+                      total: 64
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+        default:
+          description: default
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                examples:
+                - application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                _items:
+                - _id: 622fd8b********eb7dc24d
+                  name: Add a side
+                  description: ''
+                  nameTranslations:
+                    en: Choose a side
+                    es: Elige tu acompañamiento
+                    fr: Choisissez votre garniture
+                    nl: Kies je bijgerecht
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.422000Z'
+                  _updated: '2022-03-15T00:07:16.422000Z'
+                  _etag: 2715877681451ad6ddae50679c044bb56bef30ac
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 3
+                  plu: MOD-02
+                  multiply: 1
+                  posProductId: POS-ID-003
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc255
+                  - 622fd8b4ac990eb2eb7dc257
+                  - 622fd8b4ac990eb2eb7dc259
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 1
+                  sortOrder: 0
+                  capacityUsages: []
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc24d
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc255
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc257
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc259
+                - _id: 622fd8b4ac990eb2eb7dc24f
+                  name: Rare
+                  description: ''
+                  nameTranslations:
+                    en: Rare
+                    es: Poco hecho
+                    fr: Saignant
+                    nl: Rood
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.422000Z'
+                  _updated: '2022-03-15T00:07:16.422000Z'
+                  _etag: be71204aaf77a4cf1676d698ec32a76a090f0e41
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 2
+                  plu: COOK-01
+                  multiply: 1
+                  posProductId: POS-ID-004
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 0
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc24f
+                - _id: 622fd8b4ac990eb2eb7dc251
+                  name: Medium Rare
+                  description: ''
+                  nameTranslations:
+                    en: Medium Rare
+                    es: Al punto
+                    fr: À point
+                    nl: Half doorbakken
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.422000Z'
+                  _updated: '2022-03-15T00:07:16.422000Z'
+                  _etag: 16bba91773586b8aac42ae02e16a9384073bf809
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 2
+                  plu: COOK-02
+                  multiply: 1
+                  posProductId: POS-ID-005
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 0
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc251
+                - _id: 622fd8b4ac990eb2eb7dc255
+                  name: Fries
+                  description: ''
+                  nameTranslations:
+                    en: Fries
+                    es: Patatas fritas
+                    fr: Frites
+                    nl: Frietjes
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.422000Z'
+                  _updated: '2022-03-15T00:07:16.422000Z'
+                  _etag: 2f6c78768a648d49a91723e365b38db4b0fcb94c
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 2
+                  plu: SI-01
+                  multiply: 1
+                  posProductId: POS-ID-006
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  defaultQuantity: 1
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 0
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc255
+                - _id: 622fd8b4ac990eb2eb7dc257
+                  name: Salad
+                  description: ''
+                  nameTranslations:
+                    en: Salad
+                    es: Ensalada
+                    fr: Salade
+                    nl: Salade
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.422000Z'
+                  _updated: '2022-03-15T00:07:16.422000Z'
+                  _etag: fbd9ebc70111fea3ce22cfcfdf8938f5490974ae
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 2
+                  plu: SI-02
+                  multiply: 1
+                  posProductId: POS-ID-007
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 200
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc257
+                - _id: 622fd8b4ac990eb2eb7dc259
+                  name: Mashed Potato
+                  description: ''
+                  nameTranslations:
+                    en: Mashed Potato
+                    es: Puré de patata
+                    fr: Purée de pommes de terre
+                    nl: Aardappelpuree
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.422000Z'
+                  _updated: '2022-03-15T00:07:16.422000Z'
+                  _etag: 05d48dd6689a7885f01971197480b9ce8fb24151
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 2
+                  plu: SI-03
+                  multiply: 1
+                  posProductId: POS-ID-008
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 100
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc259
+                - _id: 622fd8b4ac990eb2eb7dc25b
+                  name: Chicken Sate
+                  description: Product with Nested Modifiers - Multimax variables - Allergens (tags)
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.422000Z'
+                  _updated: '2022-03-15T00:07:16.422000Z'
+                  _etag: f9d4e488bc46c73379bc7f44ec26402c7167878f
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: P-SATE
+                  multiply: 1
+                  posProductId: POS-ID-009
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc25d
+                  - 622fd8b4ac990eb2eb7dc25f
+                  productTags:
+                  - 104
+                  - 108
+                  posCategoryIds:
+                  - SATE
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/satay-62284e3c8c506f015be60184.jpeg
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 450
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc25b
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc25d
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc25f
+                - _id: 622fd8b4ac990eb2eb7dc261
+                  name: White Rice
+                  description: White coloured rice
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: 93d3797000158ddbfba6e555975812b00fd440f9
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: RICE-01
+                  multiply: 1
+                  posProductId: POS-ID-012
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc269
+                  productTags: []
+                  posCategoryIds:
+                  - SD
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/nasiputi-1610290140494.jpg
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 450
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc261
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc269
+                - _id: 622fd8b4ac990eb2eb7dc265
+                  name: Egg Noodles
+                  description: Egg noodles and veggies fried and tossed with a delicious sauce
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: 82fe6073cf8ad734790611a88c994b878700eb98
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: NOOD-01
+                  multiply: 1
+                  posProductId: POS-ID-014
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc269
+                  productTags: []
+                  posCategoryIds:
+                  - SD
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/bamigoreng-1610289922969.jpg
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 450
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc265
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc269
+                - _id: 622fd8b4ac990eb2eb7dc267
+                  name: Ramen Noodles
+                  description: Chinese-style wheat noodles
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: 31517b482377d626dba89d13fd72bda726ed4b3e
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: NOOD-02
+                  multiply: 1
+                  posProductId: POS-ID-015
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc269
+                  productTags: []
+                  posCategoryIds:
+                  - SD
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/Mihoen-2-1-1610289870157.jpg
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 450
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc267
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc269
+                - _id: 622fd8b4ac990eb2eb7dc26b
+                  name: Sate Sauce
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: 424be2d9e4483177d78aef72749492572f977997
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 2
+                  plu: SAUCE-01
+                  multiply: 1
+                  posProductId: POS-ID-017
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 50
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc26b
+                - _id: 622fd8b4ac990eb2eb7dc26d
+                  name: Hot Sauce
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: e9d50ad67406d4c6b833df8763b3a0a2a9cded5f
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 2
+                  plu: SAUCE-02
+                  multiply: 1
+                  posProductId: POS-ID-018
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 50
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc26d
+                - _id: 622fd8b4ac990eb2eb7dc26f
+                  name: Burger Combo (Drink not Included)
+                  description: Combo with Bundles - Modifier Groups as Upsell
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: f7e7f78062028d530e3bbf7ab82c95457aa23924
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: P-BRGR
+                  multiply: 1
+                  posProductId: POS-ID-019
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc271
+                  - 622fd8b4ac990eb2eb7dc273
+                  - 622fd8b4ac990eb2eb7dc275
+                  productTags: []
+                  posCategoryIds:
+                  - BURG
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/burger-62286be78c506f015be60190.jpeg
+                  isInternal: false
+                  isCombo: true
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 950
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc26f
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc271
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc273
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc275
+                - _id: 622fd8b4ac990eb2eb7dc273
+                  name: Fries Selection
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: a91312a5e9fae3539769038c06b8f246744a40f2
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 3
+                  plu: MG-FRS
+                  multiply: 1
+                  posProductId: POS-ID-021
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc277
+                  - 622fd8b4ac990eb2eb7dc279
+                  - 622fd8b4ac990eb2eb7dc27b
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 1
+                  min: 1
+                  sortOrder: 0
+                  capacityUsages: []
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc273
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc277
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc279
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc27b
+                - _id: 622fd8b4ac990eb2eb7dc275
+                  name: Add a Drink? (not included)
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-07-06T08:03:11.000000Z'
+                  _etag: def3a76097f22874ed0ec2e5481b74865c113467
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 3
+                  plu: UPSLL-01
+                  multiply: 1
+                  posProductId: POS-ID-022
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc283
+                  - 622fd8b4ac990eb2eb7dc285
+                  - 622fd8b4ac990eb2eb7dc287
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  multiMax: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc275
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc283
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc285
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc287
+                - _id: 622fd8b4ac990eb2eb7dc277
+                  name: French Fries
+                  description: Plain fries from France
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.423000Z'
+                  _updated: '2022-03-15T00:07:16.423000Z'
+                  _etag: 77b6eef509fed9c3787dc17aa8cfe6bfe6915f9d
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: P-FRS-S
+                  multiply: 1
+                  posProductId: POS-ID-023
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds:
+                  - FRS
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 200
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc277
+                - _id: 622fd8b4ac990eb2eb7dc27d
+                  name: Chicken Burger
+                  description: Crispy coated chicken thigh, iceberg lettuce, pickles, slice of cheese & mayo, all in a toasted brioche bun.
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.424000Z'
+                  _updated: '2022-03-15T00:07:16.424000Z'
+                  _etag: f123a4c0c5a34ac30e132d965f25345779f12024
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: P-BURG-CHK
+                  multiply: 1
+                  posProductId: POS-ID-026
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds:
+                  - BURG
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/chkburger-6228c1dcdb5986001ebf58df.jpeg
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 800
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc27d
+                - _id: 622fd8b4ac990eb2eb7dc287
+                  name: Ginger Beer
+                  description: Australia's favourite ginger beer!
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.424000Z'
+                  _updated: '2022-03-15T00:07:16.424000Z'
+                  _etag: 62bb35e3c3f2a5e6f7459d8a5d3ee756b29b6d7c
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: DRNK-03
+                  multiply: 1
+                  posProductId: POS-ID-031
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds:
+                  - DRK
+                  imageUrl: https://storage.googleapis.com/ikona-bucket-staging/images/5ff6ee089328c8aefeeabe33/gingerbeer-62285548db5986001ebf58d1.jpg
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 400
+                  bottleDepositPrice: 100
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc287
+                - _id: 622fd8b4ac990eb2eb7dc28d
+                  name: Mini Poke Bowl
+                  description: A little bowl of Poke
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.424000Z'
+                  _updated: '2022-03-15T00:07:16.424000Z'
+                  _etag: f4c1a3f3fb705345ef489c904c93cd158ec06a49
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: SZ-01
+                  multiply: 1
+                  posProductId: POS-ID-034
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc293
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 800
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc28d
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc293
+                - _id: 622fd8b4ac990eb2eb7dc28f
+                  name: Large Poke Bowl
+                  description: A big bowl of Poke
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.424000Z'
+                  _updated: '2022-03-15T00:07:16.424000Z'
+                  _etag: 542f83a681b422a0ff3f345a387280fd0a0d5c45
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: SZ-02
+                  multiply: 1
+                  posProductId: POS-ID-035
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc295
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 1200
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc28f
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc295
+                - _id: 622fd8b4ac990eb2eb7dc291
+                  name: Choose Your Base
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.424000Z'
+                  _updated: '2022-03-15T00:07:16.424000Z'
+                  _etag: 8cd586d4610a753e9d2748467d6f911d39b73740
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 4
+                  plu: BNDL-01
+                  multiply: 1
+                  posProductId: POS-ID-036
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc299
+                  - 622fd8b4ac990eb2eb7dc29b
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 1
+                  min: 1
+                  sortOrder: 0
+                  capacityUsages: []
+                  priceLevels: {}
+                  deliveryTax: 6000
+                  takeawayTax: 6000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc291
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc299
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc29b
+                - _id: 622fd8b4ac990eb2eb7dc293
+                  name: Choose Your Protein
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.424000Z'
+                  _updated: '2022-03-15T00:07:16.424000Z'
+                  _etag: fb449d2323d61657c1ba8bc94db1132d56eda269
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 4
+                  plu: BNDL-01-SML
+                  multiply: 1
+                  posProductId: POS-ID-037
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc29d
+                  - 622fd8b4ac990eb2eb7dc29f
+                  - 622fd8b4ac990eb2eb7dc2a1
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 1
+                  min: 1
+                  sortOrder: 0
+                  capacityUsages: []
+                  priceLevels: {}
+                  deliveryTax: 6000
+                  takeawayTax: 6000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc293
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc29d
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc29f
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc2a1
+                - _id: 622fd8b4ac990eb2eb7dc295
+                  name: Choose Your Protein
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.424000Z'
+                  _updated: '2022-03-15T00:07:16.424000Z'
+                  _etag: 9bb1989fc9d54146b320cc693f87ef5d42a1cd1b
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 4
+                  plu: BNDL-LG
+                  multiply: 1
+                  posProductId: POS-ID-038
+                  posProductCategoryId: ''
+                  subProducts:
+                  - 622fd8b4ac990eb2eb7dc29d
+                  - 622fd8b4ac990eb2eb7dc29f
+                  - 622fd8b4ac990eb2eb7dc2a1
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 1
+                  min: 1
+                  sortOrder: 0
+                  capacityUsages: []
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc295
+                    related:
+                      subProducts:
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc29d
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc29f
+                      - title: products
+                        href: products/622fd8b4ac990eb2eb7dc2a1
+                - _id: 622fd8b4ac990eb2eb7dc29f
+                  name: Spicy Tuna
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.425000Z'
+                  _updated: '2022-03-15T00:07:16.425000Z'
+                  _etag: 68ed7cc40d43e2236ea9e75da897653a3f3c77d4
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: PRT-02
+                  multiply: 1
+                  posProductId: POS-ID-043
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 0
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc29f
+                - _id: 622fd8b4ac990eb2eb7dc2a1
+                  name: Teriyaki Chicken
+                  description: ''
+                  nameTranslations: {}
+                  descriptionTranslations: {}
+                  _created: '2022-03-15T00:07:16.429000Z'
+                  _updated: '2022-03-15T00:07:16.429000Z'
+                  _etag: 584dacd4970848bffb6513e1826f2ae26fb23f83
+                  account: 5ff6ee089328c8aefeeabe33
+                  location: 5ff6ee659328c8aefeeac2a7
+                  productType: 1
+                  plu: PRT-03
+                  multiply: 1
+                  posProductId: POS-ID-044
+                  posProductCategoryId: ''
+                  subProducts: []
+                  productTags: []
+                  posCategoryIds: []
+                  isInternal: false
+                  max: 0
+                  min: 0
+                  sortOrder: 0
+                  capacityUsages: []
+                  price: 0
+                  priceLevels: {}
+                  deliveryTax: 9000
+                  takeawayTax: 9000
+                  eatInTax: 9000
+                  _links:
+                    self:
+                      title: products
+                      href: products/622fd8b4ac990eb2eb7dc2a1
+                _links:
+                  parent:
+                    title: home
+                    href: /
+                  self:
+                    title: products
+                    href: products?where={account:5ff6ee089328c8aefeeabe33
+                next:
+                  title: next page
+                  href: products?where={account:5ff6ee089328c8aefeeabe33}&page=2
+                last:
+                  title: last page
+                  href: products?where={account:5ff6ee089328c8aefeeabe33}&page=3
+                _meta:
+                  page: 1
+                  max_results: 25
+                  total: 64
+      operationId: get_products
+      description: Deliverect Get Products for Account
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /products/snoozeByPlus:
+    post:
+      tags:
+      - Products
+      summary: Deliverect Snooze Product by PLU
+      description: Mark products out of stock for a certain amount of time based on their PLU and location. You can use the same call to unsnooze product passing `snoozeEnd` time in the past.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              examples:
+              - account: '{{account_id}}'
+                location: '{{location_id}}'
+                plus:
+                - PLU1
+                snoozeStart: '2019-03-06T15:45:00.000Z'
+                snoozeEnd: '2019-03-07T15:45:00.000Z'
+            examples:
+              Example Snooze Request:
+                summary: Example Snooze Request
+                value:
+                  account: 62********************2g
+                  location: 62********************9k
+                  plus:
+                  - PLU_1
+                  - PLU_2
+                  snoozeEnd: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+      responses:
+        default:
+          description: default
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                example-0:
+                  summary: Multiple PLUs across all locations
+                  value: null
+                example-1:
+                  summary: Multiple PLUs for one location
+                  value: null
+                example-2:
+                  summary: Single PLU for one location
+                  value: null
+                example-3:
+                  summary: Single PLU across all locations
+                  value: null
+      operationId: post_snooze_by_plu
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /products/snoozeByTags:
+    post:
+      tags:
+      - Products
+      summary: Deliverect Mark Products Out of Stock by Tag
+      description: 'Mark products out of stock for a certain amount of time based on their tag and location. You can use the same call to unsnooze product passing `snoozeEnd` time in the past. ##### NOTE
+        Please note, that here and later all dates and times, coming from/to Deliverect are UTC.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                account:
+                  type: string
+                  example: string
+                location:
+                  type: string
+                  example: string
+                tag:
+                  type: array
+                  items:
+                    type: integer
+                    example: 1
+                snoozeStart:
+                  type: string
+                  example: string
+                snoozeEnd:
+                  type: string
+                  example: string
+              required:
+              - account
+              - snoozeEnd
+              - snoozeStart
+              - tag
+              - location
+            examples:
+              Multiple tags for all locations:
+                summary: Multiple tags for all locations
+                value:
+                  account: '{{account_id}}'
+                  location: null
+                  tags:
+                  - 1
+                  - 2
+                  - 3
+                  snoozeStart: YYYY-MM-DDThh:mm:ss.sssZ
+                  snoozeEnd: YYYY-MM-DDThh:mm:ss.sssZ
+              Multiple tag for one location:
+                summary: Multiple tag for one location
+                value:
+                  account: '{{account_id}}'
+                  location: '{{location_id}}'
+                  tags:
+                  - 1
+                  - 2
+                  - 3
+                  snoozeStart: YYYY-MM-DDThh:mm:ss.sssZ
+                  snoozeEnd: YYYY-MM-DDThh:mm:ss.sssZ
+              Single tag for all locations:
+                summary: Single tag for all locations
+                value:
+                  account: '{{account_id}}'
+                  location: null
+                  tags:
+                  - 1
+                  snoozeStart: YYYY-MM-DDThh:mm:ss.sssZ
+                  snoozeEnd: YYYY-MM-DDThh:mm:ss.sssZ
+              Single tag for one location:
+                summary: Single tag for one location
+                value:
+                  account: '{{account_id}}'
+                  location: '{{location_id}}'
+                  tags:
+                  - 1
+                  snoozeStart: YYYY-MM-DDThh:mm:ss.sssZ
+                  snoozeEnd: YYYY-MM-DDThh:mm:ss.sssZ
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+          description: OK
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+        default:
+          description: default
+          content:
+            text/plain:
+              schema:
+                type: string
+              examples:
+                example-2:
+                  summary: Multiple tags for all locations
+                  value: "{\n  \"account\": \"{{account_id}}\",\n  \"location\": null,\n  \"tags\": [\n    1,\n    2,\n    3\n  ],\n  \"snoozeStart\": \"YYYY-MM-DDThh:mm:ss.sssZ\",\n  \"snoozeEnd\": \"\
+                    YYYY-MM-DDThh:mm:ss.sssZ\"\n}"
+                example-3:
+                  summary: Multiple tag for one location
+                  value: "{\n  \"account\": \"{{account_id}}\",\n  \"location\": null,\n  \"tags\": [\n    1\n  ],\n  \"snoozeStart\": \"YYYY-MM-DDThh:mm:ss.sssZ\",\n  \"snoozeEnd\": \"YYYY-MM-DDThh:mm:ss.sssZ\"\
+                    \n}"
+                ? ''
+                : summary: ''
+                  value: "{\n  \"account\": \"{{account_id}}\",\n  \"location\": \"{{location_id}}\",\n  \"tags\": [\n    1,\n    2,\n    3\n  ],\n  \"snoozeStart\": \"YYYY-MM-DDThh:mm:ss.sssZ\",\n  \"\
+                    snoozeEnd\": \"YYYY-MM-DDThh:mm:ss.sssZ\"\n}"
+                ' 1':
+                  summary: ' 1'
+                  value: null
+      operationId: post_mark_products_out_of_stock_by_tag
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /channelDisabledProducts:
+    get:
+      tags:
+      - Products
+      summary: Deliverect Get Products Marked Out of Stock
+      description: Get products marked out of stock.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+        description: The Content-Type value.
+      - name: where
+        in: query
+        schema:
+          type: string
+        example:
+          account: account_id
+          location: location_id
+        description: The where value.
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                OK:
+                  summary: OK
+                  value: "{\n    \"_items\": [\n        {\n            \"_id\": \"612***2cf\",\n            \"_created\": \"2021-08-30T11:41:09.077000Z\",\n            \"_updated\": \"2021-08-30T11:53:09.000000Z\"\
+                    ,\n            \"_etag\": \"19358d3fb0b1cdb2cf96fa71f7c21abda863b00f\",\n            \"account\": \"60e***945\",\n            \"channel\": -1,\n            \"location\": \"60e***96a\"\
+                    ,\n            \"plu\": \"VAR-PROD-1\",\n            \"name\": \"Pinapple pizza\",\n            \"deliverectProductId\": \"610***b73\",\n            \"snoozeStart\": \"2021-08-30T11:41:09Z\"\
+                    ,\n            \"snoozeEnd\": \"2021-08-30T11:53:09Z\",\n            \"isBogof\": false,\n            \"isInBundle\": false,\n            \"channelLinks\": [\n                \"60e***a37\"\
+                    ,\n            ],\n            \"_links\": {\n                \"self\": {\n                    \"title\": \"channelDisabledProducts\",\n                    \"href\": \"channelDisabledProducts/612***2cf\"\
+                    \n                }\n            }\n        },\n        {\n            \"_id\": \"612***298\",\n            \"_created\": \"2021-08-30T14:31:19Z\",\n            \"_updated\": \"2021-08-30T14:31:19Z\"\
+                    ,\n            \"_etag\": \"f839b4936adbaa034358bc669abe75cfdbb80964\",\n            \"account\": \"60e***945\",\n            \"channel\": -1,\n            \"location\": \"60e***96a\"\
+                    ,\n            \"plu\": \"MOD555\",\n            \"name\": \"Ice\",\n            \"deliverectProductId\": \"612***e8d\",\n            \"snoozeStart\": \"2021-08-30T14:31:19Z\",\n   \
+                    \         \"snoozeEnd\": \"2021-08-30T15:31:19Z\",\n            \"isBogof\": false,\n            \"isInBundle\": false,\n            \"channelLinks\": [\n                \"60e***a37\"\
+                    ,\n                \"612***204\"\n            ],\n            \"_links\": {\n                \"self\": {\n                    \"title\": \"channelDisabledProducts\",\n              \
+                    \      \"href\": \"channelDisabledProducts/612***298\"\n                }\n            }\n        },\n        {\n            \"_id\": \"613***6a3\",\n            \"_created\": \"2021-09-03T13:09:48Z\"\
+                    ,\n            \"_updated\": \"2021-09-03T13:09:48Z\",\n            \"_etag\": \"6f5e942de36140f6825c7f69695f94a464bcab4e\",\n            \"account\": \"60e***945\",\n            \"\
+                    channel\": -1,\n            \"location\": \"60e***96a\",\n            \"plu\": \"PR2\",\n            \"name\": \"Cola\",\n            \"deliverectProductId\": \"60e4***f62\",\n     \
+                    \       \"snoozeStart\": \"2021-08-18T11:13:00Z\",\n            \"snoozeEnd\": \"2021-09-03T13:17:48Z\",\n            \"isBogof\": false,\n            \"isInBundle\": false,\n      \
+                    \      \"channelLinks\": [\n                \"60e***a37\",\n                \"612***204\",\n                \"613***31c\"\n            ],\n            \"_links\": {\n               \
+                    \ \"self\": {\n                    \"title\": \"channelDisabledProducts\",\n                    \"href\": \"channelDisabledProducts/613***6a3\"\n                }\n            }\n  \
+                    \      }\n    ],\n    \"_links\": {\n        \"parent\": {\n            \"title\": \"home\",\n            \"href\": \"/\"\n        },\n        \"self\": {\n            \"title\": \"\
+                    channelDisabledProducts\",\n            \"href\": \"channelDisabledProducts?where={ \\\"account\\\": \\\"60e***945\\\", \\\"location\\\": \\\"60e***96a\\\" }\"\n        }\n    },\n \
+                    \   \"_meta\": {\n        \"page\": 1,\n        \"max_results\": 25,\n        \"total\": 9\n    }\n}"
+          description: OK
+        default:
+          description: default
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                examples:
+                - application/json
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                _items:
+                - _id: 612***2cf
+                  _created: '2021-08-30T11:41:09.077000Z'
+                  _updated: '2021-08-30T11:53:09.000000Z'
+                  _etag: 19358d3fb0b1cdb2cf96fa71f7c21abda863b00f
+                  account: 60e***945
+                  channel: -1
+                  location: 60e***96a
+                  plu: VAR-PROD-1
+                  name: Pinapple pizza
+                  deliverectProductId: 610***b73
+                  snoozeStart: '2021-08-30T11:41:09Z'
+                  snoozeEnd: '2021-08-30T11:53:09Z'
+                  isBogof: false
+                  isInBundle: false
+                  channelLinks:
+                  - 60e***a37
+                  _links:
+                    self:
+                      title: channelDisabledProducts
+                      href: channelDisabledProducts/612***2cf
+                - _id: 612***298
+                  _created: '2021-08-30T14:31:19Z'
+                  _updated: '2021-08-30T14:31:19Z'
+                  _etag: f839b4936adbaa034358bc669abe75cfdbb80964
+                  account: 60e***945
+                  channel: -1
+                  location: 60e***96a
+                  plu: MOD555
+                  name: Ice
+                  deliverectProductId: 612***e8d
+                  snoozeStart: '2021-08-30T14:31:19Z'
+                  snoozeEnd: '2021-08-30T15:31:19Z'
+                  isBogof: false
+                  isInBundle: false
+                  channelLinks:
+                  - 60e***a37
+                  - 612***204
+                  _links:
+                    self:
+                      title: channelDisabledProducts
+                      href: channelDisabledProducts/612***298
+                - _id: 613***6a3
+                  _created: '2021-09-03T13:09:48Z'
+                  _updated: '2021-09-03T13:09:48Z'
+                  _etag: 6f5e942de36140f6825c7f69695f94a464bcab4e
+                  account: 60e***945
+                  channel: -1
+                  location: 60e***96a
+                  plu: PR2
+                  name: Cola
+                  deliverectProductId: 60e4***f62
+                  snoozeStart: '2021-08-18T11:13:00Z'
+                  snoozeEnd: '2021-09-03T13:17:48Z'
+                  isBogof: false
+                  isInBundle: false
+                  channelLinks:
+                  - 60e***a37
+                  - 612***204
+                  - 613***31c
+                  _links:
+                    self:
+                      title: channelDisabledProducts
+                      href: channelDisabledProducts/613***6a3
+                _links:
+                  parent:
+                    title: home
+                    href: /
+                  self:
+                    title: channelDisabledProducts
+                    href: 'channelDisabledProducts?where={ account: {{account_id}}, location: {{location_id}}'
+                _meta:
+                  page: 1
+                  max_results: 25
+                  total: 9
+      operationId: get_get_channeldisabledproducts
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /updateStoreStatus/{locationId}:
+    post:
+      tags:
+      - Store Status
+      summary: Deliverect Busy Mode
+      description: 'This endpoint allows a POS to update store status. One, several or all channel links can be put in busy/online mode(should be supported by channels as well) by calling this endpoint.
+        When sending a call to the endpoint make sure it includes `isActive` flag which indicates if store busy/online. Optional parameter `channelLinks` allwos you to specify a list of channel links to
+        be put in busy/online mode. Otherwise all location channel links will be put in busy/online mode. As a payload we always expect a JSON that contains: * Flag that indicates if store is busy/online
+        (`isActive`) * [Optional] Array of channel link ids to be put in busy/online more (`channelLink`)'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                isActive:
+                  type: string
+                  example: string
+                prepTime:
+                  type: string
+                  example: '2026-03-15T14:30:00Z'
+              required:
+              - isActive
+              - prepTime
+            examples:
+              post_update_store_statusRequest:
+                summary: Default post_update_store_status request
+                x-microcks-default: true
+                value:
+                  isActive: string
+                  prepTime: '2026-03-15T14:30:00Z'
+      parameters:
+      - name: locationId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The locationId value.
+        example: 5cecc6489f0001b8
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                      example: Channel Link 606d8489f****ddf13b****6 failed to update status
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value:
+                    errors:
+                    - Channel Link 606d8489f****ddf13b****6 failed to update status
+      operationId: post_update_store_status
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /locations/openingHours:
+    post:
+      summary: Deliverect Create/Update Opening Hours
+      responses:
+        '204':
+          description: No Content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                No Content:
+                  summary: No Content
+                  value: '{}'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - locations
+              properties:
+                locations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        example: 609a1b2c3d4e5f6a7b8c9d0e
+                      triggerUpdate:
+                        type: boolean
+                        example: true
+                      openingHours:
+                        type: array
+                        items:
+                          type: object
+                      channels:
+                        type: array
+                        items:
+                          type: object
+            examples:
+              Update Example:
+                summary: Update Example
+                value:
+                  locations:
+                  - id: '{locationId}'
+                    triggerUpdate: true
+                    openingHours:
+                    - dayOfWeek: 1
+                      startTime: '10:00'
+                      endTime: '17:00'
+                    channels:
+                    - id: 6200****fd1f
+                      openingHours:
+                      - dayOfWeek: 1
+                        startTime: 08:00
+                        endTime: '20:00'
+      operationId: post_post_locations_openinghours
+      description: Deliverect Create/Update Opening Hours
+      tags:
+      - Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /locations/holidays:
+    post:
+      tags:
+      - Opening Hours
+      summary: Deliverect Holiday Hours for Locations
+      responses:
+        default:
+          description: default
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+            examples:
+              Example Update:
+                summary: Example Update
+                value:
+                  locations:
+                  - id: 61c30761e41eefadd03072af
+                    holidays:
+                    - startTime: '2023-12-19T15:53:00Z'
+                      endTime: '2023-12-19T16:10:00Z'
+                    - startTime: '2023-12-20T04:00:00Z'
+                      endTime: '2023-12-20T05:00:00Z'
+      operationId: post_post_locations_holidays
+      description: Deliverect Holiday Hours for Locations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /locations/channels/holidays:
+    post:
+      tags:
+      - Opening Hours
+      summary: Deliverect Holiday Hours for Locations and ChannelLinks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              examples:
+              - locations:
+                - id: someLocationId
+                  channels:
+                  - id: someChannelLinkId
+                    holidays:
+                    - startTime: '2021-12-19T15:53:00Z'
+                      endTime: '2021-12-19T16:10:00Z'
+                    - startTime: '2022-05-18T04:00:00Z'
+                      endTime: '2022-05-18T05:00:00Z'
+                    - startTime: '2022-05-17T17:37:00Z'
+                      endTime: '2022-05-17T17:39:00Z'
+                    - startTime: '2023-08-04T09:00:00Z'
+                      endTime: '2023-08-04T19:00:00Z'
+            examples:
+              Example Update:
+                summary: Example Update
+                value:
+                  locations:
+                  - id: 63********************a7
+                    channels:
+                    - id: 63********************a7
+                      holidays:
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                      - startTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+                        endTime: YYYY-MM-DDTHH:mm:ss.SSSSSSZ
+      responses:
+        default:
+          description: default
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+      operationId: post_post_locations_channels_holidays
+      description: Deliverect Holiday Hours for Locations and ChannelLinks
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /account/{accountId}/openingHours:
+    get:
+      tags:
+      - Opening Hours
+      summary: Deliverect Get Account Opening Hours
+      parameters:
+      - name: accountId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The accountId value.
+        example: 5b71c6489f00290d4
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value: '{}'
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      operationId: get_get_account_accountid_openinghours
+      description: Deliverect Get Account Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /location/{locationId}/openingHours:
+    get:
+      tags:
+      - Opening Hours
+      summary: Deliverect Get Store Opening Hours
+      parameters:
+      - name: locationId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The locationId value.
+        example: 5cecc6489f0001b8
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              examples:
+                OK:
+                  summary: OK
+                  value:
+                    _id: 633d62de0f1565acdf**3bdf
+                    status: ACTIVE
+                    locationName: Location 1
+                    tags: []
+                    openingHours:
+                    - dayOfWeek: 1
+                      startTime: 00:00
+                      endTime: '23:59'
+                    - dayOfWeek: 2
+                      startTime: 00:00
+                      endTime: '23:59'
+                    - dayOfWeek: 3
+                      startTime: 00:00
+                      endTime: '23:59'
+                    channels:
+                    - _id: 633d6******565acdf893bf1
+                      status: 2
+                      channelName: Channel 1
+                      channel: 1
+                      tags: []
+                      openingHours: []
+                    - _id: 6476183fe******c858de0b0
+                      status: 2
+                      channelName: Channel 2
+                      channel: 10057
+                      tags: []
+                      openingHours: []
+                    - _id: 669519a1fe******040bdaf2
+                      status: 2
+                      channelName: Channel 3
+                      channel: 10000
+                      tags: []
+                      openingHours: []
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    example: 633d62de0f1565acdf**3bdf
+                  status:
+                    type: string
+                    example: ACTIVE
+                  locationName:
+                    type: string
+                    example: Location 1
+                  tags:
+                    type: array
+                    items:
+                      type: object
+                      properties: {}
+                  openingHours:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dayOfWeek:
+                          type: integer
+                          example: 1
+                          default: 0
+                        startTime:
+                          type: string
+                          example: 00:00
+                        endTime:
+                          type: string
+                          example: '23:59'
+                  channels:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                          example: 633d6******565acdf893bf1
+                        status:
+                          type: integer
+                          example: 2
+                          default: 0
+                        channelName:
+                          type: string
+                          example: Channel 1
+                        channel:
+                          type: integer
+                          example: 1
+                          default: 0
+                        tags:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+                        openingHours:
+                          type: array
+                          items:
+                            type: object
+                            properties: {}
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value: '{}'
+          description: Bad Request
+      operationId: get_get_location_locationid_openinghours
+      description: Deliverect Get Store Opening Hours
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /location/{locationId}/holidays:
+    get:
+      tags:
+      - Opening Hours
+      summary: Deliverect Holiday Hours for Locations
+      parameters:
+      - name: locationId
+        in: path
+        schema:
+          type: string
+        required: true
+        description: The locationId value.
+        example: 5cecc6489f0001b8
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+      operationId: get_get_location_locationid_holidays
+      description: Deliverect Holiday Hours for Locations
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /tables/{locationId}:
+    get:
+      summary: Deliverect GET POS Tables
+      description: Retrieve tables and floors for a location.
+      operationId: get_tables_locationid
+      parameters:
+      - name: locationId
+        in: path
+        required: true
+        schema:
+          type: string
+          default: ''
+        description: The locationId value.
+        example: 5cecc6489f0001b8
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - tables
+                - floors
+                properties:
+                  tables:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - id
+                      - name
+                      - floorId
+                      - seats
+                      properties:
+                        id:
+                          type: string
+                          example: 609a1b2c3d4e5f6a7b8c9d0e
+                        name:
+                          type: string
+                          example: Deliverect's Pizza Place
+                        floorId:
+                          type: string
+                          example: 609a1b2c3d4e5f6a7b8c9d0e
+                        seats:
+                          type: integer
+                          example: 1
+                  floors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - id
+                      - name
+                      properties:
+                        id:
+                          type: string
+                          example: 609a1b2c3d4e5f6a7b8c9d0e
+                        name:
+                          type: string
+                          example: Deliverect's Pizza Place
+              examples:
+                GET POS tables:
+                  summary: GET POS tables
+                  value:
+                    tables:
+                    - id: table#1
+                      name: 'Table #1'
+                      floorId: restaurant
+                      seats: 6
+                    floors:
+                    - id: restaurant
+                      name: Restaurant
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Bad Request:
+                  summary: Bad Request
+                  value:
+                    error: 'failed to get tables: Error message'
+          description: Bad Request
+        '422':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+              examples:
+                Unprocessable Entity:
+                  summary: Unprocessable Entity
+                  value:
+                    error: Get tables action is not supported for this location.
+          description: Unprocessable Entity
+      tags:
+      - Tables
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /allAllegens:
+    get:
+      summary: Deliverect Allergens and Tags
+      description: Get allergens and tags existing in Deliverect.
+      operationId: get_allallegens
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      example: Deliverect's Pizza Place
+                    allergenId:
+                      type: integer
+                      example: 1
+              examples:
+                Allergens and tags:
+                  summary: Allergens and tags
+                  value:
+                  - name: Alcohol
+                    allergenId: 1
+                  - name: Halal
+                    allergenId: 2
+                  - name: Kosher
+                    allergenId: 3
+      tags:
+      - Allergens
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 machine-to-machine client-credentials. Exchange client_id/client_secret at POST /oauth/token for a Bearer access_token.
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.deliverect.com/oauth/token
+          scopes: {}
+security:
+- oauth2: []

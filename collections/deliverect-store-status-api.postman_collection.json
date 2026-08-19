@@ -1,0 +1,683 @@
+{
+  "item": [
+    {
+      "id": "6630ba5d-8b16-43df-a8f8-65a9acd045cc",
+      "name": "Store Status",
+      "description": {
+        "content": "Store Status operations for the Deliverect Channel API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35c73633-dec0-4a71-97cd-ffb68a425bd1",
+          "name": "Deliverect Busy Mode",
+          "request": {
+            "name": "Deliverect Busy Mode",
+            "description": {
+              "content": "When a store status changes to open or closed, a webhook event will be sent",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channel",
+                "busy_mode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1e016ef8-cbb3-4c99-8842-162145e83472",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "busy_mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45bcdc47-44ee-4d50-ac0c-71c563f50934",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "busy_mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbce9585-6a2d-40a2-89a7-637288affa2b",
+          "name": "Deliverect Update Store Status (open/closed)",
+          "request": {
+            "name": "Deliverect Update Store Status (open/closed)",
+            "description": {
+              "content": "Update the status of a store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":channelName",
+                "updateStoreStatus",
+                ":channelLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "my-channel",
+                  "key": "channelName",
+                  "description": "(Required) The channelName value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "61bcc34f657cc48c23eb60d5",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "71d63cee-2643-4423-9016-0dca28f5e6b7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "updateStoreStatus",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "61bcc34f657cc48c23eb60d5",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"closed\",\n  \"reason\": \"Too many failed orders\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Changed store status\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "393fbd41-7bac-4b54-a408-0688283e6791",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "updateStoreStatus",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "61bcc34f657cc48c23eb60d5",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"closed\",\n  \"reason\": \"Too many failed orders\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Invalid value passed in status field: 'invalidStatus'\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7170e102-d56e-44e0-9721-c5fe78955ecf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "updateStoreStatus",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "61bcc34f657cc48c23eb60d5",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"closed\",\n  \"reason\": \"Too many failed orders\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"You don't have permissions to perform this action\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96d5460f-a61c-40fc-bfe7-9c25f8c27bab",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "updateStoreStatus",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "61bcc34f657cc48c23eb60d5",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"closed\",\n  \"reason\": \"Too many failed orders\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Channel link id {channelLinkId} not found.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9057f4b-c8ca-4747-9d09-4a3ffe99bba2",
+          "name": "Deliverect Busy Mode",
+          "request": {
+            "name": "Deliverect Busy Mode",
+            "description": {
+              "content": "This endpoint allows a POS to update store status. One, several or all channel links can be put in busy/online mode(should be supported by channels as well) by calling this endpoint. When sending a call to the endpoint make sure it includes `isActive` flag which indicates if store busy/online. Optional parameter `channelLinks` allwos you to specify a list of channel links to be put in busy/online mode. Otherwise all location channel links will be put in busy/online mode. As a payload we always expect a JSON that contains: * Flag that indicates if store is busy/online (`isActive`) * [Optional] Array of channel link ids to be put in busy/online more (`channelLink`)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "updateStoreStatus",
+                ":locationId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) The locationId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isActive\": \"<string>\",\n  \"prepTime\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a6190cf-3dd8-47c9-b6a5-d4de5fba8b53",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "updateStoreStatus",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) The locationId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": \"string\",\n  \"prepTime\": \"2026-03-15T14:30:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bfb40cd-8fb5-4f57-91db-05030bc255f7",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "updateStoreStatus",
+                    ":locationId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) The locationId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"isActive\": \"string\",\n  \"prepTime\": \"2026-03-15T14:30:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Channel Link 606d8489f****ddf13b****6 failed to update status\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4aa3eb59-03f8-4008-b7a1-1ba4a63e82a0",
+    "name": "Deliverect Channel Accounts Store Status API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

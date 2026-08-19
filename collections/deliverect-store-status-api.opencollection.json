@@ -1,0 +1,92 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Store Status API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Store Status",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Busy Mode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/busy_mode"
+          },
+          "docs": "When a store status changes to open or closed, a webhook event will be sent"
+        },
+        {
+          "info": {
+            "name": "Deliverect Update Store Status (open/closed)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/:channelName/updateStoreStatus/:channelLinkId",
+            "params": [
+              {
+                "name": "channelName",
+                "value": "my-channel",
+                "type": "path",
+                "description": "The channelName value."
+              },
+              {
+                "name": "channelLinkId",
+                "value": "61bcc34f657cc48c23eb60d5",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of a store."
+        },
+        {
+          "info": {
+            "name": "Deliverect Busy Mode",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/updateStoreStatus/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "5cecc6489f0001b8",
+                "type": "path",
+                "description": "The locationId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows a POS to update store status. One, several or all channel links can be put in busy/online mode(should be supported by channels as well) by calling this endpoint. When sending a call to the endpoint make sure it includes `isActive` flag which indicates if store busy/online. Optional parameter `channelLinks` allwos you to specify a list of channel links to be put in busy/online mode. Otherwise all location channel links will be put in busy/online mode. As a payload we always e"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

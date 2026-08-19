@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Gift Cards API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gift Cards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Apply Gift Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/giftCards/channel/:channelLinkId/profileLink/:giftCardProviderProfileLinkId/applyGiftCard",
+            "params": [
+              {
+                "name": "channelLinkId",
+                "value": "{{channelLinkId}}",
+                "type": "path",
+                "description": "The channelLinkId value."
+              },
+              {
+                "name": "giftCardProviderProfileLinkId",
+                "value": "{{giftCardProviderProfileLinkId}}",
+                "type": "path",
+                "description": "The giftCardProviderProfileLinkId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Apply Gift Card"
+        },
+        {
+          "info": {
+            "name": "Deliverect Get Balance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/giftCards/channel/:channelLinkId/profileLink/:giftCardProviderProfileLinkId/getGiftCardBalance",
+            "params": [
+              {
+                "name": "channelLinkId",
+                "value": "{{channelLinkId}}",
+                "type": "path",
+                "description": "The channelLinkId value."
+              },
+              {
+                "name": "giftCardProviderProfileLinkId",
+                "value": "{{giftCardProviderProfileLinkId}}",
+                "type": "path",
+                "description": "The giftCardProviderProfileLinkId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Get Balance"
+        },
+        {
+          "info": {
+            "name": "Deliverect Redeem Gift Cards",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/giftCards/redeem"
+          },
+          "docs": "Deliverect Redeem Gift Cards"
+        },
+        {
+          "info": {
+            "name": "Deliverect Reverse Gift Card Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/giftCards/reverse"
+          },
+          "docs": "Deliverect Reverse Gift Card Payments"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

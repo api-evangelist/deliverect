@@ -1,0 +1,547 @@
+{
+  "item": [
+    {
+      "id": "daec7b60-a39c-41ae-84a0-55732c6ea6ed",
+      "name": "Profiles",
+      "description": {
+        "content": "Profiles operations for the Deliverect Gift Cards API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0abcca75-a151-4cf6-b052-2917522b7548",
+          "name": "Deliverect Register Profile",
+          "request": {
+            "name": "Deliverect Register Profile",
+            "description": {
+              "content": "Deliverect Register Profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "giftCards",
+                "registerProfile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account\": \"<string>\",\n  \"apiKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "265c705c-9935-41d9-b5fa-2ff857a7fb62",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "giftCards",
+                    "registerProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account\": \"string\",\n  \"apiKey\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"redeemGiftCardURL\": \"https://yourwebhook.com/redeem\",\n  \"revertRedeemGiftCardURL\": \"https: //yourwebhook.com/reverse\",\n  \"getGiftCardBalanceURL\": \"https://yourwebhook.com/balance\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4769e578-2915-4ff9-a83b-8727124d78c2",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "giftCards",
+                    "registerProfile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account\": \"string\",\n  \"apiKey\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0bd271b2-0f01-4d95-845b-b841b50c75a2",
+          "name": "Deliverect Get Profile Links",
+          "request": {
+            "name": "Deliverect Get Profile Links",
+            "description": {
+              "content": "Deliverect Get Profile Links",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "giftCards",
+                "channel",
+                ":channelLinkId",
+                "providerProfileLinks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "647aad6a-8b72-49af-bc78-3ae7112d6950",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "giftCards",
+                    "channel",
+                    ":channelLinkId",
+                    "providerProfileLinks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"giftCardProviderProfileLinks\": [\n    {\n      \"id\": \"{{giftCardProviderProfileLinkId}}\",\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc8ce69c-6401-4143-b874-d3f64edbecd7",
+          "name": "Deliverect Register Profile",
+          "request": {
+            "name": "Deliverect Register Profile",
+            "description": {
+              "content": "Deliverect Register Profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "register"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gatewayProfileId\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"apiKey\": \"<string>\",\n  \"webhookUrl\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ba9d278-8f5d-4022-966e-98a58e93fcfd",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gatewayProfileId\": \"66d721b3df0f5a9fda62dd8b\",\n  \"accountId\": \"66570956c77ccc6b9d75e445\",\n  \"apiKey\": \"api-key\",\n  \"webhookUrl\": \"https://api.staging.deliverect.com/pay/events/integrationName/gatewayProfiles/66d721b3df0f5a9fda62dd8b\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"requestPaymentURL\\\": \\\"https://yourwebhook.com/payments/request\\\",\\n    \\\"refundPaymentURL\\\": \\\"https://yourwebhook.com/payments/refund\\\",\\n    \\\"unregisterGatewayProfileURL\\\": \\\"https://yourwebhook.com/payments/unregister-profile\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c434040b-8ac3-4d04-bb00-34f2ea751c5a",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "register"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gatewayProfileId\": \"66d721b3df0f5a9fda62dd8b\",\n  \"accountId\": \"66570956c77ccc6b9d75e445\",\n  \"apiKey\": \"api-key\",\n  \"webhookUrl\": \"https://api.staging.deliverect.com/pay/events/integrationName/gatewayProfiles/66d721b3df0f5a9fda62dd8b\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee822d3d-48dd-40cd-8b48-754b9247e79b",
+          "name": "Deliverect Unregister Profile Event",
+          "request": {
+            "name": "Deliverect Unregister Profile Event",
+            "description": {
+              "content": "When the gateway profile is uninstalled, the partner is expected to handle the unregistered event so that the profile can be uninstalled and disabled.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unregister-profile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountId\": \"<string>\",\n  \"gatewayProfileId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9b9d172-cf5c-4c65-9f0e-0e5b72015574",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unregister-profile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountId\": \"5b71c6489f00290d4\",\n  \"gatewayProfileId\": \"609a1b2c3d4e5f6a7b8c9d0e\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb3c0455-810a-4a6e-b0bd-d717809fe491",
+    "name": "Deliverect Channel Accounts Profiles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

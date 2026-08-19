@@ -1,0 +1,310 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Create / Cancel Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/:channelName/order/:channelLinkId",
+            "params": [
+              {
+                "name": "channelName",
+                "value": "{channelName}",
+                "type": "path",
+                "description": "A unique scope provided to channel integrators to create orders in authorised locations"
+              },
+              {
+                "name": "channelLinkId",
+                "value": "{channelLinkId}",
+                "type": "path",
+                "description": "The unique identifier of the channel in a specific location."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new order for a linked location."
+        },
+        {
+          "info": {
+            "name": "Deliverect Order Status Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/order_status"
+          },
+          "docs": "Deliverect Order Status Update"
+        },
+        {
+          "info": {
+            "name": "Deliverect Preparation Time Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/prep_time",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "{{YourSetwebhookUrl}}"
+        },
+        {
+          "info": {
+            "name": "Deliverect Amendments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/amendments"
+          },
+          "docs": "When a store processes amendments for one or more items within an order, this webhook will deliver the amendment details"
+        },
+        {
+          "info": {
+            "name": "Deliverect Order Rating Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/:channelName/updateRating",
+            "params": [
+              {
+                "name": "channelName",
+                "value": "my-channel",
+                "type": "path",
+                "description": "The channelName value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update rating for a previously placed order."
+        },
+        {
+          "info": {
+            "name": "Deliverect Customer Order History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/crm/:accountId/customers/:crmProfileId/orders",
+            "params": [
+              {
+                "name": "crmProfileId",
+                "value": "609a1b2c3d4e5f6a7b8c9d0e",
+                "type": "path",
+                "description": "The crmProfileId value."
+              },
+              {
+                "name": "accountId",
+                "value": "5b71c6489f00290d4",
+                "type": "path",
+                "description": "The accountId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Customer Order History"
+        },
+        {
+          "info": {
+            "name": "Deliverect CRM Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/crm/:accountId/orders/:crmOrderId",
+            "params": [
+              {
+                "name": "crmOrderId",
+                "value": "609a1b2c3d4e5f6a7b8c9d0e",
+                "type": "path",
+                "description": "The crmOrderId value."
+              },
+              {
+                "name": "accountId",
+                "value": "5b71c6489f00290d4",
+                "type": "path",
+                "description": "The accountId value."
+              }
+            ]
+          },
+          "docs": "Deliverect CRM Order"
+        },
+        {
+          "info": {
+            "name": "Deliverect Customer Favorite Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/crm/:accountId/customers/:crmProfileId/orders/favorites",
+            "params": [
+              {
+                "name": "crmProfileId",
+                "value": "609a1b2c3d4e5f6a7b8c9d0e",
+                "type": "path",
+                "description": "The crmProfileId value."
+              },
+              {
+                "name": "accountId",
+                "value": "5b71c6489f00290d4",
+                "type": "path",
+                "description": "The accountId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Customer Favorite Orders"
+        },
+        {
+          "info": {
+            "name": "Deliverect Kds_order_notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/kds_order_notification",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Kds_order_notification"
+        },
+        {
+          "info": {
+            "name": "Deliverect Kds_order_status_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/kds/order_status_update"
+          },
+          "docs": "Deliverect Kds_order_status_update"
+        },
+        {
+          "info": {
+            "name": "Deliverect Update Order Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/kds/orderStatus/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "609a1b2c3d4e5f6a7b8c9d0e",
+                "type": "path",
+                "description": "The orderId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Update Order Status"
+        },
+        {
+          "info": {
+            "name": "Deliverect Order Notification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/orders"
+          },
+          "docs": "*This will be the same webhook endpoint set by the POS for Order Notifications"
+        },
+        {
+          "info": {
+            "name": "Deliverect Post_orderstatus_orderid",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/orderStatus/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "609a1b2c3d4e5f6a7b8c9d0e",
+                "type": "path",
+                "description": "The orderId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Post_orderstatus_orderid"
+        },
+        {
+          "info": {
+            "name": "Deliverect Order Delivery Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/fulfillment/location/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "609a1b2c3d4e5f6a7b8c9d0e",
+                "type": "path",
+                "description": "The orderId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Order Delivery Update"
+        },
+        {
+          "info": {
+            "name": "Deliverect Post_updatepreparationtime",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/updatePreparationTime",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Post_updatepreparationtime"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

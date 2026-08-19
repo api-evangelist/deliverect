@@ -1,0 +1,230 @@
+{
+  "item": [
+    {
+      "id": "7f6ace2e-52e2-412e-932d-1351b5a22a2d",
+      "name": "Coupons",
+      "description": {
+        "content": "Coupons operations for the Deliverect Commerce API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "772dc531-2946-4722-8140-f055306a7b56",
+          "name": "Deliverect Copy of",
+          "request": {
+            "name": "Deliverect Copy of",
+            "description": {
+              "content": "Deliverect Copy of",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coupons",
+                "channel",
+                ":channelLinkId",
+                "coupons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "25",
+                  "description": "The size value."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "The page value."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dcf68595-3ee8-46ed-a50c-3085d7a8568b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons",
+                    "channel",
+                    ":channelLinkId",
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1,\n  \"page\": 1,\n  \"size\": 50,\n  \"items\": [\n    {\n      \"code\": \"D23\",\n      \"isEnabled\": true,\n      \"type\": \"item\",\n      \"isHidden\": false,\n      \"discounts\": [\n        {\n          \"type\": \"flat_off\",\n          \"value\": 1234,\n          \"currency\": \"EUR\",\n          \"plus\": [\n            \"ABC-123\",\n            \"DEF-456\"\n          ],\n          \"display\": \"12.34\"\n        }\n      ],\n      \"conditions\": [\n        {\n          \"type\": \"max_uses_per_coupon\",\n          \"maxUsesPerCoupon\": 3\n        },\n        {\n          \"type\": \"locations\",\n          \"locationIds\": [\n            \"68434f75202fe35540a31c23\"\n          ]\n        }\n      ],\n      \"description\": \"my coupon\",\n      \"id\": \"690e1ef7a856cfe57553a9e1\",\n      \"accountId\": \"681cbecf4ae843d500e25e47\",\n      \"timesUsed\": 0,\n      \"created\": \"2025-11-07T16:31:51.508000Z\",\n      \"updated\": \"2025-11-07T16:31:51.509000Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4eda6c1a-0a1b-4867-8272-18d04c54847c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coupons",
+                    "channel",
+                    ":channelLinkId",
+                    "coupons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "size",
+                      "value": "25"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"coupon_not_found\",\n  \"message\": \"coupon not found\",\n  \"context\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2f3fa6a7-8f56-4b2f-be41-cd26f906a3f3",
+    "name": "Deliverect Channel Accounts Coupons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

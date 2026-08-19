@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Locations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Locations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/locations",
+            "params": [
+              {
+                "name": "where",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "The where value."
+              }
+            ]
+          },
+          "docs": "Per physical restaurant location, there will be a *Location*. This endpoint can be used to query them. You can have to specify an account, otherwise the locations of your own account will be returned"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

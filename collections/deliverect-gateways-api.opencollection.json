@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Gateways API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Get Payment Gateways",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/pay/channel/:channelLinkId/gatewayProfiles",
+            "params": [
+              {
+                "name": "channelLinkId",
+                "value": "5e8abc11dec0001a009b",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Get Payment Gateways"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

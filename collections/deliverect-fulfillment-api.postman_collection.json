@@ -1,0 +1,663 @@
+{
+  "item": [
+    {
+      "id": "2eee32c2-7a07-4df5-9a87-cc255b46cd9c",
+      "name": "Fulfillment",
+      "description": {
+        "content": "Fulfillment operations for the Deliverect Dispatch API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0befb98-2840-4157-ac9a-d312a5b81b0b",
+          "name": "Deliverect Dispatch Availability",
+          "request": {
+            "name": "Deliverect Dispatch Availability",
+            "description": {
+              "content": "Validate dispatch availability for a delivery location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fulfillment",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channelLinkId\": \"<string>\",\n  \"deliveryLocations\": {\n    \"street\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"deliveryTime\": \"<dateTime>\",\n    \"packageSize\": \"<string>\",\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"streetNumber\": \"<string>\",\n    \"coordinates\": {\n      \"coordinates\": [\n        \"<number>\",\n        \"<number>\"\n      ]\n    }\n  },\n  \"pickupTime\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "546a3b40-5c17-4832-b71f-2815d2cebbe8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelLinkIds\": [\n    \"62********************7c\",\n    \"62********************7d\"\n  ],\n  \"deliveryLocations\": {\n    \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n    \"packageSize\": \"unknown\",\n    \"name\": \"customer name\",\n    \"street\": \"customer street and number\",\n    \"city\": \"customer city\",\n    \"country\": \"customer country\",\n    \"postalCode\": \"postal code\",\n    \"phone\": \"+111111111\",\n    \"coordinates\": {\n      \"longitude\": 3.73361,\n      \"latitude\": 51.03111\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelLinkIds\": [\n    \"61bcc34**57cc48c23eb65\"\n  ],\n  \"validationId\": \"62********************3e\",\n  \"available\": true,\n  \"expiresAt\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"deliveryTimeETA\": \"2022-08-08 11:00:00\",\n  \"pickupTimeEta\": \"2022-08-08 10:00:00\",\n  \"price\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0a4ea8eb-b72e-48e1-b298-00833132daad",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelLinkIds\": [\n    \"62********************7c\",\n    \"62********************7d\"\n  ],\n  \"deliveryLocations\": {\n    \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n    \"packageSize\": \"unknown\",\n    \"name\": \"customer name\",\n    \"street\": \"customer street and number\",\n    \"city\": \"customer city\",\n    \"country\": \"customer country\",\n    \"postalCode\": \"postal code\",\n    \"phone\": \"+111111111\",\n    \"coordinates\": {\n      \"longitude\": 3.73361,\n      \"latitude\": 51.03111\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"loc\": [\n      \"channelLinkId\"\n    ],\n    \"msg\": \"field required\",\n    \"type\": \"value_error.missing\"\n  },\n  {\n    \"loc\": [\n      \"deliveryLocations\",\n      \"deliveryTime\"\n    ],\n    \"msg\": \"field required\",\n    \"type\": \"value_error.missing\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c4728d1-d721-48dc-99c9-01cdc50d954d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelLinkIds\": [\n    \"62********************7c\",\n    \"62********************7d\"\n  ],\n  \"deliveryLocations\": {\n    \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n    \"packageSize\": \"unknown\",\n    \"name\": \"customer name\",\n    \"street\": \"customer street and number\",\n    \"city\": \"customer city\",\n    \"country\": \"customer country\",\n    \"postalCode\": \"postal code\",\n    \"phone\": \"+111111111\",\n    \"coordinates\": {\n      \"longitude\": 3.73361,\n      \"latitude\": 51.03111\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"token_expired\",\n  \"description\": \"token is expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab355f12-3403-4bb0-8ad1-ad42b6fe01c7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelLinkIds\": [\n    \"62********************7c\",\n    \"62********************7d\"\n  ],\n  \"deliveryLocations\": {\n    \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n    \"packageSize\": \"unknown\",\n    \"name\": \"customer name\",\n    \"street\": \"customer street and number\",\n    \"city\": \"customer city\",\n    \"country\": \"customer country\",\n    \"postalCode\": \"postal code\",\n    \"phone\": \"+111111111\",\n    \"coordinates\": {\n      \"longitude\": 3.73361,\n      \"latitude\": 51.03111\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ChannelLinkId sent is not linked to the account\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5364f6bb-4f8d-4439-8248-46958880eb96",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelLinkIds\": [\n    \"62********************7c\",\n    \"62********************7d\"\n  ],\n  \"deliveryLocations\": {\n    \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n    \"packageSize\": \"unknown\",\n    \"name\": \"customer name\",\n    \"street\": \"customer street and number\",\n    \"city\": \"customer city\",\n    \"country\": \"customer country\",\n    \"postalCode\": \"postal code\",\n    \"phone\": \"+111111111\",\n    \"coordinates\": {\n      \"longitude\": 3.73361,\n      \"latitude\": 51.03111\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"ChannelLinkId sent is not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8035340c-9180-4e0a-9daa-7bb5f05f5d22",
+          "name": "Deliverect Cancel Delivery",
+          "request": {
+            "name": "Deliverect Cancel Delivery",
+            "description": {
+              "content": "Deliverect Cancel Delivery",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fulfillment",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3708aca3-276e-485e-af19-1c196254734e",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deliveryJobId\": \"648******************874\",\n  \"reasonTag\": \"CUSTOMER_UNRESPONSIVE\",\n  \"deliveryFeeCharged\": 4500,\n  \"extraDescription\": \"Tried many times\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1ec1113-4fa3-4650-9220-d0b2bcb6a0f1",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deliveryJobId\": \"648******************874\",\n  \"reasonTag\": \"CUSTOMER_UNRESPONSIVE\",\n  \"deliveryFeeCharged\": 4500,\n  \"extraDescription\": \"Tried many times\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11e44906-4e15-4b3f-85f0-aaada47248cb",
+          "name": "Deliverect Update Delivery",
+          "request": {
+            "name": "Deliverect Update Delivery",
+            "description": {
+              "content": "This webhook allows to persist updates from third party delivery systems to Deliverect. Currently updates to following delivery information are supported. See examples for technical details. - delivery status - pickup time & eta - delivery time & eta - courier information ##### Delivery job statuses: Following delivery job statuses exist in deliverect: | Status name | Integer value | |-|-| | `IN_DELIVERY` | 80 | | `EN_ROUTE_TO_PICKUP` | 83 | | `ARRIVED_AT_PICKUP` | 85 | | `EN_ROUTE_TO_DROPOFF` | 87 | | `ARRIVED_AT_DROPOFF` | 89 | | `DELIVERED` | 90 | ##### NOTE Please note, that here and later all dates and times, coming from/to Deliverect are UTC.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fulfillment",
+                "generic",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57a185b8-e918-4ed2-ba9e-3261707218b8",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "generic",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deliveryJobId\": \"61********************b4\",\n  \"pickupTimeETA\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"transportType\": \"bicycle\",\n  \"trackingUrl\": \"https://example.com\",\n  \"courier\": {\n    \"name\": \"Mac Miller\",\n    \"phone\": \"+3292331234\",\n    \"longitude\": \"51.05433703603857\",\n    \"latitude\": \"3.738214852809371\"\n  },\n  \"locations\": [\n    {\n      \"orderId\": \"61********************b4\",\n      \"status\": 83,\n      \"deliveryTimeETA\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZZ\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"OK\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "061c0e26-a42a-4ed0-b40d-00d87b3a6bfb",
+              "name": "default",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "generic",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"deliveryJobId\": \"61********************b4\",\n  \"pickupTimeETA\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"transportType\": \"bicycle\",\n  \"trackingUrl\": \"https://example.com\",\n  \"courier\": {\n    \"name\": \"Mac Miller\",\n    \"phone\": \"+3292331234\",\n    \"longitude\": \"51.05433703603857\",\n    \"latitude\": \"3.738214852809371\"\n  },\n  \"locations\": [\n    {\n      \"orderId\": \"61********************b4\",\n      \"status\": 83,\n      \"deliveryTimeETA\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZZ\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "83852bf3-fb4b-4f98-9501-97b6955f9c5c",
+    "name": "Deliverect Channel Accounts Fulfillment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

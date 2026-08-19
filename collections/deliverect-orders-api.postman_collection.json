@@ -1,0 +1,2157 @@
+{
+  "item": [
+    {
+      "id": "751ba2b1-39a3-4190-b745-bacdec1d59b2",
+      "name": "Orders",
+      "description": {
+        "content": "Orders operations for the Deliverect Channel API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b4aafa0-122d-4de9-88ce-57acc386a02a",
+          "name": "Deliverect Create / Cancel Order",
+          "request": {
+            "name": "Deliverect Create / Cancel Order",
+            "description": {
+              "content": "Create a new order for a linked location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":channelName",
+                "order",
+                ":channelLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "{channelName}",
+                  "key": "channelName",
+                  "description": "(Required) A unique scope provided to channel integrators to create orders in authorised locations"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "{channelLinkId}",
+                  "key": "channelLinkId",
+                  "description": "(Required) The unique identifier of the channel in a specific location."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channelOrderId\": \"<string>\",\n  \"channelOrderDisplayId\": \"<string>\",\n  \"orderType\": \"<integer>\",\n  \"courier\": \"<string>\",\n  \"payment\": {\n    \"amount\": \"<integer>\",\n    \"type\": \"<integer>\",\n    \"due\": \"<integer>\"\n  },\n  \"validationId\": \"<string>\",\n  \"deliveryIsAsap\": \"<boolean>\",\n  \"pickupTime\": \"<string>\",\n  \"deliveryTime\": \"<string>\",\n  \"placedTime\": \"<string>\",\n  \"ageCheck\": \"<boolean>\",\n  \"deliveryAddress\": {\n    \"street\": \"<string>\",\n    \"streetNumber\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"area\": \"<string>\",\n    \"city\": \"<string>\",\n    \"country\": \"<string>\",\n    \"extraAddressInfo\": \"<string>\",\n    \"coordinates\": {\n      \"latitude\": \"<float>\",\n      \"longitude\": \"<float>\"\n    },\n    \"verification\": {\n      \"pincode\": \"<string>\"\n    }\n  },\n  \"deliveryInfo\": {\n    \"packageSize\": \"<string>\",\n    \"transportType\": \"<string>\"\n  },\n  \"decimalDigits\": \"<integer>\",\n  \"taxes\": [\n    {\n      \"taxClassId\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"total\": \"<integer>\"\n    },\n    {\n      \"taxClassId\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"total\": \"<integer>\"\n    }\n  ],\n  \"taxRemitted\": \"<integer>\",\n  \"items\": [\n    {\n      \"plu\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"quantity\": \"<integer>\",\n      \"remark\": \"<string>\",\n      \"discountReferenceIds\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<integer>\",\n          \"quantity\": \"<integer>\",\n          \"remark\": \"<string>\",\n          \"subItems\": [\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            },\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            }\n          ]\n        },\n        {\n          \"plu\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<integer>\",\n          \"quantity\": \"<integer>\",\n          \"remark\": \"<string>\",\n          \"subItems\": [\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            },\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"plu\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"quantity\": \"<integer>\",\n      \"remark\": \"<string>\",\n      \"discountReferenceIds\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<integer>\",\n          \"quantity\": \"<integer>\",\n          \"remark\": \"<string>\",\n          \"subItems\": [\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            },\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            }\n          ]\n        },\n        {\n          \"plu\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<integer>\",\n          \"quantity\": \"<integer>\",\n          \"remark\": \"<string>\",\n          \"subItems\": [\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            },\n            {\n              \"plu\": \"<string>\",\n              \"name\": \"<string>\",\n              \"price\": \"<integer>\",\n              \"quantity\": \"<integer>\",\n              \"remark\": \"<string>\",\n              \"subItems\": [\n                \"<object>\",\n                \"<object>\"\n              ]\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"includeCutlery\": \"<boolean>\",\n  \"table\": \"<string>\",\n  \"orderIsAlreadyPaid\": \"<boolean>\",\n  \"note\": \"<string>\",\n  \"numberOfCustomers\": \"<integer>\",\n  \"customer\": {\n    \"name\": \"<string>\",\n    \"companyName\": \"<string>\",\n    \"phoneNumber\": \"<string>\",\n    \"phoneAccessCode\": \"<string>\",\n    \"email\": \"<string>\",\n    \"tin\": \"<string>\",\n    \"note\": \"<string>\"\n  },\n  \"deliveryCost\": \"<integer>\",\n  \"deliveryCostTax\": \"<integer>\",\n  \"serviceCharge\": \"<integer>\",\n  \"serviceChargeTax\": \"<integer>\",\n  \"tip\": \"<integer>\",\n  \"driverTip\": \"<integer>\",\n  \"bagFee\": \"<integer>\",\n  \"discountTotal\": \"<integer>\",\n  \"discounts\": [\n    {\n      \"type\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channelDiscountCode\": \"<string>\",\n      \"referenceId\": \"<integer>\",\n      \"value\": \"<integer>\",\n      \"amount\": \"<integer>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"provider\": \"<string>\",\n      \"name\": \"<string>\",\n      \"channelDiscountCode\": \"<string>\",\n      \"referenceId\": \"<integer>\",\n      \"value\": \"<integer>\",\n      \"amount\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2816dd3-f885-4da3-9cbe-c1a37a3989a2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "order",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelName}",
+                      "key": "channelName",
+                      "description": "(Required) A unique scope provided to channel integrators to create orders in authorised locations"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelLinkId}",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of the channel in a specific location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"TEST****629\",\n  \"channelOrderDisplayId\": \"T**629\",\n  \"validationId\": \"62********************3x\",\n  \"orderType\": 1,\n  \"deliveryIsAsap\": true,\n  \"pickupTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"placedTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"courier\": \"restaurant\",\n  \"ageCheck\": false,\n  \"deliveryAddress\": {\n    \"street\": \"Adelaide Street East\",\n    \"streetNumber\": \"207\",\n    \"postalCode\": \"M5A1N4\",\n    \"area\": \"Distillery District\",\n    \"city\": \"Toronto\",\n    \"country\": \"Canada\",\n    \"extraAddressInfo\": \"1st floor\",\n    \"coordinates\": {\n      \"latitude\": 43.65152,\n      \"longitude\": -79.37128\n    },\n    \"verification\": {\n      \"pincode\": \"\"\n    }\n  },\n  \"deliveryInfo\": {\n    \"packageSize\": \"small\",\n    \"transportType\": \"bicycle\"\n  },\n  \"decimalDigits\": 2,\n  \"payment\": {\n    \"amount\": 1800,\n    \"type\": 0,\n    \"due\": 0\n  },\n  \"taxes\": [\n    {\n      \"taxClassId\": 0,\n      \"name\": \"taxes\",\n      \"total\": 77\n    }\n  ],\n  \"taxRemitted\": 77,\n  \"items\": [\n    {\n      \"plu\": \"P-SATE\",\n      \"name\": \"Chicken Sate\",\n      \"price\": 450,\n      \"quantity\": 1,\n      \"remark\": \"well done\",\n      \"discountReferenceIds\": [\n        1\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"RICE-01\",\n          \"name\": \"White Rice\",\n          \"price\": 450,\n          \"quantity\": 1,\n          \"subItems\": [\n            {\n              \"plu\": \"SAUCE-01\",\n              \"name\": \"Sate Sauce\",\n              \"price\": 50,\n              \"quantity\": 2,\n              \"subItems\": []\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"includeCutlery\": false,\n  \"table\": \"\",\n  \"orderIsAlreadyPaid\": true,\n  \"note\": \"\",\n  \"numberOfCustomers\": 1,\n  \"customer\": {\n    \"name\": \"Jane\",\n    \"companyName\": \"Doe\",\n    \"phoneNumber\": 618776767,\n    \"phoneAccessCode\": \"5040\",\n    \"email\": \"test@test.com\",\n    \"tin\": \"1234\",\n    \"note\": \"call once you arrive\"\n  },\n  \"deliveryCost\": 300,\n  \"deliveryCostTax\": 0,\n  \"serviceCharge\": 400,\n  \"serviceChargeTax\": 0,\n  \"tip\": 200,\n  \"driverTip\": 0,\n  \"bagFee\": 0,\n  \"discountTotal\": -100,\n  \"discounts\": [\n    {\n      \"type\": \"order_flat_off\",\n      \"provider\": \"channel\",\n      \"name\": \"Test discount\",\n      \"channelDiscountCode\": \"test 1234\",\n      \"referenceId\": 1,\n      \"value\": 100,\n      \"amount\": 100\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23a1cf29-a082-4ab9-b68e-7dd9317a528f",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "order",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelName}",
+                      "key": "channelName",
+                      "description": "(Required) A unique scope provided to channel integrators to create orders in authorised locations"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelLinkId}",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of the channel in a specific location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"TEST****629\",\n  \"channelOrderDisplayId\": \"T**629\",\n  \"validationId\": \"62********************3x\",\n  \"orderType\": 1,\n  \"deliveryIsAsap\": true,\n  \"pickupTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"placedTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"courier\": \"restaurant\",\n  \"ageCheck\": false,\n  \"deliveryAddress\": {\n    \"street\": \"Adelaide Street East\",\n    \"streetNumber\": \"207\",\n    \"postalCode\": \"M5A1N4\",\n    \"area\": \"Distillery District\",\n    \"city\": \"Toronto\",\n    \"country\": \"Canada\",\n    \"extraAddressInfo\": \"1st floor\",\n    \"coordinates\": {\n      \"latitude\": 43.65152,\n      \"longitude\": -79.37128\n    },\n    \"verification\": {\n      \"pincode\": \"\"\n    }\n  },\n  \"deliveryInfo\": {\n    \"packageSize\": \"small\",\n    \"transportType\": \"bicycle\"\n  },\n  \"decimalDigits\": 2,\n  \"payment\": {\n    \"amount\": 1800,\n    \"type\": 0,\n    \"due\": 0\n  },\n  \"taxes\": [\n    {\n      \"taxClassId\": 0,\n      \"name\": \"taxes\",\n      \"total\": 77\n    }\n  ],\n  \"taxRemitted\": 77,\n  \"items\": [\n    {\n      \"plu\": \"P-SATE\",\n      \"name\": \"Chicken Sate\",\n      \"price\": 450,\n      \"quantity\": 1,\n      \"remark\": \"well done\",\n      \"discountReferenceIds\": [\n        1\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"RICE-01\",\n          \"name\": \"White Rice\",\n          \"price\": 450,\n          \"quantity\": 1,\n          \"subItems\": [\n            {\n              \"plu\": \"SAUCE-01\",\n              \"name\": \"Sate Sauce\",\n              \"price\": 50,\n              \"quantity\": 2,\n              \"subItems\": []\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"includeCutlery\": false,\n  \"table\": \"\",\n  \"orderIsAlreadyPaid\": true,\n  \"note\": \"\",\n  \"numberOfCustomers\": 1,\n  \"customer\": {\n    \"name\": \"Jane\",\n    \"companyName\": \"Doe\",\n    \"phoneNumber\": 618776767,\n    \"phoneAccessCode\": \"5040\",\n    \"email\": \"test@test.com\",\n    \"tin\": \"1234\",\n    \"note\": \"call once you arrive\"\n  },\n  \"deliveryCost\": 300,\n  \"deliveryCostTax\": 0,\n  \"serviceCharge\": 400,\n  \"serviceChargeTax\": 0,\n  \"tip\": 200,\n  \"driverTip\": 0,\n  \"bagFee\": 0,\n  \"discountTotal\": -100,\n  \"discounts\": [\n    {\n      \"type\": \"order_flat_off\",\n      \"provider\": \"channel\",\n      \"name\": \"Test discount\",\n      \"channelDiscountCode\": \"test 1234\",\n      \"referenceId\": 1,\n      \"value\": 100,\n      \"amount\": 100\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0f6f8b6-0fa3-4e9b-aeee-fa4488520f92",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "order",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelName}",
+                      "key": "channelName",
+                      "description": "(Required) A unique scope provided to channel integrators to create orders in authorised locations"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelLinkId}",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of the channel in a specific location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"TEST****629\",\n  \"channelOrderDisplayId\": \"T**629\",\n  \"validationId\": \"62********************3x\",\n  \"orderType\": 1,\n  \"deliveryIsAsap\": true,\n  \"pickupTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"placedTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"courier\": \"restaurant\",\n  \"ageCheck\": false,\n  \"deliveryAddress\": {\n    \"street\": \"Adelaide Street East\",\n    \"streetNumber\": \"207\",\n    \"postalCode\": \"M5A1N4\",\n    \"area\": \"Distillery District\",\n    \"city\": \"Toronto\",\n    \"country\": \"Canada\",\n    \"extraAddressInfo\": \"1st floor\",\n    \"coordinates\": {\n      \"latitude\": 43.65152,\n      \"longitude\": -79.37128\n    },\n    \"verification\": {\n      \"pincode\": \"\"\n    }\n  },\n  \"deliveryInfo\": {\n    \"packageSize\": \"small\",\n    \"transportType\": \"bicycle\"\n  },\n  \"decimalDigits\": 2,\n  \"payment\": {\n    \"amount\": 1800,\n    \"type\": 0,\n    \"due\": 0\n  },\n  \"taxes\": [\n    {\n      \"taxClassId\": 0,\n      \"name\": \"taxes\",\n      \"total\": 77\n    }\n  ],\n  \"taxRemitted\": 77,\n  \"items\": [\n    {\n      \"plu\": \"P-SATE\",\n      \"name\": \"Chicken Sate\",\n      \"price\": 450,\n      \"quantity\": 1,\n      \"remark\": \"well done\",\n      \"discountReferenceIds\": [\n        1\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"RICE-01\",\n          \"name\": \"White Rice\",\n          \"price\": 450,\n          \"quantity\": 1,\n          \"subItems\": [\n            {\n              \"plu\": \"SAUCE-01\",\n              \"name\": \"Sate Sauce\",\n              \"price\": 50,\n              \"quantity\": 2,\n              \"subItems\": []\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"includeCutlery\": false,\n  \"table\": \"\",\n  \"orderIsAlreadyPaid\": true,\n  \"note\": \"\",\n  \"numberOfCustomers\": 1,\n  \"customer\": {\n    \"name\": \"Jane\",\n    \"companyName\": \"Doe\",\n    \"phoneNumber\": 618776767,\n    \"phoneAccessCode\": \"5040\",\n    \"email\": \"test@test.com\",\n    \"tin\": \"1234\",\n    \"note\": \"call once you arrive\"\n  },\n  \"deliveryCost\": 300,\n  \"deliveryCostTax\": 0,\n  \"serviceCharge\": 400,\n  \"serviceChargeTax\": 0,\n  \"tip\": 200,\n  \"driverTip\": 0,\n  \"bagFee\": 0,\n  \"discountTotal\": -100,\n  \"discounts\": [\n    {\n      \"type\": \"order_flat_off\",\n      \"provider\": \"channel\",\n      \"name\": \"Test discount\",\n      \"channelDiscountCode\": \"test 1234\",\n      \"referenceId\": 1,\n      \"value\": 100,\n      \"amount\": 100\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderFieldsErrors\": {\n    \"channelOrderId\": \"Missing from the payload.\",\n    \"channelOrderDisplayId\": \"Missing from the payload.\",\n    \"items\": \"Missing from the payload.\",\n    \"decimalDigits\": \"Missing from the payload.\"\n  },\n  \"orderPaymentErrors\": {\n    \"amount\": \"Missing from the payload.\",\n    \"type\": \"Missing from the payload.\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "860db39b-dae2-4ad2-b817-ca23922e7a3b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "order",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelName}",
+                      "key": "channelName",
+                      "description": "(Required) A unique scope provided to channel integrators to create orders in authorised locations"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelLinkId}",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of the channel in a specific location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"TEST****629\",\n  \"channelOrderDisplayId\": \"T**629\",\n  \"validationId\": \"62********************3x\",\n  \"orderType\": 1,\n  \"deliveryIsAsap\": true,\n  \"pickupTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"placedTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"courier\": \"restaurant\",\n  \"ageCheck\": false,\n  \"deliveryAddress\": {\n    \"street\": \"Adelaide Street East\",\n    \"streetNumber\": \"207\",\n    \"postalCode\": \"M5A1N4\",\n    \"area\": \"Distillery District\",\n    \"city\": \"Toronto\",\n    \"country\": \"Canada\",\n    \"extraAddressInfo\": \"1st floor\",\n    \"coordinates\": {\n      \"latitude\": 43.65152,\n      \"longitude\": -79.37128\n    },\n    \"verification\": {\n      \"pincode\": \"\"\n    }\n  },\n  \"deliveryInfo\": {\n    \"packageSize\": \"small\",\n    \"transportType\": \"bicycle\"\n  },\n  \"decimalDigits\": 2,\n  \"payment\": {\n    \"amount\": 1800,\n    \"type\": 0,\n    \"due\": 0\n  },\n  \"taxes\": [\n    {\n      \"taxClassId\": 0,\n      \"name\": \"taxes\",\n      \"total\": 77\n    }\n  ],\n  \"taxRemitted\": 77,\n  \"items\": [\n    {\n      \"plu\": \"P-SATE\",\n      \"name\": \"Chicken Sate\",\n      \"price\": 450,\n      \"quantity\": 1,\n      \"remark\": \"well done\",\n      \"discountReferenceIds\": [\n        1\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"RICE-01\",\n          \"name\": \"White Rice\",\n          \"price\": 450,\n          \"quantity\": 1,\n          \"subItems\": [\n            {\n              \"plu\": \"SAUCE-01\",\n              \"name\": \"Sate Sauce\",\n              \"price\": 50,\n              \"quantity\": 2,\n              \"subItems\": []\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"includeCutlery\": false,\n  \"table\": \"\",\n  \"orderIsAlreadyPaid\": true,\n  \"note\": \"\",\n  \"numberOfCustomers\": 1,\n  \"customer\": {\n    \"name\": \"Jane\",\n    \"companyName\": \"Doe\",\n    \"phoneNumber\": 618776767,\n    \"phoneAccessCode\": \"5040\",\n    \"email\": \"test@test.com\",\n    \"tin\": \"1234\",\n    \"note\": \"call once you arrive\"\n  },\n  \"deliveryCost\": 300,\n  \"deliveryCostTax\": 0,\n  \"serviceCharge\": 400,\n  \"serviceChargeTax\": 0,\n  \"tip\": 200,\n  \"driverTip\": 0,\n  \"bagFee\": 0,\n  \"discountTotal\": -100,\n  \"discounts\": [\n    {\n      \"type\": \"order_flat_off\",\n      \"provider\": \"channel\",\n      \"name\": \"Test discount\",\n      \"channelDiscountCode\": \"test 1234\",\n      \"referenceId\": 1,\n      \"value\": 100,\n      \"amount\": 100\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"token_expired\",\n  \"description\": \"token is expired\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e52b4d86-aae5-4376-9160-8c9e1743db85",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "order",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelName}",
+                      "key": "channelName",
+                      "description": "(Required) A unique scope provided to channel integrators to create orders in authorised locations"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelLinkId}",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of the channel in a specific location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"TEST****629\",\n  \"channelOrderDisplayId\": \"T**629\",\n  \"validationId\": \"62********************3x\",\n  \"orderType\": 1,\n  \"deliveryIsAsap\": true,\n  \"pickupTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"placedTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"courier\": \"restaurant\",\n  \"ageCheck\": false,\n  \"deliveryAddress\": {\n    \"street\": \"Adelaide Street East\",\n    \"streetNumber\": \"207\",\n    \"postalCode\": \"M5A1N4\",\n    \"area\": \"Distillery District\",\n    \"city\": \"Toronto\",\n    \"country\": \"Canada\",\n    \"extraAddressInfo\": \"1st floor\",\n    \"coordinates\": {\n      \"latitude\": 43.65152,\n      \"longitude\": -79.37128\n    },\n    \"verification\": {\n      \"pincode\": \"\"\n    }\n  },\n  \"deliveryInfo\": {\n    \"packageSize\": \"small\",\n    \"transportType\": \"bicycle\"\n  },\n  \"decimalDigits\": 2,\n  \"payment\": {\n    \"amount\": 1800,\n    \"type\": 0,\n    \"due\": 0\n  },\n  \"taxes\": [\n    {\n      \"taxClassId\": 0,\n      \"name\": \"taxes\",\n      \"total\": 77\n    }\n  ],\n  \"taxRemitted\": 77,\n  \"items\": [\n    {\n      \"plu\": \"P-SATE\",\n      \"name\": \"Chicken Sate\",\n      \"price\": 450,\n      \"quantity\": 1,\n      \"remark\": \"well done\",\n      \"discountReferenceIds\": [\n        1\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"RICE-01\",\n          \"name\": \"White Rice\",\n          \"price\": 450,\n          \"quantity\": 1,\n          \"subItems\": [\n            {\n              \"plu\": \"SAUCE-01\",\n              \"name\": \"Sate Sauce\",\n              \"price\": 50,\n              \"quantity\": 2,\n              \"subItems\": []\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"includeCutlery\": false,\n  \"table\": \"\",\n  \"orderIsAlreadyPaid\": true,\n  \"note\": \"\",\n  \"numberOfCustomers\": 1,\n  \"customer\": {\n    \"name\": \"Jane\",\n    \"companyName\": \"Doe\",\n    \"phoneNumber\": 618776767,\n    \"phoneAccessCode\": \"5040\",\n    \"email\": \"test@test.com\",\n    \"tin\": \"1234\",\n    \"note\": \"call once you arrive\"\n  },\n  \"deliveryCost\": 300,\n  \"deliveryCostTax\": 0,\n  \"serviceCharge\": 400,\n  \"serviceChargeTax\": 0,\n  \"tip\": 200,\n  \"driverTip\": 0,\n  \"bagFee\": 0,\n  \"discountTotal\": -100,\n  \"discounts\": [\n    {\n      \"type\": \"order_flat_off\",\n      \"provider\": \"channel\",\n      \"name\": \"Test discount\",\n      \"channelDiscountCode\": \"test 1234\",\n      \"referenceId\": 1,\n      \"value\": 100,\n      \"amount\": 100\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23f83a7e-80c3-4f47-b00a-cd723758788f",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "order",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelName}",
+                      "key": "channelName",
+                      "description": "(Required) A unique scope provided to channel integrators to create orders in authorised locations"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "{channelLinkId}",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of the channel in a specific location."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"TEST****629\",\n  \"channelOrderDisplayId\": \"T**629\",\n  \"validationId\": \"62********************3x\",\n  \"orderType\": 1,\n  \"deliveryIsAsap\": true,\n  \"pickupTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"deliveryTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"placedTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"courier\": \"restaurant\",\n  \"ageCheck\": false,\n  \"deliveryAddress\": {\n    \"street\": \"Adelaide Street East\",\n    \"streetNumber\": \"207\",\n    \"postalCode\": \"M5A1N4\",\n    \"area\": \"Distillery District\",\n    \"city\": \"Toronto\",\n    \"country\": \"Canada\",\n    \"extraAddressInfo\": \"1st floor\",\n    \"coordinates\": {\n      \"latitude\": 43.65152,\n      \"longitude\": -79.37128\n    },\n    \"verification\": {\n      \"pincode\": \"\"\n    }\n  },\n  \"deliveryInfo\": {\n    \"packageSize\": \"small\",\n    \"transportType\": \"bicycle\"\n  },\n  \"decimalDigits\": 2,\n  \"payment\": {\n    \"amount\": 1800,\n    \"type\": 0,\n    \"due\": 0\n  },\n  \"taxes\": [\n    {\n      \"taxClassId\": 0,\n      \"name\": \"taxes\",\n      \"total\": 77\n    }\n  ],\n  \"taxRemitted\": 77,\n  \"items\": [\n    {\n      \"plu\": \"P-SATE\",\n      \"name\": \"Chicken Sate\",\n      \"price\": 450,\n      \"quantity\": 1,\n      \"remark\": \"well done\",\n      \"discountReferenceIds\": [\n        1\n      ],\n      \"subItems\": [\n        {\n          \"plu\": \"RICE-01\",\n          \"name\": \"White Rice\",\n          \"price\": 450,\n          \"quantity\": 1,\n          \"subItems\": [\n            {\n              \"plu\": \"SAUCE-01\",\n              \"name\": \"Sate Sauce\",\n              \"price\": 50,\n              \"quantity\": 2,\n              \"subItems\": []\n            }\n          ]\n        }\n      ]\n    }\n  ],\n  \"includeCutlery\": false,\n  \"table\": \"\",\n  \"orderIsAlreadyPaid\": true,\n  \"note\": \"\",\n  \"numberOfCustomers\": 1,\n  \"customer\": {\n    \"name\": \"Jane\",\n    \"companyName\": \"Doe\",\n    \"phoneNumber\": 618776767,\n    \"phoneAccessCode\": \"5040\",\n    \"email\": \"test@test.com\",\n    \"tin\": \"1234\",\n    \"note\": \"call once you arrive\"\n  },\n  \"deliveryCost\": 300,\n  \"deliveryCostTax\": 0,\n  \"serviceCharge\": 400,\n  \"serviceChargeTax\": 0,\n  \"tip\": 200,\n  \"driverTip\": 0,\n  \"bagFee\": 0,\n  \"discountTotal\": -100,\n  \"discounts\": [\n    {\n      \"type\": \"order_flat_off\",\n      \"provider\": \"channel\",\n      \"name\": \"Test discount\",\n      \"channelDiscountCode\": \"test 1234\",\n      \"referenceId\": 1,\n      \"value\": 100,\n      \"amount\": 100\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"internal_server_error\",\n    \"message\": \"Internal server error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "196a0c66-32f4-4cb6-ae9f-cbacec235f3c",
+          "name": "Deliverect Order Status Update",
+          "request": {
+            "name": "Deliverect Order Status Update",
+            "description": {
+              "content": "Deliverect Order Status Update",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channel",
+                "order_status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca1126c5-3277-469f-8827-d99b2adad0f2",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "order_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b12b11e-9dcb-47db-b9c0-fd6e44f9898e",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "order_status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba62c705-3a6c-47d3-947a-946dc6971c77",
+          "name": "Deliverect Preparation Time Update",
+          "request": {
+            "name": "Deliverect Preparation Time Update",
+            "description": {
+              "content": "{{YourSetwebhookUrl}}",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channel",
+                "prep_time"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channelOrderId\": \"<string>\",\n  \"orderId\": \"<string>\",\n  \"location\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"pickupTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dec794ae-0f7c-455e-b4f2-104638e5e81f",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "prep_time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"X7CESD\",\n  \"orderId\": \"5e****abc11dec0001****9b\",\n  \"location\": \"5e****abc11dec0001****0b\",\n  \"status\": 20,\n  \"pickupTime\": \"2021-04-20T16:20:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11d3ca96-af26-45c5-bf5f-5e15ce6f943b",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "prep_time"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"X7CESD\",\n  \"orderId\": \"5e****abc11dec0001****9b\",\n  \"location\": \"5e****abc11dec0001****0b\",\n  \"status\": 20,\n  \"pickupTime\": \"2021-04-20T16:20:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b941656-cac1-4f5a-9e38-1ff8caff28c2",
+          "name": "Deliverect Amendments",
+          "request": {
+            "name": "Deliverect Amendments",
+            "description": {
+              "content": "When a store processes amendments for one or more items within an order, this webhook will deliver the amendment details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channel",
+                "amendments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c00f8f4-ae7f-4d63-941d-53169066f7a3",
+          "name": "Deliverect Order Rating Update",
+          "request": {
+            "name": "Deliverect Order Rating Update",
+            "description": {
+              "content": "Update rating for a previously placed order.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":channelName",
+                "updateRating"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "my-channel",
+                  "key": "channelName",
+                  "description": "(Required) The channelName value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channelOrderId\": \"<string>\",\n  \"orderDate\": \"<dateTime>\",\n  \"channelLinkId\": \"<string>\",\n  \"rating\": [\n    {\n      \"subject\": \"<integer>\",\n      \"rating\": \"<integer>\",\n      \"comment\": \"<string>\",\n      \"reason\": \"<integer>\"\n    },\n    {\n      \"subject\": \"<integer>\",\n      \"rating\": \"<integer>\",\n      \"comment\": \"<string>\",\n      \"reason\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ad9d2e5d-ede9-46a3-ac54-301f8a31d240",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "updateRating"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"CXTDBKMZ-1229\",\n  \"orderDate\": \"2021-04-13T11:53:34.453Z\",\n  \"channelLinkId\": \"606d8489fcd8eddf13b121a6\",\n  \"rating\": [\n    {\n      \"reason\": 10000,\n      \"rating\": 5,\n      \"comment\": \"Food was amazing.\",\n      \"subject\": 1\n    },\n    {\n      \"rating\": 5,\n      \"subject\": 2\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e18b11fe-b4ac-4fad-8e71-53dcfec44f67",
+          "name": "Deliverect Customer Order History",
+          "request": {
+            "name": "Deliverect Customer Order History",
+            "description": {
+              "content": "Deliverect Customer Order History",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                ":crmProfileId",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmProfileId",
+                  "description": "(Required) The crmProfileId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b72877ff-b488-4fff-86dc-907204750d2b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    ":crmProfileId",
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmProfileId",
+                      "description": "(Required) The crmProfileId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 6,\n  \"page\": 1,\n  \"size\": 50,\n  \"items\": [\n    {\n      \"id\": \"68f******************f2f\",\n      \"crmProfileId\": \"68f******************24b\",\n      \"orderId\": \"68f******************c86\",\n      \"accountId\": \"68d******************bdd\",\n      \"channel\": 20002,\n      \"payment\": {\n        \"amount\": {\n          \"value\": 100,\n          \"currency\": \"EUR\",\n          \"display\": \"1.00\"\n        }\n      },\n      \"orderDisplayId\": \"20a2baad-2053-407c-b265-fa21c8a10758\",\n      \"orderDate\": \"2025-10-24T16:45:14.665000Z\",\n      \"orderType\": 2,\n      \"itemQuantity\": 1,\n      \"locationId\": \"68d81e687e6400e6581fc5a9\"\n    },\n    {\n      \"id\": \"68f******************f29\",\n      \"crmProfileId\": \"68f******************24b\",\n      \"orderId\": \"68f******************c76\",\n      \"accountId\": \"68d******************bdd\",\n      \"channel\": 20002,\n      \"payment\": {\n        \"amount\": {\n          \"value\": 100,\n          \"currency\": \"EUR\",\n          \"display\": \"1.00\"\n        }\n      },\n      \"orderDisplayId\": \"3dd773b1-2844-44f1-b33d-0ebc7c7fe2cf\",\n      \"orderDate\": \"2025-10-24T16:42:21.527000Z\",\n      \"orderType\": 2,\n      \"itemQuantity\": 1,\n      \"locationId\": \"68d81e687e6400e6581fc5a9\"\n    },\n    {\n      \"id\": \"68fbab62640ae0b44384af1e\",\n      \"crmProfileId\": \"68fb6af9a6e06e236a12824b\",\n      \"orderId\": \"68fbab62a8a2ab7006c48c56\",\n      \"accountId\": \"68d81ae5bbd981dd03137bdd\",\n      \"channel\": 20002,\n      \"payment\": {\n        \"amount\": {\n          \"value\": 100,\n          \"currency\": \"EUR\",\n          \"display\": \"1.00\"\n        }\n      },\n      \"orderDisplayId\": \"cbb56e22-a7a4-4d99-b395-c5b01802b60b\",\n      \"orderDate\": \"2025-10-24T16:37:54.649000Z\",\n      \"orderType\": 2,\n      \"itemQuantity\": 1,\n      \"locationId\": \"68d81e687e6400e6581fc5a9\"\n    },\n    {\n      \"id\": \"68fba5ec640ae0b44384af18\",\n      \"crmProfileId\": \"68fb6af9a6e06e236a12824b\",\n      \"orderId\": \"68fba5e7a8a2ab7006c48c45\",\n      \"accountId\": \"68d81ae5bbd981dd03137bdd\",\n      \"channel\": 20002,\n      \"payment\": {\n        \"amount\": {\n          \"value\": 100,\n          \"currency\": \"EUR\",\n          \"display\": \"1.00\"\n        }\n      },\n      \"orderDisplayId\": \"29348ba1-7e64-42f5-bb9f-da09bf5eb788\",\n      \"orderDate\": \"2025-10-24T16:14:31.793000Z\",\n      \"orderType\": 2,\n      \"itemQuantity\": 1,\n      \"locationId\": \"68d81e687e6400e6581fc5a9\"\n    },\n    {\n      \"id\": \"68fba571640ae0b44384af12\",\n      \"crmProfileId\": \"68fb6af9a6e06e236a12824b\",\n      \"orderId\": \"68fba56da8a2ab7006c48c35\",\n      \"accountId\": \"68d81ae5bbd981dd03137bdd\",\n      \"channel\": 20002,\n      \"payment\": {\n        \"amount\": {\n          \"value\": 100,\n          \"currency\": \"EUR\",\n          \"display\": \"1.00\"\n        }\n      },\n      \"orderDisplayId\": \"698c81f7-02e6-4c61-a09a-a681827e69d3\",\n      \"orderDate\": \"2025-10-24T16:12:29.863000Z\",\n      \"orderType\": 2,\n      \"itemQuantity\": 1,\n      \"locationId\": \"68d81e687e6400e6581fc5a9\"\n    },\n    {\n      \"id\": \"68fba2d36b1fe97ada379842\",\n      \"crmProfileId\": \"68fb6af9a6e06e236a12824b\",\n      \"orderId\": \"68fba2cdb4275fb21083f66a\",\n      \"accountId\": \"68d81ae5bbd981dd03137bdd\",\n      \"channel\": 20002,\n      \"payment\": {\n        \"amount\": {\n          \"value\": 100,\n          \"currency\": \"EUR\",\n          \"display\": \"1.00\"\n        }\n      },\n      \"orderDisplayId\": \"389e94bd-67f3-4cd5-8973-8784992657cb\",\n      \"orderDate\": \"2025-10-24T16:01:16.088000Z\",\n      \"orderType\": 2,\n      \"itemQuantity\": 1,\n      \"locationId\": \"68d81e687e6400e6581fc5a9\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d39c8be6-d534-4347-9d1e-8d6008cc8c31",
+          "name": "Deliverect CRM Order",
+          "request": {
+            "name": "Deliverect CRM Order",
+            "description": {
+              "content": "Deliverect CRM Order",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "orders",
+                ":crmOrderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmOrderId",
+                  "description": "(Required) The crmOrderId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "029b3384-70b6-4da9-b019-a138449fa579",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "orders",
+                    ":crmOrderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmOrderId",
+                      "description": "(Required) The crmOrderId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"698**************066\",\n  \"crmProfileId\": \"698**************4e9\",\n  \"orderId\": \"698**************e6f\",\n  \"accountId\": \"68d**************bdd\",\n  \"channel\": 20000,\n  \"payment\": {\n    \"amount\": {\n      \"value\": 3100,\n      \"currency\": \"EUR\",\n      \"display\": \"31.00\"\n    }\n  },\n  \"orderDisplayId\": \"DISPLAY**************156c\",\n  \"orderDate\": \"2026-02-12T15:23:25.967000Z\",\n  \"orderType\": 3,\n  \"itemQuantity\": 1,\n  \"locationId\": \"68d**************5a9\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c9fe4de-9b99-443a-b780-abf47a5a5a6f",
+          "name": "Deliverect Customer Favorite Orders",
+          "request": {
+            "name": "Deliverect Customer Favorite Orders",
+            "description": {
+              "content": "Deliverect Customer Favorite Orders",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                ":crmProfileId",
+                "orders",
+                "favorites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmProfileId",
+                  "description": "(Required) The crmProfileId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd4cb6a8-0fdf-45ce-a3af-7241137ab94f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    ":crmProfileId",
+                    "orders",
+                    "favorites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmProfileId",
+                      "description": "(Required) The crmProfileId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"698**************066\",\n  \"crmProfileId\": \"698**************4e9\",\n  \"orderId\": \"698**************e6f\",\n  \"accountId\": \"68d**************bdd\",\n  \"channel\": 20000,\n  \"payment\": {\n    \"amount\": {\n      \"value\": 3100,\n      \"currency\": \"EUR\",\n      \"display\": \"31.00\"\n    }\n  },\n  \"orderDisplayId\": \"DISPLAY**************156c\",\n  \"orderDate\": \"2026-02-12T15:23:25.967000Z\",\n  \"orderType\": 3,\n  \"itemQuantity\": 1,\n  \"locationId\": \"68d**************5a9\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea51681f-be4a-4b85-83ce-264510ec25c1",
+          "name": "Deliverect Kds_order_notification",
+          "request": {
+            "name": "Deliverect Kds_order_notification",
+            "description": {
+              "content": "Deliverect Kds_order_notification",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "kds_order_notification"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": \"<string>\",\n  \"channelLinkId\": \"<string>\",\n  \"checkoutId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce845117-b7d8-4900-8ca3-4677d51096cb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "kds_order_notification"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locationId\": \"5cecc6489f0001b8\",\n  \"channelLinkId\": \"5e8abc11dec0001a009b\",\n  \"checkoutId\": \"609a1b2c3d4e5f6a7b8c9d0e\",\n  \"status\": \"completed\",\n  \"reason\": \"string\",\n  \"updatedAt\": \"2026-03-15T14:30:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae8f506d-914e-42d0-8590-21e3e4da2c41",
+          "name": "Deliverect Kds_order_status_update",
+          "request": {
+            "name": "Deliverect Kds_order_status_update",
+            "description": {
+              "content": "Deliverect Kds_order_status_update",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "kds",
+                "order_status_update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "571104e2-854d-4f0f-98e2-6247c57f8274",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "kds",
+                    "order_status_update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b67b88f1-8fb3-43df-b9f0-96f1c5fe669a",
+          "name": "Deliverect Update Order Status",
+          "request": {
+            "name": "Deliverect Update Order Status",
+            "description": {
+              "content": "Deliverect Update Order Status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "kds",
+                "orderStatus",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) The orderId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"reason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "406090d4-aeb8-4e4b-b808-c7c402152344",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "kds",
+                    "orderStatus",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The orderId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"609a1b2c3d4e5f6a7b8c9d0e\",\n  \"status\": 20,\n  \"reason\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "19ccb37a-0d0d-4b6d-a8ff-bdb043a025d3",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "kds",
+                    "orderStatus",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The orderId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"609a1b2c3d4e5f6a7b8c9d0e\",\n  \"status\": 20,\n  \"reason\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "342cd7df-d3e4-4920-a707-9d9e30434662",
+          "name": "Deliverect Order Notification",
+          "request": {
+            "name": "Deliverect Order Notification",
+            "description": {
+              "content": "*This will be the same webhook endpoint set by the POS for Order Notifications",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de47fbbf-62c9-4a23-a787-0931d8bd277f",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66a5807c-a540-4bb8-bd8b-5135c091628c",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8066a5e8-2ae7-4a00-9e39-b5315748ae8b",
+          "name": "Deliverect Post_orderstatus_orderid",
+          "request": {
+            "name": "Deliverect Post_orderstatus_orderid",
+            "description": {
+              "content": "Deliverect Post_orderstatus_orderid",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orderStatus",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) The orderId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"orderId\": \"<string>\",\n  \"receiptId\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"pickupTime\": \"<dateTime>\",\n  \"reason\": \"<string>\",\n  \"timeStamp\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "66a1aec5-6bc3-4697-bccf-728525857665",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orderStatus",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The orderId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"63********************a7\",\n  \"status\": 120,\n  \"reason\": \"Invalid PLU\",\n  \"timeStamp\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"receiptId\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": \"OK\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "893e252e-ccc4-40cb-bf28-82ddb81d4352",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orderStatus",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The orderId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"orderId\": \"63********************a7\",\n  \"status\": 120,\n  \"reason\": \"Invalid PLU\",\n  \"timeStamp\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"receiptId\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de4dcf89-f3b7-4315-b87f-513e06f9c23c",
+          "name": "Deliverect Order Delivery Update",
+          "request": {
+            "name": "Deliverect Order Delivery Update",
+            "description": {
+              "content": "Deliverect Order Delivery Update",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fulfillment",
+                "location",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) The orderId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73956813-ffe6-4606-95ea-e582fb5bb00c",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fulfillment",
+                    "location",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The orderId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"channelOrderId\": \"channelOrderId\",\n  \"orderId\": \"5e****abc11dec0001****9b\",\n  \"location\": \"5e****abc11dec0001****9c\",\n  \"status\": 70,\n  \"deliveryETA\": \"2021-07-15 11:45:36.332906\",\n  \"courier\": {\n    \"longitude\": \"5.895168\",\n    \"latitude\": \"53.370216\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43d6899e-ffeb-46f3-9a4c-a49a765840dd",
+          "name": "Deliverect Post_updatepreparationtime",
+          "request": {
+            "name": "Deliverect Post_updatepreparationtime",
+            "description": {
+              "content": "Deliverect Post_updatepreparationtime",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "updatePreparationTime"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"minutes\": \"<integer>\",\n  \"order\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9ac0342-34ac-4acc-928f-ce0bee75013d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "updatePreparationTime"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": \"{orderId}\",\n  \"minutes\": 15\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a07e63b7-d92e-4c71-9c08-474aad8e2ef8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "updatePreparationTime"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": \"{orderId}\",\n  \"minutes\": 15\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "056774e9-3769-4215-8092-02c8c4e0c3a4",
+    "name": "Deliverect Channel Accounts Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

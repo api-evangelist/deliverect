@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Tables API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Sync Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/tables/locationId"
+          },
+          "docs": "*This is a GET webhook set by the POS"
+        },
+        {
+          "info": {
+            "name": "Deliverect GET POS Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/tables/:locationId",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "5cecc6489f0001b8",
+                "type": "path",
+                "description": "The locationId value."
+              }
+            ]
+          },
+          "docs": "Retrieve tables and floors for a location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,196 @@
+{
+  "item": [
+    {
+      "id": "f26a6fc1-6217-48e4-9ccc-4f8efb102c0a",
+      "name": "Configuration",
+      "description": {
+        "content": "Configuration operations for the Deliverect Loyalty API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a8424569-3c49-434e-83e5-be6455faba21",
+          "name": "Deliverect Get Configuration",
+          "request": {
+            "name": "Deliverect Get Configuration",
+            "description": {
+              "content": "This endpoint provides information such as  settings, features and requirements based on the account's configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channelLinkId",
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "821ad305-10a4-458a-91e1-5123a3c70c6e",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enabled\": true,\n  \"providerName\": \"Generic\",\n  \"providerId\": 10000,\n  \"externalSignUpUrl\": \"https://deliverect.com/signup\",\n  \"features\": {\n    \"supportsSSO\": false,\n    \"supportsExternalSignUpUrl\": true,\n    \"supportsWalletPointsBalance\": true,\n    \"supportsWalletCashBalance\": false,\n    \"supportsBOGOFPrograms\": true,\n    \"supportsFreeItemPrograms\": true,\n    \"supportsFlatPrograms\": true,\n    \"requiresEmail\": true,\n    \"requiresPhoneNumber\": false,\n    \"supportsDynamicConfiguration\": false\n  },\n  \"cashbackConfig\": {\n    \"title\": \"VIP Customers\",\n    \"description\": \"Exclusive rewards for our VIP customers\",\n    \"earningRules\": [\n      {\n        \"type\": \"cash_back\",\n        \"reward\": {\n          \"type\": \"percentage\",\n          \"value\": 1000\n        }\n      },\n      {\n        \"type\": \"sign_up\",\n        \"reward\": {\n          \"type\": \"fixed\",\n          \"value\": 1000\n        }\n      }\n    ],\n    \"burningRules\": [\n      {\n        \"type\": \"purchase\",\n        \"cost\": {\n          \"type\": \"percentage\",\n          \"value\": 5000,\n          \"maxBurningAmount\": 500\n        }\n      },\n      {\n        \"type\": \"purchase\",\n        \"cost\": {\n          \"type\": \"fixed\",\n          \"value\": 500\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f1931a83-3976-4a1d-bf55-894913f3eaea",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1d6040fc-8c0c-4451-b292-0e70c8a5eb9b",
+    "name": "Deliverect Channel Accounts Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

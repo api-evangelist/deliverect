@@ -1,0 +1,246 @@
+{
+  "item": [
+    {
+      "id": "e01b82f5-4390-472c-81f6-81a1401bc1a9",
+      "name": "Inventory",
+      "description": {
+        "content": "Inventory operations for the Deliverect POS API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6ed85a9-6b88-4be9-824e-e035981c2ca2",
+          "name": "Deliverect Inventory Update",
+          "request": {
+            "name": "Deliverect Inventory Update",
+            "description": {
+              "content": "To support changes to item availability, Deliverect can receive an inventory file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "catalog",
+                "accounts",
+                ":accountId",
+                "inventoryUploadUrl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) The X-Deliverect-Version value.",
+                "key": "X-Deliverect-Version",
+                "value": "retail"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"callbackUrl\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e082b0e-294c-493f-934a-fc1dfe570d9f",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "accounts",
+                    ":accountId",
+                    "inventoryUploadUrl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The X-Deliverect-Version value.",
+                    "key": "X-Deliverect-Version",
+                    "value": "retail"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"callbackUrl\": \"https://example.com/inventoryCallback\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"fileId\\\": \\\"4e*********************************c1\\\",\\n    \\\"signedUrl\\\": \\\"https://storage.googleapis.com/...\\\",\\n    \\\"headers\\\": {\\n        \\\"x-goog-meta-user\\\": \\\"61********************b4\\\",\\n        \\\"x-goog-meta-callback\\\": \\\"https://example.com/inventoryCallback\\\",\\n        \\\"content-type\\\": \\\"text/csv\\\",\\n        \\\"Host\\\": \\\"storage.googleapis.com\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73eff065-39bf-4813-8089-68c7f0c57d2e",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog",
+                    "accounts",
+                    ":accountId",
+                    "inventoryUploadUrl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) The X-Deliverect-Version value.",
+                    "key": "X-Deliverect-Version",
+                    "value": "retail"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"callbackUrl\": \"https://example.com/inventoryCallback\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e69be47-9239-4440-be82-7a95029d7216",
+    "name": "Deliverect Channel Accounts Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

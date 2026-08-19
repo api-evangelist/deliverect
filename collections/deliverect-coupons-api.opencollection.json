@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Coupons API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Coupons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Copy of",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/coupons/channel/:channelLinkId/coupons",
+            "params": [
+              {
+                "name": "size",
+                "value": "25",
+                "type": "query",
+                "description": "The size value."
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "The page value."
+              },
+              {
+                "name": "channelLinkId",
+                "value": "5e8abc11dec0001a009b",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Copy of"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

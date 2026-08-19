@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Jobs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Validate Delivery Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/validate_job"
+          },
+          "docs": "The initial dispatch notification that a new job is available which needs validated as being deliverable"
+        },
+        {
+          "info": {
+            "name": "Deliverect Create Delivery Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/dispatch/create_job",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Once a delivery job is validated a second webhook event will be sent to confirm the full details"
+        },
+        {
+          "info": {
+            "name": "Deliverect Copy of Cancel Delivery Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/dispatch/updateJob",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A merchant or ordering channel may cancel the order, which in turn will cancel the delivery job"
+        },
+        {
+          "info": {
+            "name": "Deliverect Cancel Delivery Job",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/dispatch/cancel_job",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "A merchant or ordering channel may cancel the order, which in turn will cancel the delivery job"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

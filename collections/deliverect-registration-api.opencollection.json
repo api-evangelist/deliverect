@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Registration API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Registration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Channel Registration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/register"
+          },
+          "docs": "Deliverect Channel Registration"
+        },
+        {
+          "info": {
+            "name": "Deliverect Kds_register_kds",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/kds/register_kds"
+          },
+          "docs": "Deliverect Kds_register_kds"
+        },
+        {
+          "info": {
+            "name": "Deliverect Register POS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/register",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "*This is a webhook set by the POS"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

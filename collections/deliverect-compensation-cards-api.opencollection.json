@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Compensation Cards API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Compensation Cards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Post_loyalty_channellinkid_compensationcards_validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/loyalty/:channelLinkId/compensationCards/validate",
+            "params": [
+              {
+                "name": "channelLinkId",
+                "value": "5e8abc11dec0001a009b",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Post_loyalty_channellinkid_compensationcards_validate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

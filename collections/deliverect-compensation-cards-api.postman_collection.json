@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "91894f17-1191-43f2-9599-966c1da40cce",
+      "name": "Compensation Cards",
+      "description": {
+        "content": "Compensation Cards operations for the Deliverect Loyalty API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "483a34bf-2502-4470-a3d9-1da0a2a3ea7b",
+          "name": "Deliverect Post_loyalty_channellinkid_compensationcards_validate",
+          "request": {
+            "name": "Deliverect Post_loyalty_channellinkid_compensationcards_validate",
+            "description": {
+              "content": "Deliverect Post_loyalty_channellinkid_compensationcards_validate",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channelLinkId",
+                "compensationCards",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c3c7b74-77d5-4758-ac86-d0d555d82916",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "compensationCards",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9f7a181a-c8f0-421f-9084-62afa56a8f51",
+    "name": "Deliverect Channel Accounts Compensation Cards API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

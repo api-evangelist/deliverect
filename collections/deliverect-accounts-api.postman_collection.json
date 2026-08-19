@@ -1,0 +1,165 @@
+{
+  "item": [
+    {
+      "id": "d225fea8-6233-4d27-b418-e06e7eb6f2cd",
+      "name": "Accounts",
+      "description": {
+        "content": "Accounts operations for the Deliverect Channel API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cebaf6ef-439a-4b19-a305-cd02408a2fe3",
+          "name": "Deliverect Get_accounts",
+          "request": {
+            "name": "Deliverect Get_accounts",
+            "description": {
+              "content": "Deliverect Get_accounts",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c31200b2-07fa-4fe0-9d47-413e13741a01",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_items\": [\n    {\n      \"_id\": \"5f1***131\",\n      \"name\": \"Generic account\",\n      \"accountType\": 1,\n      \"currency\": 1,\n      \"posSystem\": 10000,\n      \"_updated\": \"2021-05-18T08:02:16.000000Z\",\n      \"_created\": \"2020-07-24T07:36:49.000000Z\",\n      \"_deleted\": false,\n      \"_etag\": \"004a4df4bcce3cae83fd530c4a502278633ffd42\",\n      \"locations\": [\n        \"5f1***133\",\n        \"606***b86\",\n        \"606***555\"\n      ],\n      \"accounts\": [],\n      \"brands\": [\n        {\n          \"name\": \"Generic account\",\n          \"brandId\": \"606***6c5\"\n        }\n      ],\n      \"deliverectVersion\": \"2.0\",\n      \"featureFlags\": {\n        \"menuLocationOverrides\": false,\n        \"autoApply\": false,\n        \"pullAvailabilities\": false,\n        \"combinedProductsPage\": false,\n        \"enableSelfOnboarding\": false,\n        \"reportsV2\": false,\n        \"enableDiscounts\": false,\n        \"enableDelivery\": false\n      },\n      \"region\": \"EU\",\n      \"settings\": {\n        \"taxExcl\": false\n      },\n      \"whitelabel\": \"deliverect\",\n      \"users\": [\n        \"607***ca68\"\n      ],\n      \"reportingEndpoints\": [\n        {\n          \"endpoint\": \"https://reporting-endpoint.com/reporting/newOrder\",\n          \"statusTrigger\": [\n            20\n          ],\n          \"endpointType\": 10\n        }\n      ],\n      \"_links\": {\n        \"self\": {\n          \"title\": \"accounts\",\n          \"href\": \"accounts/5f1***131\"\n        },\n        \"related\": {\n          \"users\": [\n            {\n              \"title\": \"users\",\n              \"href\": \"users/607***a68\"\n            }\n          ],\n          \"locations\": [\n            {\n              \"title\": \"Locations\",\n              \"href\": \"locations/5f1***133\"\n            },\n            {\n              \"title\": \"Locations\",\n              \"href\": \"locations/606***b86\"\n            },\n            {\n              \"title\": \"Locations\",\n              \"href\": \"locations/606***555\"\n            }\n          ],\n          \"accounts\": []\n        }\n      }\n    }\n  ],\n  \"_links\": {\n    \"parent\": {\n      \"title\": \"home\",\n      \"href\": \"/\"\n    },\n    \"self\": {\n      \"title\": \"accounts\",\n      \"href\": \"accounts\"\n    },\n    \"next\": {\n      \"title\": \"next page\",\n      \"href\": \"accounts?page=2\"\n    },\n    \"last\": {\n      \"title\": \"last page\",\n      \"href\": \"accounts?page=11\"\n    }\n  },\n  \"_meta\": {\n    \"page\": 1,\n    \"max_results\": 25,\n    \"total\": 11\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec692f91-26c2-4be3-b997-77cee376effb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_status\": \"ERR\",\n  \"_error\": {\n    \"code\": 401,\n    \"message\": \"Please provide proper credentials\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "033faae3-8227-4061-8775-ba206e5a36e6",
+    "name": "Deliverect Channel Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

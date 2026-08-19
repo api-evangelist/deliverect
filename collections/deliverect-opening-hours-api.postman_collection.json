@@ -1,0 +1,955 @@
+{
+  "item": [
+    {
+      "id": "8a1a9983-8461-4659-9617-9b171465f235",
+      "name": "Opening Hours",
+      "description": {
+        "content": "Opening Hours operations for the Deliverect Channel API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f4161cb-da60-47f7-b584-72674b09f1d1",
+          "name": "Deliverect Get_locations_channels_locationid_holidays",
+          "request": {
+            "name": "Deliverect Get_locations_channels_locationid_holidays",
+            "description": {
+              "content": "Deliverect Get_locations_channels_locationid_holidays",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                "channels",
+                ":locationId",
+                "holidays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) Unique location Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb65af9f-4e3a-4f6c-82cb-d50c5ba5e640",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "channels",
+                    ":locationId",
+                    "holidays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) Unique location Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"63********************a7\",\n  \"holidays\": [\n    {\n      \"startTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n      \"endTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\"\n    }\n  ],\n  \"channels\": [\n    {\n      \"id\": \"63********************a7\",\n      \"holidays\": [\n        {\n          \"startTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n          \"endTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\"\n        },\n        {\n          \"startTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n          \"endTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\"\n        },\n        {\n          \"startTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n          \"endTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\"\n        },\n        {\n          \"startTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n          \"endTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f466104f-d4d0-4388-b76c-550212b8b553",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "channels",
+                    ":locationId",
+                    "holidays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) Unique location Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0c2b857-37e8-40a0-98d7-5a5dd0dc3757",
+          "name": "Deliverect Create/Update Opening Hours",
+          "request": {
+            "name": "Deliverect Create/Update Opening Hours",
+            "description": {
+              "content": "Deliverect Create/Update Opening Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                "openingHours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locations\": [\n    {\n      \"id\": \"<string>\",\n      \"triggerUpdate\": \"<boolean>\",\n      \"openingHours\": [\n        \"<object>\",\n        \"<object>\"\n      ],\n      \"channels\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"triggerUpdate\": \"<boolean>\",\n      \"openingHours\": [\n        \"<object>\",\n        \"<object>\"\n      ],\n      \"channels\": [\n        \"<object>\",\n        \"<object>\"\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5ed05d22-69fb-45c1-a78a-04548fe0fa79",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "openingHours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"id\": \"{locationId}\",\n      \"triggerUpdate\": true,\n      \"openingHours\": [\n        {\n          \"dayOfWeek\": 1,\n          \"startTime\": \"10:00\",\n          \"endTime\": \"17:00\"\n        }\n      ],\n      \"channels\": [\n        {\n          \"id\": \"6200****fd1f\",\n          \"openingHours\": [\n            {\n              \"dayOfWeek\": 1,\n              \"startTime\": \"08:00\",\n              \"endTime\": \"20:00\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "499b57fe-7ff9-4bb0-9824-7209e8b8ba07",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "openingHours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"id\": \"{locationId}\",\n      \"triggerUpdate\": true,\n      \"openingHours\": [\n        {\n          \"dayOfWeek\": 1,\n          \"startTime\": \"10:00\",\n          \"endTime\": \"17:00\"\n        }\n      ],\n      \"channels\": [\n        {\n          \"id\": \"6200****fd1f\",\n          \"openingHours\": [\n            {\n              \"dayOfWeek\": 1,\n              \"startTime\": \"08:00\",\n              \"endTime\": \"20:00\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80b5f52f-79df-4c5f-a792-b6cd66b81b41",
+          "name": "Deliverect Holiday Hours for Locations",
+          "request": {
+            "name": "Deliverect Holiday Hours for Locations",
+            "description": {
+              "content": "Deliverect Holiday Hours for Locations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                "holidays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "06b40d01-5625-4cff-adb6-bd6dcc3328cc",
+              "name": "default",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "holidays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"id\": \"61c30761e41eefadd03072af\",\n      \"holidays\": [\n        {\n          \"startTime\": \"2023-12-19T15:53:00Z\",\n          \"endTime\": \"2023-12-19T16:10:00Z\"\n        },\n        {\n          \"startTime\": \"2023-12-20T04:00:00Z\",\n          \"endTime\": \"2023-12-20T05:00:00Z\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa53bceb-393b-431c-954c-58ea1decba1c",
+          "name": "Deliverect Holiday Hours for Locations and ChannelLinks",
+          "request": {
+            "name": "Deliverect Holiday Hours for Locations and ChannelLinks",
+            "description": {
+              "content": "Deliverect Holiday Hours for Locations and ChannelLinks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations",
+                "channels",
+                "holidays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c77b6e3-f32b-44c1-909a-2d8fd795d1ec",
+              "name": "default",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations",
+                    "channels",
+                    "holidays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"locations\": [\n    {\n      \"id\": \"63********************a7\",\n      \"channels\": [\n        {\n          \"id\": \"63********************a7\",\n          \"holidays\": [\n            {\n              \"startTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n              \"endTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\"\n            },\n            {\n              \"startTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n              \"endTime\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "55a434a1-923d-4370-96ea-3c4b31842ffb",
+          "name": "Deliverect Get Account Opening Hours",
+          "request": {
+            "name": "Deliverect Get Account Opening Hours",
+            "description": {
+              "content": "Deliverect Get Account Opening Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                ":accountId",
+                "openingHours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f21cf1d4-eee8-4d51-a1f9-07342e05ce4b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":accountId",
+                    "openingHours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35961f46-39e0-4b26-9b25-2cb1b3c3c000",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":accountId",
+                    "openingHours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fbf94f7-e4ca-406f-ac29-93be6ff555d0",
+          "name": "Deliverect Get Store Opening Hours",
+          "request": {
+            "name": "Deliverect Get Store Opening Hours",
+            "description": {
+              "content": "Deliverect Get Store Opening Hours",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "location",
+                ":locationId",
+                "openingHours"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) The locationId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d545304-23c6-440a-8538-07b3af48f285",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location",
+                    ":locationId",
+                    "openingHours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) The locationId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"633d62de0f1565acdf**3bdf\",\n  \"status\": \"ACTIVE\",\n  \"locationName\": \"Location 1\",\n  \"tags\": [],\n  \"openingHours\": [\n    {\n      \"dayOfWeek\": 1,\n      \"startTime\": \"00:00\",\n      \"endTime\": \"23:59\"\n    },\n    {\n      \"dayOfWeek\": 2,\n      \"startTime\": \"00:00\",\n      \"endTime\": \"23:59\"\n    },\n    {\n      \"dayOfWeek\": 3,\n      \"startTime\": \"00:00\",\n      \"endTime\": \"23:59\"\n    }\n  ],\n  \"channels\": [\n    {\n      \"_id\": \"633d6******565acdf893bf1\",\n      \"status\": 2,\n      \"channelName\": \"Channel 1\",\n      \"channel\": 1,\n      \"tags\": [],\n      \"openingHours\": []\n    },\n    {\n      \"_id\": \"6476183fe******c858de0b0\",\n      \"status\": 2,\n      \"channelName\": \"Channel 2\",\n      \"channel\": 10057,\n      \"tags\": [],\n      \"openingHours\": []\n    },\n    {\n      \"_id\": \"669519a1fe******040bdaf2\",\n      \"status\": 2,\n      \"channelName\": \"Channel 3\",\n      \"channel\": 10000,\n      \"tags\": [],\n      \"openingHours\": []\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e814da9d-2cc0-4145-830c-4a134d6acc9a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location",
+                    ":locationId",
+                    "openingHours"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) The locationId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b7c1659-672c-4d64-97e8-fb5d1cf40d67",
+          "name": "Deliverect Holiday Hours for Locations",
+          "request": {
+            "name": "Deliverect Holiday Hours for Locations",
+            "description": {
+              "content": "Deliverect Holiday Hours for Locations",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "location",
+                ":locationId",
+                "holidays"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "locationId",
+                  "description": "(Required) The locationId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2443712f-ac1d-481e-a428-f550cef35c6d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "location",
+                    ":locationId",
+                    "holidays"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "locationId",
+                      "description": "(Required) The locationId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b8e7e531-221d-44aa-bfe4-ce432f39b165",
+    "name": "Deliverect Channel Accounts Opening Hours API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

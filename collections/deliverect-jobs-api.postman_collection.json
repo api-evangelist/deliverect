@@ -1,0 +1,720 @@
+{
+  "item": [
+    {
+      "id": "8a721655-6a7b-4016-9e82-b52055ac871f",
+      "name": "Jobs",
+      "description": {
+        "content": "Jobs operations for the Deliverect Dispatch API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1738f75a-5da6-43f5-8797-106f815e62f7",
+          "name": "Deliverect Validate Delivery Job",
+          "request": {
+            "name": "Deliverect Validate Delivery Job",
+            "description": {
+              "content": "The initial dispatch notification that a new job is available which needs validated as being deliverable",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "validate_job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "059768bf-b86e-4264-8220-6624bbc17aac",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validate_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"jobId\\\": \\\"627a6f4c2*****3fbc79a\\\",\\n  \\\"canDeliver\\\": true,\\n  \\\"distance\\\":10,\\n  \\\"pickupTimeETA\\\": \\\"2022-05-10T14:47:31.649000Z\\\",\\n  \\\"deliveryLocations\\\": [\\n    {\\n      \\\"deliveryId\\\": \\\"ABC567\\\",\\n      \\\"orderId\\\": \\\"627a6f*****5c09221a9837\\\",\\n      \\\"deliveryTimeETA\\\": \\\"2022-05-10T14:57:31.649000Z\\\"\\n    }\\n  ],\\n  \\\"price\\\": {\\n    \\\"price\\\": 750,\\n    \\\"taxRate\\\": 10000\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4db03e6e-97b9-476f-8612-3705833139c0",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validate_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a12ffe1f-3a77-42e7-bfeb-931b9083484c",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "validate_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c051a28-db8d-4e10-b436-34407d669720",
+          "name": "Deliverect Create Delivery Job",
+          "request": {
+            "name": "Deliverect Create Delivery Job",
+            "description": {
+              "content": "Once a delivery job is validated a second webhook event will be sent to confirm the full details",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dispatch",
+                "create_job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobId\": \"<string>\",\n  \"account\": \"<string>\",\n  \"pickupTime\": \"<dateTime>\",\n  \"transportType\": \"<string>\",\n  \"driverTip\": \"<integer>\",\n  \"pickupLocation\": {\n    \"location\": \"<string>\",\n    \"name\": \"<string>\",\n    \"remarks\": \"<string>\",\n    \"street\": \"<string>\",\n    \"streetNumber\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"city\": \"<string>\",\n    \"latitude\": \"<string>\",\n    \"longitude\": \"<string>\"\n  },\n  \"deliveryLocations\": [\n    {\n      \"orderId\": \"<string>\",\n      \"channelOrderDisplayId\": \"<string>\",\n      \"deliveryTime\": \"<dateTime>\",\n      \"packageSize\": \"<string>\",\n      \"orderDescription\": \"<string>\",\n      \"company\": \"<string>\",\n      \"name\": \"<string>\",\n      \"street\": \"<string>\",\n      \"streetNumber\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"phoneAccessCode\": \"<string>\",\n      \"deliveryRemarks\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": \"<boolean>\",\n        \"amount\": \"<integer>\",\n        \"paymentType\": \"<integer>\"\n      }\n    },\n    {\n      \"orderId\": \"<string>\",\n      \"channelOrderDisplayId\": \"<string>\",\n      \"deliveryTime\": \"<dateTime>\",\n      \"packageSize\": \"<string>\",\n      \"orderDescription\": \"<string>\",\n      \"company\": \"<string>\",\n      \"name\": \"<string>\",\n      \"street\": \"<string>\",\n      \"streetNumber\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"phoneAccessCode\": \"<string>\",\n      \"deliveryRemarks\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": \"<boolean>\",\n        \"amount\": \"<integer>\",\n        \"paymentType\": \"<integer>\"\n      }\n    }\n  ],\n  \"ageCheck\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d8e4db06-a9de-423f-97f0-c85ced15ffa0",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dispatch",
+                    "create_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobId\": \"609***72e\",\n  \"account\": \"5f1***131\",\n  \"pickupTime\": \"2021-05-13T13:40:04Z\",\n  \"transportType\": \"unknown\",\n  \"driverTip\": 500,\n  \"pickupLocation\": {\n    \"location\": \"606***555\",\n    \"name\": \"Deliverects Pizza Place\",\n    \"remarks\": \"please use the backdoor for order pickup\",\n    \"street\": \"van Ghentlaan\",\n    \"streetNumber\": \"3\",\n    \"postalCode\": \"9000 LK\",\n    \"city\": \"Leusden\",\n    \"latitude\": \"52.379189\",\n    \"longitude\": \"4.899431\"\n  },\n  \"deliveryLocations\": [\n    {\n      \"orderId\": \"609***4dd\",\n      \"channelOrderDisplayId\": \"MT4YVTPL\",\n      \"deliveryTime\": \"2021-05-13T13:55:00Z\",\n      \"packageSize\": \"medium\",\n      \"orderDescription\": \"hot food\",\n      \"company\": \"BrainQuantums\",\n      \"name\": \"V. Bertels\",\n      \"street\": \"Refugehof\",\n      \"streetNumber\": \"49\",\n      \"postalCode\": \"9001 AB\",\n      \"city\": \"Leusden\",\n      \"phone\": \"+32123456789\",\n      \"phoneAccessCode\": \"342241214\",\n      \"deliveryRemarks\": \"Dont ring door bell.\",\n      \"latitude\": \"52.379189\",\n      \"longitude\": \"4.899431\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": true,\n        \"amount\": 1100,\n        \"paymentType\": 0\n      }\n    }\n  ],\n  \"ageCheck\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d2bcde68-1ed3-4e92-9407-97ce240a9fd4",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dispatch",
+                    "create_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobId\": \"609***72e\",\n  \"account\": \"5f1***131\",\n  \"pickupTime\": \"2021-05-13T13:40:04Z\",\n  \"transportType\": \"unknown\",\n  \"driverTip\": 500,\n  \"pickupLocation\": {\n    \"location\": \"606***555\",\n    \"name\": \"Deliverects Pizza Place\",\n    \"remarks\": \"please use the backdoor for order pickup\",\n    \"street\": \"van Ghentlaan\",\n    \"streetNumber\": \"3\",\n    \"postalCode\": \"9000 LK\",\n    \"city\": \"Leusden\",\n    \"latitude\": \"52.379189\",\n    \"longitude\": \"4.899431\"\n  },\n  \"deliveryLocations\": [\n    {\n      \"orderId\": \"609***4dd\",\n      \"channelOrderDisplayId\": \"MT4YVTPL\",\n      \"deliveryTime\": \"2021-05-13T13:55:00Z\",\n      \"packageSize\": \"medium\",\n      \"orderDescription\": \"hot food\",\n      \"company\": \"BrainQuantums\",\n      \"name\": \"V. Bertels\",\n      \"street\": \"Refugehof\",\n      \"streetNumber\": \"49\",\n      \"postalCode\": \"9001 AB\",\n      \"city\": \"Leusden\",\n      \"phone\": \"+32123456789\",\n      \"phoneAccessCode\": \"342241214\",\n      \"deliveryRemarks\": \"Dont ring door bell.\",\n      \"latitude\": \"52.379189\",\n      \"longitude\": \"4.899431\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": true,\n        \"amount\": 1100,\n        \"paymentType\": 0\n      }\n    }\n  ],\n  \"ageCheck\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "552cf440-1f78-46cc-ad5f-0d173247d68e",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dispatch",
+                    "create_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobId\": \"609***72e\",\n  \"account\": \"5f1***131\",\n  \"pickupTime\": \"2021-05-13T13:40:04Z\",\n  \"transportType\": \"unknown\",\n  \"driverTip\": 500,\n  \"pickupLocation\": {\n    \"location\": \"606***555\",\n    \"name\": \"Deliverects Pizza Place\",\n    \"remarks\": \"please use the backdoor for order pickup\",\n    \"street\": \"van Ghentlaan\",\n    \"streetNumber\": \"3\",\n    \"postalCode\": \"9000 LK\",\n    \"city\": \"Leusden\",\n    \"latitude\": \"52.379189\",\n    \"longitude\": \"4.899431\"\n  },\n  \"deliveryLocations\": [\n    {\n      \"orderId\": \"609***4dd\",\n      \"channelOrderDisplayId\": \"MT4YVTPL\",\n      \"deliveryTime\": \"2021-05-13T13:55:00Z\",\n      \"packageSize\": \"medium\",\n      \"orderDescription\": \"hot food\",\n      \"company\": \"BrainQuantums\",\n      \"name\": \"V. Bertels\",\n      \"street\": \"Refugehof\",\n      \"streetNumber\": \"49\",\n      \"postalCode\": \"9001 AB\",\n      \"city\": \"Leusden\",\n      \"phone\": \"+32123456789\",\n      \"phoneAccessCode\": \"342241214\",\n      \"deliveryRemarks\": \"Dont ring door bell.\",\n      \"latitude\": \"52.379189\",\n      \"longitude\": \"4.899431\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": true,\n        \"amount\": 1100,\n        \"paymentType\": 0\n      }\n    }\n  ],\n  \"ageCheck\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t[{\\n\\t\\t“reason”: DeliveryJobErrorReason,\\n\\t\\t“description”: string,\\n\\t\\t“extraDetails”: string\\n\\t}]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8b86fb1-3e6a-4b20-b304-191c60ce8cdf",
+          "name": "Deliverect Copy of Cancel Delivery Job",
+          "request": {
+            "name": "Deliverect Copy of Cancel Delivery Job",
+            "description": {
+              "content": "A merchant or ordering channel may cancel the order, which in turn will cancel the delivery job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dispatch",
+                "updateJob"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"_id\": \"<string>\",\n  \"externalJobId\": \"<string>\",\n  \"deliveryLocations\": [\n    {\n      \"deliveryId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"channelOrderDisplayId\": \"<string>\",\n      \"deliveryTime\": \"<dateTime>\",\n      \"packageSize\": \"<string>\",\n      \"orderDescription\": \"<string>\",\n      \"company\": \"<string>\",\n      \"name\": \"<string>\",\n      \"street\": \"<string>\",\n      \"streetNumber\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"deliveryRemarks\": \"<string>\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": \"<boolean>\",\n        \"amount\": \"<integer>\",\n        \"paymentType\": \"<integer>\",\n        \"paysWith\": \"<integer>\"\n      }\n    },\n    {\n      \"deliveryId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"channelOrderDisplayId\": \"<string>\",\n      \"deliveryTime\": \"<dateTime>\",\n      \"packageSize\": \"<string>\",\n      \"orderDescription\": \"<string>\",\n      \"company\": \"<string>\",\n      \"name\": \"<string>\",\n      \"street\": \"<string>\",\n      \"streetNumber\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"city\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"latitude\": \"<string>\",\n      \"longitude\": \"<string>\",\n      \"deliveryRemarks\": \"<string>\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": \"<boolean>\",\n        \"amount\": \"<integer>\",\n        \"paymentType\": \"<integer>\",\n        \"paysWith\": \"<integer>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "319b992a-1f17-4133-b85e-21bf6cba3e98",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dispatch",
+                    "updateJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_id\": \"5c8fbfd3c6489f00010e50d1\",\n  \"externalJobId\": \"ABC123\",\n  \"deliveryLocations\": [\n    {\n      \"deliveryId\": \"ABC567\",\n      \"orderId\": \"5f47a223280a29046404e2af\",\n      \"channelOrderDisplayId\": \"MT4YVTPL\",\n      \"deliveryTime\": \"2019-02-20T16:45:00.000000Z\",\n      \"packageSize\": \"small\",\n      \"orderDescription\": \"hot food\",\n      \"company\": \"BrainQuantums\",\n      \"name\": \"V. Bertels\",\n      \"street\": \"Refugehof\",\n      \"streetNumber\": \"49\",\n      \"postalCode\": \"9001 AB\",\n      \"city\": \"Leusden\",\n      \"phone\": \"+32123456789\",\n      \"latitude\": \"52.370216\",\n      \"longitude\": \"4.895168\",\n      \"deliveryRemarks\": \"please knock 3x, baby is sleeping\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": false,\n        \"amount\": 1500,\n        \"paymentType\": 2,\n        \"paysWith\": 2000\n      }\n    },\n    {\n      \"orderId\": \"5f47a484d08f00f30f04e7eb\",\n      \"channelOrderDisplayId\": \"82DE5\",\n      \"deliveryTime\": \"2019-02-20T16:45:00.000000Z\",\n      \"packageSize\": \"large\",\n      \"orderDescription\": \"hot food\",\n      \"name\": \"C. Landman\",\n      \"street\": \"Prinsengracht\",\n      \"streetNumber\": \"198\",\n      \"postalCode\": \"9101 CG\",\n      \"city\": \"Leusden\",\n      \"phone\": \"+3212987654\",\n      \"latitude\": \"52.370216\",\n      \"longitude\": \"4.895168\",\n      \"deliveryRemarks\": \"\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": true,\n        \"amount\": 1000,\n        \"paymentType\": 3\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c818699-683d-4d70-9d9e-9bafbfb11344",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dispatch",
+                    "updateJob"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"_id\": \"5c8fbfd3c6489f00010e50d1\",\n  \"externalJobId\": \"ABC123\",\n  \"deliveryLocations\": [\n    {\n      \"deliveryId\": \"ABC567\",\n      \"orderId\": \"5f47a223280a29046404e2af\",\n      \"channelOrderDisplayId\": \"MT4YVTPL\",\n      \"deliveryTime\": \"2019-02-20T16:45:00.000000Z\",\n      \"packageSize\": \"small\",\n      \"orderDescription\": \"hot food\",\n      \"company\": \"BrainQuantums\",\n      \"name\": \"V. Bertels\",\n      \"street\": \"Refugehof\",\n      \"streetNumber\": \"49\",\n      \"postalCode\": \"9001 AB\",\n      \"city\": \"Leusden\",\n      \"phone\": \"+32123456789\",\n      \"latitude\": \"52.370216\",\n      \"longitude\": \"4.895168\",\n      \"deliveryRemarks\": \"please knock 3x, baby is sleeping\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": false,\n        \"amount\": 1500,\n        \"paymentType\": 2,\n        \"paysWith\": 2000\n      }\n    },\n    {\n      \"orderId\": \"5f47a484d08f00f30f04e7eb\",\n      \"channelOrderDisplayId\": \"82DE5\",\n      \"deliveryTime\": \"2019-02-20T16:45:00.000000Z\",\n      \"packageSize\": \"large\",\n      \"orderDescription\": \"hot food\",\n      \"name\": \"C. Landman\",\n      \"street\": \"Prinsengracht\",\n      \"streetNumber\": \"198\",\n      \"postalCode\": \"9101 CG\",\n      \"city\": \"Leusden\",\n      \"phone\": \"+3212987654\",\n      \"latitude\": \"52.370216\",\n      \"longitude\": \"4.895168\",\n      \"deliveryRemarks\": \"\",\n      \"payment\": {\n        \"orderIsAlreadyPaid\": true,\n        \"amount\": 1000,\n        \"paymentType\": 3\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16d44811-2314-46fa-b82d-f706b9813928",
+          "name": "Deliverect Cancel Delivery Job",
+          "request": {
+            "name": "Deliverect Cancel Delivery Job",
+            "description": {
+              "content": "A merchant or ordering channel may cancel the order, which in turn will cancel the delivery job",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dispatch",
+                "cancel_job"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"jobId\": \"<string>\",\n  \"account\": \"<string>\",\n  \"pickupLocation\": {\n    \"location\": \"<string>\"\n  },\n  \"deliveryLocations\": [\n    {\n      \"orderId\": \"<string>\",\n      \"channelOrderDisplayId\": \"<string>\",\n      \"deliveryId\": \"<string>\"\n    },\n    {\n      \"orderId\": \"<string>\",\n      \"channelOrderDisplayId\": \"<string>\",\n      \"deliveryId\": \"<string>\"\n    }\n  ],\n  \"courier\": {\n    \"courierId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0d417de-26a1-443b-b022-fb86358dfed1",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dispatch",
+                    "cancel_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobId\": \"5c8******************0d1\",\n  \"account\": \"5be******************e57\",\n  \"pickupLocation\": {\n    \"location\": \"5ea******************4a9\"\n  },\n  \"deliveryLocations\": [\n    {\n      \"orderId\": \"5f4******************2af\",\n      \"channelOrderDisplayId\": \"MT4YVTPL\",\n      \"deliveryId\": \"ABC567\"\n    }\n  ],\n  \"courier\": {\n    \"courierId\": \"D1234\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9d093b9-5883-4273-a1e1-c42224ff0890",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dispatch",
+                    "cancel_job"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"jobId\": \"5c8******************0d1\",\n  \"account\": \"5be******************e57\",\n  \"pickupLocation\": {\n    \"location\": \"5ea******************4a9\"\n  },\n  \"deliveryLocations\": [\n    {\n      \"orderId\": \"5f4******************2af\",\n      \"channelOrderDisplayId\": \"MT4YVTPL\",\n      \"deliveryId\": \"ABC567\"\n    }\n  ],\n  \"courier\": {\n    \"courierId\": \"D1234\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "44fc5782-6fe3-4a7f-9c8c-31aba3aa5d66",
+    "name": "Deliverect Channel Accounts Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

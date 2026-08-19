@@ -1,0 +1,302 @@
+{
+  "item": [
+    {
+      "id": "19ef636e-189c-408c-a598-8d6df3713873",
+      "name": "Couriers",
+      "description": {
+        "content": "Couriers operations for the Deliverect Channel API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bc3accec-a8ac-4c5d-affb-e9b7c995d3ae",
+          "name": "Deliverect Courier Update",
+          "request": {
+            "name": "Deliverect Courier Update",
+            "description": {
+              "content": "This webhook delivers real-time updates on each delivery, based on information provided by the integrated Dispatch partner.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channel",
+                "courier_update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a6cc345-9e46-4e10-9dc0-5fe668cd10f6",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "courier_update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a370acb-107d-4912-963d-71d58850c9dd",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "courier_update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b989b48-853f-4caa-be64-453879cc17c6",
+          "name": "Deliverect Update Courier Status",
+          "request": {
+            "name": "Deliverect Update Courier Status",
+            "description": {
+              "content": "Update courier or guest delivery status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":channelName",
+                "courierUpdate",
+                ":channelLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "my-channel",
+                  "key": "channelName",
+                  "description": "(Required) The channelName value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "61bcc34f657cc48c23eb60d5",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"channelOrderId\": \"<string>\",\n  \"courierUpdate\": {\n    \"status\": \"<integer>\",\n    \"arrivalTime\": \"<dateTime>\",\n    \"deliveryTime\": \"<dateTime>\",\n    \"courier\": {\n      \"firstName\": \"<string>\",\n      \"lastName\": \"<string>\",\n      \"phoneNumber\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6a733d3d-799f-40b5-a1f9-8d60ee440302",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "courierUpdate",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "61bcc34f657cc48c23eb60d5",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"channelOrderId\": \"63171d0000000d34b5efe\",\n  \"courierUpdate\": {\n    \"status\": 85,\n    \"arrivalTime\": \"2022-10-25T16:24:40.482Z\",\n    \"deliveryTime\": \"2022-10-25T16:54:40.482Z\",\n    \"courier\": {\n      \"firstName\": \"Joe\",\n      \"lastName\": \"Driver\",\n      \"phoneNumber\": \"+44 20 3936 1162\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3d2db9d5-bb26-480f-92d5-f973dab86e72",
+    "name": "Deliverect Channel Accounts Couriers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

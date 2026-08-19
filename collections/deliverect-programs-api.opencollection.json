@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Programs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Programs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Get Loyalty Programs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/loyalty/:channelLinkId/programs/retrieve",
+            "params": [
+              {
+                "name": "channelLinkId",
+                "value": "5e8abc11dec0001a009b",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Get Loyalty Programs"
+        },
+        {
+          "info": {
+            "name": "Deliverect Post_new_endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/loyalty/:channelLinkId/programs/validate",
+            "params": [
+              {
+                "name": "channelLinkId",
+                "value": "5e8abc11dec0001a009b",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Post_new_endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

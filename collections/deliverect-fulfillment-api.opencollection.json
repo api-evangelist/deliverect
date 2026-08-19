@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Fulfillment API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fulfillment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Dispatch Availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/fulfillment/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate dispatch availability for a delivery location."
+        },
+        {
+          "info": {
+            "name": "Deliverect Cancel Delivery",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/fulfillment/cancel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Cancel Delivery"
+        },
+        {
+          "info": {
+            "name": "Deliverect Update Delivery",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/fulfillment/generic/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This webhook allows to persist updates from third party delivery systems to Deliverect. Currently updates to following delivery information are supported. See examples for technical details. - delivery status - pickup time & eta - delivery time & eta - courier information ##### Delivery job statuses: Following delivery job statuses exist in deliverect: | Status name | Integer value | |-|-| | `IN_DELIVERY` | 80 | | `EN_ROUTE_TO_PICKUP` | 83 | | `ARRIVED_AT_PICKUP` | 85 | | `EN_ROUTE_TO_DROPOFF` |"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

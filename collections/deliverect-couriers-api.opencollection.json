@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Couriers API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Couriers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Courier Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/courier_update"
+          },
+          "docs": "This webhook delivers real-time updates on each delivery, based on information provided by the integrated Dispatch partner."
+        },
+        {
+          "info": {
+            "name": "Deliverect Update Courier Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/:channelName/courierUpdate/:channelLinkId",
+            "params": [
+              {
+                "name": "channelName",
+                "value": "my-channel",
+                "type": "path",
+                "description": "The channelName value."
+              },
+              {
+                "name": "channelLinkId",
+                "value": "61bcc34f657cc48c23eb60d5",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update courier or guest delivery status."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

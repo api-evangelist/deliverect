@@ -1,0 +1,286 @@
+{
+  "item": [
+    {
+      "id": "a638305c-6de6-489a-910a-9f063e5ec602",
+      "name": "Upsell",
+      "description": {
+        "content": "Upsell operations for the Deliverect Commerce API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "94af0ccf-721d-4c92-983b-75690fc07033",
+          "name": "Deliverect Get Upsell Items",
+          "request": {
+            "name": "Deliverect Get Upsell Items",
+            "description": {
+              "content": "Deliverect Get Upsell Items",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "upsell",
+                "channel",
+                ":channelLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The unique identifier of a channel link for a store location"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account\": \"<string>\",\n  \"channelLink\": \"<string>\",\n  \"location\": \"<string>\",\n  \"items\": [\n    {\n      \"plu\": \"<string>\",\n      \"quantity\": 1\n    },\n    {\n      \"plu\": \"<string>\",\n      \"quantity\": 1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b339e83-d281-489d-8589-daf9b3258b4f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upsell",
+                    "channel",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of a channel link for a store location"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account\": \"67f93fc709a75f7e9e36da7f\",\n  \"location\": \"67f9413754e4db73b3ed1e9f\",\n  \"channelLink\": \"67f94128c490d2ed895a34e7\",\n  \"items\": [\n    {\n      \"plu\": \"PLU1\",\n      \"quantity\": 1\n    },\n    {\n      \"plu\": \"PLU2\",\n      \"quantity\": 2\n    },\n    {\n      \"plu\": \"PLU3\",\n      \"quantity\": 1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"plu\": \"PLU-4\",\n      \"quantity\": 1\n    },\n    {\n      \"plu\": \"PLU-5\",\n      \"quantity\": 1\n    },\n    {\n      \"plu\": \"PLU-6\",\n      \"quantity\": 1\n    }\n  ],\n  \"upsellMetricId\": \"{upsellMetricId}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf8b19bf-9513-4e38-bc2b-f245a5a7759c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upsell",
+                    "channel",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of a channel link for a store location"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account\": \"67f93fc709a75f7e9e36da7f\",\n  \"location\": \"67f9413754e4db73b3ed1e9f\",\n  \"channelLink\": \"67f94128c490d2ed895a34e7\",\n  \"items\": [\n    {\n      \"plu\": \"PLU1\",\n      \"quantity\": 1\n    },\n    {\n      \"plu\": \"PLU2\",\n      \"quantity\": 2\n    },\n    {\n      \"plu\": \"PLU3\",\n      \"quantity\": 1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"insufficient_permissions\",\n  \"description\": \"Not allowed to access this location.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35f237b2-9841-4bf5-a024-8d1cf631730c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "upsell",
+                    "channel",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The unique identifier of a channel link for a store location"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"account\": \"67f93fc709a75f7e9e36da7f\",\n  \"location\": \"67f9413754e4db73b3ed1e9f\",\n  \"channelLink\": \"67f94128c490d2ed895a34e7\",\n  \"items\": [\n    {\n      \"plu\": \"PLU1\",\n      \"quantity\": 1\n    },\n    {\n      \"plu\": \"PLU2\",\n      \"quantity\": 2\n    },\n    {\n      \"plu\": \"PLU3\",\n      \"quantity\": 1\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"type\": \"missing\",\n    \"loc\": [\n      \"location\"\n    ],\n    \"msg\": \"Field required\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a5149cbc-b5e0-4eb2-98e2-09f06de42862",
+    "name": "Deliverect Channel Accounts Upsell API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

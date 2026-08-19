@@ -1,0 +1,1380 @@
+{
+  "item": [
+    {
+      "id": "d4af3e1c-030a-4abb-8628-641922a74da4",
+      "name": "Customers",
+      "description": {
+        "content": "Customers operations for the Deliverect CRM API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "218c01f0-22c0-4b60-8fa9-ef831be8616e",
+          "name": "Deliverect Create Customer",
+          "request": {
+            "name": "Deliverect Create Customer",
+            "description": {
+              "content": "Endpoint used to register a new customer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"externalId\": \"<string>\",\n  \"loyaltyProviderId\": \"<string>\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"<string>\",\n      \"subpremise\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"default\": \"<boolean>\",\n      \"area\": \"<string>\",\n      \"coordinates\": [\n        \"<float>\",\n        \"<float>\"\n      ]\n    },\n    {\n      \"street\": \"<string>\",\n      \"subpremise\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"default\": \"<boolean>\",\n      \"area\": \"<string>\",\n      \"coordinates\": [\n        \"<float>\",\n        \"<float>\"\n      ]\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"<string>\",\n    \"subpremise\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"area\": \"<string>\",\n    \"coordinates\": [\n      \"<float>\",\n      \"<float>\"\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"make\": \"<string>\",\n      \"model\": \"<string>\",\n      \"color\": \"<string>\",\n      \"default\": \"<boolean>\"\n    },\n    {\n      \"make\": \"<string>\",\n      \"model\": \"<string>\",\n      \"color\": \"<string>\",\n      \"default\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1460ec9-b833-4eff-b1b7-74bb67705ff1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@email.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalId\": \"62********************1o\",\n  \"loyaltyProviderId\": \"VjaG***0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"Main Street\",\n      \"subpremise\": \"Unit 210\",\n      \"area\": \"Irvine Business Complex\",\n      \"city\": \"Irvine\",\n      \"postalCode\": \"92614\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************6y\",\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subpremise\": \"Apt 5B\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"postalCode\": \"92109\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************8p\",\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"subpremise\": \"Suite 12\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"postalCode\": \"92708\",\n    \"stateOrProvince\": \"CA\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"id\": \"62********************3b\",\n      \"make\": \"honda\",\n      \"model\": \"civic\",\n      \"color\": \"yellow\",\n      \"default\": true\n    },\n    {\n      \"id\": \"62********************7h\",\n      \"make\": \"toyota\",\n      \"model\": \"corolla\",\n      \"color\": \"blue\",\n      \"default\": false\n    }\n  ],\n  \"id\": \"62********************1m\",\n  \"accountId\": \"62********************8g\",\n  \"channel\": 10000,\n  \"created\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"updated\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"birthdate\": \"1970-01-01\",\n    \"phone\": \"+5519999999999\",\n    \"fullName\": \"John Doe\"\n  },\n  \"favorites\": [\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************9v\",\n      \"label\": \"My favorite order\"\n    },\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3d\",\n      \"label\": \"My 2nd favorite order\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"123\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"ABC\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************0s\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************7m\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13812daa-6f34-4330-ac29-57f268695ab5",
+          "name": "Deliverect Lookup Customer by Email",
+          "request": {
+            "name": "Deliverect Lookup Customer by Email",
+            "description": {
+              "content": "Deliverect Lookup Customer by Email",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                "lookup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "87c394bf-b274-4725-aa30-b7d15700e1b5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    "lookup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@email.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalId\": \"62********************1o\",\n  \"loyaltyProviderId\": \"VjaG***0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"Main Street\",\n      \"subpremise\": \"Unit 210\",\n      \"area\": \"Irvine Business Complex\",\n      \"city\": \"Irvine\",\n      \"postalCode\": \"92614\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************6y\",\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subpremise\": \"Apt 5B\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"postalCode\": \"92109\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************8p\",\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"subpremise\": \"Suite 12\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"postalCode\": \"92708\",\n    \"stateOrProvince\": \"CA\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"id\": \"62********************3b\",\n      \"make\": \"honda\",\n      \"model\": \"civic\",\n      \"color\": \"yellow\",\n      \"default\": true\n    },\n    {\n      \"id\": \"62********************7h\",\n      \"make\": \"toyota\",\n      \"model\": \"corolla\",\n      \"color\": \"blue\",\n      \"default\": false\n    }\n  ],\n  \"id\": \"62********************1m\",\n  \"accountId\": \"62********************8g\",\n  \"channel\": 10000,\n  \"created\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"updated\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"birthdate\": \"1970-01-01\",\n    \"phone\": \"+5519999999999\",\n    \"fullName\": \"John Doe\"\n  },\n  \"favorites\": [\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************9v\",\n      \"label\": \"My favorite order\"\n    },\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3d\",\n      \"label\": \"My 2nd favorite order\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"123\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"ABC\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************0s\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************7m\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "769a916d-fbc6-423a-a65c-eea9a6ec0659",
+          "name": "Deliverect Customer Profile",
+          "request": {
+            "name": "Deliverect Customer Profile",
+            "description": {
+              "content": "Deliverect Customer Profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                ":crmProfileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmProfileId",
+                  "description": "(Required) The crmProfileId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e095752-6a46-4b5f-bda9-72a52c1ad6c6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    ":crmProfileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmProfileId",
+                      "description": "(Required) The crmProfileId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalId\": \"f965248c-3a00\",\n  \"loyaltyProviderId\": \"VjaG***0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"Main Street\",\n      \"subpremise\": \"Unit 210\",\n      \"area\": \"Irvine Business Complex\",\n      \"city\": \"Irvine\",\n      \"postalCode\": \"92614\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        33.674,\n        -117.838\n      ],\n      \"id\": \"61********************b1\",\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subpremise\": \"Apt 5B\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"postalCode\": \"92109\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        32.8,\n        -117.25\n      ],\n      \"id\": \"61********************b2\",\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"subpremise\": \"Suite 12\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"postalCode\": \"92708\",\n    \"stateOrProvince\": \"CA\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      33.709,\n      -117.953\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"id\": \"61********************b3\",\n      \"make\": \"honda\",\n      \"model\": \"civic\",\n      \"color\": \"yellow\",\n      \"default\": true\n    },\n    {\n      \"id\": \"61********************b2\",\n      \"make\": \"toyota\",\n      \"model\": \"corolla\",\n      \"color\": \"blue\",\n      \"default\": false\n    }\n  ],\n  \"id\": \"62********************7c\",\n  \"accountId\": \"62********************3c\",\n  \"channel\": 10000,\n  \"created\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"updated\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phone\": \"+14048091678\",\n    \"birthdate\": \"1970-01-01T00:00:00Z\",\n    \"fullName\": \"John Doe\"\n  },\n  \"favorites\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "699ae5c0-9749-4ae3-b28a-a89b40e7474c",
+          "name": "Deliverect Update Customer Profile",
+          "request": {
+            "name": "Deliverect Update Customer Profile",
+            "description": {
+              "content": "Deliverect Update Customer Profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                ":crmProfileId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmProfileId",
+                  "description": "(Required) The crmProfileId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contact\": {\n    \"email\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"birthdate\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"externalId\": \"<string>\",\n  \"loyaltyProviderId\": \"<string>\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"<string>\",\n      \"subpremise\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"default\": \"<boolean>\",\n      \"area\": \"<string>\",\n      \"coordinates\": \"<string>\"\n    },\n    {\n      \"street\": \"<string>\",\n      \"subpremise\": \"<string>\",\n      \"city\": \"<string>\",\n      \"stateOrProvince\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"country\": \"<string>\",\n      \"default\": \"<boolean>\",\n      \"area\": \"<string>\",\n      \"coordinates\": \"<string>\"\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"<string>\",\n    \"subpremise\": \"<string>\",\n    \"city\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"country\": \"<string>\",\n    \"area\": \"<string>\",\n    \"coordinates\": \"<string>\"\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"make\": \"<string>\",\n      \"model\": \"<string>\",\n      \"color\": \"<string>\",\n      \"default\": \"<boolean>\"\n    },\n    {\n      \"make\": \"<string>\",\n      \"model\": \"<string>\",\n      \"color\": \"<string>\",\n      \"default\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7dfa7508-e14a-4300-af50-d9ef971a18fd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    ":crmProfileId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmProfileId",
+                      "description": "(Required) The crmProfileId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"62********************1o\",\n  \"loyaltyProviderId\": \"VjaGFuZ0B0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"Main Street\",\n      \"subPremise\": \"Unit 210\",\n      \"area\": \"Irvine Business Complex\",\n      \"city\": \"Irvine\",\n      \"stateOrProvince\": \"CA\",\n      \"postalCode\": \"92614\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subPremise\": \"Apt 5B\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"stateOrProvince\": \"CA\",\n      \"postalCode\": \"92109\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"subPremise\": \"Suite 12\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"stateOrProvince\": \"CA\",\n    \"postalCode\": \"92708\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"make\": \"Honda\",\n      \"model\": \"Civic\",\n      \"color\": \"Yellow\",\n      \"default\": true\n    },\n    {\n      \"make\": \"Toyota\",\n      \"model\": \"Corolla\",\n      \"color\": \"Blue\",\n      \"default\": false\n    }\n  ],\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"birthdate\": \"1970-01-01\",\n    \"phone\": \"+14048555666\"\n  },\n  \"favorites\": [\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3x\",\n      \"label\": \"My favorite order\"\n    },\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3y\",\n      \"label\": \"My 2nd favorite order\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"1234\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"ABC\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************2e\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************2f\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalId\": \"62********************1o\",\n  \"loyaltyProviderId\": \"VjaGFuZ0B0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"Main Street\",\n      \"subpremise\": \"Unit 210\",\n      \"area\": \"Irvine Business Complex\",\n      \"city\": \"Irvine\",\n      \"postalCode\": \"92614\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************6a\",\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subpremise\": \"Suite 12\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"postalCode\": \"92109\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************6w\",\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"subpremise\": null,\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"postalCode\": \"92708\",\n    \"stateOrProvince\": \"CA\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"id\": \"62********************6z\",\n      \"make\": \"honda\",\n      \"model\": \"civic\",\n      \"color\": \"yellow\",\n      \"default\": true\n    },\n    {\n      \"id\": \"62********************6b\",\n      \"make\": \"toyota\",\n      \"model\": \"corolla\",\n      \"color\": \"blue\",\n      \"default\": false\n    }\n  ],\n  \"id\": \"62********************6m\",\n  \"accountId\": \"62********************6e\",\n  \"channel\": 10000,\n  \"created\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"updated\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phone\": \"+14048888666\",\n    \"birthdate\": \"1970-01-01T00:00:00\",\n    \"fullName\": \"John Doe\"\n  },\n  \"favorites\": [\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3x\",\n      \"label\": \"My favorite order\"\n    },\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3y\",\n      \"label\": \"My 2nd favorite order\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"1234\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"ABC\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************2e\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************2f\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be0a7f24-eb1e-46f7-a7e7-9d7c28b3e1b4",
+          "name": "Deliverect Update Customer Delivery Addresses",
+          "request": {
+            "name": "Deliverect Update Customer Delivery Addresses",
+            "description": {
+              "content": "Update the addresses stored on a customer's profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                ":crmProfileId",
+                "deliveryAddresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmProfileId",
+                  "description": "(Required) The crmProfileId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"country\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"street\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"subpremise\": \"<string>\",\n    \"area\": \"<string>\",\n    \"coordinates\": [\n      \"<float>\",\n      \"<float>\"\n    ],\n    \"default\": \"<boolean>\",\n    \"city\": \"<string>\"\n  },\n  {\n    \"country\": \"<string>\",\n    \"stateOrProvince\": \"<string>\",\n    \"street\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"subpremise\": \"<string>\",\n    \"area\": \"<string>\",\n    \"coordinates\": [\n      \"<float>\",\n      \"<float>\"\n    ],\n    \"default\": \"<boolean>\",\n    \"city\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12f24699-a0e7-4f10-b981-9c0f93f7fd96",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    ":crmProfileId",
+                    "deliveryAddresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmProfileId",
+                      "description": "(Required) The crmProfileId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"country\": \"US\",\n    \"stateOrProvince\": \"NY\",\n    \"city\": \"Brooklyn\",\n    \"street\": \"8719 Avenue D\",\n    \"subPremise\": \"\",\n    \"area\": \"\",\n    \"postalCode\": \"11236\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ],\n    \"default\": true\n  },\n  {\n    \"street\": \"5678 Ocean View Drive\",\n    \"subPremise\": \"Apt 5B\",\n    \"area\": \"Pacific Beach\",\n    \"city\": \"San Diego\",\n    \"stateOrProvince\": \"CA\",\n    \"postalCode\": \"92109\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ],\n    \"default\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalId\": \"62********************1o\",\n  \"loyaltyProviderId\": \"VjaGFuZ0B0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"8719 Avenue D\",\n      \"subpremise\": \"Unit 210\",\n      \"area\": \"\",\n      \"city\": \"Brooklyn\",\n      \"postalCode\": \"11236\",\n      \"stateOrProvince\": \"NY\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************6y\",\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subpremise\": \"Apt 5B\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"postalCode\": \"92109\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************8p\",\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"subpremise\": \"Suite 12\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"postalCode\": \"92708\",\n    \"stateOrProvince\": \"CA\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"id\": \"62********************8s\",\n      \"make\": \"honda\",\n      \"model\": \"civic\",\n      \"color\": \"yellow\",\n      \"default\": true\n    },\n    {\n      \"id\": \"62********************84\",\n      \"make\": \"toyota\",\n      \"model\": \"corolla\",\n      \"color\": \"blue\",\n      \"default\": false\n    }\n  ],\n  \"id\": \"62********************6y\",\n  \"accountId\": \"62********************5n\",\n  \"channel\": 10000,\n  \"created\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"updated\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phone\": \"+14048555666\",\n    \"birthdate\": \"1970-01-01T00:00:00Z\",\n    \"fullName\": \"Eugene Chang\"\n  },\n  \"favorites\": [\n    {\n      \"type\": \"order\",\n      \"orderId\": \"69d936f77da4b464d9e1b1ac\",\n      \"label\": \"My favorite order\"\n    },\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************2h\",\n      \"label\": \"My 2nd favorite order\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"655298781\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"654133498\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************8m\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************5v\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2816b6a5-2c5c-4c97-b37c-7964d786fa63",
+          "name": "Deliverect Update Customer Vehicles",
+          "request": {
+            "name": "Deliverect Update Customer Vehicles",
+            "description": {
+              "content": "Update the addresses stored on a customer's profile",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                ":crmProfileId",
+                "vehicles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmProfileId",
+                  "description": "(Required) The crmProfileId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"make\": \"<string>\",\n    \"model\": \"<string>\",\n    \"color\": \"<string>\",\n    \"default\": \"<boolean>\"\n  },\n  {\n    \"make\": \"<string>\",\n    \"model\": \"<string>\",\n    \"color\": \"<string>\",\n    \"default\": \"<boolean>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29a41fd3-730a-4fec-9179-6a66fabbb623",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    ":crmProfileId",
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmProfileId",
+                      "description": "(Required) The crmProfileId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"make\": \"Volkswagen\",\n    \"model\": \"Beetle\",\n    \"color\": \"Yellow\",\n    \"default\": true\n  },\n  {\n    \"make\": \"Audi\",\n    \"model\": \"TT\",\n    \"color\": \"Black\",\n    \"default\": false\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalId\": \"f965248c-3a00\",\n  \"loyaltyProviderId\": \"VjaG***0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"Main Street\",\n      \"subpremise\": \"Unit 210\",\n      \"area\": \"Irvine Business Complex\",\n      \"city\": \"Irvine\",\n      \"postalCode\": \"92614\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        33.674,\n        -117.838\n      ],\n      \"id\": \"61********************b1\",\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subpremise\": \"Apt 5B\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"postalCode\": \"92109\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        32.8,\n        -117.25\n      ],\n      \"id\": \"61********************b2\",\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"subpremise\": \"Suite 12\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"postalCode\": \"92708\",\n    \"stateOrProvince\": \"CA\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      33.709,\n      -117.953\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"id\": \"62********************5m\",\n      \"make\": \"volkswagen\",\n      \"model\": \"beetle\",\n      \"color\": \"yellow\",\n      \"default\": true\n    },\n    {\n      \"id\": \"62********************6t\",\n      \"make\": \"audi\",\n      \"model\": \"tt\",\n      \"color\": \"black\",\n      \"default\": false\n    }\n  ],\n  \"id\": \"62********************7c\",\n  \"accountId\": \"62********************3c\",\n  \"channel\": 10000,\n  \"created\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"updated\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phone\": \"+14048091678\",\n    \"birthdate\": \"1970-01-01T00:00:00Z\",\n    \"fullName\": \"John Doe\"\n  },\n  \"favorites\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05265046-58f7-4359-aff8-35fbf5fa2a80",
+          "name": "Deliverect Update Customer Favorites",
+          "request": {
+            "name": "Deliverect Update Customer Favorites",
+            "description": {
+              "content": "Update a customer's favorites",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crm",
+                ":accountId",
+                "customers",
+                ":crmProfileId",
+                "favorites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "crmProfileId",
+                  "description": "(Required) The crmProfileId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"orderId/item/storeId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"label\": \"<string>\"\n  },\n  {\n    \"orderId/item/storeId\": \"<string>\",\n    \"type\": \"<string>\",\n    \"label\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3190983b-4738-4cb2-8c10-9e63f82ba95a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crm",
+                    ":accountId",
+                    "customers",
+                    ":crmProfileId",
+                    "favorites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "crmProfileId",
+                      "description": "(Required) The crmProfileId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"type\": \"order\",\n    \"orderId\": \"78********************45\",\n    \"label\": \"My favorite order\"\n  },\n  {\n    \"type\": \"item\",\n    \"item\": \"PLU-1\"\n  },\n  {\n    \"type\": \"order\",\n    \"orderId\": \"88********************47\"\n  },\n  {\n    \"type\": \"store\",\n    \"storeId\": \"65********************88\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"externalId\": \"62********************1o\",\n  \"loyaltyProviderId\": \"VjaGFuZ0B0cm9\",\n  \"deliveryAddresses\": [\n    {\n      \"street\": \"Main Street\",\n      \"subpremise\": \"Unit 210\",\n      \"area\": \"Irvine Business Complex\",\n      \"city\": \"Irvine\",\n      \"postalCode\": \"92614\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************6a\",\n      \"default\": true\n    },\n    {\n      \"street\": \"5678 Ocean View Drive\",\n      \"subpremise\": \"Suite 12\",\n      \"area\": \"Pacific Beach\",\n      \"city\": \"San Diego\",\n      \"postalCode\": \"92109\",\n      \"stateOrProvince\": \"CA\",\n      \"country\": \"US\",\n      \"coordinates\": [\n        40.6456946,\n        -73.9143276\n      ],\n      \"id\": \"62********************6w\",\n      \"default\": false\n    }\n  ],\n  \"billingAddress\": {\n    \"subpremise\": null,\n    \"street\": \"9480 Talbert and Bushard Street\",\n    \"area\": \"Downtown Fountain Valley\",\n    \"city\": \"Fountain Valley\",\n    \"postalCode\": \"92708\",\n    \"stateOrProvince\": \"CA\",\n    \"country\": \"US\",\n    \"coordinates\": [\n      40.6456946,\n      -73.9143276\n    ]\n  },\n  \"metadata\": {},\n  \"vehicles\": [\n    {\n      \"id\": \"62********************6z\",\n      \"make\": \"honda\",\n      \"model\": \"civic\",\n      \"color\": \"yellow\",\n      \"default\": true\n    },\n    {\n      \"id\": \"62********************6b\",\n      \"make\": \"toyota\",\n      \"model\": \"corolla\",\n      \"color\": \"blue\",\n      \"default\": false\n    }\n  ],\n  \"id\": \"62********************6m\",\n  \"accountId\": \"62********************6e\",\n  \"channel\": 19066,\n  \"created\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"updated\": \"YYYY-MM-DDTHH:mm:ss.SSSSSSZ\",\n  \"contact\": {\n    \"email\": \"email@email.com\",\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phone\": \"+14048888666\",\n    \"birthdate\": \"1970-01-01T00:00:00\",\n    \"fullName\": \"John Doe\"\n  },\n  \"favorites\": [\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3x\",\n      \"label\": \"My favorite order\"\n    },\n    {\n      \"type\": \"order\",\n      \"orderId\": \"62********************3y\",\n      \"label\": \"My 2nd favorite order\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"1234\"\n    },\n    {\n      \"type\": \"item\",\n      \"item\": \"ABC\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************2e\"\n    },\n    {\n      \"type\": \"store\",\n      \"storeId\": \"62********************2f\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b40c5045-6f68-4380-9a5e-9f69541a2c1f",
+          "name": "Deliverect Create Loyalty Customer",
+          "request": {
+            "name": "Deliverect Create Loyalty Customer",
+            "description": {
+              "content": "Deliverect Create Loyalty Customer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channelLinkId",
+                "customer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"phoneNumber\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"dateOfBirth\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "48707f3d-24a5-4757-811d-8306d7f9a567",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"customer@example.com\",\n  \"phoneNumber\": \"+15555550123\",\n  \"firstName\": \"Deliverect's Pizza Place\",\n  \"lastName\": \"Deliverect's Pizza Place\",\n  \"dateOfBirth\": \"2026-03-15T14:30:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"providerId\": \"68964\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@email.com\",\n  \"phoneNumber\": \"+32411222333\",\n  \"dateOfBirth\": \"1970-01-01T00:00:00.000000+00:00\",\n  \"lifetimePointsBalance\": 0,\n  \"tier\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "612abec3-9f6d-4a0a-a819-24cd5fb80c84",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"customer@example.com\",\n  \"phoneNumber\": \"+15555550123\",\n  \"firstName\": \"Deliverect's Pizza Place\",\n  \"lastName\": \"Deliverect's Pizza Place\",\n  \"dateOfBirth\": \"2026-03-15T14:30:00Z\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error\\\": \\\"no active loyalty profile found\\\",\\n    \\\"http_code\\\": 400,\\n    \\\"description\\\": \\\"no active loyalty profile found\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8af75dcb-9834-4d99-84cb-1a24458fa0c5",
+          "name": "Deliverect Get Loyalty Customer",
+          "request": {
+            "name": "Deliverect Get Loyalty Customer",
+            "description": {
+              "content": "Deliverect Get Loyalty Customer",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channelLinkId",
+                "customer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "email of the end customer"
+                },
+                {
+                  "disabled": false,
+                  "key": "phoneNumber",
+                  "value": "<string>",
+                  "description": "phone number of the end customer in E164 format"
+                },
+                {
+                  "disabled": false,
+                  "key": "providerId",
+                  "value": "<string>",
+                  "description": "The customer's unique identifier within the loyalty provider's system, QR codes can also be passed via this parameter where supported on the Loyalty platform"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e79a17b7-6228-4ae6-92cc-6e3c1c3fe2ca",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "customer@example.com"
+                    },
+                    {
+                      "key": "phoneNumber",
+                      "value": "+15555550123"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "609a1b2c3d4e5f6a7b8c9d0e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@email.com\",\n  \"phoneNumber\": \"+32411222333\",\n  \"dateOfBirth\": \"1970-01-01T00:00:00.000000+00:00\",\n  \"lifetimePointsBalance\": 0,\n  \"status\": \"activation_pending\",\n  \"tier\": null,\n  \"providerId\": \"376483\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "690f7ed9-78a7-490b-9a6a-ee90bbb7c129",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "customer@example.com"
+                    },
+                    {
+                      "key": "phoneNumber",
+                      "value": "+15555550123"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "609a1b2c3d4e5f6a7b8c9d0e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error\\\": \\\"no active loyalty profile found\\\",\\n    \\\"http_code\\\": 400,\\n    \\\"description\\\": \\\"no active loyalty profile found\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3f13ebb5-d18b-463e-814a-2f53c1dc56e1",
+              "name": "404",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "customer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "customer@example.com"
+                    },
+                    {
+                      "key": "phoneNumber",
+                      "value": "+15555550123"
+                    },
+                    {
+                      "key": "providerId",
+                      "value": "609a1b2c3d4e5f6a7b8c9d0e"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error\\\": \\\"loyalty customer not found\\\",\\n    \\\"http_code\\\": 404,\\n    \\\"description\\\": \\\"loyalty customer not found\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7f8cc262-8396-48c9-bf53-9f29b2af3444",
+    "name": "Deliverect Channel Accounts Customers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

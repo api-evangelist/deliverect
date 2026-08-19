@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "2f5b3eda-4b8a-442b-b909-7f904fec695a",
+      "name": "Gateways",
+      "description": {
+        "content": "Gateways operations for the Deliverect Pay API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4f65428f-50a9-42c2-a78c-934deaf710b3",
+          "name": "Deliverect Get Payment Gateways",
+          "request": {
+            "name": "Deliverect Get Payment Gateways",
+            "description": {
+              "content": "Deliverect Get Payment Gateways",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pay",
+                "channel",
+                ":channelLinkId",
+                "gatewayProfiles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "09ba7f4b-cfb9-4180-b7dd-588c3b90a655",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pay",
+                    "channel",
+                    ":channelLinkId",
+                    "gatewayProfiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"[\\n    {\\n        \\\"id\\\": \\\"6672fd224e8abca97dbe07cf\\\",\\n        \\\"type\\\": \\\"online\\\"\\n    },\\n    {\\n        \\\"id\\\": \\\"668541624a4a391b8fd2fc4d\\\",\\n        \\\"type\\\": \\\"card\\\"\\n    }\\n]\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7899673b-2c2d-482a-8395-5bb1ec169281",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pay",
+                    "channel",
+                    ":channelLinkId",
+                    "gatewayProfiles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "02e936fd-b549-42ec-b9dd-095c53e0e9f1",
+    "name": "Deliverect Channel Accounts Gateways API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

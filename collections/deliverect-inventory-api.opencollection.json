@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Inventory API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Inventory Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/catalog/accounts/:accountId/inventoryUploadUrl",
+            "headers": [
+              {
+                "name": "X-Deliverect-Version",
+                "value": "retail"
+              }
+            ],
+            "params": [
+              {
+                "name": "accountId",
+                "value": "5b71c6489f00290d4",
+                "type": "path",
+                "description": "The accountId value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To support changes to item availability, Deliverect can receive an inventory file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

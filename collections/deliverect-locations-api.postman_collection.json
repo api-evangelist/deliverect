@@ -1,0 +1,207 @@
+{
+  "item": [
+    {
+      "id": "013acc31-bca3-4adb-bde8-56d621b692e0",
+      "name": "Locations",
+      "description": {
+        "content": "Locations operations for the Deliverect Store API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c9668a5d-eafa-4801-8a14-c71c5103add8",
+          "name": "Deliverect Locations",
+          "request": {
+            "name": "Deliverect Locations",
+            "description": {
+              "content": "Per physical restaurant location, there will be a *Location*. This endpoint can be used to query them. You can have to specify an account, otherwise the locations of your own account will be returned",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "locations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "The where value."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8eabb5fd-e92b-4ae0-9362-b6cac62b647c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "locations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Server",
+                  "value": "nginx/1.14.1",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Date",
+                  "value": "Thu, 14 Feb 2019 16:24:59 GMT",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Content-Length",
+                  "value": "7574",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "X-Total-Count",
+                  "value": "7538",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Cache-Control",
+                  "value": "max-age=20",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Expires",
+                  "value": "Thu, 14 Feb 2019 16:25:19 GMT",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Last-Modified",
+                  "value": "Thu, 14 Feb 2019 13:57:59 GMT",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "User-Agent,Keep-Alive,Content-Type,Authorization",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "GET, POST, OPTIONS, DELETE, PUT, PATCH",
+                  "description": ""
+                },
+                {
+                  "disabled": false,
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "false",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_items\": [\n    {\n      \"_id\": \"61********************a4\",\n      \"posSettings\": {\n        \"generic\": {\n          \"locationId\": \"29**10\",\n          \"setDefaultPriceLevelOnSync\": false,\n          \"anonymizeCustomer\": false,\n          \"sendStreetNumber\": false,\n          \"hasDirectTableIntegration\": false,\n          \"sendDiscount\": true,\n          \"sendDeliveryFee\": true,\n          \"sendServiceCharge\": true,\n          \"sendDeliveryFeeCondition\": 0,\n          \"forcePayment\": 0,\n          \"sendTip\": true,\n          \"sendRebate\": true,\n          \"sortModifiers\": 0,\n          \"bufferOrders\": false,\n          \"deliveryByChannelIsPickup\": false,\n          \"ignoreUnknownOrderStatuses\": false,\n          \"recalcPriceOverrides\": false,\n          \"dontSendCancel\": false,\n          \"readonly\": false,\n          \"logOps\": true,\n          \"orderItemRemarks\": \"intactItemRemarks\",\n          \"alwaysSendAllSnoozedProducts\": true,\n          \"ordersWebhookURL\": \"https://{{YourSetwebhookUrl}}/orders\",\n          \"registerUrl\": \"https://{{YourSetwebhookUrl}}/orders/register\",\n          \"operationsWebhookURL\": \"https://{{YourSetwebhookUrl}}/orders/operations\",\n          \"storeStatusURL\": \"https://{{YourSetwebhookUrl}}/orders/storeStatus\",\n          \"syncProductsURL\": \"https://{{YourSetwebhookUrl}}/syncProducts\",\n          \"syncTablesURL\": \"https://{{YourSetwebhookUrl}}/syncTables\",\n          \"syncFloorsURL\": \"https://{{YourSetwebhookUrl}}/syncFloors\",\n          \"syncBillsURL\": \"https://{{YourSetwebhookUrl}}/syncBills\",\n          \"billPaymentURL\": \"https://{{YourSetwebhookUrl}}/billPayments\"\n        }\n      },\n      \"name\": \"La Famiglia\",\n      \"status\": \"SUBSCRIBED\",\n      \"posSystemId\": 10000,\n      \"subscriptions\": [\n        {\n          \"brandId\": \"61********************9e\"\n        }\n      ],\n      \"address\": {\n        \"phoneNumber\": \"+445556665555\",\n        \"houseNumber\": \"78\",\n        \"street\": \"Main St\",\n        \"postalCode\": \"FX19ST\",\n        \"city\": \"Pleasantville\",\n        \"stateOrProvince\": \"TX\",\n        \"restaurantName\": \"La Famiglia Restaurant\",\n        \"coordinates\": {\n          \"type\": \"Point\",\n          \"coordinates\": [\n            -20.34974509999999,\n            11.0110892\n          ]\n        },\n        \"country\": \"FR\"\n      },\n      \"contact\": {\n        \"phoneNumber\": \"+445556665555\"\n      },\n      \"timezone\": \"Asia/Dubai\",\n      \"taxExcl\": false,\n      \"enableOutOfStock\": false,\n      \"enablePickupScreenQR\": false,\n      \"ignorePOSOrderStatuses\": false,\n      \"enableWorkstations\": false,\n      \"splitOrderItems\": false,\n      \"account\": \"61********************8d\",\n      \"region\": \"Latin America\",\n      \"_updated\": \"2022-12-28T08:38:13.710000Z\",\n      \"_created\": \"2022-11-17T05:43:05.000000Z\",\n      \"_deleted\": false,\n      \"_etag\": \"fc9144bc1b9ef7e67378d3e0c77279691c1bc3a8\",\n      \"channelLinks\": [\n        \"63********************45\",\n        \"63********************22\",\n        \"63********************12\",\n        \"63********************1e\",\n        \"63********************90\"\n      ],\n      \"deliverySystemSettings\": {\n        \"generic\": {\n          \"externalReference\": \"123\",\n          \"validateUrl\": \"https://mock-dsp.staging.deliverect.com/api/jobs/validate\",\n          \"createUrl\": \"https://mock-dsp.staging.deliverect.com/api/jobs/create\",\n          \"cancelUrl\": \"https://mock-dsp.staging.deliverect.com/api/jobs/cancel\",\n          \"registerUrl\": \"https://mock-dsp.staging.deliverect.com/api/register\",\n          \"active\": false\n        }\n      },\n      \"openingHours\": [\n        {\n          \"dayOfWeek\": 1,\n          \"startTime\": \"00:00\",\n          \"endTime\": \"23:59\"\n        },\n        {\n          \"dayOfWeek\": 2,\n          \"startTime\": \"00:00\",\n          \"endTime\": \"23:59\"\n        },\n        {\n          \"dayOfWeek\": 3,\n          \"startTime\": \"00:00\",\n          \"endTime\": \"23:59\"\n        },\n        {\n          \"dayOfWeek\": 4,\n          \"startTime\": \"00:00\",\n          \"endTime\": \"23:59\"\n        },\n        {\n          \"dayOfWeek\": 5,\n          \"startTime\": \"00:00\",\n          \"endTime\": \"23:59\"\n        },\n        {\n          \"dayOfWeek\": 6,\n          \"startTime\": \"00:00\",\n          \"endTime\": \"23:59\"\n        },\n        {\n          \"dayOfWeek\": 7,\n          \"startTime\": \"00:00\",\n          \"endTime\": \"23:59\"\n        }\n      ],\n      \"lastProductSync\": \"2022-12-28T21:05:27.668000Z\",\n      \"_links\": {\n        \"self\": {\n          \"title\": \"Locations\",\n          \"href\": \"locations/63********************e4\"\n        },\n        \"related\": {\n          \"account\": {\n            \"title\": \"accounts\",\n            \"href\": \"accounts/63********************8d\"\n          },\n          \"channelLinks\": [\n            {\n              \"title\": \"channelLink\",\n              \"href\": \"channelLinks/63********************45\"\n            },\n            {\n              \"title\": \"channelLink\",\n              \"href\": \"channelLinks/63********************22\"\n            },\n            {\n              \"title\": \"channelLink\",\n              \"href\": \"channelLinks/63********************12\"\n            },\n            {\n              \"title\": \"channelLink\",\n              \"href\": \"channelLinks/63********************1e\"\n            },\n            {\n              \"title\": \"channelLink\",\n              \"href\": \"channelLinks/63********************90\"\n            }\n          ]\n        }\n      },\n      \"channelLinksDetails\": {\n        \"63********************22\": {\n          \"channel\": \"DoorDash\",\n          \"channelId\": 12,\n          \"name\": \"DoorDash\"\n        },\n        \"63********************12\": {\n          \"channel\": \"Generic Channel\",\n          \"channelId\": 10057,\n          \"name\": \"Custom Channnel\"\n        },\n        \"63********************1e\": {\n          \"channel\": \"Uber Eats\",\n          \"channelId\": 7,\n          \"name\": \"Uber Eats\"\n        },\n        \"63********************90\": {\n          \"channel\": \"Deliverect\",\n          \"channelId\": 1,\n          \"name\": \"Test channel\"\n        }\n      }\n    },\n    {\n      \"_id\": \"63********************67\",\n      \"posSettings\": \"................\"\n    }\n  ],\n  \"_links\": {\n    \"parent\": {\n      \"title\": \"home\",\n      \"href\": \"/\"\n    },\n    \"self\": {\n      \"title\": \"locations\",\n      \"href\": \"locations?where={\\\"account\\\":\\\"63********************8d\\\"}\"\n    },\n    \"next\": {\n      \"title\": \"next page\",\n      \"href\": \"locations?where={\\\"account\\\":\\\"63********************8d\\\"}&page=2\"\n    },\n    \"last\": {\n      \"title\": \"last page\",\n      \"href\": \"locations?where={\\\"account\\\":\\\"63********************8d\\\"}&page=26\"\n    }\n  },\n  \"_meta\": {\n    \"page\": 1,\n    \"max_results\": 25,\n    \"total\": 501\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2149474f-c35b-4436-9f1c-ab55eacbe6ca",
+    "name": "Deliverect Channel Accounts Locations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

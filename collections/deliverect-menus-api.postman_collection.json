@@ -1,0 +1,815 @@
+{
+  "item": [
+    {
+      "id": "fb81bec1-70c3-4a77-8999-b3a548f9d7b2",
+      "name": "Menus",
+      "description": {
+        "content": "Menus operations for the Deliverect Channel API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee5ea082-8f26-4706-9db2-a4fb00035c9c",
+          "name": "Deliverect Menu Update",
+          "request": {
+            "name": "Deliverect Menu Update",
+            "description": {
+              "content": "Customers will publish their menu to a provided webhook URL. This delivers JSON containing all the necessary attributes to display their menu as intended",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channel",
+                "menu_update",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "638fbf03-ecf7-40c0-9908-61fb31fb0c5e",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "menu_update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"availabilities\": [\n    {\n      \"dayOfWeek\": 1,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 2,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 3,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 4,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 5,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 6,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 6,\n      \"endTime\": \"22:00\",\n      \"startTime\": \"19:00\"\n    },\n    {\n      \"dayOfWeek\": 7,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    }\n  ],\n  \"bundles\": {},\n  \"categories\": [\n    {\n      \"_id\": \"65********************87\",\n      \"name\": \"Steaks\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {},\n      \"account\": \"62********************f1\",\n      \"posLocationId\": \"\",\n      \"posCategoryType\": \"\",\n      \"posCategoryId\": \"\",\n      \"imageUrl\": \"\",\n      \"subCategories\": [],\n      \"products\": [],\n      \"availabilities\": [],\n      \"level\": 1,\n      \"menu\": \"65********************79\",\n      \"sortedChannelProductIds\": [],\n      \"subProducts\": [\n        \"65********************30\"\n      ],\n      \"subProductSortOrder\": []\n    }\n  ],\n  \"channelLinkId\": \"65********************7f\",\n  \"currency\": 3,\n  \"description\": \"\",\n  \"descriptionTranslations\": {\n    \"fr\": \"Un exemple de menu de diffu00e9rentes configurations de produits, profitez-enu00a0!\"\n  },\n  \"menu\": \"Example Menu\",\n  \"menuId\": \"65********************79\",\n  \"menuImageURL\": \"\",\n  \"menuType\": 0,\n  \"modifierGroups\": {\n    \"65********************31\": {\n      \"_id\": \"65********************31\",\n      \"name\": \"Cooking instructions\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {\n        \"es\": \"Cocinado\",\n        \"fr\": \"Cuisson\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"location\": \"65********************32\",\n      \"max\": 1,\n      \"min\": 1,\n      \"multiply\": 1,\n      \"plu\": \"MOD-01\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"productTags\": [],\n      \"productType\": 3,\n      \"subProducts\": [\n        \"65********************32\",\n        \"65********************33\"\n      ],\n      \"parentId\": \"65********************30\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": []\n    }\n  },\n  \"modifiers\": {\n    \"65********************32\": {\n      \"_id\": \"65********************32\",\n      \"name\": \"Rare\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {\n        \"es\": \"Poco hecho\",\n        \"fr\": \"Saignant\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"location\": \"65********************32\",\n      \"max\": 0,\n      \"min\": 0,\n      \"multiply\": 1,\n      \"plu\": \"COOK-01\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"price\": 0,\n      \"productTags\": [],\n      \"productType\": 2,\n      \"subProducts\": [],\n      \"parentId\": \"65********************31\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": []\n    },\n    \"65********************34\": {\n      \"_id\": \"65********************34\",\n      \"name\": \"Well Done\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {\n        \"es\": \"Muy hecho\",\n        \"fr\": \"Bien cuit\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"location\": \"65********************32\",\n      \"max\": 0,\n      \"min\": 0,\n      \"multiply\": 1,\n      \"plu\": \"COOK-03\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"price\": 0,\n      \"productTags\": [],\n      \"productType\": 2,\n      \"subProducts\": [],\n      \"parentId\": \"65********************31\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": []\n    }\n  },\n  \"menuTranslations\": {\n    \"fr\": \"Exemple de Menu\"\n  },\n  \"nestedModifiers\": true,\n  \"products\": {\n    \"65********************30\": {\n      \"_id\": \"65********************30\",\n      \"name\": \"Delicious Steak and Frites ud83dude0b\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {\n        \"fr\": \"Exemple de produit de base avec - groupes de modificateurs - variables min/max - su00e9lection par du00e9faut - traductions\"\n      },\n      \"nameTranslations\": {\n        \"es\": \"Deliciosos Bistecs Fritos\",\n        \"fr\": \"Steak Frites Du00e9licieux\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"imageUrl\": \"\",\n      \"location\": \"65********************32\",\n      \"max\": 0,\n      \"min\": 0,\n      \"multiply\": 1,\n      \"plu\": \"STK-01\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"price\": 1500,\n      \"productTags\": [],\n      \"productType\": 1,\n      \"subProducts\": [\n        \"65********************31\",\n        \"65********************35\"\n      ],\n      \"parentId\": \"65********************87\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": [],\n      \"referenceId\": \"STK-01\"\n    }\n  },\n  \"productTags\": [\n    104,\n    108\n  ],\n  \"snoozedProducts\": {},\n  \"validations\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1dbe71e8-a524-42b9-b847-1b1095c26d27",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "menu_update",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"availabilities\": [\n    {\n      \"dayOfWeek\": 1,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 2,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 3,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 4,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 5,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 6,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    },\n    {\n      \"dayOfWeek\": 6,\n      \"endTime\": \"22:00\",\n      \"startTime\": \"19:00\"\n    },\n    {\n      \"dayOfWeek\": 7,\n      \"endTime\": \"17:00\",\n      \"startTime\": \"09:00\"\n    }\n  ],\n  \"bundles\": {},\n  \"categories\": [\n    {\n      \"_id\": \"65********************87\",\n      \"name\": \"Steaks\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {},\n      \"account\": \"62********************f1\",\n      \"posLocationId\": \"\",\n      \"posCategoryType\": \"\",\n      \"posCategoryId\": \"\",\n      \"imageUrl\": \"\",\n      \"subCategories\": [],\n      \"products\": [],\n      \"availabilities\": [],\n      \"level\": 1,\n      \"menu\": \"65********************79\",\n      \"sortedChannelProductIds\": [],\n      \"subProducts\": [\n        \"65********************30\"\n      ],\n      \"subProductSortOrder\": []\n    }\n  ],\n  \"channelLinkId\": \"65********************7f\",\n  \"currency\": 3,\n  \"description\": \"\",\n  \"descriptionTranslations\": {\n    \"fr\": \"Un exemple de menu de diffu00e9rentes configurations de produits, profitez-enu00a0!\"\n  },\n  \"menu\": \"Example Menu\",\n  \"menuId\": \"65********************79\",\n  \"menuImageURL\": \"\",\n  \"menuType\": 0,\n  \"modifierGroups\": {\n    \"65********************31\": {\n      \"_id\": \"65********************31\",\n      \"name\": \"Cooking instructions\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {\n        \"es\": \"Cocinado\",\n        \"fr\": \"Cuisson\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"location\": \"65********************32\",\n      \"max\": 1,\n      \"min\": 1,\n      \"multiply\": 1,\n      \"plu\": \"MOD-01\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"productTags\": [],\n      \"productType\": 3,\n      \"subProducts\": [\n        \"65********************32\",\n        \"65********************33\"\n      ],\n      \"parentId\": \"65********************30\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": []\n    }\n  },\n  \"modifiers\": {\n    \"65********************32\": {\n      \"_id\": \"65********************32\",\n      \"name\": \"Rare\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {\n        \"es\": \"Poco hecho\",\n        \"fr\": \"Saignant\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"location\": \"65********************32\",\n      \"max\": 0,\n      \"min\": 0,\n      \"multiply\": 1,\n      \"plu\": \"COOK-01\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"price\": 0,\n      \"productTags\": [],\n      \"productType\": 2,\n      \"subProducts\": [],\n      \"parentId\": \"65********************31\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": []\n    },\n    \"65********************34\": {\n      \"_id\": \"65********************34\",\n      \"name\": \"Well Done\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {},\n      \"nameTranslations\": {\n        \"es\": \"Muy hecho\",\n        \"fr\": \"Bien cuit\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"location\": \"65********************32\",\n      \"max\": 0,\n      \"min\": 0,\n      \"multiply\": 1,\n      \"plu\": \"COOK-03\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"price\": 0,\n      \"productTags\": [],\n      \"productType\": 2,\n      \"subProducts\": [],\n      \"parentId\": \"65********************31\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": []\n    }\n  },\n  \"menuTranslations\": {\n    \"fr\": \"Exemple de Menu\"\n  },\n  \"nestedModifiers\": true,\n  \"products\": {\n    \"65********************30\": {\n      \"_id\": \"65********************30\",\n      \"name\": \"Delicious Steak and Frites ud83dude0b\",\n      \"description\": \"\",\n      \"descriptionTranslations\": {\n        \"fr\": \"Exemple de produit de base avec - groupes de modificateurs - variables min/max - su00e9lection par du00e9faut - traductions\"\n      },\n      \"nameTranslations\": {\n        \"es\": \"Deliciosos Bistecs Fritos\",\n        \"fr\": \"Steak Frites Du00e9licieux\"\n      },\n      \"account\": \"62********************f1\",\n      \"capacityUsages\": [],\n      \"deliveryTax\": 9000,\n      \"eatInTax\": 9000,\n      \"takeawayTax\": 9000,\n      \"imageUrl\": \"\",\n      \"location\": \"65********************32\",\n      \"max\": 0,\n      \"min\": 0,\n      \"multiply\": 1,\n      \"plu\": \"STK-01\",\n      \"posCategoryIds\": [],\n      \"posProductCategoryId\": \"\",\n      \"posProductId\": \"\",\n      \"price\": 1500,\n      \"productTags\": [],\n      \"productType\": 1,\n      \"subProducts\": [\n        \"65********************31\",\n        \"65********************35\"\n      ],\n      \"parentId\": \"65********************87\",\n      \"snoozed\": false,\n      \"subProductSortOrder\": [],\n      \"referenceId\": \"STK-01\"\n    }\n  },\n  \"productTags\": [\n    104,\n    108\n  ],\n  \"snoozedProducts\": {},\n  \"validations\": []\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a844032-caf3-47bf-b61d-d89afc5b9483",
+          "name": "Deliverect Menu Update (Async)",
+          "request": {
+            "name": "Deliverect Menu Update (Async)",
+            "description": {
+              "content": "Receive menu update callback status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":channelName",
+                "menuStatus",
+                ":_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "my-channel",
+                  "key": "channelName",
+                  "description": "(Required) The channelName value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "menu-update-id",
+                  "key": "_id",
+                  "description": "(Required) The _id value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf7d4298-8633-499b-9dbc-90f07c1ee7e7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "menuStatus",
+                    ":_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "menu-update-id",
+                      "key": "_id",
+                      "description": "(Required) The _id value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"ONLINE\",\n  \"comment\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60e1a664-2eaf-40e2-a6e4-189a9911526b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":channelName",
+                    "menuStatus",
+                    ":_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "my-channel",
+                      "key": "channelName",
+                      "description": "(Required) The channelName value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "menu-update-id",
+                      "key": "_id",
+                      "description": "(Required) The _id value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"ONLINE\",\n  \"comment\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12c3d971-b5c5-4468-930a-906bd431ebc8",
+          "name": "Deliverect Get Root Menu(s)",
+          "request": {
+            "name": "Deliverect Get Root Menu(s)",
+            "description": {
+              "content": "This endpoint returns a list of menus associated with the account's master location. These menus are store agnostic and typically hold enough data to display as first entry experience.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                ":accountId",
+                "menus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1923028d-da14-4543-9ae3-0aa21c0bd181",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "menus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"menu\": \"Burger Menu\",\n    \"menuId\": \"64c27a89c6352cd55814580c\",\n    \"menuType\": 0,\n    \"nestedModifiers\": false,\n    \"description\": \"Description\",\n    \"menuImageUrl\": null,\n    \"currency\": 1,\n    \"menuTranslations\": {\n      \"en\": \"\"\n    },\n    \"productTags\": [\n      116,\n      16,\n      6,\n      115,\n      1,\n      35,\n      101,\n      104\n    ],\n    \"descriptionTranslations\": {\n      \"en\": \"\"\n    },\n    \"categories\": [\n      {\n        \"id\": \"64c27a9513128b833aaec96e\",\n        \"name\": \"Pizza\",\n        \"description\": \"\",\n        \"imageUrl\": null,\n        \"menu\": \"64c27a89c6352cd55814580c\",\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"subProducts\": [\n          \"648acd52c5bf7503468da6c7\",\n          \"648acc5c2d5016b2ecce3188\",\n          \"649abe754ea4f0e242ddb755\"\n        ]\n      },\n      {\n        \"id\": \"65c130c6ec28c6821bcf80ab\",\n        \"name\": \"Drinks\",\n        \"description\": \"\",\n        \"imageUrl\": null,\n        \"menu\": \"64c27a89c6352cd55814580c\",\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"subProducts\": [\n          \"64d4c407554b010187f74830\"\n        ]\n      },\n      {\n        \"id\": \"65c130daec28c6821bcf80e0\",\n        \"name\": \"Burgers\",\n        \"description\": \"\",\n        \"imageUrl\": null,\n        \"menu\": \"64c27a89c6352cd55814580c\",\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"subProducts\": [\n          \"65c1304eec28c6821bcf73e7\"\n        ]\n      },\n      {\n        \"id\": \"65c131b0dc12e93ea9081a9a\",\n        \"name\": \"Extra\",\n        \"description\": \"\",\n        \"imageUrl\": null,\n        \"menu\": \"64c27a89c6352cd55814580c\",\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"subProducts\": [\n          \"65c1308edc12e93ea907f49a\"\n        ]\n      }\n    ],\n    \"products\": {\n      \"648acd52c5bf7503468da6c7\": {\n        \"id\": \"648acd52c5bf7503468da6c7\",\n        \"plu\": \"P-MA-sViS-2\",\n        \"name\": \"Margherita\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"Margherita Pizza\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"P-MA-sViS-2\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [\n          116\n        ],\n        \"subProducts\": [\n          \"648c251ebb2163a8cebc1137\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"648acc5c2d5016b2ecce3188\": {\n        \"id\": \"648acc5c2d5016b2ecce3188\",\n        \"plu\": \"P-PE-xmku-2\",\n        \"name\": \"Pepperoni\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"Pepperoni Pizza\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"P-PE-xmku-2\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [\n          16,\n          6,\n          115\n        ],\n        \"subProducts\": [],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"649abe754ea4f0e242ddb755\": {\n        \"id\": \"649abe754ea4f0e242ddb755\",\n        \"plu\": \"P-ME-72C1-2\",\n        \"name\": \"Pizza Meal Option 1\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"P-ME-72C1-2\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [\n          \"649abede949cfa36470e3326\",\n          \"649abefeb99c55cfcbf181c6\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"64d4c407554b010187f74830\": {\n        \"id\": \"64d4c407554b010187f74830\",\n        \"plu\": \"VAR-3\",\n        \"name\": \"Coke\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"VAR-3\",\n        \"calories\": 2,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"65c1304eec28c6821bcf73e7\": {\n        \"id\": \"65c1304eec28c6821bcf73e7\",\n        \"plu\": \"P-TA-FYlu-2\",\n        \"name\": \"Burger\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"P-TA-FYlu-2\",\n        \"calories\": 500,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [\n          1,\n          35,\n          101,\n          104\n        ],\n        \"subProducts\": [],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"65c1308edc12e93ea907f49a\": {\n        \"id\": \"65c1308edc12e93ea907f49a\",\n        \"plu\": \"P-FR-WZDd-2\",\n        \"name\": \"Fries\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"P-FR-WZDd-2\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"663c976df7d1fb0d85dc96c5\": {\n        \"id\": \"663c976df7d1fb0d85dc96c5\",\n        \"plu\": \"P-MA-sViS-2###\",\n        \"name\": \"Margherita\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"Margherita Pizza\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"P-MA-sViS-2\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [\n          116\n        ],\n        \"subProducts\": [\n          \"648c251ebb2163a8cebc1137\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"663c976df7d1fb0d85dc96c6\": {\n        \"id\": \"663c976df7d1fb0d85dc96c6\",\n        \"plu\": \"P-PE-xmku-2###\",\n        \"name\": \"Pepperoni\",\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"Pepperoni Pizza\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": \"P-PE-xmku-2\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [\n          16,\n          6,\n          115\n        ],\n        \"subProducts\": [],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      }\n    },\n    \"modifiers\": {\n      \"648c24f842c8fee99960fc05\": {\n        \"id\": \"648c24f842c8fee99960fc05\",\n        \"plu\": \"M-BA-nNU1-2\",\n        \"name\": \"Bacon\",\n        \"productType\": 2,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": null,\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      }\n    },\n    \"modifierGroups\": {\n      \"648c251ebb2163a8cebc1137\": {\n        \"id\": \"648c251ebb2163a8cebc1137\",\n        \"plu\": \"MG-TO-QeOs-2\",\n        \"name\": \"Toppings\",\n        \"productType\": 3,\n        \"max\": 5,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": null,\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [\n          \"648c24f842c8fee99960fc05\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      }\n    },\n    \"bundles\": {\n      \"649abede949cfa36470e3326\": {\n        \"id\": \"649abede949cfa36470e3326\",\n        \"plu\": \"P-meal-deal-1\",\n        \"name\": \"Pizza 1\",\n        \"productType\": 4,\n        \"max\": 1,\n        \"min\": 1,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": null,\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [\n          \"663c976df7d1fb0d85dc96c5\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      },\n      \"649abefeb99c55cfcbf181c6\": {\n        \"id\": \"649abefeb99c55cfcbf181c6\",\n        \"plu\": \"B-PI-qEtO-2\",\n        \"name\": \"Pizza 2\",\n        \"productType\": 4,\n        \"max\": 1,\n        \"min\": 1,\n        \"multiply\": 1,\n        \"description\": \"\",\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"64872839172e0e6d2cedaa48\",\n        \"referenceId\": null,\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [\n          \"663c976df7d1fb0d85dc96c6\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"subProductSortOrder\": []\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc02757f-6517-4b10-8581-14a8e2a12d42",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "menus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b60593a-42fd-441e-8074-3569d4300c0f",
+          "name": "Deliverect Get Store Menu(s)",
+          "request": {
+            "name": "Deliverect Get Store Menu(s)",
+            "description": {
+              "content": "Returns the menus available for a specific store.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                ":accountId",
+                "stores",
+                ":channelLinkId",
+                "menus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fulfillmentType",
+                  "value": "pickup",
+                  "description": "Possible values are; delivery | pickup | curbside | eatIn"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "668e4aa170efd23c474b2ad1",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "801fac24-dce2-4f68-8909-8a82f9aeb1c6",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "stores",
+                    ":channelLinkId",
+                    "menus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fulfillmentType",
+                      "value": "pickup"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "668e4aa170efd23c474b2ad1",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"menu\": \"Spring menu\",\n    \"menuId\": \"62d7f77f64c95193cc29aa91\",\n    \"menuType\": 0,\n    \"nestedModifiers\": true,\n    \"channelLinkId\": \"65eee6a9984a1bc1b9637c59\",\n    \"description\": \"Our menu of various product for a beautiful spring, enjoy! \",\n    \"menuImageUrl\": null,\n    \"currency\": 1,\n    \"menuTranslations\": {},\n    \"productTags\": [\n      104,\n      108,\n      103,\n      9,\n      8,\n      1101,\n      1129,\n      109,\n      112\n    ],\n    \"descriptionTranslations\": {},\n    \"availabilities\": [\n      {\n        \"dayOfWeek\": 1,\n        \"startTime\": \"13: 00\",\n        \"endTime\": \"22: 00\"\n      },\n      {\n        \"dayOfWeek\": 2,\n        \"startTime\": \"06: 00\",\n        \"endTime\": \"22: 00\"\n      },\n      {\n        \"dayOfWeek\": 3,\n        \"startTime\": \"06: 00\",\n        \"endTime\": \"22: 00\"\n      },\n      {\n        \"dayOfWeek\": 4,\n        \"startTime\": \"06: 00\",\n        \"endTime\": \"22: 00\"\n      },\n      {\n        \"dayOfWeek\": 5,\n        \"startTime\": \"15: 00\",\n        \"endTime\": \"18: 00\"\n      },\n      {\n        \"dayOfWeek\": 6,\n        \"startTime\": \"06: 00\",\n        \"endTime\": \"22: 00\"\n      },\n      {\n        \"dayOfWeek\": 7,\n        \"startTime\": \"06: 00\",\n        \"endTime\": \"22: 00\"\n      }\n    ],\n    \"categories\": [\n      {\n        \"id\": null,\n        \"name\": \"Steak & Burgers\",\n        \"description\": \"Something from the Grill\",\n        \"imageUrl\": \"https: //resizer.staging.deliverect.com/uia9zWj73e5qP3yQGd4sQrYWcjmQyo-XRJMg3LaMobg/rt:fill/g:ce/el:0/aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2lrb25hLWJ1Y2tldC1zdGFnaW5nL2ltYWdlcy81ZmY2ZWUwODkzMjhjOGFlZmVlYWJlMzMvZ3JpbGwtNjIyYTJjNDhjNzE1YjQwM2IwZWI3MmJlLmpwZWc=.jpg\",\n        \"menu\": \"62d7f77f64c95193cc29aa91\",\n        \"account\": \"62d7f53b2f46fac3eedc7dea\",\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"availabilities\": [],\n        \"subProducts\": [\n          \"62d7f77e64c95193cc29aa63\",\n          \"62d7f77e64c95193cc29aa4c\",\n          \"62d7f77e64c95193cc29aa4f\",\n          \"62d7f77e64c95193cc29aa4e\",\n          \"62d7f77e64c95193cc29aa50\"\n        ]\n      }\n    ],\n    \"products\": {\n      \"62d7f77e64c95193cc29aa63\": {\n        \"id\": \"62d7f77e64c95193cc29aa63\",\n        \"plu\": \"STK-01\",\n        \"name\": \"Delicious Steak Frites\",\n        \"price\": 1500,\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"snoozed\": false,\n        \"deliveryTax\": 10000,\n        \"takeawayTax\": 7300,\n        \"eatInTax\": 0,\n        \"bottleDepositPrice\": null,\n        \"description\": \"Basic Example Product with - Modifier groups - min/max variables - default selection - translations\",\n        \"multiMax\": null,\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"62d7f53b2f46fac3eedc7dea\",\n        \"referenceId\": \"STK-01\",\n        \"location\": \"62d7f5ce2f46fac3eedca174\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"posProductCategoryId\": \"\",\n        \"posProductId\": \"POS-ID-001\",\n        \"nameTranslations\": {\n          \"en\": \"Delicious Steak Frites\",\n          \"es\": \"Deliciosos Bistecs Fritos\",\n          \"fr\": \"Steak Frites Délicieux\",\n          \"nl\": \"Heerlijke Biefstuk Frites\"\n        },\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [\n          \"62d7f77e64c95193cc29aa64\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"posCategoryIds\": [\n          \"STK\"\n        ],\n        \"subProductSortOrder\": []\n      }\n    },\n    \"modifiers\": {\n      \"62d7f77e64c95193cc29aa53\": {\n        \"id\": \"62d7f77e64c95193cc29aa53\",\n        \"plu\": \"DRNK-01\",\n        \"name\": \"Coca Cola\",\n        \"price\": 400,\n        \"productType\": 1,\n        \"max\": 0,\n        \"min\": 0,\n        \"multiply\": 1,\n        \"snoozed\": false,\n        \"deliveryTax\": 9000,\n        \"takeawayTax\": 9000,\n        \"eatInTax\": 9000,\n        \"bottleDepositPrice\": null,\n        \"description\": \"Cola flavoured sugar and caffeine\",\n        \"multiMax\": null,\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"62d7f53b2f46fac3eedc7dea\",\n        \"referenceId\": null,\n        \"location\": \"62d7f5ce2f46fac3eedca174\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"posProductCategoryId\": \"\",\n        \"posProductId\": \"POS-ID-029\",\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"posCategoryIds\": [\n          \"DRK\"\n        ],\n        \"subProductSortOrder\": []\n      }\n    },\n    \"modifierGroups\": {\n      \"62d7f77e64c95193cc29aa64\": {\n        \"id\": \"62d7f77e64c95193cc29aa64\",\n        \"plu\": \"MOD-01\",\n        \"name\": \"Cooking instructions\",\n        \"price\": null,\n        \"productType\": 3,\n        \"max\": 1,\n        \"min\": 1,\n        \"multiply\": 1,\n        \"snoozed\": false,\n        \"deliveryTax\": 9000,\n        \"takeawayTax\": 9000,\n        \"eatInTax\": 9000,\n        \"bottleDepositPrice\": null,\n        \"description\": \"\",\n        \"multiMax\": null,\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"62d7f53b2f46fac3eedc7dea\",\n        \"referenceId\": null,\n        \"location\": \"62d7f5ce2f46fac3eedca174\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"posProductCategoryId\": \"\",\n        \"posProductId\": \"POS-ID-002\",\n        \"nameTranslations\": {\n          \"en\": \"Cooking Instructions\",\n          \"es\": \"Cocinado\",\n          \"fr\": \"Cuisson\",\n          \"nl\": \"Kook instructies\"\n        },\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [\n          \"62d7f77e64c95193cc29aa53\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"posCategoryIds\": [],\n        \"subProductSortOrder\": []\n      }\n    },\n    \"bundles\": {\n      \"62d7f77e64c95193cc29aa4d\": {\n        \"id\": \"62d7f77e64c95193cc29aa4d\",\n        \"plu\": \"BNDL-BRG\",\n        \"name\": \"Burger Selection\",\n        \"price\": null,\n        \"productType\": 4,\n        \"max\": 1,\n        \"min\": 1,\n        \"multiply\": 1,\n        \"snoozed\": false,\n        \"deliveryTax\": 9000,\n        \"takeawayTax\": 9000,\n        \"eatInTax\": 9000,\n        \"bottleDepositPrice\": null,\n        \"description\": \"\",\n        \"multiMax\": null,\n        \"defaultQuantity\": null,\n        \"isVariant\": null,\n        \"account\": \"62d7f53b2f46fac3eedc7dea\",\n        \"referenceId\": null,\n        \"location\": \"62d7f5ce2f46fac3eedca174\",\n        \"calories\": null,\n        \"caloriesRangeHigh\": null,\n        \"posProductCategoryId\": \"\",\n        \"posProductId\": \"POS-ID-020\",\n        \"nameTranslations\": {},\n        \"descriptionTranslations\": {},\n        \"productTags\": [],\n        \"subProducts\": [\n          \"65ef3584327cc41b45ebfae6\",\n          \"65ef3584327cc41b45ebfae7\",\n          \"65ef3584327cc41b45ebfae8\"\n        ],\n        \"beverageInfo\": null,\n        \"nutritionalInfo\": null,\n        \"packaging\": null,\n        \"supplementalInfo\": null,\n        \"posCategoryIds\": [],\n        \"subProductSortOrder\": []\n      }\n    },\n    \"snoozedProducts\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90c2ac1b-9fc2-49ee-ba37-f18c6aebd24d",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "stores",
+                    ":channelLinkId",
+                    "menus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fulfillmentType",
+                      "value": "pickup"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "668e4aa170efd23c474b2ad1",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65e5c617-8d78-4087-bf59-12c0107e32f5",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "stores",
+                    ":channelLinkId",
+                    "menus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fulfillmentType",
+                      "value": "pickup"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "668e4aa170efd23c474b2ad1",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dce9b009-f788-4b0a-bf34-111c7ba28c90",
+    "name": "Deliverect Channel Accounts Menus API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

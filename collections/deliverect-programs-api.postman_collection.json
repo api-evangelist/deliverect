@@ -1,0 +1,327 @@
+{
+  "item": [
+    {
+      "id": "74d790b6-58a4-4097-8286-cd2f43a6c2a1",
+      "name": "Programs",
+      "description": {
+        "content": "Programs operations for the Deliverect Loyalty API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d66e25d-b37b-4a4b-a2f5-88eaf1d0d4a0",
+          "name": "Deliverect Get Loyalty Programs",
+          "request": {
+            "name": "Deliverect Get Loyalty Programs",
+            "description": {
+              "content": "Deliverect Get Loyalty Programs",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channelLinkId",
+                "programs",
+                "retrieve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"order\": {\n    \"orderType\": \"<integer>\",\n    \"items\": {\n      \"plu\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<integer>\",\n      \"quantity\": \"<integer>\",\n      \"subItems\": {}\n    },\n    \"customer\": {\n      \"email\": \"<string>\",\n      \"phoneNumber\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    \"decimalDigits\": \"<integer>\",\n    \"subTotal\": \"<integer>\",\n    \"payment\": {\n      \"amount\": \"<integer>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9630be9d-2bf2-499e-bb8c-4d6500e938cb",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "programs",
+                    "retrieve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": {\n    \"orderType\": 1,\n    \"items\": [\n      {\n        \"plu\": \"BEEF-02\",\n        \"price\": 1100,\n        \"quantity\": 1,\n        \"name\": \"Beef Opor\",\n        \"productType\": 1,\n        \"_id\": \"620d19e940411b30c49b1005\",\n        \"deliveryTax\": 9000\n      }\n    ],\n    \"customer\": {\n      \"email\": \"customer@loyalty.com\",\n      \"phoneNumber\": \"+31201234567\"\n    },\n    \"decimalDigits\": 2,\n    \"subTotal\": 1100,\n    \"payment\": {\n      \"amount\": 1100,\n      \"type\": 3\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"[\\n    {\\n        \\\"programId\\\":\\\"1234\\\",\\n        \\\"title\\\":\\\"$10 off order\\\",\\n        \\\"description\\\":\\\"Discount amount off the order\\\",\\n        \\\"cost\\\":100,\\n        \\\"type\\\":\\\"discount_amount\\\",\\n        \\\"discount\\\":1000,\\n        \\\"applicable\\\": true,\\n        \\\"expiresAt\\\": \\\"2024-12-31 23:59:59.000000\\\",\\n        \\\"media\\\": null\\n    \\n    },\\n    {\\n        \\\"programId\\\":\\\"4578\\\",\\n        \\\"title\\\":\\\"50% off order\\\",\\n        \\\"description\\\":\\\"Discount percentage off the order.\\\",\\n        \\\"cost\\\":100,\\n        \\\"type\\\":\\\"discount_percentage\\\",\\n        \\\"discount\\\":5000,\\n        \\\"applicable\\\": true,\\n        \\\"expiresAt\\\": \\\"2024-12-31 23:59:59.000000\\\",\\n        \\\"media\\\": null\\n\\n    \\n    },\\n    {\\n        \\\"programId\\\":\\\"765\\\",\\n        \\\"title\\\":\\\"Free item\\\",\\n        \\\"description\\\":\\\"Get an item for free.\\\",\\n        \\\"cost\\\":200,\\n        \\\"type\\\":\\\"free_item\\\",\\n        \\\"itemPLU\\\":\\\"DRN-01\\\",\\n        \\\"media\\\":{\\n            \\\"url\\\":\\\"https://program.media/image\\\",\\n            \\\"mediaType\\\":\\\"image\\\"\\n        },\\n        \\\"applicable\\\": true,\\n        \\\"expiresAt\\\": \\\"2024-12-31 23:59:59.000000\\\"\\n    },\\n    {\\n        \\\"programId\\\":\\\"12456\\\",\\n        \\\"title\\\":\\\"Buy one get one for free\\\",\\n        \\\"description\\\":\\\"Order an item and get another one for free.\\\",\\n        \\\"cost\\\":500,\\n        \\\"type\\\":\\\"buy_one_get_one_free\\\",\\n        \\\"itemPLU\\\":\\\"DRN-02\\\",\\n        \\\"media\\\":{\\n            \\\"url\\\":\\\"https://program.media/image\\\",\\n            \\\"mediaType\\\":\\\"image\\\"\\n        },\\n        \\\"applicable\\\": false,\\n        \\\"expiresAt\\\": \\\"2024-12-31 23:59:59.000000\\\"\\n    },\\n    {\\n        \\\"programId\\\": \\\"36996\\\",\\n        \\\"title\\\": \\\"Coke $5 off\\\",\\n        \\\"type\\\": \\\"item_discount_amount\\\",\\n        \\\"applicable\\\": true,\\n        \\\"description\\\": \\\"$10 off for a single item\\\",\\n        \\\"cost\\\": 150.0,\\n        \\\"media\\\": {\\n            \\\"url\\\": \\\"https://res.cloudinary.com/punchh/image/upload/c_limit,f_auto,fl_lossy,g_center,q_auto/v1/punchhstatic-mothership2/redeemables/redeemable_images/000/036/996/original/4b189839dd5c99f7bccee13cdb675af19f9b9d37.jpeg\\\",\\n            \\\"mediaType\\\": \\\"image\\\"\\n        },\\n        \\\"expiresAt\\\": null,\\n        \\\"discount\\\": 500,\\n        \\\"itemPLU\\\": \\\"ABC-123\\\",\\n        \\\"minOrderValue\\\": 1000\\n    },\\n    {\\n        \\\"programId\\\": \\\"36998\\\",\\n        \\\"title\\\": \\\"Coke 50% off\\\",\\n        \\\"type\\\": \\\"item_discount_percentage\\\",\\n        \\\"applicable\\\": true,\\n        \\\"description\\\": \\\"50% off Coke!\\\",\\n        \\\"cost\\\": 150.0,\\n        \\\"media\\\": {\\n            \\\"url\\\": \\\"https://res.cloudinary.com/punchh/image/upload/c_limit,f_auto,fl_lossy,g_center,q_auto/v1/punchhstatic-mothership2/redeemables/redeemable_images/000/036/996/original/4b189839dd5c99f7bccee13cdb675af19f9b9d37.jpeg\\\",\\n            \\\"mediaType\\\": \\\"image\\\"\\n        },\\n        \\\"expiresAt\\\": null,\\n        \\\"discount\\\": 5000,\\n        \\\"itemPLU\\\": \\\"ABC-123\\\",\\n        \\\"minOrderValue\\\": null\\n    }\\n]\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "271ff47d-0004-49cf-be7a-1cd56d1dc2f8",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "programs",
+                    "retrieve"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"order\": {\n    \"orderType\": 1,\n    \"items\": [\n      {\n        \"plu\": \"BEEF-02\",\n        \"price\": 1100,\n        \"quantity\": 1,\n        \"name\": \"Beef Opor\",\n        \"productType\": 1,\n        \"_id\": \"620d19e940411b30c49b1005\",\n        \"deliveryTax\": 9000\n      }\n    ],\n    \"customer\": {\n      \"email\": \"customer@loyalty.com\",\n      \"phoneNumber\": \"+31201234567\"\n    },\n    \"decimalDigits\": 2,\n    \"subTotal\": 1100,\n    \"payment\": {\n      \"amount\": 1100,\n      \"type\": 3\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"error\\\": \\\"no active loyalty profile found\\\",\\n    \\\"http_code\\\": 400,\\n    \\\"description\\\": \\\"no active loyalty profile found\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1998714e-44d9-41cb-b95b-e3b927d083ef",
+          "name": "Deliverect Post_new_endpoint",
+          "request": {
+            "name": "Deliverect Post_new_endpoint",
+            "description": {
+              "content": "Deliverect Post_new_endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "loyalty",
+                ":channelLinkId",
+                "programs",
+                "validate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae16d91d-c434-40e7-9fbf-d8cecca7ba8d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "loyalty",
+                    ":channelLinkId",
+                    "programs",
+                    "validate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"validationErrors\": [],\n  \"discounts\": [\n    {\n      \"externalId\": null,\n      \"provider\": \"loyalty\",\n      \"scope\": {\n        \"type\": \"order\"\n      },\n      \"offer\": {\n        \"type\": \"flat_off\",\n        \"value\": 500\n      }\n    }\n  ],\n  \"maxRedeemableAmount\": 1000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bec2d8bf-cae8-4fac-9dcf-c758d0a41b3e",
+    "name": "Deliverect Channel Accounts Programs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

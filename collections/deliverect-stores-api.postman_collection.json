@@ -1,0 +1,458 @@
+{
+  "item": [
+    {
+      "id": "795dfe99-26e5-4a43-ba50-ca5cc95347ec",
+      "name": "Stores",
+      "description": {
+        "content": "Stores operations for the Deliverect Commerce API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f104dbf0-0344-4a32-894e-e2761f577d1f",
+          "name": "Deliverect Get Store",
+          "request": {
+            "name": "Deliverect Get Store",
+            "description": {
+              "content": "A store represents a unique ordering experience from a specific location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                ":accountId",
+                "stores",
+                ":channelLinkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "668e4aa170efd23c474b2ad1",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6e3f0807-41b9-4df5-b112-7194ed994d6c",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "stores",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "668e4aa170efd23c474b2ad1",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"65eee6a9984a1bc1b9637c59\",\n  \"channelLinkId\": \"65eee6a9984a1bc1b9637c59\",\n  \"name\": \"Store Name\",\n  \"currency\": \"EUR\",\n  \"address\": {\n    \"source\": \"1 Main street D13 R2P6 Ghent VOV\",\n    \"coordinates\": [\n      3.73398891371018,\n      51.0311233802278\n    ],\n    \"country\": \"BE\",\n    \"city\": \"Ghent\",\n    \"stateOrProvince\": \"VOV\"\n  },\n  \"openingHours\": {\n    \"timezone\": \"Europe/Brussels\",\n    \"dayTimeRanges\": [\n      {\n        \"dayOfWeek\": 1,\n        \"startTime\": \"00:00:00\",\n        \"endTime\": \"23:59:00\"\n      },\n      {\n        \"dayOfWeek\": 2,\n        \"startTime\": \"00:00:00\",\n        \"endTime\": \"23:59:00\"\n      },\n      {\n        \"dayOfWeek\": 3,\n        \"startTime\": \"00:00:00\",\n        \"endTime\": \"23:59:00\"\n      },\n      {\n        \"dayOfWeek\": 4,\n        \"startTime\": \"00:00:00\",\n        \"endTime\": \"23:59:00\"\n      },\n      {\n        \"dayOfWeek\": 5,\n        \"startTime\": \"00:00:00\",\n        \"endTime\": \"23:59:00\"\n      },\n      {\n        \"dayOfWeek\": 6,\n        \"startTime\": \"00:00:00\",\n        \"endTime\": \"23:59:00\"\n      },\n      {\n        \"dayOfWeek\": 7,\n        \"startTime\": \"00:00:00\",\n        \"endTime\": \"23:59:00\"\n      }\n    ],\n    \"scheduling\": {\n      \"acceptsAsapOrders\": false,\n      \"acceptsPreOrders\": false,\n      \"acceptsSameDayPreOrders\": false,\n      \"minimumLeadTimeInMinutes\": 30,\n      \"maximumDaysInAdvance\": 30,\n      \"slotLengthInMinutes\": 30\n    }\n  },\n  \"distance\": 1235,\n  \"taxExclusive\": false,\n  \"contact\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumber\": \"+32411111111\",\n    \"email\": \"john.doe@acme.com\"\n  },\n  \"fulfillmentTypes\": [\n    \"pickup\",\n    \"delivery\",\n    \"eatIn\"\n  ],\n  \"status\": \"open\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cad5d1d-b462-430d-a50e-3ea7f3fe1d18",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "stores",
+                    ":channelLinkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "668e4aa170efd23c474b2ad1",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c95844d-3901-4486-9b92-4c60455e160b",
+          "name": "Deliverect Get Stores",
+          "request": {
+            "name": "Deliverect Get Stores",
+            "description": {
+              "content": "Returns the list of stores. A store represents a unique ordering experience from a specific location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                ":accountId",
+                "stores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "50",
+                  "description": "Number of stores to be returned per page - Max: 100"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "30.4515",
+                  "description": "Reference latitude coordinate to calculate store distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "-91.1871",
+                  "description": "Reference longitude coordinate to calculate store distance"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "distance",
+                  "description": "The sort value."
+                },
+                {
+                  "disabled": false,
+                  "key": "fulfillmentType",
+                  "value": "<string>",
+                  "description": "Fulfillment type(s) available on the channelLink. e.g: delivery,eatIn"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5a22907f-8abc-491e-bcb4-3189505bc2cf",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "30.4515"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "-91.1871"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "distance"
+                    },
+                    {
+                      "key": "fulfillmentType",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1,\n  \"page\": 1,\n  \"size\": 50,\n  \"items\": [\n    {\n      \"id\": \"65eee6a9984a1bc1b9637c59\",\n      \"channelLinkId\": \"65eee6a9984a1bc1b9637c59\",\n      \"name\": \"Store Name\",\n      \"currency\": \"EUR\",\n      \"address\": {\n        \"source\": \"1 Main street D13 R2P6 Ghent VOV\",\n        \"coordinates\": [\n          3.73398891371018,\n          51.0311233802278\n        ],\n        \"country\": \"BE\",\n        \"city\": \"Ghent\",\n        \"stateOrProvince\": \"VOV\"\n      },\n      \"openingHours\": {\n        \"timezone\": \"Europe/Brussels\",\n        \"dayTimeRanges\": [\n          {\n            \"dayOfWeek\": 1,\n            \"startTime\": \"00:00:00\",\n            \"endTime\": \"23:59:00\"\n          },\n          {\n            \"dayOfWeek\": 2,\n            \"startTime\": \"00:00:00\",\n            \"endTime\": \"23:59:00\"\n          },\n          {\n            \"dayOfWeek\": 3,\n            \"startTime\": \"00:00:00\",\n            \"endTime\": \"23:59:00\"\n          },\n          {\n            \"dayOfWeek\": 4,\n            \"startTime\": \"00:00:00\",\n            \"endTime\": \"23:59:00\"\n          },\n          {\n            \"dayOfWeek\": 5,\n            \"startTime\": \"00:00:00\",\n            \"endTime\": \"23:59:00\"\n          },\n          {\n            \"dayOfWeek\": 6,\n            \"startTime\": \"00:00:00\",\n            \"endTime\": \"23:59:00\"\n          },\n          {\n            \"dayOfWeek\": 7,\n            \"startTime\": \"00:00:00\",\n            \"endTime\": \"23:59:00\"\n          }\n        ]\n      },\n      \"distance\": 1235,\n      \"taxExclusive\": false,\n      \"status\": \"open\",\n      \"channelLocationId\": \"STORE0005\",\n      \"contact\": {\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"phoneNumber\": \"+32411111111\",\n        \"email\": \"john.doe@acme.com\"\n      },\n      \"fulfillmentTypes\": [\n        \"pickup\",\n        \"delivery\",\n        \"eatIn\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "711b2bdc-124b-4068-9371-07ccfb1bf592",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "stores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "size",
+                      "value": "50"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "30.4515"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "-91.1871"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "distance"
+                    },
+                    {
+                      "key": "fulfillmentType",
+                      "value": "string"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "50e1b31b-af6f-4de8-a575-e9978fe7170f",
+    "name": "Deliverect Channel Accounts Stores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

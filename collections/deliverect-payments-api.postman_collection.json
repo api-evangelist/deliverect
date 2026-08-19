@@ -1,0 +1,818 @@
+{
+  "item": [
+    {
+      "id": "28965835-4850-4e8f-b673-d2b58b1c2eca",
+      "name": "Payments",
+      "description": {
+        "content": "Payments operations for the Deliverect Channel API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8448ac81-c4fb-4e42-879e-00565035a339",
+          "name": "Deliverect Payment Update",
+          "request": {
+            "name": "Deliverect Payment Update",
+            "description": {
+              "content": "Deliverect Payment Update",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "channel",
+                "payment_update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0186c57-70a4-4a40-8b60-adfbf93424bf",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "channel",
+                    "payment_update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eff1ec4d-ef80-4bef-8fad-e432bcf7498a",
+          "name": "Deliverect Request Payment",
+          "request": {
+            "name": "Deliverect Request Payment",
+            "description": {
+              "content": "Deliverect Request Payment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pay",
+                "channel",
+                ":channelLinkId",
+                "payments",
+                "request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gatewayProfileId\": \"<string>\",\n  \"mode\": {\n    \"type\": \"<string>\",\n    \"returnUrl\": \"<string>\",\n    \"tokenId\": \"<string>\"\n  },\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payable\": {\n    \"id\": \"<string>\"\n  },\n  \"payableReference\": \"<string>\",\n  \"payer\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"reference\": \"<string>\",\n    \"ip\": \"<string>\"\n  },\n  \"billingAddress\": {\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"postalCode\": \"<string>\",\n    \"street\": \"<string>\",\n    \"houseNumber\": \"<string>\",\n    \"stateOrProvince\": \"<string>\"\n  },\n  \"captureMode\": \"immediate\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6179c8f3-67ca-4b33-bfa8-8e775ce6fb49",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pay",
+                    "channel",
+                    ":channelLinkId",
+                    "payments",
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gatewayProfileId\": \"6659eddc88ac699157639719\",\n  \"mode\": {\n    \"type\": \"redirect\",\n    \"returnUrl\": \"https://ordering-system/order\",\n    \"logoUrl\": \"https://ordering-system/logo.jpeg\"\n  },\n  \"amount\": \"1234\",\n  \"currency\": \"EUR\",\n  \"payableReference\": \"order-123456\",\n  \"payer\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@acme.com\",\n    \"reference\": \"crm-id-1234\",\n    \"ip\": \"102.129.200.16\"\n  },\n  \"payable\": {\n    \"id\": \"order-12345\",\n    \"items\": [\n      {\n        \"quantity\": 1,\n        \"plu\": \"burger-1\",\n        \"name\": \"The burger\",\n        \"description\": \"The best burger\",\n        \"unitPrice\": 3000,\n        \"total\": 3000,\n        \"taxTotal\": 0,\n        \"discountTotal\": 0\n      }\n    ]\n  },\n  \"billingAddress\": {\n    \"country\": \"US\",\n    \"city\": \"New York\",\n    \"stateOrProvince\": \"NY\",\n    \"postalCode\": \"19087\",\n    \"street\": \"5th Avenue\",\n    \"houseNumber\": \"826\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"paymentId\\\": \\\"66608ce6406d23da081e1716\\\",\\n    \\\"paymentStatus\\\": \\\"pending\\\",\\n    \\\"action\\\": {\\n        \\\"type\\\": \\\"redirect\\\",\\n        \\\"url\\\": \\\"https://payment-gateway/complete-payment\\\"\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8f28508-40cd-4c33-af9b-2b23cff57ef3",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pay",
+                    "channel",
+                    ":channelLinkId",
+                    "payments",
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gatewayProfileId\": \"6659eddc88ac699157639719\",\n  \"mode\": {\n    \"type\": \"redirect\",\n    \"returnUrl\": \"https://ordering-system/order\",\n    \"logoUrl\": \"https://ordering-system/logo.jpeg\"\n  },\n  \"amount\": \"1234\",\n  \"currency\": \"EUR\",\n  \"payableReference\": \"order-123456\",\n  \"payer\": {\n    \"name\": \"John Doe\",\n    \"email\": \"john.doe@acme.com\",\n    \"reference\": \"crm-id-1234\",\n    \"ip\": \"102.129.200.16\"\n  },\n  \"payable\": {\n    \"id\": \"order-12345\",\n    \"items\": [\n      {\n        \"quantity\": 1,\n        \"plu\": \"burger-1\",\n        \"name\": \"The burger\",\n        \"description\": \"The best burger\",\n        \"unitPrice\": 3000,\n        \"total\": 3000,\n        \"taxTotal\": 0,\n        \"discountTotal\": 0\n      }\n    ]\n  },\n  \"billingAddress\": {\n    \"country\": \"US\",\n    \"city\": \"New York\",\n    \"stateOrProvince\": \"NY\",\n    \"postalCode\": \"19087\",\n    \"street\": \"5th Avenue\",\n    \"houseNumber\": \"826\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ed79bd4-f69e-47b8-98c4-03182883d584",
+          "name": "Deliverect Get Payment",
+          "request": {
+            "name": "Deliverect Get Payment",
+            "description": {
+              "content": "Deliverect Get Payment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pay",
+                "channel",
+                ":channelLinkId",
+                "payments",
+                ":paymentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) The paymentId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cac74a1a-d006-45a3-92d3-2a42cfb4af17",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pay",
+                    "channel",
+                    ":channelLinkId",
+                    "payments",
+                    ":paymentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) The paymentId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"id\\\": \\\"6687aee6424adb6b0114b896\\\",\\n    \\\"payableReference\\\": \\\"order-123456\\\",\\n    \\\"amount\\\": 1000,\\n    \\\"currency\\\": \\\"EUR\\\",\\n    \\\"payer\\\": {\\n        \\\"name\\\": \\\"John Doe\\\",\\n        \\\"email\\\": \\\"john@doe.com\\\",\\n        \\\"reference\\\": \\\"cus-123456\\\"\\n    },\\n    \\\"status\\\": \\\"authorized\\\",\\n    \\\"failureReason\\\": null\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd625777-5923-4f35-b3ab-8689930071df",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pay",
+                    "channel",
+                    ":channelLinkId",
+                    "payments",
+                    ":paymentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) The paymentId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e64610d-3052-4cb0-a405-d95c2d0f99f4",
+          "name": "Deliverect Refund Payment",
+          "request": {
+            "name": "Deliverect Refund Payment",
+            "description": {
+              "content": "Deliverect Refund Payment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pay",
+                "channel",
+                ":channelLinkId",
+                "payments",
+                ":paymentId",
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "channelLinkId",
+                  "description": "(Required) The channelLinkId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "paymentId",
+                  "description": "(Required) The paymentId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a8859b1-7d19-4aa1-b002-cfafed00041a",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pay",
+                    "channel",
+                    ":channelLinkId",
+                    "payments",
+                    ":paymentId",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "channelLinkId",
+                      "description": "(Required) The channelLinkId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "paymentId",
+                      "description": "(Required) The paymentId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 100\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8f8c42d-508a-48c7-9325-a5b79a83a276",
+          "name": "Deliverect Request Payment",
+          "request": {
+            "name": "Deliverect Request Payment",
+            "description": {
+              "content": "Deliverect Request Payment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"gatewayProfileId\": \"<string>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"returnUrl\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"logoUrl\": \"<string>\",\n  \"payer\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"reference\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d86426e1-1ca9-43f7-8418-4f68b87c1850",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"gatewayProfileId\": \"66d721b3df0f5a9fda62dd8b\",\n  \"amount\": \"1234\",\n  \"currency\": \"EUR\",\n  \"reference\": \"order-123456\",\n  \"payer\": {\n    \"name\": \"Customer Name\",\n    \"email\": \"email@customer.com\",\n    \"reference\": \"customer_external_id_123\"\n  },\n  \"returnUrl\": \"https://ordering-system/order\",\n  \"logoUrl\": \"https://ordering-system/logo.jpeg\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"update\\\": {\\n        \\\"gatewayId\\\": \\\"payment_id_123456\\\",\\n        \\\"status\\\": \\\"pending\\\"\\n    },\\n    \\\"action\\\": {\\n        \\\"type\\\": \\\"redirect\\\",\\n        \\\"url\\\": \\\"https://generic-gateway.com/complete-payment\\\"\\n    }      \\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a49fcea9-a612-4fc5-9766-9e2142934803",
+          "name": "Deliverect Refund Payment",
+          "request": {
+            "name": "Deliverect Refund Payment",
+            "description": {
+              "content": "Deliverect Refund Payment",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"paymentId\": \"<string>\",\n  \"amount\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08f5cbc4-7866-44bb-b523-0b92c97e324d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"paymentId\": \"gateway-payment-id\",\n  \"amount\": 1234\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"gatewayId\\\": \\\"gateway-refund-id\\\",\\n    \\\"status\\\": \\\"succeeded\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fa67f27c-1b8b-4391-8951-ed262923049c",
+    "name": "Deliverect Channel Accounts Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

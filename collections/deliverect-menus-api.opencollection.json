@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Menus API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Menus",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Menu Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/menu_update/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Customers will publish their menu to a provided webhook URL. This delivers JSON containing all the necessary attributes to display their menu as intended"
+        },
+        {
+          "info": {
+            "name": "Deliverect Menu Update (Async)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/:channelName/menuStatus/:_id",
+            "params": [
+              {
+                "name": "channelName",
+                "value": "my-channel",
+                "type": "path",
+                "description": "The channelName value."
+              },
+              {
+                "name": "_id",
+                "value": "menu-update-id",
+                "type": "path",
+                "description": "The _id value."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Receive menu update callback status."
+        },
+        {
+          "info": {
+            "name": "Deliverect Get Root Menu(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/commerce/:accountId/menus",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "5b71c6489f00290d4",
+                "type": "path",
+                "description": "The accountId value."
+              }
+            ]
+          },
+          "docs": "This endpoint returns a list of menus associated with the account's master location. These menus are store agnostic and typically hold enough data to display as first entry experience."
+        },
+        {
+          "info": {
+            "name": "Deliverect Get Store Menu(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/commerce/:accountId/stores/:channelLinkId/menus",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "668e4aa170efd23c474b2ad1",
+                "type": "path",
+                "description": "The accountId value."
+              },
+              {
+                "name": "fulfillmentType",
+                "value": "pickup",
+                "type": "query",
+                "description": "Possible values are; delivery | pickup | curbside | eatIn"
+              },
+              {
+                "name": "channelLinkId",
+                "value": "5e8abc11dec0001a009b",
+                "type": "path",
+                "description": "The channelLinkId value."
+              }
+            ]
+          },
+          "docs": "Returns the menus available for a specific store."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

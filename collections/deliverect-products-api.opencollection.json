@@ -1,0 +1,213 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Products API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Snooze / Unsnooze Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/channel/snooze",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Webhook events will be sent when items are snoozed or unsnoozed"
+        },
+        {
+          "info": {
+            "name": "Deliverect Kds_productupdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/kds/productUpdate",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Accept",
+                "value": "application/json"
+              },
+              {
+                "name": "User-Agent",
+                "value": "Deliverect/{version}"
+              },
+              {
+                "name": "X-Server-Authorization-HMAC-SHA256",
+                "value": "{signature}"
+              }
+            ]
+          },
+          "docs": "Deliverect Kds_productupdate"
+        },
+        {
+          "info": {
+            "name": "Deliverect Sync Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/syncProducts"
+          },
+          "docs": "*This is a GET webhook set by the POS"
+        },
+        {
+          "info": {
+            "name": "Deliverect Get_v2_locations_locationid_syncproducts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/v2/locations/:locationId/syncProducts",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "5cecc6489f0001b8",
+                "type": "path",
+                "description": "The unique identifier of the location to sync products for."
+              },
+              {
+                "name": "forceUpdate",
+                "value": "true",
+                "type": "query",
+                "description": "When set to `true`, forces a full product sync even if products have not changed since the last sync."
+              }
+            ]
+          },
+          "docs": "This endpoint initiates the product sync request for a specified location. When called, Deliverect will trigger a product sync from the connected POS system for the given location."
+        },
+        {
+          "info": {
+            "name": "Deliverect Insert/update Products and Categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/productAndCategories",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Insert/update Products The 'Source of Truth' in terms of product data and structure is almost always sourced from an integrated POS system. When a POS successfully syncs products with their unique identifiers (PLUs), these will be selected by the customer for inclusion in their menu(s). In turn, orders will be created with these same PLUs and injected into the POS "
+        },
+        {
+          "info": {
+            "name": "Deliverect Asynchronous Insert / Update Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/product_sync_callback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "The webhook will be delivered to a specified endpoint, and the response will include the **`operationReportId`** and the summary of products synced as per below example."
+        },
+        {
+          "info": {
+            "name": "Deliverect Get Products for Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/products",
+            "params": [
+              {
+                "name": "where",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "The where value."
+              }
+            ]
+          },
+          "docs": "Deliverect Get Products for Account"
+        },
+        {
+          "info": {
+            "name": "Deliverect Snooze Product by PLU",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/products/snoozeByPlus",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mark products out of stock for a certain amount of time based on their PLU and location. You can use the same call to unsnooze product passing `snoozeEnd` time in the past."
+        },
+        {
+          "info": {
+            "name": "Deliverect Mark Products Out of Stock by Tag",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/products/snoozeByTags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Mark products out of stock for a certain amount of time based on their tag and location. You can use the same call to unsnooze product passing `snoozeEnd` time in the past. ##### NOTE Please note, that here and later all dates and times, coming from/to Deliverect are UTC."
+        },
+        {
+          "info": {
+            "name": "Deliverect Get Products Marked Out of Stock",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/channelDisabledProducts",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "params": [
+              {
+                "name": "where",
+                "value": "[object Object]",
+                "type": "query",
+                "description": "The where value."
+              }
+            ]
+          },
+          "docs": "Get products marked out of stock."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

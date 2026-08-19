@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Deliverect Channel Accounts Opening Hours API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.deliverect.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Opening Hours",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deliverect Get_locations_channels_locationid_holidays",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/locations/channels/:locationId/holidays",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "5cecc6489f0001b8",
+                "type": "path",
+                "description": "Unique location Id"
+              }
+            ]
+          },
+          "docs": "Deliverect Get_locations_channels_locationid_holidays"
+        },
+        {
+          "info": {
+            "name": "Deliverect Create/Update Opening Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/locations/openingHours",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Create/Update Opening Hours"
+        },
+        {
+          "info": {
+            "name": "Deliverect Holiday Hours for Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/locations/holidays",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Holiday Hours for Locations"
+        },
+        {
+          "info": {
+            "name": "Deliverect Holiday Hours for Locations and ChannelLinks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.deliverect.com/locations/channels/holidays",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deliverect Holiday Hours for Locations and ChannelLinks"
+        },
+        {
+          "info": {
+            "name": "Deliverect Get Account Opening Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/account/:accountId/openingHours",
+            "params": [
+              {
+                "name": "accountId",
+                "value": "5b71c6489f00290d4",
+                "type": "path",
+                "description": "The accountId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Get Account Opening Hours"
+        },
+        {
+          "info": {
+            "name": "Deliverect Get Store Opening Hours",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/location/:locationId/openingHours",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "5cecc6489f0001b8",
+                "type": "path",
+                "description": "The locationId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Get Store Opening Hours"
+        },
+        {
+          "info": {
+            "name": "Deliverect Holiday Hours for Locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.deliverect.com/location/:locationId/holidays",
+            "params": [
+              {
+                "name": "locationId",
+                "value": "5cecc6489f0001b8",
+                "type": "path",
+                "description": "The locationId value."
+              }
+            ]
+          },
+          "docs": "Deliverect Holiday Hours for Locations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

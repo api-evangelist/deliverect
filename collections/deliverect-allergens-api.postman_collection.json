@@ -1,0 +1,123 @@
+{
+  "item": [
+    {
+      "id": "17bc418d-e3d0-46f0-a057-dd4a60158041",
+      "name": "Allergens",
+      "description": {
+        "content": "Allergens operations for the Deliverect Store API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "696c1e28-f98d-4e18-86bf-fabd50c5766c",
+          "name": "Deliverect Allergens and Tags",
+          "request": {
+            "name": "Deliverect Allergens and Tags",
+            "description": {
+              "content": "Get allergens and tags existing in Deliverect.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "allAllegens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2c59a86-6c3c-44c1-9fa1-ec66442012d0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "allAllegens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Alcohol\",\n    \"allergenId\": 1\n  },\n  {\n    \"name\": \"Halal\",\n    \"allergenId\": 2\n  },\n  {\n    \"name\": \"Kosher\",\n    \"allergenId\": 3\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c705a5ca-a842-4720-90c2-9964a0584050",
+    "name": "Deliverect Channel Accounts Allergens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

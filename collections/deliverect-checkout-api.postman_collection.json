@@ -1,0 +1,406 @@
+{
+  "item": [
+    {
+      "id": "8c7d7ca5-ed04-49de-aede-bfd7920c8b4d",
+      "name": "Checkout",
+      "description": {
+        "content": "Checkout operations for the Deliverect Commerce API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "19344c59-e19a-49cd-bddc-80436eb76a99",
+          "name": "Deliverect Checkout Basket",
+          "request": {
+            "name": "Deliverect Checkout Basket",
+            "description": {
+              "content": "Creates a checkout session from a basket, leading to a payment intent based on the provided gateway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                ":accountId",
+                "v2",
+                "checkouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "668e4aa170efd23c474b2ad1",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"basket\": {\n    \"id\": \"<string>\"\n  },\n  \"payments\": [\n    {\n      \"type\": \"dpay\",\n      \"externalId\": \"\",\n      \"isPrepaid\": \"true\",\n      \"amount\": \"\",\n      \"metadata\": {}\n    },\n    {\n      \"type\": \"dpay\",\n      \"externalId\": \"\",\n      \"isPrepaid\": \"true\",\n      \"amount\": \"\",\n      \"metadata\": {}\n    }\n  ],\n  \"note\": \"<string>\",\n  \"order\": {\n    \"channelOrderId\": \"<string>\",\n    \"channelOrderDisplayId\": \"<string>\",\n    \"validationId\": \"<string>\",\n    \"courier\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "058c59be-2a25-429a-a6fc-b0d0f65c169d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "v2",
+                    "checkouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "668e4aa170efd23c474b2ad1",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": {\n    \"id\": \"{{commerceBasketId}}\"\n  },\n  \"order\": {\n    \"channelOrderId\": \"{{uuid}}\",\n    \"channelOrderDisplayId\": \"DISPLAY-{{uuid}}\"\n  },\n  \"note\": \"ORDER LEVEL NOTE\",\n  \"payments\": [\n    {\n      \"type\": \"dpay\",\n      \"externalId\": \"68a4*****0616cad5144\",\n      \"isPrepaid\": true,\n      \"amount\": 900,\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"694138133662b46bddf06e70\",\n  \"created\": \"2025-12-16T10:44:35.107000\",\n  \"updated\": \"2025-12-16T10:44:51.016000+00:00\",\n  \"deleted\": false,\n  \"etag\": \"2e94b59d6155094830af3362502fddc0cd51ef2f\",\n  \"accountId\": \"668cd58b6da5e4cec26f1f35\",\n  \"channelLinkId\": \"6911e9be1531637e9cf80a5f\",\n  \"storeId\": \"6911e9be1531637e9cf80a5f\",\n  \"status\": \"open\",\n  \"failureReason\": null,\n  \"basket\": {\n    \"id\": \"694138103662b46bddf06e6e\",\n    \"channel\": 10165,\n    \"category\": {\n      \"type\": \"restaurant\"\n    },\n    \"currency\": \"AED\",\n    \"taxExclusive\": false,\n    \"status\": \"open\",\n    \"items\": [\n      {\n        \"id\": \"694138103662b46bddf06e6f\",\n        \"menuId\": \"6882366cf04ece702e6661c8\",\n        \"plu\": \"STK-01\",\n        \"name\": \"Delicious Steak Frites\",\n        \"quantity\": 1,\n        \"price\": 1500,\n        \"gross\": 1500,\n        \"taxes\": [],\n        \"net\": 1500,\n        \"subItems\": [\n          {\n            \"customizationPlu\": \"MOD-01\",\n            \"plu\": \"COOK-01\",\n            \"name\": \"Rare\",\n            \"quantity\": 1,\n            \"price\": 0,\n            \"subItems\": [],\n            \"note\": null\n          },\n          {\n            \"customizationPlu\": \"MOD-02\",\n            \"plu\": \"SI-01\",\n            \"name\": \"Fries\",\n            \"quantity\": 1,\n            \"price\": 0,\n            \"subItems\": [],\n            \"note\": null\n          }\n        ],\n        \"discounts\": [],\n        \"discountTotal\": 0,\n        \"note\": \"ITEM LEVEL NOTE\"\n      }\n    ],\n    \"payment\": {\n      \"tips\": [],\n      \"discountsTotal\": 0,\n      \"chargesTotal\": 0,\n      \"taxTotal\": 0,\n      \"tipTotal\": 0,\n      \"subTotal\": 1500,\n      \"total\": 1500\n    },\n    \"customer\": {\n      \"name\": \"John Doe\",\n      \"companyName\": \"ACME\",\n      \"phoneNumber\": \"+32474081356\",\n      \"email\": \"john.doe@acme.com\",\n      \"externalId\": \"custom_channel_id_12345\",\n      \"loyaltyProviderCustomerId\": null,\n      \"tin\": null\n    },\n    \"fulfillment\": {\n      \"type\": \"eatIn\",\n      \"spot\": \"TABLE-1\"\n    },\n    \"taxes\": [],\n    \"discounts\": [],\n    \"charges\": {\n      \"serviceCharge\": {\n        \"value\": 0,\n        \"taxRate\": 0,\n        \"gross\": 0,\n        \"tax\": 0,\n        \"net\": 0,\n        \"type\": \"fixed\"\n      },\n      \"bagFee\": {\n        \"value\": 0,\n        \"taxRate\": 0,\n        \"gross\": 0,\n        \"tax\": 0,\n        \"net\": 0\n      },\n      \"deliveryFee\": {\n        \"value\": 0,\n        \"taxRate\": 0,\n        \"gross\": 0,\n        \"tax\": 0,\n        \"net\": 0\n      },\n      \"taxTotal\": 0,\n      \"netTotal\": 0,\n      \"grossTotal\": 0\n    }\n  },\n  \"payment\": {\n    \"id\": \"694138133662b46bddf06e71\",\n    \"gateway\": 1,\n    \"status\": \"authorized\",\n    \"action\": {\n      \"type\": \"offline\",\n      \"paid\": true\n    },\n    \"metadata\": {}\n  },\n  \"order\": {\n    \"channelOrderId\": \"5f6fb9fa-71ad-4758-8118-b9966d950105\",\n    \"channelOrderDisplayId\": \"5f6fb9fa\",\n    \"status\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e054022a-1f31-447b-9dd8-0df09bcd7abd",
+              "name": "422",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "v2",
+                    "checkouts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "668e4aa170efd23c474b2ad1",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"basket\": {\n    \"id\": \"{{commerceBasketId}}\"\n  },\n  \"order\": {\n    \"channelOrderId\": \"{{uuid}}\",\n    \"channelOrderDisplayId\": \"DISPLAY-{{uuid}}\"\n  },\n  \"note\": \"ORDER LEVEL NOTE\",\n  \"payments\": [\n    {\n      \"type\": \"dpay\",\n      \"externalId\": \"68a4*****0616cad5144\",\n      \"isPrepaid\": true,\n      \"amount\": 900,\n      \"metadata\": {}\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"payment_amount_mismatch\",\n  \"message\": \"Total of payments does not match basket payment total\",\n  \"context\": {\n    \"paymentsTotal\": 856,\n    \"basketTotal\": 854\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "651ab249-7153-4a73-8ffe-20e7696c6ed2",
+          "name": "Deliverect Get Checkout",
+          "request": {
+            "name": "Deliverect Get Checkout",
+            "description": {
+              "content": "Returns a checkout session by ID. This can be used to poll the status of a checkout session providing order placement details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "commerce",
+                ":accountId",
+                "v2",
+                "checkouts",
+                ":checkoutId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountId",
+                  "description": "(Required) The accountId value."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "checkoutId",
+                  "description": "(Required) The checkoutId value."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "913c8c8f-70d5-43f3-b174-d99a60ad2212",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "v2",
+                    "checkouts",
+                    ":checkoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "checkoutId",
+                      "description": "(Required) The checkoutId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"6643861d0c1914c93a846b78\",\n  \"created\": \"2024-05-14T15:41:17.518000+00:00\",\n  \"updated\": \"2024-05-14T15:41:18.449000+00:00\",\n  \"deleted\": false,\n  \"etag\": \"f225b232489659ed4dc0f17580f4f0200f4ca3ba\",\n  \"accountId\": \"65c35d109a19b819b7cf78d8\",\n  \"storeId\": \"65eee6a9984a1bc1b9637c59\",\n  \"channelLinkId\": \"65eee6a9984a1bc1b9637c59\",\n  \"status\": \"completed\",\n  \"basket\": {\n    \"currency\": \"EUR\",\n    \"taxExclusive\": false,\n    \"items\": [\n      {\n        \"menuId\": \"62d7f77f64c95193cc29aa91\",\n        \"plu\": \"STK-01\",\n        \"name\": \"Delicious Steak Frites\",\n        \"quantity\": 1,\n        \"price\": 1500,\n        \"gross\": 1500,\n        \"taxes\": [],\n        \"net\": 1500,\n        \"subItems\": [],\n        \"discounts\": [],\n        \"discountTotal\": 0\n      }\n    ],\n    \"payment\": {\n      \"tips\": [\n        {\n          \"amount\": 100,\n          \"type\": \"restaurant\"\n        }\n      ],\n      \"discountsTotal\": 0,\n      \"taxTotal\": 0,\n      \"tipTotal\": 100,\n      \"total\": 1600\n    },\n    \"customer\": {\n      \"name\": \"Test\",\n      \"companyName\": \"Company LTDA\",\n      \"phoneNumber\": \"12345\",\n      \"email\": \"test@email.com\",\n      \"tin\": \"123456789\"\n    },\n    \"fulfillment\": {\n      \"type\": \"pickup\"\n    },\n    \"taxes\": [],\n    \"discounts\": []\n  },\n  \"payment\": {\n    \"id\": \"62d7f77f64c95193cc29aa91\",\n    \"status\": \"authorized\",\n    \"action\": {\n      \"type\": \"redirect\",\n      \"url\": \"http://payment.acme.com/1234\"\n    }\n  },\n  \"order\": {\n    \"channelOrderId\": \"6643861d0c1914c93a846b79\",\n    \"channelOrderDisplayId\": \"01277571\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0aab567f-ff7f-4c17-a291-11954b28f3f0",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "commerce",
+                    ":accountId",
+                    "v2",
+                    "checkouts",
+                    ":checkoutId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountId",
+                      "description": "(Required) The accountId value."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "checkoutId",
+                      "description": "(Required) The checkoutId value."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.deliverect.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.deliverect.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "57dbf6b2-49fd-4029-9853-be52168dfb39",
+    "name": "Deliverect Channel Accounts Checkout API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.\n\nContact Support:\n Name: Kin Lane\n Email: kin@apievangelist.com",
+      "type": "text/plain"
+    }
+  }
+}

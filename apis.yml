@@ -28,6 +28,13 @@ tags:
   - Restaurant
   - Delivery
   - Online Ordering
+  - Point-of-Sale
+  - Order Management
+  - Integration
+tags_raw:
+  - Restaurant
+  - Delivery
+  - Online Ordering
   - Point of Sale
   - Order Management
   - Integration
@@ -42,6 +49,8 @@ apis:
   humanURL: https://developers.deliverect.com/reference/pos_endpoints
   baseURL: https://api.deliverect.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -586,6 +595,8 @@ apis:
   humanURL: https://developers.deliverect.com/reference/pos_endpoints
   baseURL: https://api.deliverect.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -722,6 +733,8 @@ apis:
   humanURL: https://developers.deliverect.com/reference/pos_endpoints
   baseURL: https://api.deliverect.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -790,6 +803,8 @@ apis:
   humanURL: https://developers.deliverect.com/reference/pos_endpoints
   baseURL: https://api.deliverect.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI

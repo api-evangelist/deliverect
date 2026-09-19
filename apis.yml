@@ -643,6 +643,8 @@ apis:
   humanURL: https://developers.deliverect.com/reference/pos_endpoints
   baseURL: https://api.deliverect.com
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI

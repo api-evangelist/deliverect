@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Checkout API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Commerce Checkout API
+  description: Power digital ordering, click-and-collect, and kiosk experiences with store details, menu data, basket creation, validation, discounts, and a checkout flow that injects orders to the POS. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericCommerce.
   version: '1.0'
   x-generated-from: documentation
   x-source-url: https://developers.deliverect.com/reference

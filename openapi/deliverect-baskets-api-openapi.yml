@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Baskets API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Commerce Baskets API
+  description: Power digital ordering, click-and-collect, and kiosk experiences with store details, menu data, basket creation, validation, discounts, and a checkout flow that injects orders to the POS. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericCommerce.
   version: '1.0'
   x-generated-from: documentation
   x-source-url: https://developers.deliverect.com/reference
@@ -24,7 +24,6 @@ tags:
 paths:
   /commerce/{accountId}/baskets/recreate:
     post:
-      description: Deliverect Recreate Basket
       responses:
         '200':
           description: ''
@@ -1286,7 +1285,6 @@ paths:
       tags:
       - Baskets
       summary: Deliverect Get Basket
-      description: Deliverect Get Basket
       operationId: commerce_channel_api_baskets_get_basket
       parameters:
       - name: accountId
@@ -1630,7 +1628,6 @@ paths:
         dispatcher: FALLBACK
   /commerce/{accountId}/baskets/{basketId}/validate:
     post:
-      description: Deliverect Post_commerce_accountid_baskets_basketid_validate
       responses:
         '200':
           description: ''
@@ -2086,7 +2083,6 @@ paths:
       tags:
       - Baskets
       summary: Deliverect Update Basket - Item(s)
-      description: Deliverect Update Basket - Item(s)
       operationId: commerce_channel_api_baskets_update_basket_items
       parameters:
       - name: accountId
@@ -2391,7 +2387,6 @@ paths:
       tags:
       - Baskets
       summary: Deliverect Update Basket - Customer
-      description: Deliverect Update Basket - Customer
       operationId: commerce_channel_api_baskets_update_basket_customer
       parameters:
       - name: accountId
@@ -2685,7 +2680,6 @@ paths:
       tags:
       - Baskets
       summary: Deliverect Update Basket - Discount(s)
-      description: Deliverect Update Basket - Discount(s)
       operationId: commerce_channel_api_baskets_update_basket_discounts
       parameters:
       - name: accountId
@@ -3058,7 +3052,6 @@ paths:
         dispatcher: FALLBACK
   /commerce/{accountId}/baskets/{basketId}/payment:
     patch:
-      description: Deliverect Patch_commerce_accountid_baskets_basketid_payment
       responses:
         '200':
           description: ''
@@ -3317,7 +3310,6 @@ paths:
         dispatcher: FALLBACK
   /commerce/{accountId}/baskets/{basketId}/store:
     patch:
-      description: Deliverect Update Basket - Store
       responses:
         '200':
           description: ''

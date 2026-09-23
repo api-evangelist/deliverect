@@ -1,16 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Payments API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Payments API
   version: '1.0'
-  x-generated-from: documentation
-  x-source-url: https://developers.deliverect.com/reference
-  x-last-validated: '2026-06-02'
   contact:
     name: Kin Lane
     email: kin@apievangelist.com
   license:
     name: All Rights Reserved
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+  x-source-url: https://developers.deliverect.com/reference
+  description: 'Operations tagged Payments across 2 of this provider''s published API definitions: deliverect-channel-api-openapi-original.yml, deliverect-pay-api-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.deliverect.com
   description: Production
@@ -25,7 +25,6 @@ paths:
   /channel/payment_update:
     post:
       summary: Deliverect Payment Update
-      description: Deliverect Payment Update
       operationId: channel_payment_update
       responses:
         '200':
@@ -44,10 +43,14 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /pay/channel/{channelLinkId}/payments/request:
     post:
       summary: Deliverect Request Payment
-      description: Deliverect Request Payment
       operationId: pay_endpoints_request_payment
       parameters:
       - name: channelLinkId
@@ -274,10 +277,14 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /pay/channel/{channelLinkId}/payments/{paymentId}:
     get:
       summary: Deliverect Get Payment
-      description: Deliverect Get Payment
       operationId: pay_endpoints_get_payment
       parameters:
       - name: channelLinkId
@@ -352,10 +359,14 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /pay/channel/{channelLinkId}/payments/{paymentId}/refund:
     post:
       summary: Deliverect Refund Payment
-      description: Deliverect Refund Payment
       operationId: pay_endpoints_refund_payment
       parameters:
       - name: channelLinkId
@@ -397,10 +408,14 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /request:
     post:
       summary: Deliverect Request Payment
-      description: Deliverect Request Payment
       operationId: payplatform_payments_request
       requestBody:
         content:
@@ -529,10 +544,14 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /refund:
     post:
       summary: Deliverect Refund Payment
-      description: Deliverect Refund Payment
       operationId: payplatform_payments_refund
       requestBody:
         content:
@@ -600,6 +619,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
 components:
   securitySchemes:
     oauth2:
@@ -609,3 +633,6 @@ components:
         clientCredentials:
           tokenUrl: https://api.deliverect.com/oauth/token
           scopes: {}
+x-refined-from:
+- deliverect-channel-api-openapi-original.yml
+- deliverect-pay-api-openapi-original.yml

@@ -1,16 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Products API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Products API
   version: '1.0'
-  x-generated-from: documentation
-  x-source-url: https://developers.deliverect.com/reference
-  x-last-validated: '2026-06-02'
   contact:
     name: Kin Lane
     email: kin@apievangelist.com
   license:
     name: All Rights Reserved
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+  x-source-url: https://developers.deliverect.com/reference
+  description: 'Operations tagged Products across 4 of this provider''s published API definitions: deliverect-channel-api-openapi-original.yml, deliverect-kds-api-openapi-original.yml, deliverect-pos-api-openapi-original.yml, deliverect-store-api-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.deliverect.com
   description: Production
@@ -134,9 +134,13 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /kds/productUpdate:
     post:
-      description: Deliverect Kds_productupdate
       operationId: kds_productupdate
       responses:
         '200':
@@ -187,6 +191,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /syncProducts:
     get:
       summary: Deliverect Sync Products
@@ -221,6 +230,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /v2/locations/{locationId}/syncProducts:
     get:
       tags:
@@ -266,12 +280,17 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /productAndCategories:
     post:
       tags:
       - Products
       summary: Deliverect Insert/update Products and Categories
-      description: 'Insert/update Products The ''Source of Truth'' in terms of product data and structure is almost always sourced from an integrated POS system. When a POS successfully syncs products with their unique identifiers (PLUs), these will be selected by the customer for inclusion in their menu(s). In turn, orders will be created with these same PLUs and injected into the POS '
+      description: Insert/update Products The 'Source of Truth' in terms of product data and structure is almost always sourced from an integrated POS system. When a POS successfully syncs products with their unique identifiers (PLUs), these will be selected by the customer for inclusion in their menu(s). In turn, orders will be created with these same PLUs and injected into the POS
       operationId: insertUpdateProductsAndCategories
       requestBody:
         required: true
@@ -2153,6 +2172,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /product_sync_callback:
     post:
       summary: Deliverect Asynchronous Insert / Update Products
@@ -2292,6 +2316,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /products:
     get:
       tags:
@@ -4461,10 +4490,14 @@ paths:
                   max_results: 25
                   total: 64
       operationId: get_products
-      description: Deliverect Get Products for Account
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /products/snoozeByPlus:
     post:
       tags:
@@ -4517,6 +4550,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /products/snoozeByTags:
     post:
       tags:
@@ -4639,6 +4677,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /channelDisabledProducts:
     get:
       tags:
@@ -4764,6 +4807,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
 components:
   securitySchemes:
     oauth2:
@@ -4773,3 +4821,8 @@ components:
         clientCredentials:
           tokenUrl: https://api.deliverect.com/oauth/token
           scopes: {}
+x-refined-from:
+- deliverect-channel-api-openapi-original.yml
+- deliverect-kds-api-openapi-original.yml
+- deliverect-pos-api-openapi-original.yml
+- deliverect-store-api-openapi-original.yml

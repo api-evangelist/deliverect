@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Gift Cards API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Gift Cards API
+  description: Redeem gift cards, check balances, apply and reverse gift cards, and register gift card provider profiles for ordering channels. Authenticates with OAuth 2.0 machine-to-machine access tokens.
   version: '1.0'
   x-generated-from: documentation
   x-source-url: https://developers.deliverect.com/reference
@@ -81,7 +81,6 @@ paths:
               verificationCode: '1234'
               amount: 100
       operationId: post_giftcards_channel_channellinkid_profilelink_giftcardproviderprofilelinkid_applygiftcard
-      description: Deliverect Apply Gift Card
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
@@ -139,14 +138,12 @@ paths:
               number: ABC
               verificationCode: '1234'
       operationId: post_giftcards_channel_channellinkid_profilelink_giftcardproviderprofilelinkid_getgiftcardbalance
-      description: Deliverect Get Balance
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
   /giftCards/redeem:
     post:
       summary: Deliverect Redeem Gift Cards
-      description: Deliverect Redeem Gift Cards
       operationId: giftcards_redeem
       responses:
         '200':
@@ -178,7 +175,6 @@ paths:
   /giftCards/reverse:
     post:
       summary: Deliverect Reverse Gift Card Payments
-      description: Deliverect Reverse Gift Card Payments
       operationId: giftcards_reverse
       responses:
         '200':

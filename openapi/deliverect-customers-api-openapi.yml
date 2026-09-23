@@ -1,16 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Customers API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Customers API
   version: '1.0'
-  x-generated-from: documentation
-  x-source-url: https://developers.deliverect.com/reference
-  x-last-validated: '2026-06-02'
   contact:
     name: Kin Lane
     email: kin@apievangelist.com
   license:
     name: All Rights Reserved
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+  x-source-url: https://developers.deliverect.com/reference
+  description: 'Operations tagged Customers across 2 of this provider''s published API definitions: deliverect-crm-api-openapi-original.yml, deliverect-loyalty-api-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.deliverect.com
   description: Production
@@ -359,9 +359,13 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /crm/{accountId}/customers/lookup:
     post:
-      description: Deliverect Lookup Customer by Email
       responses:
         '200':
           description: ''
@@ -588,9 +592,13 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /crm/{accountId}/customers/{crmProfileId}:
     get:
-      description: Deliverect Customer Profile
       responses:
         '200':
           description: ''
@@ -795,7 +803,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
     patch:
-      description: Deliverect Update Customer Profile
       parameters:
       - in: path
         name: crmProfileId
@@ -1226,6 +1233,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /crm/{accountId}/customers/{crmProfileId}/deliveryAddresses:
     patch:
       description: Update the addresses stored on a customer's profile
@@ -1401,6 +1413,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /crm/{accountId}/customers/{crmProfileId}/vehicles:
     patch:
       description: Update the addresses stored on a customer's profile
@@ -1530,6 +1547,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /crm/{accountId}/customers/{crmProfileId}/favorites:
     patch:
       description: Update a customer's favorites
@@ -1793,10 +1815,14 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /loyalty/{channelLinkId}/customer:
     post:
       summary: Deliverect Create Loyalty Customer
-      description: Deliverect Create Loyalty Customer
       operationId: loyalty_channel_create_loyalty_customer
       parameters:
       - name: channelLinkId
@@ -1989,7 +2015,6 @@ paths:
         dispatcher: FALLBACK
     get:
       summary: Deliverect Get Loyalty Customer
-      description: Deliverect Get Loyalty Customer
       operationId: loyalty_channel_get_customer
       parameters:
       - name: channelLinkId
@@ -2189,6 +2214,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
 components:
   securitySchemes:
     oauth2:
@@ -2198,3 +2228,6 @@ components:
         clientCredentials:
           tokenUrl: https://api.deliverect.com/oauth/token
           scopes: {}
+x-refined-from:
+- deliverect-crm-api-openapi-original.yml
+- deliverect-loyalty-api-openapi-original.yml

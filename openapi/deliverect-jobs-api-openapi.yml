@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Jobs API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Dispatch Jobs API
+  description: Manage last-mile delivery by validating delivery availability, creating, updating, and cancelling delivery jobs, and exchanging courier and fulfillment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericFulfillment.
   version: '1.0'
   x-generated-from: documentation
   x-source-url: https://developers.deliverect.com/reference

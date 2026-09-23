@@ -1,7 +1,7 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Allergens API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Store Allergens API
+  description: Query and update store and product availability, snooze products by PLU or tag, set busy mode, and configure opening and holiday hours across locations and channels. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via store or genericPOS.
   version: '1.0'
   x-generated-from: documentation
   x-source-url: https://developers.deliverect.com/reference

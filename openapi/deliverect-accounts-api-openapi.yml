@@ -26,7 +26,6 @@ paths:
     get:
       tags:
       - Accounts
-      description: Deliverect Get_accounts
       responses:
         '200':
           description: ''

@@ -1,16 +1,16 @@
 openapi: 3.2.0
 info:
-  title: Deliverect Channel Accounts Menus API
-  description: Integrate ordering channels and marketplaces with Deliverect to create and cancel orders, sync menus, snooze products, update store and courier status, and exchange payment events. Authenticates with OAuth 2.0 machine-to-machine access tokens scoped via genericChannel.
+  title: Deliverect Menus API
   version: '1.0'
-  x-generated-from: documentation
-  x-source-url: https://developers.deliverect.com/reference
-  x-last-validated: '2026-06-02'
   contact:
     name: Kin Lane
     email: kin@apievangelist.com
   license:
     name: All Rights Reserved
+  x-generated-from: documentation
+  x-last-validated: '2026-06-02'
+  x-source-url: https://developers.deliverect.com/reference
+  description: 'Operations tagged Menus across 2 of this provider''s published API definitions: deliverect-channel-api-openapi-original.yml, deliverect-commerce-api-openapi-original.yml. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.deliverect.com
   description: Production
@@ -249,6 +249,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /{channelName}/menuStatus/{_id}:
     post:
       summary: Deliverect Menu Update (Async)
@@ -316,6 +321,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /commerce/{accountId}/menus:
     get:
       tags:
@@ -1536,6 +1546,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
   /commerce/{accountId}/stores/{channelLinkId}/menus:
     get:
       tags:
@@ -2310,6 +2325,11 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+    servers:
+    - url: https://api.deliverect.com
+      description: Production
+    - url: https://api.staging.deliverect.com
+      description: Staging
 components:
   securitySchemes:
     oauth2:
@@ -2319,3 +2339,6 @@ components:
         clientCredentials:
           tokenUrl: https://api.deliverect.com/oauth/token
           scopes: {}
+x-refined-from:
+- deliverect-channel-api-openapi-original.yml
+- deliverect-commerce-api-openapi-original.yml

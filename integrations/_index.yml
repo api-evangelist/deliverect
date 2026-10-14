@@ -188,6 +188,7 @@
   arazzo: null
 - slug: deliverect-uber-eats
   label: Uber Eats
+  partner: uber-eats
   partner_name: Uber Eats
   category: 3rd-party marketplace
   type: contract

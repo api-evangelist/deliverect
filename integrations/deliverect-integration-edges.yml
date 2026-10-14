@@ -238,9 +238,9 @@ edges:
   detected_by: sweep-restaurant-pos.py
   detected: '2026-10-14'
 - partner_name: Uber Eats
-  partner: null
-  partner_match: null
-  partner_candidate: cornershop
+  partner: uber-eats
+  partner_match: domain
+  partner_candidate: null
   type: contract
   channel: provider-built
   relationship: system-coverage
@@ -8248,7 +8248,7 @@ edges:
 - partner_name: Uber Direct
   partner: null
   partner_match: null
-  partner_candidate: cornershop
+  partner_candidate: uber-eats
   type: contract
   channel: provider-built
   relationship: system-coverage
@@ -8262,7 +8262,7 @@ edges:
 - partner_name: Aloha Cloud
   partner: null
   partner_match: null
-  partner_candidate: aloha-pos
+  partner_candidate: ncr
   type: contract
   channel: provider-built
   relationship: system-coverage

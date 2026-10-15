@@ -2,6 +2,7 @@ generated: '2026-10-14'
 method: searched
 checked:
 - clover/integrations/clover-integration-edges.yml
+- https://registry.npmjs.org/-/v1/search?text=keywords:n8n-community-node-package
 - https://www.deliverect.com/en/integrations
 - toast/integrations/toast-integration-edges.yml
 marketplace_apps:
@@ -8489,6 +8490,33 @@ edges:
   detected: '2026-10-14'
   detected_by: mirror-platform-listings.py
   category: Inventory
+- partner_name: n8n
+  partner: n8n
+  partner_match: aggregator
+  type: marketplace
+  marketplace: n8n-community
+  channel: open-source-node
+  relationship: ipaas-bridge
+  direction: provider-built
+  evidence: https://www.npmjs.com/package/n8n-nodes-deliverect
+  category: null
+  contract_reference:
+    register: n8n community nodes (npm keyword n8n-community-node-package)
+    spec_file: null
+    role: ipaas-connector:n8n-community
+    registered_name: n8n-nodes-deliverect
+    matched_domain: deliverect.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    package: n8n-nodes-deliverect
+    version: 0.1.7
+    published: '2026-04-30T07:35:29.440Z'
+    matched_on: publisher-email
+    builder: provider (package published from the provider's own domain)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 source:
 - clover/integrations/clover-integration-edges.yml
 - toast/integrations/toast-integration-edges.yml

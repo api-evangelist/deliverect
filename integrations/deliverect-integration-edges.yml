@@ -1,5 +1,10 @@
-generated: '2026-10-14'
+generated: '2026-10-20'
 method: searched
+source:
+- clover/integrations/clover-integration-edges.yml
+- toast/integrations/toast-integration-edges.yml
+- https://www.deliverect.com/en/integrations
+- https://n8n.io/integrations/deliverect/
 checked:
 - clover/integrations/clover-integration-edges.yml
 - doordash/integrations/doordash-integration-edges.yml
@@ -7,7 +12,13 @@ checked:
 - https://eucoc.cloud/en/public-register/list-of-adherent-services
 - https://registry.npmjs.org/-/v1/search?text=keywords:n8n-community-node-package
 - https://www.deliverect.com/en/integrations
+- n8n/integrations/n8n-integration-edges.yml
 - toast/integrations/toast-integration-edges.yml
+- https://composio.dev/toolkits/deliverect
+- https://monid.ai/tools/deliverect
+- https://n8n.io/integrations/deliverect/
+- https://zapier.com/apps/deliverect/integrations
+summary: null
 marketplace_apps:
 - marketplace: restaurant-coverage-list
   channel: provider-built
@@ -16,6 +27,13 @@ marketplace_apps:
   app_count: 603
   adapter: sweep-restaurant-pos.py:deliverect
   listed: 603
+- marketplace: n8n
+  channel: open-source-node
+  app: deliverect
+  url: https://n8n.io/integrations/deliverect/
+  identity: title
+  pair_pages: 0
+  pairs: []
 edges:
 - partner_name: GASTRONOVI
   partner: null
@@ -8543,6 +8561,21 @@ edges:
   - SUPPORT_ORDER_READY_SIGNAL
   publisher_verified:
   - DoorDash Preferred Integration
+- partner_name: n8n (n8n-community)
+  partner: n8n
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: n8n-community
+  evidence: https://www.npmjs.com/package/n8n-nodes-deliverect
+  mirror_of: n8n/integrations/n8n-integration-edges.yml
+  apps: []
+  listing_count: 1
+  detected: '2026-10-19'
+  detected_by: mirror-platform-listings.py
 - partner_name: Toast (own)
   partner: toast
   partner_match: mirror
@@ -8590,6 +8623,4 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-compliance-assurance.py
   first_seen: '2026-10-20'
-source:
-- clover/integrations/clover-integration-edges.yml
-- toast/integrations/toast-integration-edges.yml
+templates: []

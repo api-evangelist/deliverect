@@ -3,6 +3,8 @@ method: searched
 checked:
 - clover/integrations/clover-integration-edges.yml
 - doordash/integrations/doordash-integration-edges.yml
+- https://cloudsecurityalliance.org/star/registry
+- https://eucoc.cloud/en/public-register/list-of-adherent-services
 - https://registry.npmjs.org/-/v1/search?text=keywords:n8n-community-node-package
 - https://www.deliverect.com/en/integrations
 - toast/integrations/toast-integration-edges.yml
@@ -8457,40 +8459,6 @@ edges:
   operations: []
   detected_by: sweep-restaurant-pos.py
   detected: '2026-10-14'
-- partner_name: Clover (own)
-  partner: clover
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.clover.com/appmarket/apps/1WPJ83M6Y1DG4
-  mirror_of: clover/integrations/clover-integration-edges.yml
-  apps:
-  - Deliverect
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: QUICK_SERVICE_RESTAURANT
-- partner_name: Toast (own)
-  partner: toast
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://pos.toasttab.com/partners/directory/deliverect
-  mirror_of: toast/integrations/toast-integration-edges.yml
-  apps:
-  - Deliverect
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Inventory
 - partner_name: n8n
   partner: n8n
   partner_match: aggregator
@@ -8518,6 +8486,23 @@ edges:
     builder: provider (package published from the provider's own domain)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Clover (own)
+  partner: clover
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.clover.com/appmarket/apps/1WPJ83M6Y1DG4
+  mirror_of: clover/integrations/clover-integration-edges.yml
+  apps:
+  - Deliverect
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: QUICK_SERVICE_RESTAURANT
 - partner_name: Doordash (own)
   partner: doordash
   partner_match: mirror
@@ -8558,6 +8543,53 @@ edges:
   - SUPPORT_ORDER_READY_SIGNAL
   publisher_verified:
   - DoorDash Preferred Integration
+- partner_name: Toast (own)
+  partner: toast
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://pos.toasttab.com/partners/directory/deliverect
+  mirror_of: toast/integrations/toast-integration-edges.yml
+  apps:
+  - Deliverect
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Inventory
+- partner_name: Cloud Security Alliance STAR Registry
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://cloudsecurityalliance.org/star/registry/deliverect-nv/services/deliverect-delivery-manager-app
+  category: Cloud security assurance
+  contract_reference:
+    register: CSA STAR Registry (cloudsecurityalliance.org/star/registry)
+    spec_file: null
+    standard: CSA STAR
+    role: star-level-1
+    registered_name: Deliverect NV
+    registry_id: deliverect-nv
+    service_url: https://www.deliverect.com/en/delivery-manager-app
+    matched_domain: deliverect.com
+    matched_by: domain
+    identity_source: the service URL the organisation filed on its STAR listing (no lookup)
+    levels:
+    - STAR Level 1
+    certified_products: []
+    signal_note: STAR Level 1 (CAIQ self-assessment) = participation; certified_products = one entry per STAR Level
+      2 / STAR for AI Level 2 assessment TYPE (third-party certification, attestation, C-STAR, ValidAIted); lapsed
+      = every instance marked (Deprecated) by the registry; service counts never recorded
+    detected_by: sweep-compliance-assurance.py
+    detected: '2026-10-20'
+  detected_by: sweep-compliance-assurance.py
+  first_seen: '2026-10-20'
 source:
 - clover/integrations/clover-integration-edges.yml
 - toast/integrations/toast-integration-edges.yml
